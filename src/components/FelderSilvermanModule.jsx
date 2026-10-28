@@ -147,8 +147,8 @@ export default function FelderSilvermanModule() {
         <div className="fs-card-header-row" style={{ display: 'flex', alignItems: 'flex-start', gap: '14px', width: '100%', boxSizing: 'border-box' }}>
           <div 
             style={{ 
-              backgroundColor: 'rgba(71, 122, 114, 0.14)', 
-              color: '#183630', 
+              backgroundColor: 'rgba(79, 125, 245, 0.14)', 
+              color: '#1F2E7A', 
               borderRadius: '12px', 
               padding: '10px', 
               display: 'flex', 
@@ -161,17 +161,17 @@ export default function FelderSilvermanModule() {
           </div>
           <div style={{ minWidth: 0, flex: 1, maxWidth: '100%', boxSizing: 'border-box' }}>
             <div className="editorial-badge" style={{ marginBottom: '6px' }}>
-              <BookOpen size={13} color="#2B524A" />
+              <BookOpen size={13} color="#2B3F9E" />
               <span>Marco Teórico & Rigor Científico</span>
             </div>
-            <h2 id="fs-metodologia-title" style={{ fontSize: '18px', fontFamily: 'var(--font-heading)', color: '#142B25', margin: '0 0 8px 0', fontWeight: 700, wordBreak: 'break-word' }}>
+            <h2 id="fs-metodologia-title" style={{ fontSize: '18px', fontFamily: 'var(--font-heading)', color: '#172554', margin: '0 0 8px 0', fontWeight: 700, wordBreak: 'break-word' }}>
               Prototipo Exploratorio de Autorreflexión Docente
             </h2>
-            <p style={{ fontSize: '14px', color: '#2B453E', lineHeight: '1.6', margin: '0 0 10px 0', wordBreak: 'break-word' }}>
+            <p style={{ fontSize: '14px', color: '#242A4C', lineHeight: '1.6', margin: '0 0 10px 0', wordBreak: 'break-word' }}>
               Este cuestionario de <strong>8 reactivos</strong> ha sido estructurado a partir del modelo de 4 dimensiones continuas de <em>Felder & Silverman (1988)</em>. 
               <strong> Importante:</strong> El instrumento psicométrico formal y validado internacionalmente es el <em>Index of Learning Styles (ILS)</em> de 44 reactivos (Felder & Soloman, 1997).
             </p>
-            <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.70)', borderLeft: '3px solid #315B54', padding: '10px 14px', borderRadius: '4px 10px 10px 4px', fontSize: '13px', color: '#1E3B33', lineHeight: '1.5', wordBreak: 'break-word', boxSizing: 'border-box' }}>
+            <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.70)', borderLeft: '3px solid #3556E0', padding: '10px 14px', borderRadius: '4px 10px 10px 4px', fontSize: '13px', color: '#1D213C', lineHeight: '1.5', wordBreak: 'break-word', boxSizing: 'border-box' }}>
               <strong>Principio de no etiquetado:</strong> Los resultados no representan etiquetas rígidas ni limitaciones cognitivas, sino <em>gradientes flexibles de preferencia didáctica</em> para orientar la diversificación de estrategias en concordancia con el Diseño Universal para el Aprendizaje (DUA).
             </div>
           </div>
@@ -183,8 +183,8 @@ export default function FelderSilvermanModule() {
         <section 
           className="mgmt-card fs-module-card fs-status-card" 
           style={{
-            backgroundColor: 'rgba(224, 237, 233, 0.70)',
-            border: '1px solid rgba(49, 91, 84, 0.25)',
+            backgroundColor: 'rgba(222, 224, 239, 0.70)',
+            border: '1px solid rgba(53, 86, 224, 0.25)',
             borderRadius: '18px',
             display: 'flex',
             alignItems: 'center',
@@ -199,10 +199,10 @@ export default function FelderSilvermanModule() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0, flex: '1 1 240px' }}>
             <CheckCircle size={22} style={{ color: '#166534', flexShrink: 0 }} />
             <div style={{ minWidth: 0, flex: 1 }}>
-              <strong style={{ fontSize: '15px', color: '#142B25', display: 'block', wordBreak: 'break-word' }}>
+              <strong style={{ fontSize: '15px', color: '#172554', display: 'block', wordBreak: 'break-word' }}>
                 Perfil Pedagógico Guardado en tu Cuenta
               </strong>
-              <span style={{ fontSize: '13px', color: '#2B453E', wordBreak: 'break-word' }}>
+              <span style={{ fontSize: '13px', color: '#242A4C', wordBreak: 'break-word' }}>
                 Última actualización: {savedProfileData.actualizadoEl ? new Date(savedProfileData.actualizadoEl).toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Reciente'}
               </span>
             </div>
@@ -238,24 +238,24 @@ export default function FelderSilvermanModule() {
           <div className="fs-cuestionario-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '22px', width: '100%', boxSizing: 'border-box' }}>
             <div style={{ minWidth: 0, flex: '1 1 240px' }}>
               <div className="editorial-badge" style={{ marginBottom: '6px' }}>
-                <Compass size={13} color="#2B524A" />
+                <Compass size={13} color="#2B3F9E" />
                 <span>Cuestionario Docente</span>
               </div>
-              <h2 id="fs-cuestionario-title" style={{ fontFamily: 'var(--font-heading)', fontSize: '21px', color: '#142B25', margin: 0, fontWeight: 700, wordBreak: 'break-word' }}>
+              <h2 id="fs-cuestionario-title" style={{ fontFamily: 'var(--font-heading)', fontSize: '21px', color: '#172554', margin: 0, fontWeight: 700, wordBreak: 'break-word' }}>
                 Exploración de Preferencias de Enseñanza y Aprendizaje
               </h2>
             </div>
 
             <div className="fs-progress-container" style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-              <span style={{ fontSize: '13px', fontWeight: 600, color: '#1E3B33' }}>
+              <span style={{ fontSize: '13px', fontWeight: 600, color: '#1D213C' }}>
                 Progreso: {contestadas} de 8 respondidas
               </span>
-              <div style={{ width: '80px', height: '8px', backgroundColor: 'rgba(49, 91, 84, 0.16)', borderRadius: '999px', overflow: 'hidden', flexShrink: 0 }}>
+              <div style={{ width: '80px', height: '8px', backgroundColor: 'rgba(53, 86, 224, 0.16)', borderRadius: '999px', overflow: 'hidden', flexShrink: 0 }}>
                 <div 
                   style={{ 
                     width: `${(contestadas / 8) * 100}%`, 
                     height: '100%', 
-                    backgroundColor: '#315B54', 
+                    backgroundColor: '#3556E0', 
                     borderRadius: '999px', 
                     transition: 'width 0.3s ease' 
                   }} 
@@ -264,7 +264,7 @@ export default function FelderSilvermanModule() {
             </div>
           </div>
 
-          <p style={{ color: '#2B453E', fontSize: '14px', lineHeight: '1.6', marginBottom: '24px', wordBreak: 'break-word' }}>
+          <p style={{ color: '#242A4C', fontSize: '14px', lineHeight: '1.6', marginBottom: '24px', wordBreak: 'break-word' }}>
             Selecciona para cada situación la opción que mejor describa tu inclinación espontánea habitual. No existen respuestas correctas o incorrectas.
           </p>
 
@@ -279,7 +279,7 @@ export default function FelderSilvermanModule() {
                     key={pregunta.id}
                     className="fs-fieldset"
                     style={{
-                      border: '1px solid rgba(49, 91, 84, 0.14)',
+                      border: '1px solid rgba(53, 86, 224, 0.14)',
                       borderRadius: '16px',
                       padding: '18px 20px',
                       backgroundColor: seleccionActual ? 'rgba(255, 255, 255, 0.85)' : 'rgba(255, 255, 255, 0.50)',
@@ -289,11 +289,11 @@ export default function FelderSilvermanModule() {
                       minWidth: 0
                     }}
                   >
-                    <legend className="fs-legend" style={{ padding: '0 8px', fontSize: '11.5px', fontWeight: 700, color: '#315B54', textTransform: 'uppercase', letterSpacing: '0.04em', wordBreak: 'break-word', maxWidth: '100%' }}>
+                    <legend className="fs-legend" style={{ padding: '0 8px', fontSize: '11.5px', fontWeight: 700, color: '#3556E0', textTransform: 'uppercase', letterSpacing: '0.04em', wordBreak: 'break-word', maxWidth: '100%' }}>
                       Reactivo {idx + 1} de 8 — Eje: {dimensionInfo?.nombre}
                     </legend>
 
-                    <p style={{ fontSize: '14.5px', color: '#142B25', fontWeight: 600, margin: '6px 0 16px 0', lineHeight: '1.5', wordBreak: 'break-word' }}>
+                    <p style={{ fontSize: '14.5px', color: '#172554', fontWeight: 600, margin: '6px 0 16px 0', lineHeight: '1.5', wordBreak: 'break-word' }}>
                       {pregunta.enunciado}
                     </p>
 
@@ -311,11 +311,11 @@ export default function FelderSilvermanModule() {
                               gap: '12px',
                               padding: '12px 14px',
                               borderRadius: '12px',
-                              border: estaSeleccionada ? '2px solid #315B54' : '1.5px solid rgba(49, 91, 84, 0.18)',
-                              backgroundColor: estaSeleccionada ? 'rgba(224, 237, 233, 0.85)' : 'rgba(255, 255, 255, 0.90)',
+                              border: estaSeleccionada ? '2px solid #3556E0' : '1.5px solid rgba(53, 86, 224, 0.18)',
+                              backgroundColor: estaSeleccionada ? 'rgba(222, 224, 239, 0.85)' : 'rgba(255, 255, 255, 0.90)',
                               cursor: 'pointer',
                               transition: 'all 0.2s ease',
-                              boxShadow: estaSeleccionada ? '0 4px 12px rgba(49, 91, 84, 0.12)' : 'none',
+                              boxShadow: estaSeleccionada ? '0 4px 12px rgba(53, 86, 224, 0.12)' : 'none',
                               boxSizing: 'border-box',
                               minWidth: 0,
                               wordBreak: 'break-word'
@@ -327,9 +327,9 @@ export default function FelderSilvermanModule() {
                               value={opcion.polo}
                               checked={estaSeleccionada}
                               onChange={() => handleSeleccionarOpcion(pregunta.id, opcion.polo)}
-                              style={{ marginTop: '3px', accentColor: '#315B54', cursor: 'pointer', flexShrink: 0 }}
+                              style={{ marginTop: '3px', accentColor: '#3556E0', cursor: 'pointer', flexShrink: 0 }}
                             />
-                            <div style={{ fontSize: '13.5px', color: estaSeleccionada ? '#142B25' : '#2B453E', lineHeight: '1.45', fontWeight: estaSeleccionada ? 600 : 400, wordBreak: 'break-word', minWidth: 0 }}>
+                            <div style={{ fontSize: '13.5px', color: estaSeleccionada ? '#172554' : '#242A4C', lineHeight: '1.45', fontWeight: estaSeleccionada ? 600 : 400, wordBreak: 'break-word', minWidth: 0 }}>
                               {opcion.texto}
                             </div>
                           </label>
@@ -343,7 +343,7 @@ export default function FelderSilvermanModule() {
 
             {/* Aviso de no autoguardado */}
             <div style={{ marginTop: '22px', padding: '12px 16px', backgroundColor: 'rgba(255, 251, 235, 0.85)', borderRadius: '12px', border: '1px solid rgba(217, 119, 6, 0.25)', display: 'flex', alignItems: 'center', gap: '10px', boxSizing: 'border-box', width: '100%' }}>
-              <ShieldCheck size={18} style={{ color: '#D97706', flexShrink: 0 }} />
+              <ShieldCheck size={18} style={{ color: '#985404', flexShrink: 0 }} />
               <span style={{ fontSize: '13px', color: '#92400E', lineHeight: '1.4', wordBreak: 'break-word' }}>
                 <strong>Privacidad y control docente:</strong> Tus respuestas no se guardan automáticamente ni se comparten. Se almacenarán únicamente cuando hagas clic en el botón inferior.
               </span>
@@ -435,11 +435,11 @@ export default function FelderSilvermanModule() {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px', flexWrap: 'wrap' }}>
             <Sparkles size={20} style={{ color: 'var(--primary-active)', flexShrink: 0 }} />
-            <h2 id="fs-resultados-title" style={{ fontFamily: 'var(--font-heading)', fontSize: '21px', color: '#142B25', margin: 0, fontWeight: 700, wordBreak: 'break-word' }}>
+            <h2 id="fs-resultados-title" style={{ fontFamily: 'var(--font-heading)', fontSize: '21px', color: '#172554', margin: 0, fontWeight: 700, wordBreak: 'break-word' }}>
               Interpretación del Perfil y Gráfico Radial
             </h2>
           </div>
-          <p style={{ color: '#2B453E', fontSize: '14px', lineHeight: '1.6', marginBottom: '22px', wordBreak: 'break-word' }}>
+          <p style={{ color: '#242A4C', fontSize: '14px', lineHeight: '1.6', marginBottom: '22px', wordBreak: 'break-word' }}>
             Los resultados se proyectan en un espacio radial de 8 polos y 4 dimensiones continuas. Úsalos como una guía reflexiva para diversificar tus mediaciones pedagógicas.
           </p>
 
@@ -464,8 +464,8 @@ export default function FelderSilvermanModule() {
                       padding: '16px 18px',
                       backgroundColor: 'rgba(255, 255, 255, 0.80)',
                       borderRadius: '16px',
-                      border: '1px solid rgba(49, 91, 84, 0.16)',
-                      boxShadow: '0 2px 8px rgba(16, 36, 32, 0.04)',
+                      border: '1px solid rgba(53, 86, 224, 0.16)',
+                      boxShadow: '0 2px 8px rgba(30, 45, 110, 0.04)',
                       width: '100%',
                       boxSizing: 'border-box',
                       minWidth: 0
@@ -473,8 +473,8 @@ export default function FelderSilvermanModule() {
                   >
                     {/* Encabezado de la dimensión */}
                     <div className="fs-dimension-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px', flexWrap: 'wrap', gap: '6px', width: '100%', boxSizing: 'border-box' }}>
-                      <strong className="fs-dim-title" style={{ fontSize: '14px', color: '#142B25', wordBreak: 'break-word' }}>{dim.nombre}</strong>
-                      <span className="fs-dim-score" style={{ fontSize: '12px', fontWeight: 700, color: '#315B54', wordBreak: 'break-word' }}>
+                      <strong className="fs-dim-title" style={{ fontSize: '14px', color: '#172554', wordBreak: 'break-word' }}>{dim.nombre}</strong>
+                      <span className="fs-dim-score" style={{ fontSize: '12px', fontWeight: 700, color: '#3556E0', wordBreak: 'break-word' }}>
                         {dim.poloA.nombre} ({pctA}%) vs {dim.poloB.nombre} ({pctB}%)
                       </span>
                     </div>
@@ -485,7 +485,7 @@ export default function FelderSilvermanModule() {
                       style={{ 
                         height: '10px', 
                         width: '100%', 
-                        backgroundColor: 'rgba(49, 91, 84, 0.15)', 
+                        backgroundColor: 'rgba(53, 86, 224, 0.15)', 
                         borderRadius: '999px', 
                         display: 'flex', 
                         overflow: 'hidden',
@@ -503,7 +503,7 @@ export default function FelderSilvermanModule() {
                         style={{ 
                           width: `${pctA}%`, 
                           height: '100%', 
-                          backgroundColor: '#315B54', 
+                          backgroundColor: '#3556E0', 
                           transition: 'width 0.4s ease' 
                         }} 
                       />
@@ -511,20 +511,20 @@ export default function FelderSilvermanModule() {
                         style={{ 
                           width: `${pctB}%`, 
                           height: '100%', 
-                          backgroundColor: '#71A098', 
+                          backgroundColor: '#5F6AB2', 
                           transition: 'width 0.4s ease' 
                         }} 
                       />
                     </div>
 
                     {/* Interpretación pedagógica flexible */}
-                    <p className="fs-dim-desc" style={{ fontSize: '13px', color: '#2B453E', lineHeight: '1.45', margin: '0 0 8px 0', wordBreak: 'break-word' }}>
+                    <p className="fs-dim-desc" style={{ fontSize: '13px', color: '#242A4C', lineHeight: '1.45', margin: '0 0 8px 0', wordBreak: 'break-word' }}>
                       {dim.interpretacionGradiente}
                     </p>
 
                     {/* Sugerencia DUA de articulación */}
-                    <div className="fs-dua-pill" style={{ display: 'flex', alignItems: 'flex-start', gap: '6px', fontSize: '12px', color: '#1E3B33', backgroundColor: 'rgba(224, 237, 233, 0.50)', padding: '6px 10px', borderRadius: '8px', wordBreak: 'break-word', boxSizing: 'border-box' }}>
-                      <Lightbulb size={14} style={{ color: '#315B54', flexShrink: 0, marginTop: '2px' }} />
+                    <div className="fs-dua-pill" style={{ display: 'flex', alignItems: 'flex-start', gap: '6px', fontSize: '12px', color: '#1D213C', backgroundColor: 'rgba(222, 224, 239, 0.50)', padding: '6px 10px', borderRadius: '8px', wordBreak: 'break-word', boxSizing: 'border-box' }}>
+                      <Lightbulb size={14} style={{ color: '#3556E0', flexShrink: 0, marginTop: '2px' }} />
                       <span>
                         <strong>Sugerencia DUA:</strong> {pctA >= pctB ? dim.poloA.estrategiaDUA : dim.poloB.estrategiaDUA}
                       </span>
@@ -536,8 +536,8 @@ export default function FelderSilvermanModule() {
           </div>
 
           {/* Recordatorio de autonomía docente */}
-          <div style={{ marginTop: '22px', paddingTop: '16px', borderTop: '1px solid rgba(49, 91, 84, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', width: '100%', boxSizing: 'border-box' }}>
-            <span style={{ fontSize: '12.5px', color: '#4A635B', wordBreak: 'break-word' }}>
+          <div style={{ marginTop: '22px', paddingTop: '16px', borderTop: '1px solid rgba(53, 86, 224, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', width: '100%', boxSizing: 'border-box' }}>
+            <span style={{ fontSize: '12.5px', color: '#384075', wordBreak: 'break-word' }}>
               Este autodiagnóstico es un recurso consultivo para fortalecer tu criterio pedagógico. No altera la autonomía de tus planes de clase.
             </span>
           </div>

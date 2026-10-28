@@ -46,7 +46,7 @@ export default function ModalCalibracionDocente() {
 
     // Si está en pantalla la bienvenida narrativa, esperar con cortesía a que el docente la finalice
     const checkBienvenidaInterval = setInterval(() => {
-      const isBienvenidaActive = typeof window !== 'undefined' && Boolean(document.querySelector('.bienvenida-narrativa-overlay'));
+      const isBienvenidaActive = typeof window !== 'undefined' && Boolean(document.querySelector('.mini-tour-layer'));
       if (!isBienvenidaActive) {
         clearInterval(checkBienvenidaInterval);
         // Desplegar modal para completar la calibración obligatoria de perfil
@@ -161,10 +161,10 @@ export default function ModalCalibracionDocente() {
         style={{ 
           maxWidth: '540px',
           borderRadius: '24px',
-          backgroundColor: 'rgba(255, 254, 250, 0.96)',
+          backgroundColor: 'rgba(255, 255, 255, 0.96)',
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
-          boxShadow: '0 20px 60px rgba(16, 36, 32, 0.22)',
+          boxShadow: '0 20px 60px rgba(30, 45, 110, 0.22)',
           border: '1px solid rgba(255, 255, 255, 0.98)',
           padding: '28px'
         }}
@@ -179,24 +179,24 @@ export default function ModalCalibracionDocente() {
                 <Sparkles size={12} />
                 <span>Calibración Curricular Día 0</span>
               </div>
-              <h3 style={{ margin: '2px 0 0 0', fontSize: '19px', fontWeight: 800, color: '#142B25' }}>
+              <h3 style={{ margin: '2px 0 0 0', fontSize: '19px', fontWeight: 800, color: '#172554' }}>
                 ¡Bienvenido a INSPIRATEC, Profe!
               </h3>
             </div>
           </div>
-          <button className="btn-icon" onClick={handleClose} aria-label="Cerrar modal" style={{ border: 'none', background: 'none', cursor: 'pointer', color: '#4A655D' }}>
+          <button className="btn-icon" onClick={handleClose} aria-label="Cerrar modal" style={{ border: 'none', background: 'none', cursor: 'pointer', color: '#394176' }}>
             <X size={20} />
           </button>
         </div>
 
-        <p style={{ fontSize: '13.5px', color: '#3A544C', lineHeight: 1.5, margin: '0 0 20px 0' }}>
+        <p style={{ fontSize: '13.5px', color: '#2E3560', lineHeight: 1.5, margin: '0 0 20px 0' }}>
           Para que la Inteligencia Artificial adapte sus sugerencias y secuencias didácticas al contexto de tu colegio, cuéntanos brevemente qué metodología lidera en tu institución:
         </p>
 
         <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {/* Metodología Institucional */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            <label style={{ fontSize: '12.5px', fontWeight: 700, color: '#142B25' }}>
+            <label style={{ fontSize: '12.5px', fontWeight: 700, color: '#172554' }}>
               Metodología o Modelo Pedagógico Institucional
             </label>
             <select
@@ -206,10 +206,10 @@ export default function ModalCalibracionDocente() {
                 width: '100%',
                 padding: '11px 14px',
                 borderRadius: '12px',
-                border: '1px solid rgba(49, 91, 84, 0.24)',
+                border: '1px solid rgba(53, 86, 224, 0.24)',
                 backgroundColor: 'rgba(255, 255, 255, 0.95)',
                 fontSize: '13.5px',
-                color: '#142B25',
+                color: '#172554',
                 outline: 'none',
                 fontWeight: 600
               }}
@@ -244,7 +244,7 @@ export default function ModalCalibracionDocente() {
                   border: '1px solid rgba(22, 163, 74, 0.35)',
                   backgroundColor: 'rgba(255, 255, 255, 0.95)',
                   fontSize: '13px',
-                  color: '#142B25',
+                  color: '#172554',
                   boxSizing: 'border-box'
                 }}
               />
@@ -253,7 +253,7 @@ export default function ModalCalibracionDocente() {
 
           {/* Eje Transversal */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            <label style={{ fontSize: '12.5px', fontWeight: 700, color: '#142B25' }}>
+            <label style={{ fontSize: '12.5px', fontWeight: 700, color: '#172554' }}>
               Proyecto Transversal Prioritario en tu Colegio
             </label>
             <select
@@ -263,10 +263,10 @@ export default function ModalCalibracionDocente() {
                 width: '100%',
                 padding: '11px 14px',
                 borderRadius: '12px',
-                border: '1px solid rgba(49, 91, 84, 0.24)',
+                border: '1px solid rgba(53, 86, 224, 0.24)',
                 backgroundColor: 'rgba(255, 255, 255, 0.95)',
                 fontSize: '13.5px',
-                color: '#142B25',
+                color: '#172554',
                 outline: 'none',
                 fontWeight: 600
               }}
@@ -300,21 +300,21 @@ export default function ModalCalibracionDocente() {
                   border: '1px solid rgba(22, 163, 74, 0.35)',
                   backgroundColor: 'rgba(255, 255, 255, 0.95)',
                   fontSize: '13px',
-                  color: '#142B25',
+                  color: '#172554',
                   boxSizing: 'border-box'
                 }}
               />
             </div>
           )}
 
-          <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '10px', marginTop: '12px', paddingTop: '14px', borderTop: '1px solid rgba(49, 91, 84, 0.12)' }}>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '10px', marginTop: '12px', paddingTop: '14px', borderTop: '1px solid rgba(53, 86, 224, 0.12)' }}>
             <button
               type="button"
               onClick={handleClose}
               style={{
                 background: 'none',
                 border: 'none',
-                color: '#576864',
+                color: '#3E4781',
                 fontSize: '13px',
                 cursor: 'pointer',
                 fontWeight: 600,

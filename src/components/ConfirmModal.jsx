@@ -59,12 +59,12 @@ export default function ConfirmModal({
                 width: '40px',
                 height: '40px',
                 borderRadius: '12px',
-                backgroundColor: isDestructive ? 'rgba(239, 68, 68, 0.12)' : 'rgba(71, 122, 114, 0.14)',
-                border: isDestructive ? '1px solid rgba(239, 68, 68, 0.24)' : '1px solid rgba(71, 122, 114, 0.22)',
+                backgroundColor: isDestructive ? 'rgba(239, 68, 68, 0.12)' : 'rgba(79, 125, 245, 0.14)',
+                border: isDestructive ? '1px solid rgba(239, 68, 68, 0.24)' : '1px solid rgba(79, 125, 245, 0.22)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: isDestructive ? '#DC2626' : '#1C3D36',
+                color: isDestructive ? '#DC2626' : '#1A1F3F',
                 flexShrink: 0
               }}>
                 <IconComponent size={20} />
@@ -89,7 +89,7 @@ export default function ConfirmModal({
               margin: 0, 
               fontSize: '14.5px', 
               lineHeight: '1.6', 
-              color: '#26423A' 
+              color: '#222746' 
             }}>
               {message}
             </p>

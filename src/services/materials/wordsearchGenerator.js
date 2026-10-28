@@ -257,6 +257,7 @@ export function generateWordsearchHTML({
     const elVictory = document.getElementById('victoryBox');
 
     function initGame() {
+      if (window.InspiraTrack) InspiraTrack.register();
       foundWords.clear();
       selectedCells = [];
       grid = Array(GRID_SIZE).fill(null).map(() => Array(GRID_SIZE).fill(''));
@@ -390,6 +391,7 @@ export function generateWordsearchHTML({
 
       if (matched) {
         foundWords.add(matched);
+        if (window.InspiraTrack) InspiraTrack.progress(foundWords.size, WORDS.length);
         selectedCells.forEach(cell => {
           const domCell = elGrid.children[cell.r * GRID_SIZE + cell.c];
           if (domCell) domCell.classList.add('found');
@@ -397,6 +399,7 @@ export function generateWordsearchHTML({
         renderWordList();
         if (foundWords.size === WORDS.length) {
           elVictory.style.display = 'block';
+          if (window.InspiraTrack) InspiraTrack.finish(WORDS.length, WORDS.length);
         }
       }
 

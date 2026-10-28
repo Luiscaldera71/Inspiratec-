@@ -65,31 +65,31 @@ export default function ConfigPage() {
       <header 
         className="mgmt-header"
         style={{
-          backgroundColor: 'rgba(255, 254, 250, 0.86)',
+          backgroundColor: 'rgba(255, 255, 255, 0.86)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '18px',
           padding: '16px 22px',
           marginBottom: '12px',
-          boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+          boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
         }}
       >
         <div className="mgmt-header-info">
-          <div className="mgmt-header-icon" style={{ backgroundColor: 'rgba(71, 122, 114, 0.16)', color: '#183630', borderRadius: '14px', width: '46px', height: '46px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className="mgmt-header-icon" style={{ backgroundColor: 'rgba(79, 125, 245, 0.16)', color: '#1F2E7A', borderRadius: '14px', width: '46px', height: '46px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             {activeTab === 'ia' ? <Key size={24} /> : <Compass size={24} />}
           </div>
           <div>
             <div className="editorial-badge" style={{ marginBottom: '8px' }}>
-              <Sparkles size={13} color="#2B524A" />
+              <Sparkles size={13} color="#2B3F9E" />
               <span>
                 {activeTab === 'ia' ? 'Conectividad e Inteligencia Artificial' : 'Perfil Docente & Mediación DUA'}
               </span>
             </div>
-            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#142B25', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
+            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#172554', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
               {activeTab === 'ia' ? 'Configuración de Inteligencia Artificial' : 'Autodiagnóstico Pedagógico (Felder-Silverman)'}
             </h1>
-            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#243630', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
+            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#2A3566', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
               {activeTab === 'ia' 
                 ? 'Administra tu clave privada BYOK (Bring Your Own Key) para conectar los servicios de Gemini con máxima velocidad y privacidad.'
                 : 'Explora tus tendencias pedagógicas en 4 dimensiones continuas mediante un gráfico radial interactivo basado en Felder-Silverman.'
@@ -117,12 +117,12 @@ export default function ConfigPage() {
         style={{ 
           marginBottom: '12px', 
           padding: '6px 10px', 
-          backgroundColor: 'rgba(255, 254, 250, 0.86)',
+          backgroundColor: 'rgba(255, 255, 255, 0.86)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '14px',
-          boxShadow: '0 6px 20px rgba(16, 36, 32, 0.05)',
+          boxShadow: '0 6px 20px rgba(30, 45, 110, 0.05)',
           display: 'flex',
           gap: '8px',
           flexWrap: 'wrap'
@@ -140,14 +140,14 @@ export default function ConfigPage() {
             padding: '7px 16px', 
             fontSize: '13.5px', 
             borderRadius: '10px',
-            backgroundColor: activeTab === 'ia' ? '#142B25' : 'rgba(255, 255, 255, 0.90)',
-            color: activeTab === 'ia' ? '#FFFFFF' : '#142B25',
-            borderColor: activeTab === 'ia' ? '#142B25' : 'rgba(49, 91, 84, 0.18)',
+            backgroundColor: activeTab === 'ia' ? '#172554' : 'rgba(255, 255, 255, 0.90)',
+            color: activeTab === 'ia' ? '#FFFFFF' : '#172554',
+            borderColor: activeTab === 'ia' ? '#172554' : 'rgba(53, 86, 224, 0.18)',
             fontWeight: activeTab === 'ia' ? 700 : 600,
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            boxShadow: activeTab === 'ia' ? '0 4px 12px rgba(20, 43, 37, 0.20)' : 'none',
+            boxShadow: activeTab === 'ia' ? '0 4px 12px rgba(19, 22, 44, 0.20)' : 'none',
             cursor: 'pointer',
             transition: 'all 0.2s ease'
           }}
@@ -166,14 +166,14 @@ export default function ConfigPage() {
             padding: '7px 16px', 
             fontSize: '13.5px', 
             borderRadius: '10px',
-            backgroundColor: activeTab === 'estilos' ? '#142B25' : 'rgba(255, 255, 255, 0.90)',
-            color: activeTab === 'estilos' ? '#FFFFFF' : '#142B25',
-            borderColor: activeTab === 'estilos' ? '#142B25' : 'rgba(49, 91, 84, 0.18)',
+            backgroundColor: activeTab === 'estilos' ? '#172554' : 'rgba(255, 255, 255, 0.90)',
+            color: activeTab === 'estilos' ? '#FFFFFF' : '#172554',
+            borderColor: activeTab === 'estilos' ? '#172554' : 'rgba(53, 86, 224, 0.18)',
             fontWeight: activeTab === 'estilos' ? 700 : 600,
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            boxShadow: activeTab === 'estilos' ? '0 4px 12px rgba(20, 43, 37, 0.20)' : 'none',
+            boxShadow: activeTab === 'estilos' ? '0 4px 12px rgba(19, 22, 44, 0.20)' : 'none',
             cursor: 'pointer',
             transition: 'all 0.2s ease'
           }}
@@ -195,22 +195,22 @@ export default function ConfigPage() {
             className="mgmt-card" 
             style={{ 
               padding: '20px 24px',
-              backgroundColor: 'rgba(255, 254, 250, 0.88)',
+              backgroundColor: 'rgba(255, 255, 255, 0.88)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               border: '1px solid rgba(255, 255, 255, 0.94)',
               borderRadius: '20px',
-              boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+              boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
               <Sparkles size={17} style={{ color: 'var(--primary-active)' }} />
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', color: '#142B25', margin: 0, fontWeight: 700 }}>
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', color: '#172554', margin: 0, fontWeight: 700 }}>
                 Google Gemini API Key
               </h2>
             </div>
             
-            <p style={{ color: '#2B453E', fontSize: '14.5px', lineHeight: '1.6', marginBottom: '28px' }}>
+            <p style={{ color: '#242A4C', fontSize: '14.5px', lineHeight: '1.6', marginBottom: '28px' }}>
               Para que el planificador pedagógico, las sugerencias DUA y el co-docente interactivo funcionen con la máxima velocidad y autonomía, ingresa tu clave API personal de Google AI Studio.
             </p>
             
@@ -218,7 +218,7 @@ export default function ConfigPage() {
               <div className="input-group" style={{ marginBottom: '24px' }}>
                 <label 
                   htmlFor="gemini-api-key"
-                  style={{ fontSize: '14px', color: '#142B25', fontWeight: 600, marginBottom: '8px', display: 'block' }}
+                  style={{ fontSize: '14px', color: '#172554', fontWeight: 600, marginBottom: '8px', display: 'block' }}
                 >
                   Clave de API de Gemini *
                 </label>
@@ -239,9 +239,9 @@ export default function ConfigPage() {
                       backgroundColor: 'rgba(255, 255, 255, 0.80)',
                       backdropFilter: 'blur(8px)',
                       WebkitBackdropFilter: 'blur(8px)',
-                      border: '1.5px solid rgba(49, 91, 84, 0.20)',
+                      border: '1.5px solid rgba(53, 86, 224, 0.20)',
                       borderRadius: '12px',
-                      color: '#142B25'
+                      color: '#172554'
                     }}
                     disabled={status === 'loading'}
                     autoComplete="off"
@@ -257,7 +257,7 @@ export default function ConfigPage() {
                   </button>
                 </div>
                 
-                <p className="form-helper-text" style={{ color: '#4A635B', marginTop: '6px' }}>
+                <p className="form-helper-text" style={{ color: '#384075', marginTop: '6px' }}>
                   Tu clave se almacena de forma segura en tu navegador y en tu perfil docente. Nunca se comparte con terceros.
                 </p>
               </div>
@@ -301,8 +301,8 @@ export default function ConfigPage() {
             )}
 
             {/* Ayuda y Enlace a AI Studio */}
-            <div style={{ paddingTop: '20px', borderTop: '1px solid rgba(49, 91, 84, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
-              <span style={{ fontSize: '13.5px', color: '#2B453E' }}>
+            <div style={{ paddingTop: '20px', borderTop: '1px solid rgba(53, 86, 224, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+              <span style={{ fontSize: '13.5px', color: '#242A4C' }}>
                 ¿Aún no tienes una clave de API gratuita?
               </span>
               <a 

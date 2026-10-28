@@ -1,0 +1,382 @@
+/* ==========================================================================
+   INSPIRATEC · AURORA MÓVIL
+   Experiencia tipo app: cabecera compacta, barra inferior con botón central
+   "Crear", panel "Más" y un Inicio con carruseles horizontales.
+   ========================================================================== */
+
+.m-tabbar,
+.m-sheet,
+.m-sheet-backdrop { display: none; }
+
+@media (max-width: 767px) {
+  /* ---------- Cabecera compacta ---------- */
+  .mobile-header-bar {
+    height: calc(60px + env(safe-area-inset-top, 0px));
+    padding: env(safe-area-inset-top, 0px) 14px 0;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 24px -16px rgba(52, 64, 150, 0.45);
+  }
+
+  .mobile-brand-title {
+    gap: 10px;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #10173F;
+  }
+
+  .m-brand-tile {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 3px;
+    box-shadow: 0 8px 16px -8px rgba(52, 64, 150, 0.5), inset 0 1px 1px #fff;
+  }
+
+  .m-header-actions { display: flex; align-items: center; gap: 8px; }
+
+  .m-ai-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: rgba(79, 110, 245, 0.10);
+    border: 1px solid rgba(79, 70, 229, 0.18);
+    color: #2B2FB8;
+    font: 800 12.5px var(--font-main);
+    text-decoration: none;
+  }
+
+  .mobile-header-bar .user-menu-btn { padding: 2px; background: transparent; }
+  .mobile-header-bar .user-menu-btn > div:last-child { display: none; }
+
+  /* ---------- Barra inferior ---------- */
+  .m-tabbar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    height: 68px;
+    padding: 0 6px 8px;
+    border-radius: 26px;
+    z-index: 960;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(26px) saturate(190%);
+    -webkit-backdrop-filter: blur(26px) saturate(190%);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 0 20px 44px -12px rgba(40, 52, 140, 0.5), 0 2px 8px rgba(40, 52, 140, 0.08);
+    animation: tabbarIn 0.6s var(--ease-spring, ease) both;
+  }
+
+  @keyframes tabbarIn { from { transform: translateY(90px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+  .m-tab {
+    flex: 1;
+    min-width: 0;
+    min-height: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 3px;
+    background: none;
+    border: none;
+    padding: 0;
+    color: #55608F;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .m-tab-icon {
+    position: relative;
+    width: 50px;
+    height: 30px;
+    border-radius: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s var(--ease-spring, ease);
+  }
+
+  .m-tab-label { font: 700 10.5px var(--font-main); letter-spacing: 0; }
+
+  .m-tab.active { color: #3730C9; }
+  .m-tab.active .m-tab-icon { background: rgba(79, 70, 229, 0.14); transform: translateY(-2px); }
+  .m-tab:active .m-tab-icon { transform: scale(0.9); }
+
+  .m-tab-badge {
+    position: absolute;
+    top: -3px;
+    right: 6px;
+    min-width: 17px;
+    height: 17px;
+    padding: 0 4px;
+    border-radius: 9px;
+    background: #E8336D;
+    color: #fff;
+    font: 800 10px/17px var(--font-main);
+    text-align: center;
+    border: 2px solid #fff;
+    box-sizing: content-box;
+  }
+
+  .m-tab-fab { flex: 0 0 78px; position: relative; }
+  .m-tab-fab .m-tab-label { color: #3730C9; }
+
+  .m-fab {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 1px;
+    transform: translateY(-16px);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: var(--aurora-grad);
+    border: 4px solid #fff;
+    box-shadow: 0 14px 26px -8px rgba(79, 70, 229, 0.75);
+    animation: fabPulse 3s ease-in-out infinite;
+    transition: transform 0.3s var(--ease-spring, ease);
+  }
+
+  .m-tab-fab .m-tab-label { position: absolute; bottom: 0; }
+  .m-tab-fab:active .m-fab { transform: translateY(-14px) scale(0.92); }
+
+  @keyframes fabPulse {
+    0%, 100% { box-shadow: 0 14px 26px -8px rgba(79, 70, 229, 0.75), 0 0 0 0 rgba(99, 140, 255, 0.5); }
+    50%      { box-shadow: 0 14px 26px -8px rgba(79, 70, 229, 0.75), 0 0 0 10px rgba(99, 140, 255, 0); }
+  }
+
+  /* ---------- Panel "Más" ---------- */
+  .m-sheet-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    background: rgba(12, 18, 64, 0.40);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .m-sheet-backdrop.open { opacity: 1; pointer-events: auto; }
+
+  .m-sheet {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1210;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 10px 18px calc(26px + env(safe-area-inset-bottom, 0px));
+    border-radius: 30px 30px 0 0;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 -24px 60px -16px rgba(30, 40, 120, 0.5);
+    transform: translateY(105%);
+    transition: transform 0.45s var(--ease-out, ease);
+    visibility: hidden;
+  }
+
+  .m-sheet.open { transform: none; visibility: visible; }
+
+  .m-sheet-handle { display: block; width: 44px; height: 5px; margin: 2px auto 10px; border-radius: 3px; background: rgba(79, 90, 160, 0.28); }
+
+  .m-sheet-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+  .m-sheet-head strong { font-size: 19px; font-weight: 800; color: #0A1033; letter-spacing: -0.02em; }
+
+  .m-sheet-close {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(79, 110, 245, 0.10);
+    color: #2B2FB8;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .m-sheet-group { margin: 14px 2px 8px; font: 800 11px var(--font-main); letter-spacing: 0.1em; text-transform: uppercase; color: #3730C9; }
+
+  .m-sheet-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+
+  .m-sheet-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 6px 12px;
+    border-radius: 20px;
+    background: #F4F6FF;
+    border: 1px solid rgba(79, 110, 220, 0.10);
+    color: #0F1747;
+    text-decoration: none;
+    font: 700 12px/1.2 var(--font-main);
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.2s var(--ease-spring, ease), background 0.2s ease;
+  }
+
+  .m-sheet-item:active { transform: scale(0.94); background: #E8ECFF; }
+  .m-sheet-item .tone-icon { width: 46px; height: 46px; border-radius: 16px; }
+
+  .m-sheet.open .m-sheet-item { animation: popIn 0.45s var(--ease-spring, ease) backwards; }
+  .m-sheet.open .m-sheet-item:nth-child(2) { animation-delay: 0.05s; }
+  .m-sheet.open .m-sheet-item:nth-child(3) { animation-delay: 0.10s; }
+  .m-sheet.open .m-sheet-item:nth-child(4) { animation-delay: 0.15s; }
+
+  /* ---------- Inicio en móvil ---------- */
+  .app-main-content-scroll { padding-bottom: calc(112px + env(safe-area-inset-bottom, 0px)) !important; }
+
+  .home-page { padding: 8px 14px 8px; }
+  .home-layout, .home-main-col, .home-side-col { gap: 16px; }
+
+  /* Texto arriba y el banner (con el robot completo) debajo, sin recortes */
+  .home-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+    padding: 22px 20px 0;
+    border-radius: 26px;
+    background: linear-gradient(180deg, #13236B 0%, #2342A8 55%, #3D62D6 100%);
+  }
+
+  .home-hero::before, .home-hero::after { display: none; }
+
+  .home-hero-copy { margin-left: 0; max-width: 100%; }
+
+  /* Se ve el robot y el eslogan completos: la imagen se agranda y se ancla a la derecha */
+  .home-hero-stage {
+    display: block;
+    position: relative;
+    width: 150%;
+    margin: 8px 0 0 -50%;
+    aspect-ratio: 2083 / 755;
+    flex-shrink: 0;
+    pointer-events: none;
+  }
+  .home-hero-hello { font-size: 13px; padding: 5px 12px; }
+  .home-hero-title { font-size: 28px; margin: 12px 0 8px; }
+  .home-hero-text { font-size: 14px; margin-bottom: 16px; max-width: none; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .home-hero-actions { flex-wrap: nowrap; gap: 8px; }
+  .home-hero-actions .aurora-btn { height: 46px; padding: 0 16px; font-size: 14px; border-radius: 14px; flex: 1; }
+  .home-hero-actions .aurora-btn-ghost { flex: 0 0 auto; }
+  .home-hero-warning { font-size: 11.5px; padding: 7px 12px; }
+
+  .glass-panel { padding: 16px 14px; border-radius: 24px; }
+  .glass-panel:hover { transform: none; }
+  .glass-panel-head { margin-bottom: 12px; }
+  .glass-panel-head h2 { font-size: 18px; }
+  .glass-link { padding: 6px 12px; font-size: 12px; }
+
+  /* Accesos rápidos: cuadrícula compacta de 3 columnas */
+  .home-quick-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .home-quick-tile { padding: 12px 4px 10px; border-radius: 18px; gap: 8px; }
+  .home-quick-tile .tone-icon { width: 44px; height: 44px; }
+  .home-quick-label { font-size: 11.5px; }
+  .home-quick-tile:hover, .home-area-tile:hover { transform: none; }
+
+  /* Planes recientes y áreas: carruseles horizontales con imán */
+  .home-recent-grid,
+  .home-areas-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin: 0 -14px;
+    padding: 4px 14px 10px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .home-recent-grid::-webkit-scrollbar,
+  .home-areas-grid::-webkit-scrollbar { display: none; }
+
+  .home-recent-card { flex: 0 0 78%; scroll-snap-align: start; }
+  .home-recent-card:hover { transform: none; }
+  .home-recent-cover { min-height: 148px; }
+  .home-recent-title { font-size: 17px; }
+
+  .home-area-tile { flex: 0 0 132px; scroll-snap-align: start; padding: 14px 8px 12px; }
+
+  /* Asistente más corto */
+  .home-assistant-actions li:nth-child(n+4) { display: none; }
+  .home-assistant-actions button { padding: 10px 12px; font-size: 12.5px; }
+
+  /* Progreso: anillo más pequeño */
+  .home-ring { width: 108px; height: 108px; }
+  .home-ring-label strong { font-size: 24px; }
+  .home-ring-label span { font-size: 9.5px; }
+  .home-progress { gap: 14px; flex-wrap: nowrap; }
+  .home-stats { min-width: 0; gap: 6px; }
+  .home-stats li { font-size: 11.5px; grid-template-columns: 28px auto 1fr; }
+  .home-stats .tone-icon { width: 28px; height: 28px; border-radius: 10px; }
+
+  .home-resources button { padding: 10px; }
+}
+
+/* Pantallas muy angostas */
+@media (max-width: 360px) {
+  .home-hero-title { font-size: 25px; }
+  .m-tab-label { font-size: 9.5px; }
+  .m-sheet-grid { gap: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .m-fab, .m-tabbar { animation: none; }
+}
+
+/* ==========================================================================
+   CABECERA MÓVIL compacta: logo + íconos pequeños (sin nombre de usuario)
+   ========================================================================== */
+@media (max-width: 767px) {
+  .mobile-header-bar .user-menu-btn > div:last-child { display: none !important; }
+  .mobile-header-bar .user-menu-btn { padding: 0 !important; width: 38px; height: 38px; justify-content: center; border-radius: 50%; }
+  .mobile-header-bar .user-menu-btn > div:first-child { width: 36px !important; height: 36px !important; font-size: 14px !important; }
+
+  .m-header-actions { gap: 10px; }
+
+  .m-ai-chip {
+    position: relative;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(79, 110, 245, 0.12);
+    border: 1px solid rgba(79, 70, 229, 0.18);
+    color: #3556E0;
+  }
+
+  .m-ai-chip .ai-status-dot-mini {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #fff;
+    box-sizing: content-box;
+  }
+}

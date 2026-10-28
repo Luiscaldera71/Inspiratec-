@@ -152,3 +152,60 @@ export function buildResultsCsv(preguntas = [], clave = {}, participantes = []) 
   });
   return [head, ...rows].map(r => r.map(esc).join(',')).join('\n');
 }
+
+// ---------- Recursos enviados en línea (tipo 'recurso') ----------
+
+/** Nota 0-5 a partir de un porcentaje (misma escala que las evaluaciones). */
+export const percentToGrade = (porcentaje = 0) => Math.round((Math.max(0, Math.min(100, porcentaje)) / 100) * 50) / 10;
+
+/** Convierte lo que reporta el recurso en el resultado que se guarda para el estudiante. */
+export function buildResourceResult(msg) {
+  if (!msg) return null;
+  if (msg.type === 'finish') {
+    const porcentaje = msg.total > 0 ? Math.round((msg.aciertos / msg.total) * 100) : 0;
+    return { completado: true, aciertos: msg.aciertos, total: msg.total, avance: msg.total, porcentaje, nota: percentToGrade(porcentaje) };
+  }
+  if (msg.type === 'done') return { completado: true, aciertos: null, total: null, avance: null, porcentaje: null, nota: null };
+  if (msg.type === 'progress') return { completado: false, avance: msg.avance, total: msg.total };
+  return null;
+}
+
+/** Resumen de un participante de un recurso para el panel del docente. */
+export function summarizeResourceParticipant(p = {}) {
+  const r = p.respuestas || {};
+  const terminado = p.estado === 'enviado' && r.completado === true;
+  const entro = p.entroEn?.toMillis?.() ?? (typeof p.entroEn === 'number' ? p.entroEn : null);
+  const fin = p.enviadoEn?.toMillis?.() ?? (typeof p.enviadoEn === 'number' ? p.enviadoEn : null);
+  const duracionSeg = terminado && entro && fin && fin >= entro ? Math.round((fin - entro) / 1000) : null;
+  const avancePct = r.total > 0 ? Math.round(((r.avance ?? 0) / r.total) * 100) : (terminado ? 100 : 0);
+  return {
+    terminado,
+    avance: r.avance ?? null,
+    total: r.total ?? null,
+    avancePct: terminado ? 100 : avancePct,
+    aciertos: r.aciertos ?? null,
+    porcentaje: r.porcentaje ?? null,
+    nota: r.nota ?? null,
+    duracionSeg
+  };
+}
+
+/** CSV de resultados de un recurso enviado en línea. */
+export function buildResourceCsv(participantes = []) {
+  const esc = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
+  const head = ['Estudiante', 'Estado', 'Avance', 'Aciertos', 'Total', 'Porcentaje', 'Nota (0-5)', 'Tiempo (s)'];
+  const rows = participantes.map((p) => {
+    const s = summarizeResourceParticipant(p);
+    return [
+      p.nombre,
+      s.terminado ? 'Terminó' : 'En curso',
+      s.avance !== null && s.total ? `${s.avance}/${s.total}` : '',
+      s.aciertos ?? '',
+      s.total ?? '',
+      s.porcentaje !== null ? `${s.porcentaje}%` : '',
+      s.nota ?? '',
+      s.duracionSeg ?? ''
+    ];
+  });
+  return [head, ...rows].map((r) => r.map(esc).join(',')).join('\n');
+}

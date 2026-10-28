@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint",
-    "test": "node src/utils/test_functional_audit.mjs && node src/utils/test_felder_silverman.mjs && node src/utils/test_curricular_graph.mjs && node src/utils/test_socratic_chat.mjs && node src/utils/test_material_recommender.mjs && node src/utils/test_structured_plan_editor.mjs && node src/utils/test_html_materials.mjs && node src/utils/test_men_alignment.mjs && node src/utils/test_resources.mjs && node src/utils/test_sessions.mjs && node src/utils/test_gemini_connection.mjs && node src/utils/test_identification_defaults.mjs",
+    "test": "node src/utils/test_functional_audit.mjs && node src/utils/test_felder_silverman.mjs && node src/utils/test_curricular_graph.mjs && node src/utils/test_socratic_chat.mjs && node src/utils/test_material_recommender.mjs && node src/utils/test_structured_plan_editor.mjs && node src/utils/test_html_materials.mjs && node src/utils/test_men_alignment.mjs && node src/utils/test_resources.mjs && node src/utils/test_sessions.mjs && node src/utils/test_gemini_connection.mjs && node src/utils/test_identification_defaults.mjs && node src/utils/test_resource_tracking.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

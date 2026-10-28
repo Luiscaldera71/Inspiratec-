@@ -4,6 +4,8 @@ import {
   signInWithEmailAndPassword, 
   signOut, 
   onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup,
   updatePassword,
   EmailAuthProvider,
   reauthenticateWithCredential
@@ -19,9 +21,24 @@ import {
   clearSecureSession 
 } from '../utils/security';
 
+// Borra del navegador todo lo que pertenece a la sesión anterior (plan abierto, chat, clave de IA...)
+// para que otra cuenta que entre en el mismo equipo no vea datos ajenos.
+const limpiarDatosDeSesion = () => {
+  const store = useAppStore.getState();
+  store.resetWizard();
+  store.clearChatIA?.();
+  store.setPlanesCount?.(0);
+  store.setUserProfile(null);
+  try { localStorage.removeItem('inspiratec_api_key'); } catch (_) {}
+  useAppStore.setState({ apiKey: '' });
+};
+
 export const initAuth = () => {
   onAuthStateChanged(auth, async (user) => {
     if (user) {
+      // Si la cuenta cambió respecto a la sesión guardada en este navegador, descartar los datos de la anterior
+      const previo = useAppStore.getState().userId;
+      if (previo && previo !== user.uid) limpiarDatosDeSesion();
       useAppStore.getState().setUserId(user.uid);
       try {
         const userDoc = await getDoc(doc(db, 'users', user.uid));
@@ -144,8 +161,59 @@ export const loginUser = async (email, password) => {
   return userCredential;
 };
 
+/**
+ * Inicio de sesión / registro con Google (requiere habilitar el proveedor "Google"
+ * en Firebase Console > Authentication > Sign-in method).
+ * Si es la primera vez que entra, crea su perfil docente en Firestore.
+ * Devuelve { user, isNew }.
+ */
+export const loginWithGoogle = async () => {
+  const provider = new GoogleAuthProvider();
+  provider.setCustomParameters({ prompt: 'select_account' });
+
+  const userCredential = await signInWithPopup(auth, provider);
+  const user = userCredential.user;
+
+  let isNew = false;
+  try {
+    const userRef = doc(db, 'users', user.uid);
+    const snap = await getDoc(userRef);
+    if (!snap.exists()) {
+      isNew = true;
+      await setDoc(userRef, {
+        nombre: user.displayName || 'Docente',
+        institucion: '',
+        nivel: '',
+        email: user.email || '',
+        celular: '',
+        metodologiaInstitucional: 'Aprendizaje Basado en Proyectos (ABP)',
+        ejeTransversal: 'Enfoque STEAM (Ciencia, Tecnología, Arte y Matemáticas)',
+        termsAccepted: true,
+        termsAcceptedAt: new Date().toISOString(),
+        rol: 'Docente',
+        bienvenidaCompletada: false,
+        authProvider: 'google',
+        createdAt: new Date().toISOString()
+      });
+    }
+  } catch (e) {
+    console.warn('No se pudo verificar/crear el perfil de Google en Firestore:', e);
+  }
+
+  const jwtToken = generateUserJwt({
+    uid: user.uid,
+    email: user.email,
+    rol: 'Docente',
+    nombre: user.displayName || 'Docente'
+  });
+  saveSecureSessionToken(jwtToken);
+
+  return { user, isNew };
+};
+
 export const logoutUser = async () => {
   clearSecureSession();
+  limpiarDatosDeSesion();
   return await signOut(auth);
 };
 

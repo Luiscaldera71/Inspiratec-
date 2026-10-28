@@ -189,25 +189,28 @@ export const getMisPlanes = async (userId) => {
     }
   }
 
-  // 2. Consultar si hay planes registrados como 'anon' en Firestore
-  try {
-    const qAnon = query(collection(db, "planes"), where("userId", "==", "anon"));
-    const snapAnon = await getDocs(qAnon);
-    snapAnon.forEach((docSnap) => {
-      if (!mergedMap.has(docSnap.id)) {
-        mergedMap.set(docSnap.id, { id: docSnap.id, ...docSnap.data() });
-      }
-    });
-  } catch (_) {}
+  // 2. Sin sesión (id 'anon') solo se consultan los planes huérfanos 'anon'.
+  //    Con una cuenta iniciada NUNCA se mezclan planes de otros usuarios.
+  if (effectiveUserId === 'anon') {
+    try {
+      const qAnon = query(collection(db, "planes"), where("userId", "==", "anon"));
+      const snapAnon = await getDocs(qAnon);
+      snapAnon.forEach((docSnap) => {
+        if (!mergedMap.has(docSnap.id)) {
+          mergedMap.set(docSnap.id, { id: docSnap.id, ...docSnap.data() });
+        }
+      });
+    } catch (_) {}
+  }
 
-  // 3. Fusionar con planes del almacenamiento local seguro
+  // 3. Fusionar con la copia local, pero solo los planes que pertenecen a este usuario
+  //    (el almacenamiento del navegador es compartido por todas las cuentas del equipo)
   const localPlans = getLocalSavedPlans();
   localPlans.forEach((lp) => {
-    if (lp && lp.id && !mergedMap.has(lp.id)) {
+    if (lp && lp.id && !mergedMap.has(lp.id) && (lp.userId || 'anon') === effectiveUserId) {
       mergedMap.set(lp.id, lp);
     }
   });
-
   const allPlanes = Array.from(mergedMap.values());
 
   // Ordenar por fecha descendente

@@ -295,7 +295,7 @@ export default function AdnPedagogicoPage() {
           <div style={{ maxWidth: '720px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '10px' }}>
               <div className="adn-badge-pill">
-                <Dna size={13} style={{ color: '#4ADE80' }} />
+                <Dna size={13} style={{ color: '#7C9BFF' }} />
                 <span>Identidad Docente & Memoria Contextual</span>
               </div>
 
@@ -304,20 +304,20 @@ export default function AdnPedagogicoPage() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                background: isAdmin ? 'rgba(234, 179, 8, 0.22)' : 'rgba(74, 222, 128, 0.18)',
-                color: isAdmin ? '#FEF08A' : '#BBF7D0',
+                background: isAdmin ? 'rgba(234, 179, 8, 0.22)' : 'rgba(124, 155, 255, 0.18)',
+                color: isAdmin ? '#FEF08A' : '#DCE4FF',
                 padding: '4px 10px',
                 borderRadius: '999px',
                 fontSize: '11px',
                 fontWeight: 700,
-                border: isAdmin ? '1px solid rgba(234, 179, 8, 0.4)' : '1px solid rgba(74, 222, 128, 0.35)'
+                border: isAdmin ? '1px solid rgba(234, 179, 8, 0.4)' : '1px solid rgba(124, 155, 255, 0.35)'
               }}>
                 {isAdmin ? <Shield size={12} /> : <UserCheck size={12} />}
                 <span>{isAdmin ? 'Modo Administrador Curricular' : 'Modo Docente Titular'}</span>
               </div>
             </div>
 
-            <h1 style={{ fontSize: 'clamp(20px, 2.2vw, 26px)', fontWeight: 800, margin: '0 0 6px', color: '#FFFDF9', lineHeight: 1.25, letterSpacing: '-0.02em' }}>
+            <h1 style={{ fontSize: 'clamp(20px, 2.2vw, 26px)', fontWeight: 800, margin: '0 0 6px', color: '#FFFFFF', lineHeight: 1.25, letterSpacing: '-0.02em' }}>
               Mi ADN Pedagógico & Estudio Transversal
             </h1>
             <p style={{ fontSize: '13px', color: '#D1E7DD', margin: 0, lineHeight: 1.55, maxWidth: '680px' }}>
@@ -339,7 +339,7 @@ export default function AdnPedagogicoPage() {
                   gap: '8px',
                   background: 'rgba(255, 255, 255, 0.15)',
                   backdropFilter: 'blur(10px)',
-                  color: '#FFFDF9',
+                  color: '#FFFFFF',
                   border: '1px solid rgba(255, 255, 255, 0.28)',
                   borderRadius: '14px',
                   padding: '11px 18px',
@@ -361,15 +361,15 @@ export default function AdnPedagogicoPage() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  background: '#4ADE80',
-                  color: '#142A26',
+                  background: '#7C9BFF',
+                  color: '#13162B',
                   border: 'none',
                   borderRadius: '14px',
                   padding: '11px 22px',
                   fontWeight: 700,
                   fontSize: '13.5px',
                   cursor: 'pointer',
-                  boxShadow: '0 4px 16px rgba(74, 222, 128, 0.42)',
+                  boxShadow: '0 4px 16px rgba(124, 155, 255, 0.42)',
                   transition: 'all 0.18s ease'
                 }}
               >
@@ -417,7 +417,7 @@ export default function AdnPedagogicoPage() {
               type="checkbox"
               checked={dna.aplicarAdnPorDefecto}
               onChange={(e) => handleToggleAplicarDefecto(e.target.checked)}
-              style={{ width: '18px', height: '18px', accentColor: '#4ADE80', cursor: 'pointer' }}
+              style={{ width: '18px', height: '18px', accentColor: '#7C9BFF', cursor: 'pointer' }}
             />
             <span style={{ fontSize: '13px', color: '#D1E7DD', fontWeight: 600 }}>
               {dna.aplicarAdnPorDefecto ? 'Activado automáticamente' : 'Desactivado (manual)'}
@@ -459,37 +459,37 @@ export default function AdnPedagogicoPage() {
           {/* Métricas destacadas en Grid */}
           <div className="adn-metric-grid">
             <div className="adn-metric-card">
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#64748B', fontSize: '12.5px', fontWeight: 600, marginBottom: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#576579', fontSize: '12.5px', fontWeight: 600, marginBottom: '8px' }}>
                 <span>Planes Analizados</span>
-                <div style={{ width: '32px', height: '32px', borderRadius: '10px', backgroundColor: 'rgba(26, 77, 67, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <BookOpen size={16} color="#1A4D43" />
+                <div style={{ width: '32px', height: '32px', borderRadius: '10px', backgroundColor: 'rgba(23, 31, 80, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <BookOpen size={16} color="#171F50" />
                 </div>
               </div>
-              <div style={{ fontSize: '28px', fontWeight: 800, color: '#142A26', lineHeight: 1.1 }}>
+              <div style={{ fontSize: '28px', fontWeight: 800, color: '#13162B', lineHeight: 1.1 }}>
                 {memoriaExito.totalPlanesAnalizados || 0}
               </div>
-              <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '6px' }}>
+              <div style={{ fontSize: '11.5px', color: '#576579', marginTop: '6px' }}>
                 {memoriaExito.totalPlanesAnalizados === 1 ? '1 secuencia didáctica en tu historial' : `${memoriaExito.totalPlanesAnalizados || 0} secuencias didácticas en tu historial`}
               </div>
             </div>
 
             <div className="adn-metric-card">
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#64748B', fontSize: '12.5px', fontWeight: 600, marginBottom: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#576579', fontSize: '12.5px', fontWeight: 600, marginBottom: '8px' }}>
                 <span>Índice de Innovación</span>
-                <div style={{ width: '32px', height: '32px', borderRadius: '10px', backgroundColor: 'rgba(5, 150, 105, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <Award size={16} color="#059669" />
+                <div style={{ width: '32px', height: '32px', borderRadius: '10px', backgroundColor: 'rgba(29, 42, 126, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Award size={16} color="#1D2A7E" />
                 </div>
               </div>
-              <div style={{ fontSize: '28px', fontWeight: 800, color: '#059669', lineHeight: 1.1 }}>
+              <div style={{ fontSize: '28px', fontWeight: 800, color: '#172060', lineHeight: 1.1 }}>
                 {memoriaExito.totalPlanesAnalizados > 0 ? `${memoriaExito.indiceInnovacion}%` : '0%'}
               </div>
-              <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '6px' }}>
+              <div style={{ fontSize: '11.5px', color: '#576579', marginTop: '6px' }}>
                 {memoriaExito.totalPlanesAnalizados > 0 ? 'Diversificación metodológica y DUA' : 'Se calculará al analizar tus secuencias'}
               </div>
             </div>
 
             <div className="adn-metric-card">
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#64748B', fontSize: '12.5px', fontWeight: 600, marginBottom: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#576579', fontSize: '12.5px', fontWeight: 600, marginBottom: '8px' }}>
                 <span>Metodología Principal</span>
                 <div style={{ width: '32px', height: '32px', borderRadius: '10px', backgroundColor: 'rgba(37, 99, 235, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Compass size={16} color="#2563EB" />
@@ -500,7 +500,7 @@ export default function AdnPedagogicoPage() {
                 style={{ 
                   fontSize: '14.5px', 
                   fontWeight: 700, 
-                  color: '#142A26', 
+                  color: '#13162B', 
                   lineHeight: 1.35, 
                   minHeight: '38px',
                   display: 'flex',
@@ -510,7 +510,7 @@ export default function AdnPedagogicoPage() {
               >
                 {memoriaExito.metodologiasFrecuentes?.[0]?.name || (memoriaExito.totalPlanesAnalizados > 0 ? 'Aprendizaje Activo' : 'Sin secuencias aún')}
               </div>
-              <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '6px' }}>
+              <div style={{ fontSize: '11.5px', color: '#576579', marginTop: '6px' }}>
                 {memoriaExito.metodologiasFrecuentes?.[0]?.count 
                   ? `${memoriaExito.metodologiasFrecuentes[0].count} ${memoriaExito.metodologiasFrecuentes[0].count === 1 ? 'sesión planificada' : 'sesiones planificadas'}`
                   : 'Crea tu primer plan en el Planificador'}
@@ -518,7 +518,7 @@ export default function AdnPedagogicoPage() {
             </div>
 
             <div className="adn-metric-card">
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#64748B', fontSize: '12.5px', fontWeight: 600, marginBottom: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', color: '#576579', fontSize: '12.5px', fontWeight: 600, marginBottom: '8px' }}>
                 <span>Recurso Didáctico Favorito</span>
                 <div style={{ width: '32px', height: '32px', borderRadius: '10px', backgroundColor: 'rgba(217, 119, 6, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Star size={16} color="#D97706" />
@@ -529,7 +529,7 @@ export default function AdnPedagogicoPage() {
                 style={{ 
                   fontSize: '14.5px', 
                   fontWeight: 700, 
-                  color: '#142A26', 
+                  color: '#13162B', 
                   lineHeight: 1.35, 
                   minHeight: '38px',
                   display: 'flex',
@@ -539,7 +539,7 @@ export default function AdnPedagogicoPage() {
               >
                 {memoriaExito.recursosPredilectos?.[0]?.name || (memoriaExito.totalPlanesAnalizados > 0 ? 'Material de clase' : 'Sin recursos aún')}
               </div>
-              <div style={{ fontSize: '11.5px', color: '#64748B', marginTop: '6px' }}>
+              <div style={{ fontSize: '11.5px', color: '#576579', marginTop: '6px' }}>
                 {memoriaExito.recursosPredilectos?.[0]?.count 
                   ? `${memoriaExito.recursosPredilectos[0].count} veces generado/anexado`
                   : 'Anexa rúbricas o juegos en el Editor'}
@@ -553,12 +553,12 @@ export default function AdnPedagogicoPage() {
             {/* Metodologías más frecuentes */}
             <div className="adn-card-box">
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
-                <Compass size={20} color="#1A4D43" />
-                <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#142A26' }}>
+                <Compass size={20} color="#171F50" />
+                <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#13162B' }}>
                   Metodologías que más te funcionan
                 </h3>
               </div>
-              <p style={{ fontSize: '13px', color: '#64748B', margin: '0 0 18px', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '13px', color: '#576579', margin: '0 0 18px', lineHeight: 1.5 }}>
                 Detectadas automáticamente a partir de tus planes guardados y valoraciones docentes:
               </p>
               
@@ -568,7 +568,7 @@ export default function AdnPedagogicoPage() {
                     <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13.5px', fontWeight: 600, color: '#1E293B' }}>
                         <span>{item.name}</span>
-                        <span style={{ color: '#1A4D43', fontWeight: 700 }}>
+                        <span style={{ color: '#171F50', fontWeight: 700 }}>
                           {item.count} {item.count === 1 ? 'plan' : 'planes'} ({item.porcentaje || 50}%)
                         </span>
                       </div>
@@ -576,7 +576,7 @@ export default function AdnPedagogicoPage() {
                         <div style={{
                           width: `${item.porcentaje || 50}%`,
                           height: '100%',
-                          background: 'linear-gradient(90deg, #1A4D43 0%, #34D399 100%)',
+                          background: 'linear-gradient(90deg, #171F50 0%, #34D399 100%)',
                           borderRadius: '999px',
                           transition: 'width 0.4s ease'
                         }} />
@@ -596,11 +596,11 @@ export default function AdnPedagogicoPage() {
                   alignItems: 'center',
                   gap: '10px'
                 }}>
-                  <Compass size={32} style={{ color: '#94A3B8' }} />
+                  <Compass size={32} style={{ color: '#54657E' }} />
                   <div style={{ fontSize: '14px', fontWeight: 700, color: '#334155' }}>
                     Aún no hay secuencias didácticas analizadas
                   </div>
-                  <p style={{ fontSize: '12.5px', color: '#64748B', maxWidth: '340px', margin: 0, lineHeight: 1.5 }}>
+                  <p style={{ fontSize: '12.5px', color: '#576579', maxWidth: '340px', margin: 0, lineHeight: 1.5 }}>
                     Al crear secuencias en el Planificador, Inspiratec identificará tus metodologías STEAM más exitosas.
                   </p>
                   <button
@@ -611,8 +611,8 @@ export default function AdnPedagogicoPage() {
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: '6px',
-                      backgroundColor: '#1A4D43',
-                      color: '#FFFDF9',
+                      backgroundColor: '#171F50',
+                      color: '#FFFFFF',
                       border: 'none',
                       borderRadius: '10px',
                       padding: '7px 14px',
@@ -632,11 +632,11 @@ export default function AdnPedagogicoPage() {
             <div className="adn-card-box">
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
                 <Star size={20} color="#D97706" />
-                <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#142A26' }}>
+                <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#13162B' }}>
                   Recursos Didácticos más generados y anexados
                 </h3>
               </div>
-              <p style={{ fontSize: '13px', color: '#64748B', margin: '0 0 18px', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '13px', color: '#576579', margin: '0 0 18px', lineHeight: 1.5 }}>
                 Materiales que la IA priorizará sugerir y estructurar en tus nuevas clases:
               </p>
               
@@ -659,7 +659,7 @@ export default function AdnPedagogicoPage() {
                       <span style={{
                         fontSize: '12px',
                         fontWeight: 700,
-                        color: '#059669',
+                        color: '#172060',
                         background: '#ECFDF5',
                         padding: '4px 12px',
                         borderRadius: '999px',
@@ -682,11 +682,11 @@ export default function AdnPedagogicoPage() {
                   alignItems: 'center',
                   gap: '10px'
                 }}>
-                  <Star size={32} style={{ color: '#94A3B8' }} />
+                  <Star size={32} style={{ color: '#54657E' }} />
                   <div style={{ fontSize: '14px', fontWeight: 700, color: '#334155' }}>
                     Sin recursos didácticos predilectos aún
                   </div>
-                  <p style={{ fontSize: '12.5px', color: '#64748B', maxWidth: '340px', margin: 0, lineHeight: 1.5 }}>
+                  <p style={{ fontSize: '12.5px', color: '#576579', maxWidth: '340px', margin: 0, lineHeight: 1.5 }}>
                     Al generar rúbricas, cuestionarios o juegos didácticos anexos a tus clases, la IA registrará tus formatos favoritos.
                   </p>
                 </div>
@@ -704,12 +704,12 @@ export default function AdnPedagogicoPage() {
           {/* Dinámicas de Inicio */}
           <div className="adn-card-box">
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-              <Sparkles size={20} color="#1A4D43" />
-              <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#142A26' }}>
+              <Sparkles size={20} color="#171F50" />
+              <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#13162B' }}>
                 Dinámicas de Inicio Predilectas (Fase de Exploración)
               </h3>
             </div>
-            <p style={{ fontSize: '13px', color: '#64748B', margin: '0 0 18px', lineHeight: 1.5 }}>
+            <p style={{ fontSize: '13px', color: '#576579', margin: '0 0 18px', lineHeight: 1.5 }}>
               Marca con estrella las actividades con las que prefieres capturar la atención de tu grupo al abrir la clase o escribe tus propias dinámicas:
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
@@ -790,12 +790,12 @@ export default function AdnPedagogicoPage() {
           {/* Instrumentos de Evaluación */}
           <div className="adn-card-box">
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-              <ShieldCheck size={20} color="#059669" />
-              <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#142A26' }}>
+              <ShieldCheck size={20} color="#1D2A7E" />
+              <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#13162B' }}>
                 Estilos y Formas de Evaluación Favoritas
               </h3>
             </div>
-            <p style={{ fontSize: '13px', color: '#64748B', margin: '0 0 18px', lineHeight: 1.5 }}>
+            <p style={{ fontSize: '13px', color: '#576579', margin: '0 0 18px', lineHeight: 1.5 }}>
               ¿Cómo valoras el aprendizaje formativo de tus estudiantes? (La IA adaptará la sección de evaluación según tus elecciones):
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
@@ -877,11 +877,11 @@ export default function AdnPedagogicoPage() {
           <div className="adn-card-box">
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
               <Lightbulb size={20} color="#D97706" />
-              <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#142A26' }}>
+              <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#13162B' }}>
                 Principios DUA Predilectos (Inclusión Efectiva)
               </h3>
             </div>
-            <p style={{ fontSize: '13px', color: '#64748B', margin: '0 0 18px', lineHeight: 1.5 }}>
+            <p style={{ fontSize: '13px', color: '#576579', margin: '0 0 18px', lineHeight: 1.5 }}>
               Prioridades para la accesibilidad, múltiples medios de expresión y diversificación de tus secuencias didácticas:
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
@@ -962,12 +962,12 @@ export default function AdnPedagogicoPage() {
           {/* Notas Pedagógicas Clave */}
           <div className="adn-card-box">
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-              <BookOpen size={20} color="#1A4D43" />
-              <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#142A26' }}>
+              <BookOpen size={20} color="#171F50" />
+              <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#13162B' }}>
                 Tu Filosofía y Receta Pedagógica Personal
               </h3>
             </div>
-            <p style={{ fontSize: '13px', color: '#64748B', margin: '0 0 14px', lineHeight: 1.5 }}>
+            <p style={{ fontSize: '13px', color: '#576579', margin: '0 0 14px', lineHeight: 1.5 }}>
               Escribe anotaciones libres sobre lo que mejor te funciona con tus grupos. Gemini las tomará como directiva central de redacción:
             </p>
             <textarea
@@ -992,7 +992,7 @@ export default function AdnPedagogicoPage() {
                 backgroundColor: '#FFFFFF',
                 color: '#1E293B'
               }}
-              onFocus={(e) => e.target.style.borderColor = '#1A4D43'}
+              onFocus={(e) => e.target.style.borderColor = '#171F50'}
               onBlur={(e) => e.target.style.borderColor = '#CBD5E1'}
             />
           </div>
@@ -1007,12 +1007,12 @@ export default function AdnPedagogicoPage() {
           {/* Ejes Institucionales */}
           <div className="adn-card-box">
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-              <Layers size={20} color="#1A4D43" />
-              <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#142A26' }}>
+              <Layers size={20} color="#171F50" />
+              <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#13162B' }}>
                 Ejes Transversales Institucionales Prioritarios
               </h3>
             </div>
-            <p style={{ fontSize: '13px', color: '#64748B', margin: '0 0 18px', lineHeight: 1.5 }}>
+            <p style={{ fontSize: '13px', color: '#576579', margin: '0 0 18px', lineHeight: 1.5 }}>
               Selecciona los ejes curriculares que tu colegio promueve en los proyectos transversales (PRAE, STEAM, Convivencia) o añade los proyectos específicos de tu institución:
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
@@ -1094,7 +1094,7 @@ export default function AdnPedagogicoPage() {
           <div className="adn-card-box">
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
               <Compass size={20} color="#2563EB" />
-              <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#142A26' }}>
+              <h3 style={{ fontSize: '17px', fontWeight: 700, margin: 0, color: '#13162B' }}>
                 Articulación Interdisciplinar Habitual
               </h3>
             </div>
@@ -1126,7 +1126,7 @@ export default function AdnPedagogicoPage() {
                     <option key={idx} value={area}>{area}</option>
                   ))}
                 </select>
-                <div style={{ fontSize: '12px', color: '#64748B', marginTop: '6px' }}>
+                <div style={{ fontSize: '12px', color: '#576579', marginTop: '6px' }}>
                   Aparecerá preseleccionada en el formulario de nuevos planes transversales.
                 </div>
               </div>
@@ -1155,7 +1155,7 @@ export default function AdnPedagogicoPage() {
                     color: '#1E293B'
                   }}
                 />
-                <div style={{ fontSize: '12px', color: '#64748B', marginTop: '6px' }}>
+                <div style={{ fontSize: '12px', color: '#576579', marginTop: '6px' }}>
                   Sirve como hilo conductor para conectar los aprendizajes de ambas disciplinas.
                 </div>
               </div>
@@ -1172,10 +1172,10 @@ export default function AdnPedagogicoPage() {
           <div className="adn-card-box">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px', marginBottom: '20px' }}>
               <div>
-                <h3 style={{ fontSize: '17px', fontWeight: 700, margin: '0 0 4px', color: '#142A26' }}>
+                <h3 style={{ fontSize: '17px', fontWeight: 700, margin: '0 0 4px', color: '#13162B' }}>
                   Banco de Recursos Probados y Efectivos en Aula
                 </h3>
-                <p style={{ fontSize: '13px', color: '#64748B', margin: 0 }}>
+                <p style={{ fontSize: '13px', color: '#576579', margin: 0 }}>
                   Materiales didácticos generados que han demostrado alto engagement y efectividad formativa con tus estudiantes.
                 </p>
               </div>
@@ -1187,15 +1187,15 @@ export default function AdnPedagogicoPage() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '7px',
-                  background: '#1A4D43',
-                  color: '#FFFDF9',
+                  background: '#171F50',
+                  color: '#FFFFFF',
                   border: 'none',
                   borderRadius: '12px',
                   padding: '9px 16px',
                   fontSize: '13px',
                   fontWeight: 600,
                   cursor: 'pointer',
-                  boxShadow: '0 2px 8px rgba(26, 77, 67, 0.25)'
+                  boxShadow: '0 2px 8px rgba(23, 31, 80, 0.25)'
                 }}
               >
                 <Plus size={15} />
@@ -1206,7 +1206,7 @@ export default function AdnPedagogicoPage() {
             {/* Formulario para añadir recurso probado */}
             {showAddResource && (
               <form onSubmit={handleCreateResource} style={{ background: '#F8FAFC', border: '1.5px dashed #CBD5E1', borderRadius: '16px', padding: '20px', marginBottom: '24px' }}>
-                <h4 style={{ margin: '0 0 14px', fontSize: '15px', fontWeight: 700, color: '#142A26' }}>
+                <h4 style={{ margin: '0 0 14px', fontSize: '15px', fontWeight: 700, color: '#13162B' }}>
                   Registrar un recurso didáctico exitoso en el aula
                 </h4>
                 
@@ -1276,7 +1276,7 @@ export default function AdnPedagogicoPage() {
                   <button type="button" onClick={() => setShowAddResource(false)} style={{ padding: '8px 16px', borderRadius: '10px', border: '1px solid #CBD5E1', background: '#FFF', fontSize: '13px', cursor: 'pointer' }}>
                     Cancelar
                   </button>
-                  <button type="submit" style={{ padding: '8px 18px', borderRadius: '10px', border: 'none', background: '#1A4D43', color: '#FFF', fontWeight: 700, fontSize: '13px', cursor: 'pointer' }}>
+                  <button type="submit" style={{ padding: '8px 18px', borderRadius: '10px', border: 'none', background: '#171F50', color: '#FFF', fontWeight: 700, fontSize: '13px', cursor: 'pointer' }}>
                     Guardar Recurso en Banco
                   </button>
                 </div>
@@ -1285,7 +1285,7 @@ export default function AdnPedagogicoPage() {
 
             {/* Listado de recursos probados en cards */}
             {(!recursosProbados || recursosProbados.length === 0) ? (
-              <div style={{ textAlign: 'center', padding: '48px 20px', color: '#64748B' }}>
+              <div style={{ textAlign: 'center', padding: '48px 20px', color: '#576579' }}>
                 <FolderCheck size={44} style={{ opacity: 0.35, margin: '0 auto 12px auto', display: 'block' }} />
                 <p style={{ fontSize: '14.5px', margin: 0, fontWeight: 500 }}>
                   Aún no tienes recursos registrados en tu banco probado. Puedes añadir uno nuevo arriba o valorar materiales al sistematizar tus experiencias.
@@ -1308,13 +1308,13 @@ export default function AdnPedagogicoPage() {
                   }}>
                     <div>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '10px', marginBottom: '8px' }}>
-                        <h4 style={{ fontSize: '15px', fontWeight: 700, color: '#142A26', margin: 0 }}>
+                        <h4 style={{ fontSize: '15px', fontWeight: 700, color: '#13162B', margin: 0 }}>
                           {rec.title}
                         </h4>
                         <button
                           type="button"
                           onClick={() => handleDeleteResource(rec.id)}
-                          style={{ background: 'none', border: 'none', color: '#94A3B8', cursor: 'pointer', padding: '2px' }}
+                          style={{ background: 'none', border: 'none', color: '#54657E', cursor: 'pointer', padding: '2px' }}
                           title="Eliminar de recursos probados"
                         >
                           <Trash2 size={15} />
@@ -1332,7 +1332,7 @@ export default function AdnPedagogicoPage() {
                             }} 
                           />
                         ))}
-                        <span style={{ fontSize: '11.5px', fontWeight: 700, color: '#059669', marginLeft: '6px', background: '#ECFDF5', padding: '2px 8px', borderRadius: '12px' }}>
+                        <span style={{ fontSize: '11.5px', fontWeight: 700, color: '#172060', marginLeft: '6px', background: '#ECFDF5', padding: '2px 8px', borderRadius: '12px' }}>
                           {rec.efectividad || 'Alta efectividad'}
                         </span>
                       </div>
@@ -1343,10 +1343,10 @@ export default function AdnPedagogicoPage() {
                     </div>
 
                     <div style={{ borderTop: '1px solid #F1F5F9', paddingTop: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '11.5px', color: '#94A3B8', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                      <span style={{ fontSize: '11.5px', color: '#54657E', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                         Tipo: {rec.type}
                       </span>
-                      <span style={{ fontSize: '11.5px', color: '#1A4D43', fontWeight: 700 }}>
+                      <span style={{ fontSize: '11.5px', color: '#171F50', fontWeight: 700 }}>
                         Probado en aula ✓
                       </span>
                     </div>

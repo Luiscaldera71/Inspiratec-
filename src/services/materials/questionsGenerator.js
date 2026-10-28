@@ -446,6 +446,7 @@ export function generateInteractiveQuestionsHTML({
 
     function selectOption(idx) {
       userAnswers[currentIndex] = idx;
+      if (window.InspiraTrack) InspiraTrack.progress(userAnswers.filter(function (a) { return a !== null; }).length, questions.length);
       updateQuestion();
     }
 
@@ -476,6 +477,7 @@ export function generateInteractiveQuestionsHTML({
       });
 
       document.getElementById('finalScore').innerText = correctCount;
+      if (window.InspiraTrack) InspiraTrack.finish(correctCount, questions.length);
       document.getElementById('finalTotal').innerText = 'de ' + questions.length + ' correctas';
 
       const pct = (correctCount / questions.length) * 100;
@@ -499,6 +501,7 @@ export function generateInteractiveQuestionsHTML({
     }
 
     // Iniciar en la primera pregunta
+    if (window.InspiraTrack) InspiraTrack.register();
     updateQuestion();
   </script>
 </body>

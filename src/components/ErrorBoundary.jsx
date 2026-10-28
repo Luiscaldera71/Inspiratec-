@@ -34,18 +34,18 @@ export default class ErrorBoundary extends React.Component {
           <div style={{
             maxWidth: '520px',
             width: '100%',
-            backgroundColor: 'rgba(255, 254, 250, 0.95)',
-            border: '1px solid rgba(49, 91, 84, 0.2)',
+            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+            border: '1px solid rgba(53, 86, 224, 0.2)',
             borderRadius: '20px',
             padding: '36px 28px',
-            boxShadow: '0 12px 32px rgba(16, 36, 32, 0.12)'
+            boxShadow: '0 12px 32px rgba(30, 45, 110, 0.12)'
           }}>
             <div style={{
               width: '56px',
               height: '56px',
               borderRadius: '50%',
               backgroundColor: 'rgba(239, 68, 68, 0.12)',
-              color: '#DC2626',
+              color: '#C42020',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -53,10 +53,10 @@ export default class ErrorBoundary extends React.Component {
             }}>
               <AlertCircle size={30} />
             </div>
-            <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#142B25', marginBottom: '10px' }}>
+            <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#172554', marginBottom: '10px' }}>
               Ocurrió un error al cargar la vista
             </h2>
-            <p style={{ fontSize: '14px', color: '#576864', lineHeight: 1.6, marginBottom: '24px' }}>
+            <p style={{ fontSize: '14px', color: '#3E4781', lineHeight: 1.6, marginBottom: '24px' }}>
               {this.state.error?.message || 'Se produjo un problema inesperado al renderizar este módulo pedagógico.'}
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>

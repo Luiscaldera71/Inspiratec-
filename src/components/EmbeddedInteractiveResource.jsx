@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { generateHtmlResource } from '../services/aiService';
 import { useAppStore } from '../store/useAppStore';
+import EnviarEnLinea from './sesiones/EnviarEnLinea';
 
 /**
  * EmbeddedInteractiveResource
@@ -177,8 +178,8 @@ export default function EmbeddedInteractiveResource({ prompt = '', title = 'Recu
               width: '36px', 
               height: '36px', 
               borderRadius: '10px', 
-              backgroundColor: 'rgba(71, 122, 114, 0.14)', 
-              color: '#142B25', 
+              backgroundColor: 'rgba(79, 125, 245, 0.14)', 
+              color: '#172554', 
               display: 'flex', 
               alignItems: 'center', 
               justifyContent: 'center',
@@ -188,7 +189,7 @@ export default function EmbeddedInteractiveResource({ prompt = '', title = 'Recu
             <Sparkles size={18} />
           </div>
           <div style={{ minWidth: 0, flex: 1, maxWidth: '100%' }}>
-            <div style={{ fontSize: '11.5px', fontWeight: 700, color: '#315B54', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '2px', wordBreak: 'break-word' }}>
+            <div style={{ fontSize: '11.5px', fontWeight: 700, color: '#3556E0', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '2px', wordBreak: 'break-word' }}>
               Recurso sugerido
             </div>
             <div 
@@ -196,7 +197,7 @@ export default function EmbeddedInteractiveResource({ prompt = '', title = 'Recu
               style={{ 
                 fontSize: '14.5px', 
                 fontWeight: 600, 
-                color: '#142B25', 
+                color: '#172554', 
                 lineHeight: '1.45',
                 wordBreak: 'break-word',
                 overflowWrap: 'anywhere'
@@ -221,7 +222,7 @@ export default function EmbeddedInteractiveResource({ prompt = '', title = 'Recu
               alignItems: 'center',
               justifyContent: 'center',
               gap: '8px',
-              backgroundColor: '#315B54',
+              backgroundColor: '#3556E0',
               color: '#FFFFFF',
               border: 'none',
               borderRadius: '10px',
@@ -244,17 +245,17 @@ export default function EmbeddedInteractiveResource({ prompt = '', title = 'Recu
             alignItems: 'center', 
             justifyContent: 'center', 
             padding: '40px 20px', 
-            backgroundColor: 'rgba(49, 91, 84, 0.05)', 
+            backgroundColor: 'rgba(53, 86, 224, 0.05)', 
             borderRadius: '14px',
-            border: '1px dashed rgba(49, 91, 84, 0.3)',
+            border: '1px dashed rgba(53, 86, 224, 0.3)',
             marginTop: '12px'
           }}
         >
-          <Loader2 size={32} className="spin" style={{ color: '#315B54', marginBottom: '12px' }} />
-          <h4 style={{ margin: '0 0 4px 0', fontSize: '15px', fontWeight: 700, color: '#142B25' }}>
+          <Loader2 size={32} className="spin" style={{ color: '#3556E0', marginBottom: '12px' }} />
+          <h4 style={{ margin: '0 0 4px 0', fontSize: '15px', fontWeight: 700, color: '#172554' }}>
             Generando recurso interactivo...
           </h4>
-          <p style={{ margin: 0, fontSize: '13px', color: '#576864', textAlign: 'center', maxWidth: '440px' }}>
+          <p style={{ margin: 0, fontSize: '13px', color: '#3E4781', textAlign: 'center', maxWidth: '440px' }}>
             Puede tardar hasta un minuto.
           </p>
         </div>
@@ -272,7 +273,7 @@ export default function EmbeddedInteractiveResource({ prompt = '', title = 'Recu
             border: '1px solid rgba(239, 68, 68, 0.3)', 
             borderRadius: '10px',
             marginTop: '12px',
-            color: '#DC2626',
+            color: '#C42020',
             fontSize: '13.5px'
           }}
         >
@@ -299,7 +300,7 @@ export default function EmbeddedInteractiveResource({ prompt = '', title = 'Recu
               height: '420px', 
               borderRadius: '14px', 
               overflow: 'hidden', 
-              border: '1px solid rgba(49, 91, 84, 0.25)', 
+              border: '1px solid rgba(53, 86, 224, 0.25)', 
               boxShadow: '0 4px 16px rgba(0,0,0,0.06)',
               backgroundColor: '#FFFFFF',
               position: 'relative'
@@ -325,12 +326,13 @@ export default function EmbeddedInteractiveResource({ prompt = '', title = 'Recu
               gap: '10px', 
               marginTop: '14px',
               paddingTop: '12px',
-              borderTop: '1px solid rgba(49, 91, 84, 0.12)',
+              borderTop: '1px solid rgba(53, 86, 224, 0.12)',
               width: '100%',
               boxSizing: 'border-box'
             }}
           >
             <div className="generatable-resource-btn-group" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', width: '100%', boxSizing: 'border-box' }}>
+              <EnviarEnLinea titulo={cleanPrompt} html={htmlContent} />
               <button
                 type="button"
                 className="btn btn-outline"
@@ -343,14 +345,14 @@ export default function EmbeddedInteractiveResource({ prompt = '', title = 'Recu
                   alignItems: 'center',
                   gap: '6px',
                   backgroundColor: 'transparent',
-                  color: '#142B25',
+                  color: '#172554',
                   borderRadius: '8px',
                   border: '1px solid #D4AF37',
                   cursor: 'pointer'
                 }}
                 title="Compartir recurso con estudiantes o colegas"
               >
-                <Share2 size={14} style={{ color: '#B45309' }} /> Compartir
+                <Share2 size={14} style={{ color: '#A14A08' }} /> Compartir
               </button>
 
               <button
@@ -364,7 +366,7 @@ export default function EmbeddedInteractiveResource({ prompt = '', title = 'Recu
                   display: 'flex',
                   alignItems: 'center',
                   gap: '6px',
-                  backgroundColor: '#315B54',
+                  backgroundColor: '#3556E0',
                   color: '#FFFFFF',
                   borderRadius: '8px',
                   border: 'none',
@@ -386,9 +388,9 @@ export default function EmbeddedInteractiveResource({ prompt = '', title = 'Recu
                   alignItems: 'center',
                   gap: '6px',
                   backgroundColor: 'transparent',
-                  color: '#142B25',
+                  color: '#172554',
                   borderRadius: '8px',
-                  border: '1px solid rgba(49, 91, 84, 0.3)',
+                  border: '1px solid rgba(53, 86, 224, 0.3)',
                   cursor: 'pointer'
                 }}
               >
@@ -408,8 +410,8 @@ export default function EmbeddedInteractiveResource({ prompt = '', title = 'Recu
                   alignItems: 'center',
                   gap: '6px',
                   backgroundColor: isAnexado ? 'rgba(22, 163, 74, 0.12)' : 'transparent',
-                  color: isAnexado ? '#166534' : '#142B25',
-                  borderColor: isAnexado ? '#166534' : 'rgba(49, 91, 84, 0.3)',
+                  color: isAnexado ? '#166534' : '#172554',
+                  borderColor: isAnexado ? '#166534' : 'rgba(53, 86, 224, 0.3)',
                   borderRadius: '8px',
                   cursor: isAnexado ? 'default' : 'pointer'
                 }}
@@ -431,7 +433,7 @@ export default function EmbeddedInteractiveResource({ prompt = '', title = 'Recu
                 gap: '5px',
                 background: 'none',
                 border: 'none',
-                color: '#576864',
+                color: '#3E4781',
                 cursor: 'pointer'
               }}
               title="Regenerar recurso interactivo"
@@ -451,7 +453,7 @@ export default function EmbeddedInteractiveResource({ prompt = '', title = 'Recu
             position: 'fixed',
             inset: 0,
             zIndex: 9999,
-            backgroundColor: 'rgba(16, 36, 32, 0.85)',
+            backgroundColor: 'rgba(30, 45, 110, 0.85)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
             display: 'flex',
@@ -488,7 +490,7 @@ export default function EmbeddedInteractiveResource({ prompt = '', title = 'Recu
                 type="button"
                 className="btn btn-primary"
                 onClick={handleDownload}
-                style={{ padding: '8px 16px', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '6px', backgroundColor: '#315B54', color: '#FFF', border: 'none', borderRadius: '8px' }}
+                style={{ padding: '8px 16px', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '6px', backgroundColor: '#3556E0', color: '#FFF', border: 'none', borderRadius: '8px' }}
               >
                 <Download size={14} /> Descargar HTML
               </button>

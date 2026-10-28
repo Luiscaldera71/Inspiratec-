@@ -97,7 +97,7 @@ export default function SesionesPanel({ abrir, onCerrarConstructor, planGenerado
           <div style={{ minWidth: 0, flex: '1 1 220px' }}>
             <div style={{ fontWeight: 700, color: colors.dark, overflowWrap: 'anywhere' }}>{s.titulo}</div>
             <div style={{ fontSize: 12, color: colors.muted }}>
-              {s.tipo === 'evaluacion' ? <><ClipboardCheck size={12} /> Evaluación</> : <><Radio size={12} /> Clase en vivo</>} · Código {s.id} · {s.estado === 'abierta' ? 'Abierta' : 'Cerrada'}
+              {s.tipo === 'evaluacion' ? <><ClipboardCheck size={12} /> Evaluación</> : s.tipo === 'recurso' ? <><QrCode size={12} /> Actividad interactiva</> : <><Radio size={12} /> Clase en vivo</>} · Código {s.id} · {s.estado === 'abierta' ? 'Abierta' : 'Cerrada'}
             </div>
           </div>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>

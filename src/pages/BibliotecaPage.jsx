@@ -95,26 +95,26 @@ export default function BibliotecaPage() {
       <header 
         className="mgmt-header"
         style={{
-          backgroundColor: 'rgba(255, 254, 250, 0.86)',
+          backgroundColor: 'rgba(255, 255, 255, 0.86)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '18px',
           padding: '16px 22px',
           marginBottom: '12px',
-          boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+          boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
         }}
       >
         <div className="mgmt-header-info">
           <div>
             <div className="editorial-badge" style={{ marginBottom: '8px' }}>
-              <Library size={14} color="#2B524A" />
+              <Library size={14} color="#2B3F9E" />
               <span>Recursos Didácticos Abiertos</span>
             </div>
-            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#142B25', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
+            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#172554', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
               Biblioteca Comunitaria
             </h1>
-            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#243630', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
+            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#2A3566', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
               Explora, consulta y clona secuencias didácticas compartidas abiertamente por la red de docentes. Adapta cualquier experiencia a las necesidades de tu contexto escolar.
             </p>
           </div>
@@ -132,14 +132,14 @@ export default function BibliotecaPage() {
       <div 
         className="mgmt-filter-bar"
         style={{
-          backgroundColor: 'rgba(255, 254, 250, 0.86)',
+          backgroundColor: 'rgba(255, 255, 255, 0.86)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '16px',
           padding: '10px 16px',
           marginBottom: '12px',
-          boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+          boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
         }}
       >
         <div className="mgmt-search-box">
@@ -168,9 +168,9 @@ export default function BibliotecaPage() {
               backgroundColor: 'rgba(255, 255, 255, 0.85)',
               backdropFilter: 'blur(8px)',
               WebkitBackdropFilter: 'blur(8px)',
-              border: '1px solid rgba(49, 91, 84, 0.22)',
+              border: '1px solid rgba(53, 86, 224, 0.22)',
               borderRadius: '12px',
-              color: '#142B25'
+              color: '#172554'
             }}
             aria-label="Filtrar por grado escolar"
           >
@@ -193,12 +193,12 @@ export default function BibliotecaPage() {
         <div 
           className="mgmt-empty-card"
           style={{
-            backgroundColor: 'rgba(255, 254, 250, 0.88)',
+            backgroundColor: 'rgba(255, 255, 255, 0.88)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
             border: '1px solid rgba(255, 255, 255, 0.94)',
             borderRadius: '24px',
-            boxShadow: '0 12px 36px rgba(16, 36, 32, 0.10)'
+            boxShadow: '0 12px 36px rgba(30, 45, 110, 0.10)'
           }}
         >
           <div className="mgmt-empty-icon">
@@ -238,12 +238,12 @@ export default function BibliotecaPage() {
                 onKeyDown={(e) => { if (e.key === 'Enter') setPreviewPlan(rec); }}
                 aria-label={`Ver recurso ${titulo}`}
                 style={{
-                  backgroundColor: 'rgba(255, 254, 250, 0.88)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.88)',
                   backdropFilter: 'blur(16px)',
                   WebkitBackdropFilter: 'blur(16px)',
                   border: '1px solid rgba(255, 255, 255, 0.94)',
                   borderRadius: '20px',
-                  boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+                  boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
                 }}
               >
                 <div className="mgmt-card-header">
@@ -313,12 +313,12 @@ export default function BibliotecaPage() {
             className="modal-glass-card" 
             style={{ 
               maxWidth: '860px',
-              backgroundColor: 'rgba(255, 254, 250, 0.94)',
+              backgroundColor: 'rgba(255, 255, 255, 0.94)',
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
               border: '1px solid rgba(255, 255, 255, 0.96)',
               borderRadius: '24px',
-              boxShadow: '0 24px 60px rgba(16, 36, 32, 0.22)'
+              boxShadow: '0 24px 60px rgba(30, 45, 110, 0.22)'
             }}
           >
             <div className="modal-glass-header">
@@ -327,11 +327,11 @@ export default function BibliotecaPage() {
                   width: '40px',
                   height: '40px',
                   borderRadius: '12px',
-                  backgroundColor: 'rgba(71, 122, 114, 0.14)',
+                  backgroundColor: 'rgba(79, 125, 245, 0.14)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#1C3D36',
+                  color: '#1A1F3F',
                   flexShrink: 0
                 }}>
                   <BookOpen size={20} />
@@ -340,7 +340,7 @@ export default function BibliotecaPage() {
                   <h3 id="preview-plan-title" className="modal-glass-title" style={{ fontSize: '18px' }}>
                     {previewPlan.tema || previewPlan.metadata?.tema || 'Plan de Clase'}
                   </h3>
-                  <span style={{ fontSize: '12.5px', color: '#527068' }}>
+                  <span style={{ fontSize: '12.5px', color: '#3C447C' }}>
                     Compartido por {previewPlan.metadata?.autor || 'Docente de la Comunidad'}
                   </span>
                 </div>
@@ -358,7 +358,7 @@ export default function BibliotecaPage() {
               <div style={{ 
                 marginBottom: '20px', 
                 padding: '14px 18px', 
-                backgroundColor: 'rgba(255, 254, 250, 0.88)', 
+                backgroundColor: 'rgba(255, 255, 255, 0.88)', 
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(255, 255, 255, 0.94)',
@@ -367,14 +367,14 @@ export default function BibliotecaPage() {
                 gap: '24px', 
                 flexWrap: 'wrap', 
                 fontSize: '13px', 
-                color: '#142B25',
-                boxShadow: '0 4px 16px rgba(20, 42, 38, 0.05)'
+                color: '#172554',
+                boxShadow: '0 4px 16px rgba(23, 37, 84, 0.05)'
               }}>
                 <span><strong>Materia:</strong> {previewPlan.metadata?.materia || previewPlan.materia || 'General'}</span>
                 <span><strong>Grado:</strong> {previewPlan.metadata?.grado || previewPlan.grado || 'General'}</span>
               </div>
 
-              <article className="markdown-content" style={{ color: '#142B25' }}>
+              <article className="markdown-content" style={{ color: '#172554' }}>
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                   {previewPlan.markdown || '_Sin contenido markdown disponible para este plan._'}
                 </ReactMarkdown>

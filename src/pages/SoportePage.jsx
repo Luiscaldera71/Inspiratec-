@@ -29,21 +29,21 @@ export default function SoportePage() {
           style={{ 
             textAlign: 'center', 
             padding: '56px 36px', 
-            backgroundColor: 'rgba(255, 254, 250, 0.88)',
+            backgroundColor: 'rgba(255, 255, 255, 0.88)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
             border: '1px solid rgba(255, 255, 255, 0.94)',
             borderRadius: '24px',
-            boxShadow: '0 12px 36px rgba(16, 36, 32, 0.10)'
+            boxShadow: '0 12px 36px rgba(30, 45, 110, 0.10)'
           }}
         >
           <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: 'rgba(22, 163, 74, 0.16)', color: '#166534', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
             <CheckCircle2 size={36} />
           </div>
-          <h2 style={{ color: '#142B25', fontSize: '26px', fontWeight: 700, margin: '0 0 10px 0', fontFamily: 'var(--font-heading)' }}>
+          <h2 style={{ color: '#172554', fontSize: '26px', fontWeight: 700, margin: '0 0 10px 0', fontFamily: 'var(--font-heading)' }}>
             ¡Ticket Enviado con Éxito!
           </h2>
-          <p style={{ color: '#2B453E', fontSize: '15.5px', maxWidth: '520px', margin: '0 auto 28px', lineHeight: '1.6' }}>
+          <p style={{ color: '#242A4C', fontSize: '15.5px', maxWidth: '520px', margin: '0 auto 28px', lineHeight: '1.6' }}>
             Hemos recibido tu solicitud técnica. Nuestro equipo de administración curricular la revisará y podrás consultar la respuesta en tu bandeja o en la pestaña de notificaciones.
           </p>
           <button 
@@ -85,29 +85,29 @@ export default function SoportePage() {
       <header 
         className="mgmt-header"
         style={{
-          backgroundColor: 'rgba(255, 254, 250, 0.86)',
+          backgroundColor: 'rgba(255, 255, 255, 0.86)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '18px',
           padding: '16px 22px',
           marginBottom: '12px',
-          boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+          boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
         }}
       >
         <div className="mgmt-header-info">
-          <div className="mgmt-header-icon" style={{ backgroundColor: 'rgba(71, 122, 114, 0.16)', color: '#183630', borderRadius: '14px', width: '46px', height: '46px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className="mgmt-header-icon" style={{ backgroundColor: 'rgba(79, 125, 245, 0.16)', color: '#1F2E7A', borderRadius: '14px', width: '46px', height: '46px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <LifeBuoy size={24} />
           </div>
           <div>
             <div className="editorial-badge" style={{ marginBottom: '8px' }}>
-              <ShieldCheck size={13} color="#2B524A" />
+              <ShieldCheck size={13} color="#2B3F9E" />
               <span>Mesa de Ayuda y Soporte Técnico</span>
             </div>
-            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#142B25', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
+            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#172554', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
               Soporte Técnico Institucional
             </h1>
-            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#243630', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
+            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#2A3566', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
               ¿Tienes dificultades con el asistente de IA, generación de planes o configuración de tu cuenta? Estamos aquí para acompañarte.
             </p>
           </div>
@@ -133,24 +133,24 @@ export default function SoportePage() {
           className="mgmt-card" 
           style={{ 
             padding: '20px 24px',
-            backgroundColor: 'rgba(255, 254, 250, 0.88)',
+            backgroundColor: 'rgba(255, 255, 255, 0.88)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
             border: '1px solid rgba(255, 255, 255, 0.94)',
             borderRadius: '20px',
-            boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+            boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
           }}
         >
-          <div style={{ marginBottom: '14px', borderBottom: '1px solid rgba(49, 91, 84, 0.14)', paddingBottom: '10px' }}>
-            <h2 style={{ fontSize: '17px', color: '#142B25', margin: 0, fontWeight: 700 }}>
+          <div style={{ marginBottom: '14px', borderBottom: '1px solid rgba(53, 86, 224, 0.14)', paddingBottom: '10px' }}>
+            <h2 style={{ fontSize: '17px', color: '#172554', margin: 0, fontWeight: 700 }}>
               Crear Nuevo Ticket de Asistencia
             </h2>
           </div>
 
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
             <div className="input-group" style={{ margin: 0 }}>
-              <label htmlFor="soporte-asunto" style={{ fontWeight: 600, color: '#142B25', display: 'block', marginBottom: '8px', fontSize: '13.5px' }}>
-                Asunto del caso <span style={{ color: '#DC2626' }}>*</span>
+              <label htmlFor="soporte-asunto" style={{ fontWeight: 600, color: '#172554', display: 'block', marginBottom: '8px', fontSize: '13.5px' }}>
+                Asunto del caso <span style={{ color: '#C42020' }}>*</span>
               </label>
               <input 
                 id="soporte-asunto"
@@ -161,7 +161,7 @@ export default function SoportePage() {
                 className="wizard-input"
                 style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.80)',
-                  border: '1.5px solid rgba(49, 91, 84, 0.20)',
+                  border: '1.5px solid rgba(53, 86, 224, 0.20)',
                   borderRadius: '12px'
                 }}
                 required
@@ -169,8 +169,8 @@ export default function SoportePage() {
             </div>
 
             <div className="input-group" style={{ margin: 0 }}>
-              <label htmlFor="soporte-desc" style={{ fontWeight: 600, color: '#142B25', display: 'block', marginBottom: '8px', fontSize: '13.5px' }}>
-                Descripción detallada del problema <span style={{ color: '#DC2626' }}>*</span>
+              <label htmlFor="soporte-desc" style={{ fontWeight: 600, color: '#172554', display: 'block', marginBottom: '8px', fontSize: '13.5px' }}>
+                Descripción detallada del problema <span style={{ color: '#C42020' }}>*</span>
               </label>
               <textarea 
                 id="soporte-desc"
@@ -181,12 +181,12 @@ export default function SoportePage() {
                 style={{ 
                   height: '140px',
                   backgroundColor: 'rgba(255, 255, 255, 0.80)',
-                  border: '1.5px solid rgba(49, 91, 84, 0.20)',
+                  border: '1.5px solid rgba(53, 86, 224, 0.20)',
                   borderRadius: '12px'
                 }}
                 required
               />
-              <span style={{ fontSize: '12.5px', color: '#4A635B', marginTop: '6px', display: 'block' }}>
+              <span style={{ fontSize: '12.5px', color: '#384075', marginTop: '6px', display: 'block' }}>
                 Incluye detalles como la materia o si el problema ocurre en un dispositivo específico.
               </span>
             </div>
@@ -212,21 +212,21 @@ export default function SoportePage() {
             className="mgmt-card" 
             style={{ 
               padding: '16px 20px', 
-              backgroundColor: 'rgba(255, 254, 250, 0.88)',
+              backgroundColor: 'rgba(255, 255, 255, 0.88)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               border: '1px solid rgba(255, 255, 255, 0.94)',
               borderRadius: '16px',
-              boxShadow: '0 6px 18px rgba(16, 36, 32, 0.06)'
+              boxShadow: '0 6px 18px rgba(30, 45, 110, 0.06)'
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-              <Sparkles size={18} color="#183630" />
-              <h3 style={{ fontSize: '14.5px', color: '#142B25', margin: 0, fontWeight: 700 }}>
+              <Sparkles size={18} color="#1F2E7A" />
+              <h3 style={{ fontSize: '14.5px', color: '#172554', margin: 0, fontWeight: 700 }}>
                 ¿Falla la generación con IA?
               </h3>
             </div>
-            <p style={{ fontSize: '13px', color: '#2B453E', lineHeight: '1.5', margin: 0 }}>
+            <p style={{ fontSize: '13px', color: '#242A4C', lineHeight: '1.5', margin: 0 }}>
               Verifica que tu API Key de Google Gemini esté activa y sin espacios al inicio o final en la pestaña de <strong>Configuración IA</strong>. Puedes generar una nueva clave gratuita en Google AI Studio en menos de un minuto.
             </p>
           </div>
@@ -235,21 +235,21 @@ export default function SoportePage() {
             className="mgmt-card" 
             style={{ 
               padding: '16px 20px', 
-              backgroundColor: 'rgba(255, 254, 250, 0.88)',
+              backgroundColor: 'rgba(255, 255, 255, 0.88)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               border: '1px solid rgba(255, 255, 255, 0.94)',
               borderRadius: '16px',
-              boxShadow: '0 6px 18px rgba(16, 36, 32, 0.06)'
+              boxShadow: '0 6px 18px rgba(30, 45, 110, 0.06)'
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-              <AlertCircle size={18} color="#183630" />
-              <h3 style={{ fontSize: '14.5px', color: '#142B25', margin: 0, fontWeight: 700 }}>
+              <AlertCircle size={18} color="#1F2E7A" />
+              <h3 style={{ fontSize: '14.5px', color: '#172554', margin: 0, fontWeight: 700 }}>
                 Protección de tus Datos
               </h3>
             </div>
-            <p style={{ fontSize: '13px', color: '#2B453E', lineHeight: '1.5', margin: 0 }}>
+            <p style={{ fontSize: '13px', color: '#242A4C', lineHeight: '1.5', margin: 0 }}>
               Tus solicitudes son confidenciales y están respaldadas por nuestra política de tratamiento de datos personales (Ley 1581 de 2012). Ninguna información sensible es compartida públicamente.
             </p>
           </div>

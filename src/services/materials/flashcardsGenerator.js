@@ -159,6 +159,7 @@ export function generateInteractiveFlashcardsHTML({
     (function() {
       var cards = ${cardsJson};
       var currentIndex = 0;
+      var viewed = {};
       var cardObject = document.getElementById('cardObject');
       var cardScene = document.getElementById('cardScene');
       var tagFront = document.getElementById('tagFront');
@@ -178,6 +179,12 @@ export function generateInteractiveFlashcardsHTML({
         textFront.textContent = c.front;
         textBack.textContent = c.back;
         counter.textContent = (idx + 1) + ' / ' + cards.length;
+        viewed[idx] = true;
+        var seen = Object.keys(viewed).length;
+        if (window.InspiraTrack) {
+          InspiraTrack.progress(seen, cards.length);
+          if (seen >= cards.length) InspiraTrack.done();
+        }
       }
 
       function flipCard() {

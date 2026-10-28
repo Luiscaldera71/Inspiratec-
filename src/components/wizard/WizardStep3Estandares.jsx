@@ -62,7 +62,7 @@ export default function WizardStep3Estandares({
               }}
               title="Abrir mapa conceptual y red de prerrequisitos de la Guía 30 del MEN"
             >
-              <GitFork size={15} color="#315B54" />
+              <GitFork size={15} color="#3556E0" />
               <span>Grafo de Prerrequisitos (MEN)</span>
             </button>
 
@@ -132,7 +132,7 @@ export default function WizardStep3Estandares({
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'rgba(16, 36, 32, 0.65)',
+            backgroundColor: 'rgba(30, 45, 110, 0.65)',
             backdropFilter: 'blur(8px)',
             WebkitBackdropFilter: 'blur(8px)',
             zIndex: 9999,
@@ -147,10 +147,10 @@ export default function WizardStep3Estandares({
         >
           <div
             style={{
-              backgroundColor: 'rgba(255, 254, 250, 0.98)',
+              backgroundColor: 'rgba(255, 255, 255, 0.98)',
               borderRadius: '24px',
               border: '1px solid rgba(255, 255, 255, 0.90)',
-              boxShadow: '0 20px 60px rgba(16, 36, 32, 0.25)',
+              boxShadow: '0 20px 60px rgba(30, 45, 110, 0.25)',
               width: '100%',
               maxWidth: '1040px',
               maxHeight: '90vh',
@@ -165,10 +165,10 @@ export default function WizardStep3Estandares({
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
               <div>
                 <div className="editorial-badge" style={{ marginBottom: '4px' }}>
-                  <GitFork size={13} color="#2B524A" />
+                  <GitFork size={13} color="#2B3F9E" />
                   <span>Modelo Ontológico del Dominio (STI Caro 2015 / Guía 30 MEN)</span>
                 </div>
-                <h2 id="graph-modal-title" style={{ fontFamily: 'var(--font-heading)', fontSize: '22px', color: '#142B25', margin: 0, fontWeight: 700 }}>
+                <h2 id="graph-modal-title" style={{ fontFamily: 'var(--font-heading)', fontSize: '22px', color: '#172554', margin: 0, fontWeight: 700 }}>
                   Grafo de prerrequisitos
                 </h2>
               </div>

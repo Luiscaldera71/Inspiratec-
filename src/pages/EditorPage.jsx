@@ -39,6 +39,7 @@ import { savePlanToDB, updatePlanInDB, getPlanById } from '../services/dbService
 import { auth } from '../firebase';
 import PageLoadingState from '../components/PageLoadingState';
 import { generateComplementaryMaterial } from '../services/aiService';
+import EnviarEnLinea from '../components/sesiones/EnviarEnLinea';
 import { exportPlanToPdf } from '../services/export/pdf/pdfEngine';
 import { exportPlanToWord } from '../services/export/word/wordEngine';
 import { formatCurricularMarkdown } from '../services/export/curricularMarkdownFormatter';
@@ -555,14 +556,14 @@ export default function EditorPage() {
     return (
       <div className="editor-view" style={{ textAlign: 'center', padding: '80px 20px' }}>
         <div className="mgmt-header" style={{ maxWidth: '640px', margin: '0 auto', textAlign: 'center', flexDirection: 'column', alignItems: 'center' }}>
-          <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: 'rgba(71, 122, 114, 0.16)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', color: '#142B25' }}>
+          <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: 'rgba(79, 125, 245, 0.16)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', color: '#172554' }}>
             <BookOpen size={30} />
           </div>
           <span className="editorial-badge">Planificador Curricular</span>
-          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '24px', color: '#142B25', marginBottom: '12px', fontWeight: 700 }}>
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '24px', color: '#172554', marginBottom: '12px', fontWeight: 700 }}>
             No hay una secuencia didáctica activa
           </h2>
-          <p style={{ color: '#3D5A53', fontSize: '15px', lineHeight: '1.6', marginBottom: '28px', maxWidth: '480px' }}>
+          <p style={{ color: '#313866', fontSize: '15px', lineHeight: '1.6', marginBottom: '28px', maxWidth: '480px' }}>
             Dirígete al asistente de creación para configurar los objetivos curriculares y generar una propuesta con el co-docente de IA.
           </p>
           <button className="btn btn-primary" onClick={() => navigate('/')} style={{ padding: '12px 24px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
@@ -604,8 +605,8 @@ export default function EditorPage() {
             alignItems: 'center',
             gap: '8px',
             backgroundColor: saveFeedback.type === 'success' ? 'rgba(236, 253, 245, 0.95)' : 'rgba(254, 242, 242, 0.95)',
-            color: saveFeedback.type === 'success' ? '#065F46' : '#991B1B',
-            border: saveFeedback.type === 'success' ? '1px solid rgba(16, 185, 129, 0.35)' : '1px solid rgba(239, 68, 68, 0.35)',
+            color: saveFeedback.type === 'success' ? '#131C52' : '#991B1B',
+            border: saveFeedback.type === 'success' ? '1px solid rgba(38, 55, 163, 0.35)' : '1px solid rgba(239, 68, 68, 0.35)',
             boxShadow: '0 4px 12px rgba(0,0,0,0.06)'
           }}
         >
@@ -618,21 +619,21 @@ export default function EditorPage() {
       <header 
         className="editor-toolbar-card"
         style={{
-          backgroundColor: 'rgba(255, 254, 250, 0.90)',
+          backgroundColor: 'rgba(255, 255, 255, 0.90)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '22px',
           padding: '20px 28px',
           marginBottom: '14px',
-          boxShadow: '0 12px 36px rgba(16, 36, 32, 0.10)',
+          boxShadow: '0 12px 36px rgba(30, 45, 110, 0.10)',
           width: '100%',
           boxSizing: 'border-box'
         }}
       >
         <div className="editor-toolbar-meta">
           <div className="editor-title-row">
-            <h1 className="editor-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#142B25', fontWeight: 700, letterSpacing: '-0.015em' }}>
+            <h1 className="editor-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#172554', fontWeight: 700, letterSpacing: '-0.015em' }}>
               {currentMetadata?.tema || 'Secuencia Didáctica'}
             </h1>
             <span className={`editor-badge ${planStatus === 'guardado' ? 'saved' : 'draft'}`}>
@@ -694,9 +695,9 @@ export default function EditorPage() {
           <button 
             className="editor-btn-pill" 
             style={{ 
-              backgroundColor: isEditMode ? 'rgba(71, 122, 114, 0.18)' : undefined,
-              borderColor: isEditMode ? 'rgba(71, 122, 114, 0.45)' : undefined,
-              color: isEditMode ? '#142B25' : undefined
+              backgroundColor: isEditMode ? 'rgba(79, 125, 245, 0.18)' : undefined,
+              borderColor: isEditMode ? 'rgba(79, 125, 245, 0.45)' : undefined,
+              color: isEditMode ? '#172554' : undefined
             }} 
             onClick={() => setIsEditMode(!isEditMode)}
             title={isEditMode ? "Ver documento pedagógico estructurado" : "Editar directamente los apartados y la secuencia didáctica del plan"}
@@ -749,7 +750,7 @@ export default function EditorPage() {
 
           <button 
             className="editor-btn-pill" 
-            style={{ background: 'transparent', border: 'none', boxShadow: 'none', color: '#477A72' }} 
+            style={{ background: 'transparent', border: 'none', boxShadow: 'none', color: '#384074' }} 
             onClick={() => { resetWizard(); navigate('/'); }}
             title="Iniciar nueva secuencia desde cero"
           >
@@ -810,7 +811,7 @@ export default function EditorPage() {
           }}
           title="Conversar y calibrar la secuencia didáctica con el co-docente de Inteligencia Artificial"
         >
-          <MessageSquare size={15} style={{ color: activeDocumentView === 'chat' ? '#5EEAD4' : '#D4AF37' }} /> 
+          <MessageSquare size={15} style={{ color: activeDocumentView === 'chat' ? '#6C7BDC' : '#D4AF37' }} /> 
           <span>Co-docente IA</span>
           {sesionChatIA && sesionChatIA.length > 0 && (
             <span className="editor-view-badge-count">{sesionChatIA.length}</span>
@@ -831,12 +832,12 @@ export default function EditorPage() {
           <div 
             className="editor-doc-card"
             style={{
-              backgroundColor: 'rgba(255, 254, 250, 0.90)',
+              backgroundColor: 'rgba(255, 255, 255, 0.90)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               border: '1px solid rgba(255, 255, 255, 0.94)',
               borderRadius: '22px',
-              boxShadow: '0 12px 36px rgba(16, 36, 32, 0.10)',
+              boxShadow: '0 12px 36px rgba(30, 45, 110, 0.10)',
               width: '100%',
               boxSizing: 'border-box'
             }}
@@ -852,13 +853,13 @@ export default function EditorPage() {
               />
             ) : loadError ? (
               <div style={{ padding: '72px 24px', textAlign: 'center' }}>
-                <div style={{ width: '56px', height: '56px', borderRadius: '50%', backgroundColor: 'rgba(239, 68, 68, 0.1)', color: '#DC2626', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto' }}>
+                <div style={{ width: '56px', height: '56px', borderRadius: '50%', backgroundColor: 'rgba(239, 68, 68, 0.1)', color: '#C42020', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto' }}>
                   <AlertCircle size={30} />
                 </div>
-                <h3 style={{ fontSize: '19px', fontWeight: 700, color: '#142B25', marginBottom: '8px' }}>
+                <h3 style={{ fontSize: '19px', fontWeight: 700, color: '#172554', marginBottom: '8px' }}>
                   {loadError}
                 </h3>
-                <p style={{ fontSize: '14px', color: '#576864', maxWidth: '420px', margin: '0 auto 24px auto', lineHeight: '1.5' }}>
+                <p style={{ fontSize: '14px', color: '#3E4781', maxWidth: '420px', margin: '0 auto 24px auto', lineHeight: '1.5' }}>
                   El documento solicitado no pudo ser recuperado. Puedes consultar tu lista de planes guardados o iniciar una nueva clase.
                 </p>
                 <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
@@ -872,13 +873,13 @@ export default function EditorPage() {
               </div>
             ) : !planGenerado ? (
               <div style={{ padding: '72px 24px', textAlign: 'center' }}>
-                <div style={{ width: '56px', height: '56px', borderRadius: '50%', backgroundColor: 'rgba(71, 122, 114, 0.12)', color: '#315B54', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto' }}>
+                <div style={{ width: '56px', height: '56px', borderRadius: '50%', backgroundColor: 'rgba(79, 125, 245, 0.12)', color: '#3556E0', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto' }}>
                   <BookOpen size={28} />
                 </div>
-                <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#142B25', marginBottom: '8px' }}>
+                <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#172554', marginBottom: '8px' }}>
                   No hay una planeación activa en el Editor
                 </h3>
-                <p style={{ fontSize: '14px', color: '#576864', maxWidth: '440px', margin: '0 auto 24px auto', lineHeight: '1.5' }}>
+                <p style={{ fontSize: '14px', color: '#3E4781', maxWidth: '440px', margin: '0 auto 24px auto', lineHeight: '1.5' }}>
                   Utiliza el Planificador para diseñar una nueva secuencia didáctica con asistencia de IA o abre un plan existente desde tu biblioteca.
                 </p>
                 <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
@@ -905,7 +906,7 @@ export default function EditorPage() {
                   <div className="editor-chat-standalone-view" style={{ maxWidth: '880px', width: '100%', margin: '0 auto', display: 'flex', flexDirection: 'column' }}>
                     <div className="editor-chat-header" style={{ marginBottom: '16px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px', flexWrap: 'wrap', gap: '8px' }}>
-                        <h2 style={{ fontSize: '18px', fontWeight: 700, color: '#142B25', margin: 0, display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-heading)' }}>
+                        <h2 style={{ fontSize: '18px', fontWeight: 700, color: '#172554', margin: 0, display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-heading)' }}>
                           <Sparkles size={20} style={{ color: '#D4AF37' }} /> Co-docente IA — Asistente Pedagógico
                         </h2>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -917,7 +918,7 @@ export default function EditorPage() {
                       </div>
 
                       {/* Selector de Modalidad Pedagógica: Pestañas separadas */}
-                      <div style={{ display: 'flex', gap: '6px', backgroundColor: 'rgba(49, 91, 84, 0.08)', padding: '4px', borderRadius: '12px' }} role="tablist" aria-label="Modalidad del co-docente">
+                      <div style={{ display: 'flex', gap: '6px', backgroundColor: 'rgba(53, 86, 224, 0.08)', padding: '4px', borderRadius: '12px' }} role="tablist" aria-label="Modalidad del co-docente">
                         <button
                           type="button"
                           role="tab"
@@ -929,7 +930,7 @@ export default function EditorPage() {
                             fontSize: '12.5px',
                             fontWeight: chatMode === 'direct' ? 700 : 500,
                             backgroundColor: chatMode === 'direct' ? '#FFFFFF' : 'transparent',
-                            color: chatMode === 'direct' ? '#142B25' : '#477A72',
+                            color: chatMode === 'direct' ? '#172554' : '#4F7DF5',
                             border: 'none',
                             borderRadius: '9px',
                             cursor: 'pointer',
@@ -937,12 +938,12 @@ export default function EditorPage() {
                             alignItems: 'center',
                             justifyContent: 'center',
                             gap: '6px',
-                            boxShadow: chatMode === 'direct' ? '0 1px 4px rgba(16, 36, 32, 0.10)' : 'none',
+                            boxShadow: chatMode === 'direct' ? '0 1px 4px rgba(30, 45, 110, 0.10)' : 'none',
                             transition: 'all 0.15s ease'
                           }}
                           title="Modo directo: reescribe y ajusta el documento inmediatamente"
                         >
-                          <Zap size={14} color={chatMode === 'direct' ? '#315B54' : '#477A72'} />
+                          <Zap size={14} color={chatMode === 'direct' ? '#3556E0' : '#4F7DF5'} />
                           <span>Directo</span>
                           {directMessages.length > 0 && (
                             <span className="editor-chat-tab-badge">{directMessages.length}</span>
@@ -960,7 +961,7 @@ export default function EditorPage() {
                             fontSize: '12.5px',
                             fontWeight: chatMode === 'socratic' ? 700 : 500,
                             backgroundColor: chatMode === 'socratic' ? '#FFFFFF' : 'transparent',
-                            color: chatMode === 'socratic' ? '#142B25' : '#477A72',
+                            color: chatMode === 'socratic' ? '#172554' : '#4F7DF5',
                             border: 'none',
                             borderRadius: '9px',
                             cursor: 'pointer',
@@ -968,12 +969,12 @@ export default function EditorPage() {
                             alignItems: 'center',
                             justifyContent: 'center',
                             gap: '6px',
-                            boxShadow: chatMode === 'socratic' ? '0 1px 4px rgba(16, 36, 32, 0.10)' : 'none',
+                            boxShadow: chatMode === 'socratic' ? '0 1px 4px rgba(30, 45, 110, 0.10)' : 'none',
                             transition: 'all 0.15s ease'
                           }}
                           title="Modo socrático: diálogo reflexivo con preguntas orientadoras y propuesta guiada (Caro 2015)"
                         >
-                          <Lightbulb size={14} color={chatMode === 'socratic' ? '#D97706' : '#477A72'} />
+                          <Lightbulb size={14} color={chatMode === 'socratic' ? '#D97706' : '#4F7DF5'} />
                           <span>Socrático</span>
                           {socraticMessages.length > 0 && (
                             <span className="editor-chat-tab-badge" style={{ backgroundColor: 'rgba(217, 119, 6, 0.18)', color: '#92400E' }}>
@@ -997,7 +998,7 @@ export default function EditorPage() {
                             gap: '4px',
                             fontSize: '11.5px',
                             fontWeight: 600,
-                            color: chatMode === 'socratic' ? '#B45309' : '#315B54',
+                            color: chatMode === 'socratic' ? '#B45309' : '#3556E0',
                             cursor: 'pointer'
                           }}
                         >
@@ -1017,7 +1018,7 @@ export default function EditorPage() {
                               alignItems: 'center',
                               gap: '4px',
                               fontSize: '11px',
-                              color: '#718096',
+                              color: '#586577',
                               cursor: 'pointer',
                               padding: '2px 6px',
                               borderRadius: '4px'
@@ -1034,8 +1035,8 @@ export default function EditorPage() {
                         <div className={`editor-chat-explanation-card ${chatMode}`} style={{ marginTop: '8px' }}>
                           {chatMode === 'direct' ? (
                             <div>
-                              <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontWeight: 700, marginBottom: '3px', color: '#183630' }}>
-                                <Zap size={12} color="#315B54" />
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontWeight: 700, marginBottom: '3px', color: '#1F2E7A' }}>
+                                <Zap size={12} color="#3556E0" />
                                 <span>Edición Ejecutiva Inmediata</span>
                               </div>
                               <p style={{ margin: 0, fontSize: '11.5px', color: '#2D3748', lineHeight: '1.45' }}>
@@ -1089,10 +1090,10 @@ export default function EditorPage() {
                     <div className="editor-chat-messages" style={{ minHeight: '320px', maxHeight: '500px', overflowY: 'auto', padding: '12px 4px', marginBottom: '16px' }}>
                       {activeChatMessages.length === 0 && (
                         <div className="editor-chat-welcome-bubble" style={chatMode === 'socratic' ? { background: 'rgba(255, 251, 235, 0.90)', borderColor: 'rgba(217, 119, 6, 0.3)' } : undefined}>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 700, color: chatMode === 'socratic' ? '#92400E' : '#142B25', marginBottom: '6px' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 700, color: chatMode === 'socratic' ? '#92400E' : '#172554', marginBottom: '6px' }}>
                             {chatMode === 'direct' ? (
                               <>
-                                <Zap size={15} color="#315B54" />
+                                <Zap size={15} color="#3556E0" />
                                 <span>Canal de Edición Directa</span>
                               </>
                             ) : (
@@ -1105,7 +1106,7 @@ export default function EditorPage() {
                           {chatMode === 'direct' ? (
                             <div>
                               Escribe la instrucción puntual que deseas aplicar y actualizaré el documento en tiempo real.
-                              <div style={{ marginTop: '6px', paddingLeft: '8px', borderLeft: '2px solid rgba(49, 91, 84, 0.4)', fontStyle: 'italic', fontSize: '12.5px' }}>
+                              <div style={{ marginTop: '6px', paddingLeft: '8px', borderLeft: '2px solid rgba(53, 86, 224, 0.4)', fontStyle: 'italic', fontSize: '12.5px' }}>
                                 "Agrega una escala valorativa de 3 niveles a la evaluación" o "Cambia el inicio por un estudio de caso".
                               </div>
                             </div>
@@ -1133,7 +1134,7 @@ export default function EditorPage() {
                               gap: '4px', 
                               fontSize: '11px', 
                               fontWeight: 800, 
-                              color: (msg.tipo === 'socratico' || msg.modo === 'socratic') ? '#92400E' : '#315B54', 
+                              color: (msg.tipo === 'socratico' || msg.modo === 'socratic') ? '#92400E' : '#3556E0', 
                               textTransform: 'uppercase', 
                               marginBottom: '6px', 
                               letterSpacing: '0.04em' 
@@ -1144,7 +1145,7 @@ export default function EditorPage() {
                                 </>
                               ) : (
                                 <>
-                                  <Zap size={12} color="#315B54" /> Edición Directa
+                                  <Zap size={12} color="#3556E0" /> Edición Directa
                                 </>
                               )}
                             </div>
@@ -1152,7 +1153,7 @@ export default function EditorPage() {
                           <div style={{ whiteSpace: 'pre-wrap', lineHeight: '1.6', fontSize: '14px' }}>{msg.text}</div>
 
                           {msg.planSugerido && (
-                            <div style={{ marginTop: '12px', paddingTop: '10px', borderTop: '1px solid rgba(49, 91, 84, 0.16)' }}>
+                            <div style={{ marginTop: '12px', paddingTop: '10px', borderTop: '1px solid rgba(53, 86, 224, 0.16)' }}>
                               <button
                                 type="button"
                                 onClick={() => handleAplicarPropuestaSocratica(msg.planSugerido)}
@@ -1168,8 +1169,8 @@ export default function EditorPage() {
                       ))}
 
                       {isModifying && (
-                        <div className="editor-chat-msg-ia" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#142B25', fontWeight: 500, padding: '14px' }}>
-                          <Loader2 size={18} className="spin" style={{ color: chatMode === 'socratic' ? '#D97706' : '#315B54' }} />
+                        <div className="editor-chat-msg-ia" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#172554', fontWeight: 500, padding: '14px' }}>
+                          <Loader2 size={18} className="spin" style={{ color: chatMode === 'socratic' ? '#D97706' : '#3556E0' }} />
                           <span>{chatMode === 'socratic' ? 'Elaborando diálogo socrático reflexivo...' : 'Reescribiendo la secuencia pedagógica...'}</span>
                         </div>
                       )}
@@ -1240,15 +1241,15 @@ export default function EditorPage() {
             className="editor-chat-card"
             style={{
               backgroundColor: '#FFFFFF',
-              border: '1.5px solid rgba(49, 91, 84, 0.22)',
+              border: '1.5px solid rgba(53, 86, 224, 0.22)',
               borderRadius: '24px',
-              boxShadow: '0 16px 48px rgba(16, 36, 32, 0.20), 0 4px 16px rgba(0, 0, 0, 0.08)'
+              boxShadow: '0 16px 48px rgba(30, 45, 110, 0.20), 0 4px 16px rgba(0, 0, 0, 0.08)'
             }}
           >
             
             <div className="editor-chat-header">
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <h2 style={{ fontSize: '16.5px', fontWeight: 700, color: '#142B25', margin: 0, display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-heading)' }}>
+                <h2 style={{ fontSize: '16.5px', fontWeight: 700, color: '#172554', margin: 0, display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-heading)' }}>
                   <Sparkles size={17} style={{ color: '#D4AF37' }} /> Co-docente IA
                 </h2>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -1269,7 +1270,7 @@ export default function EditorPage() {
               </div>
 
               {/* Selector de Modalidad Pedagógica: Pestañas separadas con contadores de mensajes */}
-              <div style={{ display: 'flex', gap: '6px', backgroundColor: 'rgba(49, 91, 84, 0.08)', padding: '3px', borderRadius: '10px' }} role="tablist" aria-label="Modalidad del co-docente">
+              <div style={{ display: 'flex', gap: '6px', backgroundColor: 'rgba(53, 86, 224, 0.08)', padding: '3px', borderRadius: '10px' }} role="tablist" aria-label="Modalidad del co-docente">
                 <button
                   type="button"
                   role="tab"
@@ -1281,7 +1282,7 @@ export default function EditorPage() {
                     fontSize: '11.5px',
                     fontWeight: chatMode === 'direct' ? 700 : 500,
                     backgroundColor: chatMode === 'direct' ? '#FFFFFF' : 'transparent',
-                    color: chatMode === 'direct' ? '#142B25' : '#477A72',
+                    color: chatMode === 'direct' ? '#172554' : '#4F7DF5',
                     border: 'none',
                     borderRadius: '7px',
                     cursor: 'pointer',
@@ -1289,12 +1290,12 @@ export default function EditorPage() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '5px',
-                    boxShadow: chatMode === 'direct' ? '0 1px 3px rgba(16, 36, 32, 0.10)' : 'none',
+                    boxShadow: chatMode === 'direct' ? '0 1px 3px rgba(30, 45, 110, 0.10)' : 'none',
                     transition: 'all 0.15s ease'
                   }}
                   title="Modo directo: reescribe y ajusta el documento inmediatamente"
                 >
-                  <Zap size={12} color={chatMode === 'direct' ? '#315B54' : '#477A72'} />
+                  <Zap size={12} color={chatMode === 'direct' ? '#3556E0' : '#4F7DF5'} />
                   <span>Directo</span>
                   {directMessages.length > 0 && (
                     <span className="editor-chat-tab-badge">{directMessages.length}</span>
@@ -1312,7 +1313,7 @@ export default function EditorPage() {
                     fontSize: '11.5px',
                     fontWeight: chatMode === 'socratic' ? 700 : 500,
                     backgroundColor: chatMode === 'socratic' ? '#FFFFFF' : 'transparent',
-                    color: chatMode === 'socratic' ? '#142B25' : '#477A72',
+                    color: chatMode === 'socratic' ? '#172554' : '#4F7DF5',
                     border: 'none',
                     borderRadius: '7px',
                     cursor: 'pointer',
@@ -1320,12 +1321,12 @@ export default function EditorPage() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: '5px',
-                    boxShadow: chatMode === 'socratic' ? '0 1px 3px rgba(16, 36, 32, 0.10)' : 'none',
+                    boxShadow: chatMode === 'socratic' ? '0 1px 3px rgba(30, 45, 110, 0.10)' : 'none',
                     transition: 'all 0.15s ease'
                   }}
                   title="Modo socrático: diálogo reflexivo con preguntas orientadoras y propuesta guiada (Caro 2015)"
                 >
-                  <Lightbulb size={12} color={chatMode === 'socratic' ? '#D97706' : '#477A72'} />
+                  <Lightbulb size={12} color={chatMode === 'socratic' ? '#D97706' : '#4F7DF5'} />
                   <span>Socrático</span>
                   {socraticMessages.length > 0 && (
                     <span className="editor-chat-tab-badge" style={{ backgroundColor: 'rgba(217, 119, 6, 0.18)', color: '#92400E' }}>
@@ -1349,7 +1350,7 @@ export default function EditorPage() {
                     gap: '4px',
                     fontSize: '11px',
                     fontWeight: 600,
-                    color: chatMode === 'socratic' ? '#B45309' : '#315B54',
+                    color: chatMode === 'socratic' ? '#B45309' : '#3556E0',
                     cursor: 'pointer'
                   }}
                   title="Ver explicación y funcionamiento de esta modalidad"
@@ -1370,7 +1371,7 @@ export default function EditorPage() {
                       alignItems: 'center',
                       gap: '4px',
                       fontSize: '10.5px',
-                      color: '#718096',
+                      color: '#586577',
                       cursor: 'pointer',
                       padding: '2px 6px',
                       borderRadius: '4px'
@@ -1388,8 +1389,8 @@ export default function EditorPage() {
                 <div className={`editor-chat-explanation-card ${chatMode}`}>
                   {chatMode === 'direct' ? (
                     <div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontWeight: 700, marginBottom: '3px', color: '#183630' }}>
-                        <Zap size={12} color="#315B54" />
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontWeight: 700, marginBottom: '3px', color: '#1F2E7A' }}>
+                        <Zap size={12} color="#3556E0" />
                         <span>Edición Ejecutiva Inmediata</span>
                       </div>
                       <p style={{ margin: 0, fontSize: '11px', color: '#2D3748', lineHeight: '1.4' }}>
@@ -1467,10 +1468,10 @@ export default function EditorPage() {
             <div className="editor-chat-messages">
               {activeChatMessages.length === 0 && (
                 <div className="editor-chat-welcome-bubble" style={chatMode === 'socratic' ? { background: 'rgba(255, 251, 235, 0.90)', borderColor: 'rgba(217, 119, 6, 0.3)' } : undefined}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 700, color: chatMode === 'socratic' ? '#92400E' : '#142B25', marginBottom: '4px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 700, color: chatMode === 'socratic' ? '#92400E' : '#172554', marginBottom: '4px' }}>
                     {chatMode === 'direct' ? (
                       <>
-                        <Zap size={14} color="#315B54" />
+                        <Zap size={14} color="#3556E0" />
                         <span>Canal de Edición Directa</span>
                       </>
                     ) : (
@@ -1483,7 +1484,7 @@ export default function EditorPage() {
                   {chatMode === 'direct' ? (
                     <div>
                       Escribe la instrucción puntual que deseas aplicar y actualizaré el documento en tiempo real.
-                      <div style={{ marginTop: '6px', paddingLeft: '8px', borderLeft: '2px solid rgba(49, 91, 84, 0.4)', fontStyle: 'italic', fontSize: '12px' }}>
+                      <div style={{ marginTop: '6px', paddingLeft: '8px', borderLeft: '2px solid rgba(53, 86, 224, 0.4)', fontStyle: 'italic', fontSize: '12px' }}>
                         "Agrega una escala valorativa de 3 niveles a la evaluación" o "Cambia el inicio por un estudio de caso".
                       </div>
                     </div>
@@ -1511,7 +1512,7 @@ export default function EditorPage() {
                       gap: '4px', 
                       fontSize: '10.5px', 
                       fontWeight: 800, 
-                      color: (msg.tipo === 'socratico' || msg.modo === 'socratic') ? '#92400E' : '#315B54', 
+                      color: (msg.tipo === 'socratico' || msg.modo === 'socratic') ? '#92400E' : '#3556E0', 
                       textTransform: 'uppercase', 
                       marginBottom: '6px', 
                       letterSpacing: '0.04em' 
@@ -1522,7 +1523,7 @@ export default function EditorPage() {
                         </>
                       ) : (
                         <>
-                          <Zap size={11} color="#315B54" /> Edición Directa
+                          <Zap size={11} color="#3556E0" /> Edición Directa
                         </>
                       )}
                     </div>
@@ -1530,7 +1531,7 @@ export default function EditorPage() {
                   <div style={{ whiteSpace: 'pre-wrap', lineHeight: '1.5' }}>{msg.text}</div>
 
                   {msg.planSugerido && (
-                    <div style={{ marginTop: '10px', paddingTop: '8px', borderTop: '1px solid rgba(49, 91, 84, 0.16)' }}>
+                    <div style={{ marginTop: '10px', paddingTop: '8px', borderTop: '1px solid rgba(53, 86, 224, 0.16)' }}>
                       <button
                         type="button"
                         onClick={() => handleAplicarPropuestaSocratica(msg.planSugerido)}
@@ -1546,8 +1547,8 @@ export default function EditorPage() {
               ))}
 
               {isModifying && (
-                <div className="editor-chat-msg-ia" style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#142B25', fontWeight: 500 }}>
-                  <Loader2 size={16} className="spin" style={{ color: chatMode === 'socratic' ? '#D97706' : '#315B54' }} />
+                <div className="editor-chat-msg-ia" style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#172554', fontWeight: 500 }}>
+                  <Loader2 size={16} className="spin" style={{ color: chatMode === 'socratic' ? '#D97706' : '#3556E0' }} />
                   <span>{chatMode === 'socratic' ? 'Elaborando diálogo socrático reflexivo...' : 'Reescribiendo la secuencia pedagógica...'}</span>
                 </div>
               )}
@@ -1585,7 +1586,7 @@ export default function EditorPage() {
               </button>
             </form>
             {isEditMode && (
-              <div style={{ fontSize: '12px', color: '#DC2626', marginTop: '8px', padding: '4px 8px', backgroundColor: 'rgba(254, 242, 242, 0.8)', borderRadius: '6px' }}>
+              <div style={{ fontSize: '12px', color: '#C42020', marginTop: '8px', padding: '4px 8px', backgroundColor: 'rgba(254, 242, 242, 0.8)', borderRadius: '6px' }}>
                 Desactiva el modo de edición de código para interactuar con el co-docente IA.
               </div>
             )}
@@ -1643,6 +1644,7 @@ export default function EditorPage() {
                         <PlusCircle size={15} /> Anexar al Plan
                       </button>
                     )}
+                    <EnviarEnLinea titulo={modalTitle} html={modalContentHtml} />
                     <button onClick={downloadMaterialHtml} className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '7px 16px', fontSize: '13px' }}>
                       <Download size={15} /> Descargar HTML
                     </button>

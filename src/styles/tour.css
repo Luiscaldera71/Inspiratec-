@@ -1,0 +1,138 @@
+/* Tutorial rápido: foco sobre elementos reales + tarjeta flotante */
+.mini-tour-layer { position: fixed; inset: 0; z-index: 2500; font-family: var(--font-main); }
+
+.mini-tour-dim { position: absolute; inset: 0; background: transparent; }
+.mini-tour-dim.solid {
+  background: rgba(10, 16, 60, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: tourFade 0.35s ease both;
+}
+
+@keyframes tourFade { from { opacity: 0; } to { opacity: 1; } }
+
+/* Recorte iluminado alrededor del elemento */
+.mini-tour-spot {
+  position: fixed;
+  border-radius: 20px;
+  pointer-events: none;
+  box-shadow: 0 0 0 9999px rgba(10, 16, 60, 0.58), 0 0 0 3px rgba(255, 255, 255, 0.9);
+  transition: top 0.45s cubic-bezier(0.22, 1, 0.36, 1), left 0.45s cubic-bezier(0.22, 1, 0.36, 1), width 0.45s cubic-bezier(0.22, 1, 0.36, 1), height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mini-tour-spot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  border: 3px solid rgba(124, 140, 255, 0.9);
+  animation: tourPulse 1.8s ease-out infinite;
+}
+
+@keyframes tourPulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(1.14); opacity: 0; }
+}
+
+.mini-tour-card {
+  position: fixed;
+  padding: 20px 20px 16px;
+  border-radius: 24px;
+  background: linear-gradient(160deg, #FFFFFF, #F3F6FF);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 30px 70px -18px rgba(10, 16, 70, 0.7);
+  animation: tourCardIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.mini-tour-card.center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding-top: 26px;
+  animation-name: tourCardInCenter;
+}
+
+@keyframes tourCardIn { from { opacity: 0; scale: 0.92; } to { opacity: 1; scale: 1; } }
+@keyframes tourCardInCenter { from { opacity: 0; translate: 0 18px; } to { opacity: 1; translate: 0 0; } }
+
+.mini-tour-x {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(79, 110, 245, 0.10);
+  color: #2B2FB8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.mini-tour-badge {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 10px;
+  border-radius: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, #3B82F6, #7C5CFF);
+  box-shadow: 0 14px 26px -8px rgba(79, 70, 229, 0.65);
+  animation: tourBob 3s ease-in-out infinite;
+}
+
+@keyframes tourBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+
+.mini-tour-card h3 { margin: 0 24px 6px 0; font: 800 17px/1.25 var(--font-main); color: #0B1235; letter-spacing: -0.02em; }
+.mini-tour-card.center h3 { margin: 0 0 8px; font-size: 21px; }
+.mini-tour-card p { margin: 0 0 16px; font: 500 14px/1.5 var(--font-main); color: #3F4A78; }
+
+.mini-tour-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.mini-tour-card.center .mini-tour-foot { flex-direction: column; gap: 14px; }
+
+.mini-tour-dots { display: flex; gap: 6px; }
+.mini-tour-dots i { width: 7px; height: 7px; border-radius: 4px; background: rgba(79, 90, 160, 0.25); transition: width 0.3s ease, background 0.3s ease; }
+.mini-tour-dots i.done { background: #8FA2FF; }
+.mini-tour-dots i.on { width: 22px; background: linear-gradient(90deg, #3B82F6, #7C5CFF); }
+
+.mini-tour-actions { display: flex; align-items: center; gap: 8px; }
+
+.mini-tour-next,
+.mini-tour-skip,
+.mini-tour-back {
+  height: 40px;
+  border-radius: 999px;
+  font: 700 14px var(--font-main);
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+}
+
+.mini-tour-next {
+  padding: 0 20px;
+  color: #fff;
+  background: linear-gradient(90deg, #3B82F6, #5B5BFF 60%, #7C5CFF);
+  box-shadow: 0 12px 22px -10px rgba(79, 70, 229, 0.8);
+}
+
+.mini-tour-next:hover { transform: translateY(-2px); }
+
+.mini-tour-skip { padding: 0 14px; background: transparent; color: #3F4A78; }
+.mini-tour-skip:hover { color: #2B2FB8; }
+.mini-tour-back { width: 40px; background: rgba(79, 110, 245, 0.10); color: #2B2FB8; }
+
+.mini-tour-card button:focus-visible { outline: 3px solid rgba(79, 70, 229, 0.55); outline-offset: 2px; }
+
+@media (max-width: 767px) {
+  .mini-tour-card { padding: 18px 16px 14px; border-radius: 22px; }
+  .mini-tour-card h3 { font-size: 16px; }
+}

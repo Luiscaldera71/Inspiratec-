@@ -5,7 +5,8 @@ import {
   subscribeSession, subscribeParticipants, getSessionKey, setSessionState, setActiveContent
 } from '../../services/sessions/sessionService';
 import {
-  buildJoinUrl, isLocalOnlyUrl, gradeSubmission, summarizeLeaves, buildResultsCsv
+  buildJoinUrl, isLocalOnlyUrl, gradeSubmission, summarizeLeaves, buildResultsCsv,
+  summarizeResourceParticipant, buildResourceCsv
 } from '../../services/sessions/sessionLogic';
 
 const URL_KEY = 'inspiratec_public_url';
@@ -73,6 +74,11 @@ export default function SesionMonitor({ code, onClose }) {
   const joinUrl = buildJoinUrl(baseUrl, code);
   const soloLocal = isLocalOnlyUrl(baseUrl);
   const esEval = session?.tipo === 'evaluacion';
+  const esRecurso = session?.tipo === 'recurso';
+  const resumenRecurso = useMemo(() => parts.map((p) => ({ p, s: summarizeResourceParticipant(p) })).sort((a, b) => Number(b.s.terminado) - Number(a.s.terminado) || String(a.p.nombre).localeCompare(String(b.p.nombre))), [parts]);
+  const terminaronRecurso = resumenRecurso.filter(({ s }) => s.terminado);
+  const conNota = terminaronRecurso.filter(({ s }) => s.nota !== null);
+  const promedioRecurso = conNota.length ? (conNota.reduce((a, { s }) => a + s.nota, 0) / conNota.length).toFixed(1) : '—';
 
   const filas = useMemo(() => parts.map((p) => {
     const g = esEval ? gradeSubmission(session?.preguntas || [], clave, p.respuestas || {}) : null;
@@ -91,7 +97,7 @@ export default function SesionMonitor({ code, onClose }) {
   const cambiarEstado = (estado) => setSessionState(code, estado).catch(e => setError(e.message));
 
   const descargarCsv = () => {
-    const csv = buildResultsCsv(session.preguntas, clave, parts);
+    const csv = esRecurso ? buildResourceCsv(parts) : buildResultsCsv(session.preguntas, clave, parts);
     const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' });
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `resultados-${code}.csv`; a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 2000);
@@ -104,7 +110,7 @@ export default function SesionMonitor({ code, onClose }) {
   const activo = session.activo || { tipo: 'plan', id: null };
 
   return (
-    <Modal title={`${esEval ? 'Evaluación' : 'Clase en vivo'}: ${session.titulo}`} onClose={onClose} width={1000}>
+    <Modal title={`${esEval ? 'Evaluación' : esRecurso ? 'Actividad interactiva' : 'Clase en vivo'}: ${session.titulo}`} onClose={onClose} width={1000}>
       {error && <p role="alert" style={{ color: colors.red, fontWeight: 600 }}>{error}</p>}
 
       <div style={{ display: 'flex', gap: 22, flexWrap: 'wrap', alignItems: 'flex-start' }}>
@@ -120,7 +126,7 @@ export default function SesionMonitor({ code, onClose }) {
               {session.estado === 'abierta' ? 'Abierta' : 'Cerrada'}
             </span>
             {session.estado === 'abierta'
-              ? <button type="button" style={btnStyle('danger')} onClick={() => cambiarEstado('cerrada')}><Lock size={14} /> {esEval ? 'Cerrar evaluación' : 'Terminar clase'}</button>
+              ? <button type="button" style={btnStyle('danger')} onClick={() => cambiarEstado('cerrada')}><Lock size={14} /> {esEval ? 'Cerrar evaluación' : esRecurso ? 'Cerrar actividad' : 'Terminar clase'}</button>
               : <button type="button" style={btnStyle('ghost')} onClick={() => cambiarEstado('abierta')}><Unlock size={14} /> Reabrir</button>}
           </div>
 
@@ -138,6 +144,16 @@ export default function SesionMonitor({ code, onClose }) {
             <button type="button" style={btnStyle('ghost')} onClick={copiar}><Copy size={14} /> {copiado ? '¡Copiado!' : 'Copiar'}</button>
           </div>
 
+          {esRecurso && (
+            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 16 }}>
+              {[['Entraron', parts.length], ['Terminaron', terminaronRecurso.length], ['En curso', parts.length - terminaronRecurso.length], ['Nota promedio (0-5)', promedioRecurso]].map(([k, v]) => (
+                <div key={k} style={{ background: colors.soft, borderRadius: 12, padding: '8px 14px', minWidth: 90 }}>
+                  <div style={{ fontSize: 22, fontWeight: 800 }}>{v}</div><div style={{ fontSize: 12, color: colors.muted }}>{k}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
           {esEval && (
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 16 }}>
               {[['Conectados', parts.length], ['Enviadas', enviadas.length], ['Con salidas', parts.filter(p => (p.salidas || 0) > 0).length], ['Promedio (0-5)', promedio]].map(([k, v]) => (
@@ -150,7 +166,7 @@ export default function SesionMonitor({ code, onClose }) {
         </div>
       </div>
 
-      {!esEval && (
+      {!esEval && !esRecurso && (
         <div style={{ marginTop: 18 }}>
           <strong style={{ fontSize: 14 }}>Lo que ven los estudiantes ahora</strong>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 8 }}>
@@ -173,14 +189,34 @@ export default function SesionMonitor({ code, onClose }) {
       )}
 
       <div style={{ marginTop: 18, display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-        <strong>{esEval ? 'Estudiantes' : `Asistentes (${parts.length})`}</strong>
-        {esEval && parts.length > 0 && <button type="button" style={btnStyle('ghost')} onClick={descargarCsv}><Download size={14} /> Descargar CSV</button>}
+        <strong>{esEval || esRecurso ? `Estudiantes (${parts.length})` : `Asistentes (${parts.length})`}</strong>
+        {(esEval || esRecurso) && parts.length > 0 && <button type="button" style={btnStyle('ghost')} onClick={descargarCsv}><Download size={14} /> Descargar CSV</button>}
       </div>
 
       {parts.length === 0 && <p style={{ color: colors.muted }}>Aún no ha entrado nadie. Muestra el QR en el tablero o comparte el enlace.</p>}
 
+      {esRecurso && (
+        <div>
+          {resumenRecurso.map(({ p, s }) => (
+            <div key={p.id} style={{ border: `1px solid ${s.terminado ? '#B7E1C1' : colors.line}`, borderRadius: 12, padding: '10px 12px', marginTop: 8, background: s.terminado ? '#F3FBF5' : '#fff' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+                <strong style={{ flex: '1 1 150px', overflowWrap: 'anywhere' }}>{p.nombre}</strong>
+                <span style={{ fontWeight: 700, fontSize: 13, color: s.terminado ? '#188038' : '#1A73E8' }}>{s.terminado ? '✓ Terminó' : 'Usando…'}</span>
+                <span style={{ fontSize: 13, color: colors.muted }}>{s.total ? `${s.avance ?? 0}/${s.total}` : (s.terminado ? 'Completo' : 'Sin avance')}</span>
+                {s.nota !== null && <span style={{ fontWeight: 800 }}>{Number(s.nota).toFixed(1)} / 5 <span style={{ fontWeight: 400, color: colors.muted }}>({s.aciertos}/{s.total})</span></span>}
+                {s.terminado && s.nota === null && <span style={{ fontSize: 13, color: colors.muted }}>Sin nota (actividad sin puntaje)</span>}
+                {s.duracionSeg !== null && <span style={{ fontSize: 12, color: colors.muted }}>⏱ {Math.floor(s.duracionSeg / 60)}:{String(s.duracionSeg % 60).padStart(2, '0')}</span>}
+              </div>
+              <div style={{ height: 6, borderRadius: 4, background: '#E5E7F3', marginTop: 8, overflow: 'hidden' }}>
+                <div style={{ width: `${s.avancePct}%`, height: '100%', background: s.terminado ? '#2DB47D' : 'linear-gradient(90deg,#3B82F6,#7C5CFF)', transition: 'width .4s' }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
       <div style={{ overflowX: 'auto' }}>
-        {filas.map(({ p, g, msFuera, respondidas }) => {
+        {!esRecurso && filas.map(({ p, g, msFuera, respondidas }) => {
           const [etq, col] = ESTADOS[p.estado] || ['—', colors.muted];
           const salidas = p.salidas || 0;
           const open = abierto === p.id;

@@ -64,29 +64,29 @@ export default function AyudaPage() {
       <header 
         className="mgmt-header"
         style={{
-          backgroundColor: 'rgba(255, 254, 250, 0.86)',
+          backgroundColor: 'rgba(255, 255, 255, 0.86)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '18px',
           padding: '16px 22px',
           marginBottom: '12px',
-          boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+          boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
         }}
       >
         <div className="mgmt-header-info">
-          <div className="mgmt-header-icon" style={{ backgroundColor: 'rgba(71, 122, 114, 0.16)', color: '#183630', borderRadius: '14px', width: '46px', height: '46px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className="mgmt-header-icon" style={{ backgroundColor: 'rgba(79, 125, 245, 0.16)', color: '#1F2E7A', borderRadius: '14px', width: '46px', height: '46px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <HelpCircle size={24} />
           </div>
           <div>
             <div className="editorial-badge" style={{ marginBottom: '8px' }}>
-              <Sparkles size={13} color="#2B524A" />
+              <Sparkles size={13} color="#2B3F9E" />
               <span>Base de Conocimiento y Guías</span>
             </div>
-            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#142B25', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
+            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#172554', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
               Centro de Ayuda Pedagógica
             </h1>
-            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#243630', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
+            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#2A3566', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
               Resuelve tus dudas sobre el asistente de secuencias didácticas, plantillas curriculares y adaptaciones de aula con IA.
             </p>
           </div>
@@ -108,14 +108,14 @@ export default function AyudaPage() {
       <div 
         className="mgmt-filter-bar" 
         style={{ 
-          backgroundColor: 'rgba(255, 254, 250, 0.86)',
+          backgroundColor: 'rgba(255, 255, 255, 0.86)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '16px',
           padding: '10px 16px',
           marginBottom: '12px',
-          boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+          boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
         }}
       >
         <div className="mgmt-search-box" style={{ maxWidth: '100%' }}>
@@ -137,18 +137,18 @@ export default function AyudaPage() {
           <div 
             className="mgmt-empty-card"
             style={{
-              backgroundColor: 'rgba(255, 254, 250, 0.88)',
+              backgroundColor: 'rgba(255, 255, 255, 0.88)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               border: '1px solid rgba(255, 255, 255, 0.94)',
               borderRadius: '20px',
               padding: '24px 20px',
-              boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+              boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
             }}
           >
             <HelpCircle size={32} color="var(--primary-sage)" style={{ margin: '0 auto 10px' }} />
-            <h3 style={{ fontSize: '16px', color: '#142B25', margin: '0 0 4px 0', fontWeight: 700 }}>No se encontraron respuestas</h3>
-            <p style={{ fontSize: '13.5px', color: '#2B453E', margin: 0 }}>
+            <h3 style={{ fontSize: '16px', color: '#172554', margin: '0 0 4px 0', fontWeight: 700 }}>No se encontraron respuestas</h3>
+            <p style={{ fontSize: '13.5px', color: '#242A4C', margin: 0 }}>
               Prueba con otro término de búsqueda o contacta directamente a nuestro soporte técnico.
             </p>
           </div>
@@ -163,36 +163,36 @@ export default function AyudaPage() {
                   padding: '16px 20px',
                   cursor: 'pointer',
                   borderRadius: '16px',
-                  border: isExpanded ? '1px solid #142B25' : '1px solid rgba(255, 255, 255, 0.94)',
-                  backgroundColor: isExpanded ? 'rgba(255, 255, 255, 0.94)' : 'rgba(255, 254, 250, 0.88)',
+                  border: isExpanded ? '1px solid #172554' : '1px solid rgba(255, 255, 255, 0.94)',
+                  backgroundColor: isExpanded ? 'rgba(255, 255, 255, 0.94)' : 'rgba(255, 255, 255, 0.88)',
                   backdropFilter: 'blur(16px)',
                   WebkitBackdropFilter: 'blur(16px)',
-                  boxShadow: isExpanded ? '0 8px 24px rgba(16, 36, 32, 0.10)' : '0 4px 14px rgba(16, 36, 32, 0.05)',
+                  boxShadow: isExpanded ? '0 8px 24px rgba(30, 45, 110, 0.10)' : '0 4px 14px rgba(30, 45, 110, 0.05)',
                   transition: 'all 0.2s ease'
                 }}
                 onClick={() => setExpandedIndex(isExpanded ? -1 : index)}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '28px', height: '28px', borderRadius: '7px', backgroundColor: 'rgba(71, 122, 114, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ width: '28px', height: '28px', borderRadius: '7px', backgroundColor: 'rgba(79, 125, 245, 0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       {item.icon}
                     </div>
                     <div>
-                      <span style={{ fontSize: '10.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#183630', backgroundColor: 'rgba(71, 122, 114, 0.14)', padding: '2px 7px', borderRadius: '999px', marginRight: '6px' }}>
+                      <span style={{ fontSize: '10.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#1F2E7A', backgroundColor: 'rgba(79, 125, 245, 0.14)', padding: '2px 7px', borderRadius: '999px', marginRight: '6px' }}>
                         {item.categoria}
                       </span>
-                      <h3 style={{ fontSize: '15px', color: '#142B25', margin: '4px 0 0 0', fontWeight: 700 }}>
+                      <h3 style={{ fontSize: '15px', color: '#172554', margin: '4px 0 0 0', fontWeight: 700 }}>
                         {item.q}
                       </h3>
                     </div>
                   </div>
-                  <div style={{ color: '#183630', flexShrink: 0 }}>
+                  <div style={{ color: '#1F2E7A', flexShrink: 0 }}>
                     {isExpanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </div>
                 </div>
 
                 {isExpanded && (
-                  <div style={{ marginTop: '12px', paddingTop: '10px', borderTop: '1px solid rgba(49, 91, 84, 0.14)', color: '#243B34', fontSize: '14px', lineHeight: '1.6' }}>
+                  <div style={{ marginTop: '12px', paddingTop: '10px', borderTop: '1px solid rgba(53, 86, 224, 0.14)', color: '#1F2340', fontSize: '14px', lineHeight: '1.6' }}>
                     <p style={{ margin: 0 }}>{item.a}</p>
                   </div>
                 )}
@@ -202,29 +202,29 @@ export default function AyudaPage() {
         )}
       </div>
 
-      {/* Tarjeta Flotante: Recorrido Explicativo de Bienvenida (Mismo desenfoque de cristal) */}
+      {/* Tarjeta Flotante: Tutorial rápido (Mismo desenfoque de cristal) */}
       <div 
         className="mgmt-card" 
         style={{ 
           padding: '18px 24px', 
           textAlign: 'center', 
           marginBottom: '12px',
-          backgroundColor: 'rgba(255, 254, 250, 0.88)',
+          backgroundColor: 'rgba(255, 255, 255, 0.88)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '18px',
-          boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+          boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
         }}
       >
-        <div style={{ width: '42px', height: '42px', borderRadius: '12px', backgroundColor: 'rgba(71, 122, 114, 0.16)', color: '#183630', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 10px' }}>
+        <div style={{ width: '42px', height: '42px', borderRadius: '12px', backgroundColor: 'rgba(79, 125, 245, 0.16)', color: '#1F2E7A', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 10px' }}>
           <Sparkles size={20} />
         </div>
-        <h3 style={{ color: '#142B25', fontSize: '17px', fontWeight: 700, margin: '0 0 4px 0' }}>
-          Recorrido Explicativo de Bienvenida
+        <h3 style={{ color: '#172554', fontSize: '17px', fontWeight: 700, margin: '0 0 4px 0' }}>
+          Tutorial rápido de InspiraTEC
         </h3>
-        <p style={{ color: '#2B453E', fontSize: '13.5px', maxWidth: '580px', margin: '0 auto 14px', lineHeight: '1.55' }}>
-          Revive la presentación visual e interactiva sobre la organización, herramientas curriculares y filosofía educativa de INSPIRATEC.
+        <p style={{ color: '#242A4C', fontSize: '13.5px', maxWidth: '580px', margin: '0 auto 14px', lineHeight: '1.55' }}>
+          Repasa en menos de un minuto dónde está lo esencial: crear planes, tus planes guardados, tu ADN pedagógico, la comunidad y la IA.
         </p>
         <button 
           type="button"
@@ -235,7 +235,7 @@ export default function AyudaPage() {
           }}
           style={{ padding: '8px 20px', fontSize: '13.5px' }}
         >
-          Ver Bienvenida Interactiva
+          Ver tutorial rápido
         </button>
       </div>
 
@@ -245,18 +245,18 @@ export default function AyudaPage() {
         style={{ 
           padding: '18px 24px', 
           textAlign: 'center', 
-          backgroundColor: 'rgba(255, 254, 250, 0.88)',
+          backgroundColor: 'rgba(255, 255, 255, 0.88)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '18px',
-          boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+          boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
         }}
       >
-        <h3 style={{ fontSize: '16px', color: '#142B25', margin: '0 0 4px 0', fontWeight: 700 }}>
+        <h3 style={{ fontSize: '16px', color: '#172554', margin: '0 0 4px 0', fontWeight: 700 }}>
           ¿Aún necesitas ayuda o reportar un caso?
         </h3>
-        <p style={{ color: '#3A544C', fontSize: '13.5px', margin: '0 0 12px 0' }}>
+        <p style={{ color: '#2E3560', fontSize: '13.5px', margin: '0 0 12px 0' }}>
           Nuestro equipo técnico docente está disponible para orientarte en la configuración y uso de la plataforma.
         </p>
         <button 

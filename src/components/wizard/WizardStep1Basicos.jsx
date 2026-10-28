@@ -15,9 +15,9 @@ export default function WizardStep1Basicos({
       {/* Banner Interactivo: ADN Pedagógico & Memoria Contextual */}
       <div style={{
         background: wizardData.aplicarAdnPedagógico !== false 
-          ? 'linear-gradient(135deg, rgba(26, 77, 67, 0.08) 0%, rgba(74, 222, 128, 0.12) 100%)' 
+          ? 'linear-gradient(135deg, rgba(23, 31, 80, 0.08) 0%, rgba(124, 155, 255, 0.12) 100%)' 
           : 'rgba(241, 245, 249, 0.6)',
-        border: wizardData.aplicarAdnPedagógico !== false ? '1px solid rgba(74, 222, 128, 0.4)' : '1px solid #E2E8F0',
+        border: wizardData.aplicarAdnPedagógico !== false ? '1px solid rgba(124, 155, 255, 0.4)' : '1px solid #E2E8F0',
         borderRadius: '16px',
         padding: '16px 20px',
         marginBottom: '20px',
@@ -33,25 +33,25 @@ export default function WizardStep1Basicos({
             width: '38px',
             height: '38px',
             borderRadius: '10px',
-            background: wizardData.aplicarAdnPedagógico !== false ? '#1A4D43' : '#94A3B8',
+            background: wizardData.aplicarAdnPedagógico !== false ? '#171F50' : '#94A3B8',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#FFFDF9',
-            boxShadow: wizardData.aplicarAdnPedagógico !== false ? '0 4px 10px rgba(26, 77, 67, 0.25)' : 'none'
+            color: '#FFFFFF',
+            boxShadow: wizardData.aplicarAdnPedagógico !== false ? '0 4px 10px rgba(23, 31, 80, 0.25)' : 'none'
           }}>
             <Dna size={20} />
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontSize: '14px', fontWeight: 700, color: '#142A26' }}>
+              <span style={{ fontSize: '14px', fontWeight: 700, color: '#13162B' }}>
                 ✨ Aplicar mi ADN Pedagógico
               </span>
               {wizardData.aplicarAdnPedagógico !== false && (
                 <span style={{
                   fontSize: '11px',
                   fontWeight: 700,
-                  color: '#059669',
+                  color: '#172060',
                   background: '#ECFDF5',
                   padding: '2px 8px',
                   borderRadius: '12px',
@@ -61,9 +61,9 @@ export default function WizardStep1Basicos({
                 </span>
               )}
             </div>
-            <p style={{ fontSize: '12px', color: '#64748B', margin: '2px 0 0' }}>
+            <p style={{ fontSize: '12px', color: '#576579', margin: '2px 0 0' }}>
               {' '}
-              <Link to="/adn-pedagogico" target="_blank" style={{ color: '#1A4D43', fontWeight: 600, textDecoration: 'underline', display: 'inline-flex', alignItems: 'center', gap: '3px' }}>
+              <Link to="/adn-pedagogico" target="_blank" style={{ color: '#171F50', fontWeight: 600, textDecoration: 'underline', display: 'inline-flex', alignItems: 'center', gap: '3px' }}>
                 Ajustar mi ADN <ExternalLink size={11} />
               </Link>
             </p>
@@ -76,9 +76,9 @@ export default function WizardStep1Basicos({
             name="aplicarAdnPedagógico"
             checked={wizardData.aplicarAdnPedagógico !== false}
             onChange={(e) => handleChange({ target: { name: 'aplicarAdnPedagógico', value: e.target.checked, type: 'text' } })}
-            style={{ width: '18px', height: '18px', accentColor: '#1A4D43', cursor: 'pointer' }}
+            style={{ width: '18px', height: '18px', accentColor: '#171F50', cursor: 'pointer' }}
           />
-          <span style={{ fontSize: '13px', fontWeight: 600, color: wizardData.aplicarAdnPedagógico !== false ? '#1A4D43' : '#64748B' }}>
+          <span style={{ fontSize: '13px', fontWeight: 600, color: wizardData.aplicarAdnPedagógico !== false ? '#171F50' : '#64748B' }}>
             {wizardData.aplicarAdnPedagógico !== false ? 'Activado' : 'Desactivado'}
           </span>
         </label>

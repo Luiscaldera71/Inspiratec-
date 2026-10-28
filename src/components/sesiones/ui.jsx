@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react';
 import QRCode from 'qrcode';
 import { X } from 'lucide-react';
 
-export const colors = { green: '#315B54', dark: '#142B25', muted: '#576864', line: 'rgba(49, 91, 84, 0.22)', red: '#C0392B', gold: '#B7791F', soft: '#EDF3F1' };
+export const colors = { green: '#3556E0', dark: '#172554', muted: '#3E4781', line: 'rgba(53, 86, 224, 0.22)', red: '#C0392B', gold: '#B7791F', soft: '#EBECF5' };
 
 export const inputStyle = {
   width: '100%', boxSizing: 'border-box', padding: '8px 10px', borderRadius: 8,
-  border: '1px solid rgba(49, 91, 84, 0.3)', fontSize: 14, fontFamily: 'inherit', background: '#fff'
+  border: '1px solid rgba(53, 86, 224, 0.3)', fontSize: 14, fontFamily: 'inherit', background: '#fff'
 };
 
 export const btnStyle = (kind = 'primary') => ({
@@ -27,7 +27,7 @@ export function Modal({ title, onClose, children, width = 880 }) {
   }, [onClose]);
 
   return createPortal(
-    <div role="dialog" aria-modal="true" aria-label={title} style={{ position: 'fixed', inset: 0, zIndex: 9000, background: 'rgba(16, 36, 32, 0.72)', backdropFilter: 'blur(6px)', display: 'flex', alignItems: 'flex-start', justifyContent: 'center', overflowY: 'auto', padding: '24px 12px' }}>
+    <div role="dialog" aria-modal="true" aria-label={title} style={{ position: 'fixed', inset: 0, zIndex: 9000, background: 'rgba(30, 45, 110, 0.72)', backdropFilter: 'blur(6px)', display: 'flex', alignItems: 'flex-start', justifyContent: 'center', overflowY: 'auto', padding: '24px 12px' }}>
       <div style={{ background: '#fff', borderRadius: 18, width: '100%', maxWidth: width, boxShadow: '0 20px 60px rgba(0,0,0,.35)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px', borderBottom: `1px solid ${colors.line}` }}>
           <h3 style={{ margin: 0, fontSize: 18, color: colors.dark }}>{title}</h3>

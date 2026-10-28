@@ -101,7 +101,7 @@ function AutoResizingTextarea({ value, onChange, placeholder, style, ...props })
       style={{
         width: '100%',
         boxSizing: 'border-box',
-        border: '1px solid rgba(49, 91, 84, 0.20)',
+        border: '1px solid rgba(53, 86, 224, 0.20)',
         borderRadius: '8px',
         backgroundColor: '#FFFFFF',
         color: '#1C1917',
@@ -113,11 +113,11 @@ function AutoResizingTextarea({ value, onChange, placeholder, style, ...props })
         ...style
       }}
       onFocus={(e) => {
-        e.target.style.borderColor = '#315B54';
-        e.target.style.boxShadow = '0 0 0 3px rgba(49, 91, 84, 0.12)';
+        e.target.style.borderColor = '#3556E0';
+        e.target.style.boxShadow = '0 0 0 3px rgba(53, 86, 224, 0.12)';
       }}
       onBlur={(e) => {
-        e.target.style.borderColor = 'rgba(49, 91, 84, 0.20)';
+        e.target.style.borderColor = 'rgba(53, 86, 224, 0.20)';
         e.target.style.boxShadow = 'none';
       }}
       {...props}
@@ -195,7 +195,7 @@ function CollapsibleMomentCard({
                   padding: '9px 11px',
                   borderRadius: '9px',
                   backgroundColor: '#FFFFFF',
-                  border: '1px solid rgba(49, 91, 84, 0.22)',
+                  border: '1px solid rgba(53, 86, 224, 0.22)',
                   width: '100%',
                   boxSizing: 'border-box'
                 }}
@@ -361,11 +361,11 @@ export default function StructuredPlanDocument({
             h1: ({ ...props }) => (
               <h1 
                 style={{ 
-                  color: '#142B25', 
+                  color: '#172554', 
                   fontSize: 'clamp(21px, 2.3vw, 25px)', 
                   fontWeight: 800, 
                   fontFamily: 'var(--font-heading)', 
-                  borderBottom: '2px solid #315B54', 
+                  borderBottom: '2px solid #3556E0', 
                   paddingBottom: '10px', 
                   marginTop: '0px', 
                   marginBottom: '16px', 
@@ -377,11 +377,11 @@ export default function StructuredPlanDocument({
             h2: ({ ...props }) => (
               <h2 
                 style={{ 
-                  color: '#142B25', 
+                  color: '#172554', 
                   fontSize: '18.5px', 
                   fontWeight: 700, 
                   fontFamily: 'var(--font-heading)', 
-                  borderBottom: '1px solid rgba(49, 91, 84, 0.20)', 
+                  borderBottom: '1px solid rgba(53, 86, 224, 0.20)', 
                   paddingBottom: '6px', 
                   marginTop: '22px', 
                   marginBottom: '12px' 
@@ -392,11 +392,11 @@ export default function StructuredPlanDocument({
             h3: ({ ...props }) => (
               <h3 
                 style={{ 
-                  color: '#315B54', 
+                  color: '#3556E0', 
                   fontSize: '16px', 
                   fontWeight: 700, 
                   fontFamily: 'var(--font-heading)', 
-                  borderBottom: '1px solid rgba(49, 91, 84, 0.12)', 
+                  borderBottom: '1px solid rgba(53, 86, 224, 0.12)', 
                   paddingBottom: '4px', 
                   marginTop: '16px', 
                   marginBottom: '10px' 
@@ -407,7 +407,7 @@ export default function StructuredPlanDocument({
             h4: ({ ...props }) => (
               <h4 
                 style={{ 
-                  color: '#1E3B34', 
+                  color: '#1D213C', 
                   fontSize: '14.5px', 
                   fontWeight: 700, 
                   fontFamily: 'var(--font-heading)', 
@@ -470,27 +470,27 @@ export default function StructuredPlanDocument({
             blockquote: ({ ...props }) => (
               <blockquote 
                 style={{ 
-                  borderLeft: '4px solid #477A72', 
-                  backgroundColor: 'rgba(71, 122, 114, 0.08)', 
+                  borderLeft: '4px solid #4F7DF5', 
+                  backgroundColor: 'rgba(79, 125, 245, 0.08)', 
                   padding: '10px 16px', 
                   borderRadius: '0 10px 10px 0', 
                   margin: '14px 0', 
                   fontStyle: 'italic', 
-                  color: '#234B43' 
+                  color: '#2B3F9E' 
                 }} 
                 {...props} 
               />
             ),
             hr: () => (
-              <hr style={{ border: 'none', borderTop: '1px solid rgba(49, 91, 84, 0.16)', margin: '18px 0' }} />
+              <hr style={{ border: 'none', borderTop: '1px solid rgba(53, 86, 224, 0.16)', margin: '18px 0' }} />
             ),
             table: ({ ...props }) => (
-              <div className="editor-doc-table-wrapper" style={{ overflowX: 'auto', margin: '16px 0', borderRadius: '12px', border: '1px solid rgba(49, 91, 84, 0.20)', boxShadow: '0 2px 8px rgba(0,0,0,0.03)' }}>
+              <div className="editor-doc-table-wrapper" style={{ overflowX: 'auto', margin: '16px 0', borderRadius: '12px', border: '1px solid rgba(53, 86, 224, 0.20)', boxShadow: '0 2px 8px rgba(0,0,0,0.03)' }}>
                 <table className="plan-sequence-table" style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13.5px' }} {...props} />
               </div>
             ),
             th: ({ ...props }) => (
-              <th style={{ backgroundColor: '#EDF3F1', color: '#142B25', fontWeight: 700, padding: '10px 14px', borderBottom: '1.5px solid #CBD5E1', textAlign: 'left' }} {...props} />
+              <th style={{ backgroundColor: '#EBECF5', color: '#172554', fontWeight: 700, padding: '10px 14px', borderBottom: '1.5px solid #CBD5E1', textAlign: 'left' }} {...props} />
             ),
             td: ({ children, ...props }) => (
               <td style={{ padding: '10px 14px', borderBottom: '1px solid #E2E8F0', verticalAlign: 'top', color: '#1C1917', lineHeight: '1.55' }} {...props}>
@@ -520,16 +520,16 @@ export default function StructuredPlanDocument({
           padding: '12px 16px', 
           marginBottom: '24px', 
           borderRadius: '14px', 
-          backgroundColor: 'rgba(49, 91, 84, 0.08)', 
-          border: '1px solid rgba(49, 91, 84, 0.20)' 
+          backgroundColor: 'rgba(53, 86, 224, 0.08)', 
+          border: '1px solid rgba(53, 86, 224, 0.20)' 
         }}
       >
         <div>
-          <span style={{ fontSize: '13px', fontWeight: 700, color: '#142B25', display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#315B54' }}></span>
+          <span style={{ fontSize: '13px', fontWeight: 700, color: '#172554', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#3556E0' }}></span>
             Modo Edición Estructurada
           </span>
-          <p style={{ margin: '2px 0 0 0', fontSize: '12px', color: '#576864' }}>
+          <p style={{ margin: '2px 0 0 0', fontSize: '12px', color: '#3E4781' }}>
             Edita directamente los títulos, listas y celdas sin alterar la presentación académica ni la estructura del plan.
           </p>
         </div>
@@ -576,12 +576,12 @@ export default function StructuredPlanDocument({
                     style={{
                       width: '100%',
                       boxSizing: 'border-box',
-                      color: isH3 ? '#315B54' : '#142B25',
+                      color: isH3 ? '#3556E0' : '#172554',
                       fontSize: isH1 ? 'clamp(22px, 2.5vw, 26px)' : isH2 ? '20px' : '17.5px',
                       fontWeight: isH1 ? 800 : 700,
                       fontFamily: 'var(--font-heading)',
                       border: 'none',
-                      borderBottom: isH1 ? '2.5px solid #315B54' : isH2 ? '1px solid rgba(49, 91, 84, 0.22)' : '1px solid rgba(49, 91, 84, 0.14)',
+                      borderBottom: isH1 ? '2.5px solid #3556E0' : isH2 ? '1px solid rgba(53, 86, 224, 0.22)' : '1px solid rgba(53, 86, 224, 0.14)',
                       padding: '4px 6px 8px 6px',
                       backgroundColor: 'rgba(255, 255, 255, 0.65)',
                       borderRadius: '6px 6px 0 0',
@@ -590,7 +590,7 @@ export default function StructuredPlanDocument({
                     }}
                     onFocus={(e) => {
                       e.target.style.backgroundColor = '#FFFFFF';
-                      e.target.style.borderBottomColor = '#315B54';
+                      e.target.style.borderBottomColor = '#3556E0';
                     }}
                     onBlur={(e) => {
                       e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.65)';
@@ -603,7 +603,7 @@ export default function StructuredPlanDocument({
             case 'divider': {
               return (
                 <div key={block.id || idx} style={{ margin: '20px 0' }}>
-                  <hr style={{ border: 'none', borderTop: '1px solid rgba(49, 91, 84, 0.16)' }} />
+                  <hr style={{ border: 'none', borderTop: '1px solid rgba(53, 86, 224, 0.16)' }} />
                 </div>
               );
             }
@@ -619,15 +619,15 @@ export default function StructuredPlanDocument({
                   style={{
                     margin: '20px 0',
                     borderRadius: '14px',
-                    border: '1px solid rgba(49, 91, 84, 0.22)',
+                    border: '1px solid rgba(53, 86, 224, 0.22)',
                     backgroundColor: '#FFFFFF',
                     boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
                     overflow: 'hidden'
                   }}
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 16px', backgroundColor: '#EDF3F1', borderBottom: '1.5px solid #CBD5E1', flexWrap: 'wrap', gap: '8px' }}>
-                    <span style={{ fontSize: '13px', fontWeight: 700, color: '#142B25', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <TableIcon size={15} style={{ color: '#315B54' }} /> Secuencia Didáctica / Matriz Curricular
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 16px', backgroundColor: '#EBECF5', borderBottom: '1.5px solid #CBD5E1', flexWrap: 'wrap', gap: '8px' }}>
+                    <span style={{ fontSize: '13px', fontWeight: 700, color: '#172554', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <TableIcon size={15} style={{ color: '#3556E0' }} /> Secuencia Didáctica / Matriz Curricular
                     </span>
                     <button
                       type="button"
@@ -650,7 +650,7 @@ export default function StructuredPlanDocument({
                               key={hIdx} 
                               style={{ 
                                 backgroundColor: '#F8FAF9', 
-                                color: '#142B25', 
+                                color: '#172554', 
                                 fontWeight: 700, 
                                 padding: '10px 14px', 
                                 borderBottom: '1px solid #CBD5E1', 
@@ -676,7 +676,7 @@ export default function StructuredPlanDocument({
                                     fontSize: '13.5px',
                                     lineHeight: '1.55',
                                     fontWeight: cIdx === 0 ? 600 : 400,
-                                    color: cIdx === 0 ? '#142B25' : '#1C1917',
+                                    color: cIdx === 0 ? '#172554' : '#1C1917',
                                     padding: '8px 10px'
                                   }}
                                 />
@@ -690,7 +690,7 @@ export default function StructuredPlanDocument({
                                   style={{
                                     background: 'none',
                                     border: 'none',
-                                    color: '#DC2626',
+                                    color: '#C42020',
                                     cursor: 'pointer',
                                     padding: '8px',
                                     borderRadius: '6px',
@@ -768,7 +768,7 @@ export default function StructuredPlanDocument({
                             marginTop: '10px', 
                             fontSize: '14px', 
                             fontWeight: 700, 
-                            color: '#315B54', 
+                            color: '#3556E0', 
                             minWidth: '20px', 
                             textAlign: 'right' 
                           }}
@@ -794,7 +794,7 @@ export default function StructuredPlanDocument({
                             style={{
                               background: 'none',
                               border: 'none',
-                              color: '#9CA3AF',
+                              color: '#5D6573',
                               cursor: 'pointer',
                               padding: '8px 4px',
                               display: 'flex',
@@ -820,7 +820,7 @@ export default function StructuredPlanDocument({
                       style={{
                         background: 'none',
                         border: 'none',
-                        color: '#315B54',
+                        color: '#3556E0',
                         fontSize: '12.5px',
                         fontWeight: 600,
                         cursor: 'pointer',
@@ -870,7 +870,7 @@ export default function StructuredPlanDocument({
           gap: '12px', 
           marginTop: '32px', 
           paddingTop: '20px', 
-          borderTop: '1px solid rgba(49, 91, 84, 0.16)' 
+          borderTop: '1px solid rgba(53, 86, 224, 0.16)' 
         }}
       >
         {onCancel && (

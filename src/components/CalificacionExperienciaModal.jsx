@@ -166,7 +166,7 @@ export default function CalificacionExperienciaModal({
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundColor: 'rgba(16, 36, 32, 0.55)',
+            backgroundColor: 'rgba(30, 45, 110, 0.55)',
             backdropFilter: 'blur(8px)',
             WebkitBackdropFilter: 'blur(8px)'
           }}
@@ -187,7 +187,7 @@ export default function CalificacionExperienciaModal({
             flexDirection: 'column',
             backgroundColor: '#FFFFFF',
             borderRadius: '24px',
-            boxShadow: '0 25px 60px -15px rgba(16, 36, 32, 0.35)',
+            boxShadow: '0 25px 60px -15px rgba(30, 45, 110, 0.35)',
             border: '1px solid rgba(255, 255, 255, 0.8)',
             overflow: 'hidden'
           }}
@@ -196,7 +196,7 @@ export default function CalificacionExperienciaModal({
           <div 
             style={{
               padding: '20px 26px',
-              borderBottom: '1px solid rgba(49, 91, 84, 0.12)',
+              borderBottom: '1px solid rgba(53, 86, 224, 0.12)',
               backgroundColor: 'rgba(240, 246, 243, 0.85)',
               display: 'flex',
               alignItems: 'flex-start',
@@ -205,14 +205,14 @@ export default function CalificacionExperienciaModal({
             }}
           >
             <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 700, color: '#2B524A', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 700, color: '#2B3F9E', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
                 <Sparkles size={13} color="#D4AF37" />
                 <span>Valoración de Práctica Docente</span>
               </div>
-              <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#142B25', margin: '0 0 6px 0', fontFamily: 'var(--font-heading)', lineHeight: '1.3' }}>
+              <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#172554', margin: '0 0 6px 0', fontFamily: 'var(--font-heading)', lineHeight: '1.3' }}>
                 {plan.tema || plan.metadata?.tema || 'Experiencia Pedagógica'}
               </h2>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', fontSize: '12.5px', color: '#477A72' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', fontSize: '12.5px', color: '#384074' }}>
                 {plan.materia && (
                   <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                     <BookOpen size={13} /> {plan.materia}
@@ -234,14 +234,14 @@ export default function CalificacionExperienciaModal({
               onClick={onClose}
               style={{
                 background: 'rgba(255, 255, 255, 0.8)',
-                border: '1px solid rgba(71, 122, 114, 0.2)',
+                border: '1px solid rgba(79, 125, 245, 0.2)',
                 borderRadius: '50%',
                 width: '34px',
                 height: '34px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#477A72',
+                color: '#384074',
                 cursor: 'pointer',
                 transition: 'all 0.15s ease',
                 flexShrink: 0
@@ -263,16 +263,16 @@ export default function CalificacionExperienciaModal({
                 justifyContent: 'space-between',
                 padding: '16px 20px',
                 borderRadius: '16px',
-                backgroundColor: 'rgba(49, 91, 84, 0.05)',
-                border: '1px solid rgba(49, 91, 84, 0.14)'
+                backgroundColor: 'rgba(53, 86, 224, 0.05)',
+                border: '1px solid rgba(53, 86, 224, 0.14)'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <div style={{ textAlign: 'center' }}>
-                  <span style={{ fontSize: '32px', fontWeight: 800, color: '#142B25', lineHeight: 1, fontFamily: 'var(--font-heading)' }}>
+                  <span style={{ fontSize: '32px', fontWeight: 800, color: '#172554', lineHeight: 1, fontFamily: 'var(--font-heading)' }}>
                     {stats.promedio > 0 ? stats.promedio : '—'}
                   </span>
-                  <span style={{ fontSize: '11px', display: 'block', color: '#718096', fontWeight: 600, marginTop: '2px' }}>
+                  <span style={{ fontSize: '11px', display: 'block', color: '#586577', fontWeight: 600, marginTop: '2px' }}>
                     de 5.0
                   </span>
                 </div>
@@ -287,7 +287,7 @@ export default function CalificacionExperienciaModal({
                       />
                     ))}
                   </div>
-                  <span style={{ fontSize: '12px', color: '#477A72', fontWeight: 600 }}>
+                  <span style={{ fontSize: '12px', color: '#384074', fontWeight: 600 }}>
                     {stats.total > 0 
                       ? `${stats.total} ${stats.total === 1 ? 'docente ha valorado' : 'docentes han valorado'} esta experiencia`
                       : 'Aún no hay valoraciones registradas'}
@@ -301,9 +301,9 @@ export default function CalificacionExperienciaModal({
                     const count = stats.desglose[stars] || 0;
                     const pct = stats.total > 0 ? Math.round((count / stats.total) * 100) : 0;
                     return (
-                      <div key={stars} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '10.5px', color: '#718096' }}>
+                      <div key={stars} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '10.5px', color: '#586577' }}>
                         <span style={{ width: '12px', textAlign: 'right' }}>{stars}★</span>
-                        <div style={{ flex: 1, height: '4px', backgroundColor: 'rgba(71, 122, 114, 0.15)', borderRadius: '2px', overflow: 'hidden' }}>
+                        <div style={{ flex: 1, height: '4px', backgroundColor: 'rgba(79, 125, 245, 0.15)', borderRadius: '2px', overflow: 'hidden' }}>
                           <div style={{ width: `${pct}%`, height: '100%', backgroundColor: '#F59E0B', borderRadius: '2px' }} />
                         </div>
                         <span style={{ width: '14px' }}>{count}</span>
@@ -321,18 +321,18 @@ export default function CalificacionExperienciaModal({
                 padding: '18px 20px',
                 borderRadius: '16px',
                 backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                border: '1px solid rgba(49, 91, 84, 0.18)',
-                boxShadow: '0 4px 14px rgba(20, 42, 38, 0.05)'
+                border: '1px solid rgba(53, 86, 224, 0.18)',
+                boxShadow: '0 4px 14px rgba(23, 37, 84, 0.05)'
               }}
             >
-              <h3 style={{ fontSize: '14.5px', fontWeight: 700, color: '#142B25', margin: '0 0 10px 0', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <h3 style={{ fontSize: '14.5px', fontWeight: 700, color: '#172554', margin: '0 0 10px 0', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Star size={15} color="#D97706" />
                 <span>¿Has aplicado este plan o deseas evaluarlo pedagógicamente?</span>
               </h3>
 
               {/* Selector Interactivo de Estrellas */}
               <div style={{ marginBottom: '14px' }}>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#477A72', marginBottom: '6px' }}>
+                <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#384074', marginBottom: '6px' }}>
                   Calificación de aplicabilidad y transposición didáctica:
                 </label>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -365,7 +365,7 @@ export default function CalificacionExperienciaModal({
                       );
                     })}
                   </div>
-                  <span style={{ fontSize: '12px', fontWeight: 600, color: '#D97706', marginLeft: '6px' }}>
+                  <span style={{ fontSize: '12px', fontWeight: 600, color: '#985404', marginLeft: '6px' }}>
                     {getTextoNivel(hoverEstrellas || estrellas)}
                   </span>
                 </div>
@@ -373,7 +373,7 @@ export default function CalificacionExperienciaModal({
 
               {/* Textarea de Retroalimentación de Aula */}
               <div style={{ marginBottom: '14px' }}>
-                <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#477A72', marginBottom: '6px' }}>
+                <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, color: '#384074', marginBottom: '6px' }}>
                   Tu experiencia en el aula y recomendaciones pedagógicas:
                 </label>
                 <textarea
@@ -388,18 +388,18 @@ export default function CalificacionExperienciaModal({
                     fontSize: '13px',
                     lineHeight: '1.5',
                     borderRadius: '12px',
-                    border: '1px solid rgba(71, 122, 114, 0.28)',
+                    border: '1px solid rgba(79, 125, 245, 0.28)',
                     outline: 'none',
                     resize: 'vertical',
                     fontFamily: 'inherit',
-                    color: '#142B25',
+                    color: '#172554',
                     backgroundColor: '#FFFFFF',
                     transition: 'border-color 0.15s ease'
                   }}
-                  onFocus={(e) => e.target.style.borderColor = '#315B54'}
-                  onBlur={(e) => e.target.style.borderColor = 'rgba(71, 122, 114, 0.28)'}
+                  onFocus={(e) => e.target.style.borderColor = '#3556E0'}
+                  onBlur={(e) => e.target.style.borderColor = 'rgba(79, 125, 245, 0.28)'}
                 />
-                <div style={{ display: 'flex', justifyContent: 'flex-end', fontSize: '11px', color: '#A0AEC0', marginTop: '2px' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-end', fontSize: '11px', color: '#53667E', marginTop: '2px' }}>
                   {comentario.length}/600 caracteres
                 </div>
               </div>
@@ -416,7 +416,7 @@ export default function CalificacionExperienciaModal({
                     fontSize: '12.5px',
                     marginBottom: '12px',
                     backgroundColor: feedbackMsg.type === 'success' ? '#DEF7EC' : '#FDE8E8',
-                    color: feedbackMsg.type === 'success' ? '#03543F' : '#9B1C1C'
+                    color: feedbackMsg.type === 'success' ? '#111846' : '#9B1C1C'
                   }}
                 >
                   {feedbackMsg.type === 'success' ? <CheckCircle2 size={16} /> : <AlertCircle size={16} />}
@@ -457,8 +457,8 @@ export default function CalificacionExperienciaModal({
             {/* Listado de Comentarios y Experiencias de Otros Docentes */}
             <div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-                <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#142B25', margin: 0, display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <MessageSquare size={16} color="#315B54" />
+                <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#172554', margin: 0, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <MessageSquare size={16} color="#3556E0" />
                   <span>Comentarios y Vivencias de Aula ({listaCalificaciones.length})</span>
                 </h3>
               </div>
@@ -470,14 +470,14 @@ export default function CalificacionExperienciaModal({
                     padding: '30px 20px',
                     borderRadius: '16px',
                     backgroundColor: 'rgba(240, 246, 243, 0.6)',
-                    border: '1px dashed rgba(71, 122, 114, 0.3)'
+                    border: '1px dashed rgba(79, 125, 245, 0.3)'
                   }}
                 >
-                  <MessageSquare size={28} style={{ color: '#477A72', margin: '0 auto 8px auto', opacity: 0.7 }} />
-                  <p style={{ margin: '0 0 4px 0', fontSize: '13.5px', fontWeight: 600, color: '#142B25' }}>
+                  <MessageSquare size={28} style={{ color: '#384074', margin: '0 auto 8px auto', opacity: 0.7 }} />
+                  <p style={{ margin: '0 0 4px 0', fontSize: '13.5px', fontWeight: 600, color: '#172554' }}>
                     Aún no hay comentarios sobre este plan
                   </p>
-                  <p style={{ margin: 0, fontSize: '12px', color: '#718096' }}>
+                  <p style={{ margin: 0, fontSize: '12px', color: '#586577' }}>
                     Sé el primer docente en calificar y compartir tus observaciones pedagógicas.
                   </p>
                 </div>
@@ -494,7 +494,7 @@ export default function CalificacionExperienciaModal({
                           padding: '14px 16px',
                           borderRadius: '14px',
                           backgroundColor: isMyComment ? 'rgba(240, 246, 243, 0.9)' : '#FAFCFA',
-                          border: isMyComment ? '1px solid rgba(49, 91, 84, 0.25)' : '1px solid rgba(71, 122, 114, 0.15)',
+                          border: isMyComment ? '1px solid rgba(53, 86, 224, 0.25)' : '1px solid rgba(79, 125, 245, 0.15)',
                           transition: 'all 0.15s ease'
                         }}
                       >
@@ -505,7 +505,7 @@ export default function CalificacionExperienciaModal({
                                 width: '28px',
                                 height: '28px',
                                 borderRadius: '50%',
-                                backgroundColor: isMyComment ? '#183630' : '#477A72',
+                                backgroundColor: isMyComment ? '#1F2E7A' : '#4F7DF5',
                                 color: '#FFFFFF',
                                 display: 'flex',
                                 alignItems: 'center',
@@ -517,15 +517,15 @@ export default function CalificacionExperienciaModal({
                               {(cal.usuarioNombre || 'D').charAt(0).toUpperCase()}
                             </div>
                             <div>
-                              <span style={{ fontSize: '13px', fontWeight: 700, color: '#142B25' }}>
+                              <span style={{ fontSize: '13px', fontWeight: 700, color: '#172554' }}>
                                 {cal.usuarioNombre}
                               </span>
                               {isMyComment && (
-                                <span style={{ marginLeft: '6px', fontSize: '10px', padding: '1px 6px', borderRadius: '10px', backgroundColor: 'rgba(49, 91, 84, 0.15)', color: '#183630', fontWeight: 700 }}>
+                                <span style={{ marginLeft: '6px', fontSize: '10px', padding: '1px 6px', borderRadius: '10px', backgroundColor: 'rgba(53, 86, 224, 0.15)', color: '#1F2E7A', fontWeight: 700 }}>
                                   Tú
                                 </span>
                               )}
-                              <span style={{ marginLeft: '8px', fontSize: '11px', color: '#A0AEC0' }}>
+                              <span style={{ marginLeft: '8px', fontSize: '11px', color: '#53667E' }}>
                                 {fechaTxt}
                               </span>
                             </div>
@@ -551,7 +551,7 @@ export default function CalificacionExperienciaModal({
                                 style={{
                                   background: 'none',
                                   border: 'none',
-                                  color: '#E53E3E',
+                                  color: '#C61B1B',
                                   padding: '2px 4px',
                                   cursor: 'pointer',
                                   borderRadius: '4px',
@@ -573,7 +573,7 @@ export default function CalificacionExperienciaModal({
                             {cal.comentario}
                           </p>
                         ) : (
-                          <p style={{ margin: '4px 0 0 0', fontSize: '11.5px', fontStyle: 'italic', color: '#A0AEC0' }}>
+                          <p style={{ margin: '4px 0 0 0', fontSize: '11.5px', fontStyle: 'italic', color: '#53667E' }}>
                             (Sin comentario de aula, solo calificación por estrellas)
                           </p>
                         )}
@@ -590,7 +590,7 @@ export default function CalificacionExperienciaModal({
           <div 
             style={{
               padding: '14px 26px',
-              borderTop: '1px solid rgba(49, 91, 84, 0.1)',
+              borderTop: '1px solid rgba(53, 86, 224, 0.1)',
               backgroundColor: 'rgba(250, 252, 251, 0.9)',
               display: 'flex',
               alignItems: 'center',

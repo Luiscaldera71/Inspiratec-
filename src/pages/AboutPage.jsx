@@ -19,29 +19,29 @@ export default function AboutPage() {
       <header 
         className="mgmt-header"
         style={{
-          backgroundColor: 'rgba(255, 254, 250, 0.86)',
+          backgroundColor: 'rgba(255, 255, 255, 0.86)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '18px',
           padding: '16px 22px',
           marginBottom: '12px',
-          boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+          boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
         }}
       >
         <div className="mgmt-header-info">
-          <div className="mgmt-header-icon" style={{ backgroundColor: 'rgba(71, 122, 114, 0.16)', color: '#183630', borderRadius: '14px', width: '46px', height: '46px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className="mgmt-header-icon" style={{ backgroundColor: 'rgba(79, 125, 245, 0.16)', color: '#1F2E7A', borderRadius: '14px', width: '46px', height: '46px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Users size={24} />
           </div>
           <div>
             <div className="editorial-badge" style={{ marginBottom: '8px' }}>
-              <Sparkles size={13} color="#2B524A" />
+              <Sparkles size={13} color="#2B3F9E" />
               <span>Identidad, Enfoque y Propósito</span>
             </div>
-            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#142B25', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
+            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#172554', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
               Transformando la Educación Colombiana
             </h1>
-            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#243630', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
+            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#2A3566', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
               INSPIRATEC es un ecosistema pedagógico potenciado por Inteligencia Artificial diseñado por y para docentes, con rigurosidad metodológica, accesibilidad universal y respeto por el contexto escolar.
             </p>
           </div>
@@ -68,21 +68,21 @@ export default function AboutPage() {
             style={{ 
               padding: '20px 20px', 
               textAlign: 'center',
-              backgroundColor: 'rgba(255, 254, 250, 0.88)',
+              backgroundColor: 'rgba(255, 255, 255, 0.88)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               border: '1px solid rgba(255, 255, 255, 0.94)',
               borderRadius: '18px',
-              boxShadow: '0 6px 20px rgba(16, 36, 32, 0.06)'
+              boxShadow: '0 6px 20px rgba(30, 45, 110, 0.06)'
             }}
           >
-            <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(71, 122, 114, 0.16)', color: '#183630', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
+            <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(79, 125, 245, 0.16)', color: '#1F2E7A', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
               <Target size={24} />
             </div>
-            <h3 style={{ fontSize: '16px', color: '#142B25', marginBottom: '6px', fontWeight: 700 }}>
+            <h3 style={{ fontSize: '16px', color: '#172554', marginBottom: '6px', fontWeight: 700 }}>
               Nuestra Misión
             </h3>
-            <p style={{ color: '#2B453E', lineHeight: '1.5', fontSize: '13.5px', margin: 0 }}>
+            <p style={{ color: '#242A4C', lineHeight: '1.5', fontSize: '13.5px', margin: 0 }}>
               Empoderar a los docentes de instituciones públicas y privadas de Colombia brindando una herramienta que une rigor curricular con la eficiencia de co-pilotos pedagógicos avanzados.
             </p>
           </div>
@@ -92,21 +92,21 @@ export default function AboutPage() {
             style={{ 
               padding: '20px 20px', 
               textAlign: 'center',
-              backgroundColor: 'rgba(255, 254, 250, 0.88)',
+              backgroundColor: 'rgba(255, 255, 255, 0.88)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               border: '1px solid rgba(255, 255, 255, 0.94)',
               borderRadius: '18px',
-              boxShadow: '0 6px 20px rgba(16, 36, 32, 0.06)'
+              boxShadow: '0 6px 20px rgba(30, 45, 110, 0.06)'
             }}
           >
             <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(22, 163, 74, 0.14)', color: '#166534', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
               <Heart size={24} />
             </div>
-            <h3 style={{ fontSize: '16px', color: '#142B25', marginBottom: '6px', fontWeight: 700 }}>
+            <h3 style={{ fontSize: '16px', color: '#172554', marginBottom: '6px', fontWeight: 700 }}>
               Inclusión Total (DUA)
             </h3>
-            <p style={{ color: '#2B453E', lineHeight: '1.5', fontSize: '13.5px', margin: 0 }}>
+            <p style={{ color: '#242A4C', lineHeight: '1.5', fontSize: '13.5px', margin: 0 }}>
               Diseñamos con el Diseño Universal para el Aprendizaje en mente, anticipando ajustes razonables y garantizando que ningún estudiante se quede atrás independientemente de sus capacidades.
             </p>
           </div>
@@ -116,21 +116,21 @@ export default function AboutPage() {
             style={{ 
               padding: '20px 20px', 
               textAlign: 'center',
-              backgroundColor: 'rgba(255, 254, 250, 0.88)',
+              backgroundColor: 'rgba(255, 255, 255, 0.88)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               border: '1px solid rgba(255, 255, 255, 0.94)',
               borderRadius: '18px',
-              boxShadow: '0 6px 20px rgba(16, 36, 32, 0.06)'
+              boxShadow: '0 6px 20px rgba(30, 45, 110, 0.06)'
             }}
           >
             <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(109, 40, 217, 0.14)', color: '#6D28D9', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
               <Lightbulb size={24} />
             </div>
-            <h3 style={{ fontSize: '16px', color: '#142B25', marginBottom: '6px', fontWeight: 700 }}>
+            <h3 style={{ fontSize: '16px', color: '#172554', marginBottom: '6px', fontWeight: 700 }}>
               Innovación Pedagógica
             </h3>
-            <p style={{ color: '#2B453E', lineHeight: '1.5', fontSize: '13.5px', margin: 0 }}>
+            <p style={{ color: '#242A4C', lineHeight: '1.5', fontSize: '13.5px', margin: 0 }}>
               La Inteligencia Artificial nunca reemplaza al maestro: lo acompaña. Actúa como un co-piloto pedagógico que acelera el trabajo operativo para permitirle concentrarse en la inspiración humana.
             </p>
           </div>
@@ -146,22 +146,22 @@ export default function AboutPage() {
             textAlign: 'center', 
             marginBottom: '14px',
             padding: '20px 24px',
-            backgroundColor: 'rgba(255, 254, 250, 0.88)',
+            backgroundColor: 'rgba(255, 255, 255, 0.88)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
             border: '1px solid rgba(255, 255, 255, 0.94)',
             borderRadius: '18px',
-            boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+            boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
           }}
         >
           <div className="editorial-badge" style={{ margin: '0 auto 8px auto', display: 'inline-flex' }}>
-            <Users size={13} color="#2B524A" />
+            <Users size={13} color="#2B3F9E" />
             <span>Talento Unicordobés</span>
           </div>
-          <h2 style={{ fontSize: '22px', color: '#142B25', margin: '0 0 6px 0', fontFamily: 'var(--font-heading)', fontWeight: 700 }}>
+          <h2 style={{ fontSize: '22px', color: '#172554', margin: '0 0 6px 0', fontFamily: 'var(--font-heading)', fontWeight: 700 }}>
             El Equipo Creador
           </h2>
-          <p style={{ fontSize: '14px', color: '#24423A', maxWidth: '640px', margin: '0 auto', lineHeight: '1.55', fontWeight: 500 }}>
+          <p style={{ fontSize: '14px', color: '#212645', maxWidth: '640px', margin: '0 auto', lineHeight: '1.55', fontWeight: 500 }}>
             Estudiantes e investigadores de la Universidad de Córdoba comprometidos con el desarrollo de software educativo de alta calidad.
           </p>
         </div>
@@ -177,12 +177,12 @@ export default function AboutPage() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                backgroundColor: 'rgba(255, 254, 250, 0.88)',
+                backgroundColor: 'rgba(255, 255, 255, 0.88)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(255, 255, 255, 0.94)',
                 borderRadius: '22px',
-                boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)',
+                boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)',
                 transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
             >
@@ -195,21 +195,21 @@ export default function AboutPage() {
                     height: '88px',
                     borderRadius: '50%',
                     border: '3px solid rgba(255, 255, 255, 0.90)',
-                    boxShadow: '0 6px 18px rgba(20, 42, 38, 0.12)',
+                    boxShadow: '0 6px 18px rgba(23, 37, 84, 0.12)',
                     objectFit: 'cover'
                   }}
                 />
               </div>
 
-              <h3 style={{ fontSize: '17px', color: '#142B25', margin: '0 0 4px 0', fontWeight: 700 }}>
+              <h3 style={{ fontSize: '17px', color: '#172554', margin: '0 0 4px 0', fontWeight: 700 }}>
                 {member.name}
               </h3>
               
               <span style={{ 
                 fontSize: '12px', 
                 fontWeight: 700, 
-                color: '#183630', 
-                backgroundColor: 'rgba(71, 122, 114, 0.14)', 
+                color: '#1F2E7A', 
+                backgroundColor: 'rgba(79, 125, 245, 0.14)', 
                 padding: '3px 10px', 
                 borderRadius: '999px',
                 marginBottom: '16px'

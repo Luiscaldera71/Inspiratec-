@@ -114,8 +114,9 @@ export default function UserMenu({ placement = 'bottom', isSidebar = false }) {
           width: isSidebar ? '32px' : '28px', 
           height: isSidebar ? '32px' : '28px', 
           borderRadius: '50%', 
-          background: isSidebar ? 'var(--color-brand-primary, #315B54)' : '#315B54', 
-          color: 'white', 
+          background: 'linear-gradient(135deg, #3B82F6 0%, #6D5CFF 100%)',
+          boxShadow: '0 4px 12px rgba(79, 70, 229, 0.30)',
+          color: 'white',
           display: 'flex', 
           alignItems: 'center', 
           justifyContent: 'center', 
@@ -123,14 +124,14 @@ export default function UserMenu({ placement = 'bottom', isSidebar = false }) {
           fontSize: isSidebar ? '14px' : '12.5px',
           flexShrink: 0
         }}>
-          {roleName.charAt(0)}
+          {(userProfile?.nombre || roleName).charAt(0).toUpperCase()}
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left', overflow: 'hidden' }}>
-          <span style={{ fontSize: '13px', color: isSidebar ? '#FFFFFF' : '#1E3D37', fontWeight: '600', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          <span style={{ fontSize: '13px', color: '#1B2559', fontWeight: '700', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             {userProfile?.nombre || roleName}
           </span>
           {isSidebar && (
-            <span style={{ fontSize: '11px', color: 'rgba(255, 255, 255, 0.7)' }}>
+            <span style={{ fontSize: '11px', color: '#6B739B' }}>
               {roleName}
             </span>
           )}
@@ -168,8 +169,8 @@ export default function UserMenu({ placement = 'bottom', isSidebar = false }) {
                   zIndex: 1000
                 }}
               >
-                <div style={{ padding: '16px 18px', borderBottom: '1px solid rgba(49, 91, 84, 0.12)', background: 'rgba(71, 122, 114, 0.08)' }}>
-                  <p style={{ margin: 0, fontWeight: 700, color: '#142B25', fontSize: '14px' }}>
+                <div style={{ padding: '16px 18px', borderBottom: '1px solid rgba(53, 86, 224, 0.12)', background: 'rgba(79, 125, 245, 0.08)' }}>
+                  <p style={{ margin: 0, fontWeight: 700, color: '#172554', fontSize: '14px' }}>
                     {userProfile?.nombre || 'Usuario INSPIRATEC'}
                   </p>
                   <p style={{ margin: '3px 0 0 0', fontSize: '12px', color: '#4A5551', wordBreak: 'break-all' }}>
@@ -181,8 +182,8 @@ export default function UserMenu({ placement = 'bottom', isSidebar = false }) {
                       fontWeight: 700,
                       padding: '2px 8px',
                       borderRadius: '999px',
-                      backgroundColor: isAdmin ? 'rgba(124, 58, 237, 0.12)' : 'rgba(71, 122, 114, 0.15)',
-                      color: isAdmin ? '#6D28D9' : '#1C3A34',
+                      backgroundColor: isAdmin ? 'rgba(124, 58, 237, 0.12)' : 'rgba(79, 125, 245, 0.15)',
+                      color: isAdmin ? '#6D28D9' : '#1B1F3C',
                       display: 'inline-block'
                     }}>
                       {roleName}
@@ -192,17 +193,17 @@ export default function UserMenu({ placement = 'bottom', isSidebar = false }) {
 
                 <div style={{ padding: '8px' }}>
                   <button className="user-menu-item-glass" onClick={() => { setIsOpen(false); setShowProfile(true); }}>
-                    <User size={15} style={{ color: '#315B54' }} /> Mi Perfil
+                    <User size={15} style={{ color: '#3556E0' }} /> Mi Perfil
                   </button>
                   <button className="user-menu-item-glass" onClick={() => { setIsOpen(false); setShowPassword(true); }}>
-                    <Key size={15} style={{ color: '#315B54' }} /> Cambiar Contraseña
+                    <Key size={15} style={{ color: '#3556E0' }} /> Cambiar Contraseña
                   </button>
                   <button className="user-menu-item-glass" onClick={() => { setIsOpen(false); window.dispatchEvent(new Event('open-bienvenida')); }}>
                     <Sparkles size={15} style={{ color: '#D4AF37' }} /> Bienvenida INSPIRATEC
                   </button>
                 </div>
 
-                <div style={{ padding: '8px', borderTop: '1px solid rgba(49, 91, 84, 0.1)' }}>
+                <div style={{ padding: '8px', borderTop: '1px solid rgba(53, 86, 224, 0.1)' }}>
                   <button className="user-menu-item-glass danger" onClick={() => { setIsOpen(false); logoutUser(); }}>
                     <LogOut size={15} /> Cerrar Sesión
                   </button>
@@ -325,8 +326,8 @@ function ProfileModal({ isOpen, onClose, profile, email, role }) {
         <div className="modal-glass-body">
           {/* Badge de seguridad institucional */}
           <div style={{ 
-            backgroundColor: 'rgba(71, 122, 114, 0.12)', 
-            border: '1px solid rgba(71, 122, 114, 0.28)', 
+            backgroundColor: 'rgba(79, 125, 245, 0.12)', 
+            border: '1px solid rgba(79, 125, 245, 0.28)', 
             borderRadius: '12px', 
             padding: '10px 14px', 
             marginBottom: '20px', 
@@ -334,7 +335,7 @@ function ProfileModal({ isOpen, onClose, profile, email, role }) {
             alignItems: 'center', 
             gap: '10px', 
             fontSize: '12px', 
-            color: '#142B25' 
+            color: '#172554' 
           }}>
             <ShieldCheck size={18} style={{ color: '#166534', flexShrink: 0 }} />
             <span><strong>Sesión JWT Verificada</strong> & Cifrado de datos personales activo (Ley 1581).</span>
@@ -356,7 +357,7 @@ function ProfileModal({ isOpen, onClose, profile, email, role }) {
             
             {/* Nombre */}
             <div>
-              <label style={{ fontSize: '12px', color: '#3D5A53', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '6px' }}>
+              <label style={{ fontSize: '12px', color: '#313866', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '6px' }}>
                 Nombre Completo
               </label>
               {isEditing ? (
@@ -364,11 +365,11 @@ function ProfileModal({ isOpen, onClose, profile, email, role }) {
                   type="text"
                   value={editData.nombre} 
                   onChange={e => setEditData({ ...editData, nombre: e.target.value })} 
-                  style={{ width: '100%', padding: '10px 14px', borderRadius: '10px', border: '1px solid rgba(49, 91, 84, 0.3)', backgroundColor: '#FFFFFF', color: '#142B25', fontSize: '14px' }} 
+                  style={{ width: '100%', padding: '10px 14px', borderRadius: '10px', border: '1px solid rgba(53, 86, 224, 0.3)', backgroundColor: '#FFFFFF', color: '#172554', fontSize: '14px' }} 
                   autoFocus
                 />
               ) : (
-                <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.65)', borderRadius: '10px', border: '1px solid rgba(49, 91, 84, 0.1)', color: '#142B25', fontSize: '14.5px', fontWeight: 600 }}>
+                <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.65)', borderRadius: '10px', border: '1px solid rgba(53, 86, 224, 0.1)', color: '#172554', fontSize: '14.5px', fontWeight: 600 }}>
                   {profile?.nombre || 'No definido'}
                 </div>
               )}
@@ -376,12 +377,12 @@ function ProfileModal({ isOpen, onClose, profile, email, role }) {
 
             {/* Correo Electrónico */}
             <div>
-              <label style={{ fontSize: '12px', color: '#3D5A53', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '6px' }}>
+              <label style={{ fontSize: '12px', color: '#313866', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '6px' }}>
                 Correo Electrónico
               </label>
-              <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.65)', borderRadius: '10px', border: '1px solid rgba(49, 91, 84, 0.1)', color: '#475569', fontSize: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.65)', borderRadius: '10px', border: '1px solid rgba(53, 86, 224, 0.1)', color: '#475569', fontSize: '14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span>{email || 'No definido'}</span>
-                <span style={{ fontSize: '11px', color: '#64748B', backgroundColor: 'rgba(71, 122, 114, 0.1)', padding: '2px 8px', borderRadius: '999px' }}>
+                <span style={{ fontSize: '11px', color: '#64748B', backgroundColor: 'rgba(79, 125, 245, 0.1)', padding: '2px 8px', borderRadius: '999px' }}>
                   Solo lectura
                 </span>
               </div>
@@ -389,8 +390,8 @@ function ProfileModal({ isOpen, onClose, profile, email, role }) {
 
             {/* Celular / WhatsApp */}
             <div>
-              <label style={{ fontSize: '12px', color: '#3D5A53', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '6px' }}>
-                Celular / WhatsApp <span style={{ fontSize: '11px', fontWeight: 500, color: '#477A72' }}>(Protegido Habeas Data)</span>
+              <label style={{ fontSize: '12px', color: '#313866', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '6px' }}>
+                Celular / WhatsApp <span style={{ fontSize: '11px', fontWeight: 500, color: '#4F7DF5' }}>(Protegido Habeas Data)</span>
               </label>
               {isEditing ? (
                 <input 
@@ -398,10 +399,10 @@ function ProfileModal({ isOpen, onClose, profile, email, role }) {
                   value={editData.celular} 
                   onChange={e => setEditData({ ...editData, celular: e.target.value })} 
                   placeholder="Ej. +57 300 123 4567" 
-                  style={{ width: '100%', padding: '10px 14px', borderRadius: '10px', border: '1px solid rgba(49, 91, 84, 0.3)', backgroundColor: '#FFFFFF', color: '#142B25', fontSize: '14px' }} 
+                  style={{ width: '100%', padding: '10px 14px', borderRadius: '10px', border: '1px solid rgba(53, 86, 224, 0.3)', backgroundColor: '#FFFFFF', color: '#172554', fontSize: '14px' }} 
                 />
               ) : (
-                <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.65)', borderRadius: '10px', border: '1px solid rgba(49, 91, 84, 0.1)', color: '#142B25', fontSize: '14px' }}>
+                <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.65)', borderRadius: '10px', border: '1px solid rgba(53, 86, 224, 0.1)', color: '#172554', fontSize: '14px' }}>
                   {profile?.celularDesencriptado || profile?.celular || 'No registrado'}
                 </div>
               )}
@@ -409,14 +410,14 @@ function ProfileModal({ isOpen, onClose, profile, email, role }) {
 
             {/* Rol Asignado */}
             <div>
-              <label style={{ fontSize: '12px', color: '#3D5A53', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '6px' }}>
+              <label style={{ fontSize: '12px', color: '#313866', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '6px' }}>
                 Rol Asignado
               </label>
               <div>
                 <span style={{ 
-                  background: role === 'Admin' ? 'rgba(124, 58, 237, 0.14)' : 'rgba(71, 122, 114, 0.15)', 
-                  color: role === 'Admin' ? '#6D28D9' : '#1C3A34', 
-                  border: `1px solid ${role === 'Admin' ? 'rgba(124, 58, 237, 0.3)' : 'rgba(71, 122, 114, 0.3)'}`,
+                  background: role === 'Admin' ? 'rgba(124, 58, 237, 0.14)' : 'rgba(79, 125, 245, 0.15)', 
+                  color: role === 'Admin' ? '#6D28D9' : '#1B1F3C', 
+                  border: `1px solid ${role === 'Admin' ? 'rgba(124, 58, 237, 0.3)' : 'rgba(79, 125, 245, 0.3)'}`,
                   padding: '5px 14px', 
                   borderRadius: '20px', 
                   fontSize: '12.5px', 
@@ -430,7 +431,7 @@ function ProfileModal({ isOpen, onClose, profile, email, role }) {
 
             {/* Institución */}
             <div>
-              <label style={{ fontSize: '12px', color: '#3D5A53', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '6px' }}>
+              <label style={{ fontSize: '12px', color: '#313866', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '6px' }}>
                 Institución Educativa
               </label>
               {isEditing ? (
@@ -438,10 +439,10 @@ function ProfileModal({ isOpen, onClose, profile, email, role }) {
                   type="text"
                   value={editData.institucion} 
                   onChange={e => setEditData({ ...editData, institucion: e.target.value })} 
-                  style={{ width: '100%', padding: '10px 14px', borderRadius: '10px', border: '1px solid rgba(49, 91, 84, 0.3)', backgroundColor: '#FFFFFF', color: '#142B25', fontSize: '14px' }} 
+                  style={{ width: '100%', padding: '10px 14px', borderRadius: '10px', border: '1px solid rgba(53, 86, 224, 0.3)', backgroundColor: '#FFFFFF', color: '#172554', fontSize: '14px' }} 
                 />
               ) : (
-                <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.65)', borderRadius: '10px', border: '1px solid rgba(49, 91, 84, 0.1)', color: '#142B25', fontSize: '14px' }}>
+                <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.65)', borderRadius: '10px', border: '1px solid rgba(53, 86, 224, 0.1)', color: '#172554', fontSize: '14px' }}>
                   {profile?.institucion || 'No definida'}
                 </div>
               )}
@@ -609,13 +610,13 @@ function PasswordModal({ isOpen, onClose }) {
         <div className="modal-glass-body">
           {success ? (
             <div style={{ textAlign: 'center', padding: '24px 0', animation: 'modalFadeIn 0.3s ease-out' }}>
-              <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: 'rgba(16, 185, 129, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', color: '#10B981' }}>
+              <div style={{ width: '64px', height: '64px', borderRadius: '50%', backgroundColor: 'rgba(38, 55, 163, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto', color: '#2637A3' }}>
                 <CheckCircle size={36} />
               </div>
-              <h4 style={{ margin: '0 0 6px 0', color: '#142B25', fontSize: '18px', fontWeight: 700 }}>
+              <h4 style={{ margin: '0 0 6px 0', color: '#172554', fontSize: '18px', fontWeight: 700 }}>
                 ¡Contraseña Actualizada!
               </h4>
-              <p style={{ margin: 0, color: '#3D5A53', fontSize: '13.5px' }}>
+              <p style={{ margin: 0, color: '#313866', fontSize: '13.5px' }}>
                 Tu clave ha sido reautenticada y modificada correctamente en el sistema.
               </p>
             </div>
@@ -624,7 +625,7 @@ function PasswordModal({ isOpen, onClose }) {
               
               {/* Contraseña Actual */}
               <div>
-                <label htmlFor="current-password-input" style={{ fontSize: '12.5px', color: '#142B25', fontWeight: 600, marginBottom: '6px', display: 'block' }}>
+                <label htmlFor="current-password-input" style={{ fontSize: '12.5px', color: '#172554', fontWeight: 600, marginBottom: '6px', display: 'block' }}>
                   Contraseña Actual
                 </label>
                 <div style={{ position: 'relative' }}>
@@ -634,7 +635,7 @@ function PasswordModal({ isOpen, onClose }) {
                     required 
                     value={currentPass} 
                     onChange={e => setCurrentPass(e.target.value)} 
-                    style={{ width: '100%', padding: '10px 42px 10px 14px', borderRadius: '10px', border: '1px solid rgba(49, 91, 84, 0.28)', backgroundColor: '#FFFFFF', color: '#142B25', fontSize: '14px' }} 
+                    style={{ width: '100%', padding: '10px 42px 10px 14px', borderRadius: '10px', border: '1px solid rgba(53, 86, 224, 0.28)', backgroundColor: '#FFFFFF', color: '#172554', fontSize: '14px' }} 
                     placeholder="Ingresa tu clave actual"
                   />
                   <button
@@ -650,7 +651,7 @@ function PasswordModal({ isOpen, onClose }) {
 
               {/* Nueva Contraseña */}
               <div>
-                <label htmlFor="new-password-input" style={{ fontSize: '12.5px', color: '#142B25', fontWeight: 600, marginBottom: '6px', display: 'block' }}>
+                <label htmlFor="new-password-input" style={{ fontSize: '12.5px', color: '#172554', fontWeight: 600, marginBottom: '6px', display: 'block' }}>
                   Nueva Contraseña
                 </label>
                 <div style={{ position: 'relative' }}>
@@ -660,7 +661,7 @@ function PasswordModal({ isOpen, onClose }) {
                     required 
                     value={newPass} 
                     onChange={e => setNewPass(e.target.value)} 
-                    style={{ width: '100%', padding: '10px 42px 10px 14px', borderRadius: '10px', border: '1px solid rgba(49, 91, 84, 0.28)', backgroundColor: '#FFFFFF', color: '#142B25', fontSize: '14px' }} 
+                    style={{ width: '100%', padding: '10px 42px 10px 14px', borderRadius: '10px', border: '1px solid rgba(53, 86, 224, 0.28)', backgroundColor: '#FFFFFF', color: '#172554', fontSize: '14px' }} 
                     placeholder="Mínimo 6 caracteres"
                   />
                   <button
@@ -676,7 +677,7 @@ function PasswordModal({ isOpen, onClose }) {
 
               {/* Confirmar Nueva Contraseña */}
               <div>
-                <label htmlFor="confirm-password-input" style={{ fontSize: '12.5px', color: '#142B25', fontWeight: 600, marginBottom: '6px', display: 'block' }}>
+                <label htmlFor="confirm-password-input" style={{ fontSize: '12.5px', color: '#172554', fontWeight: 600, marginBottom: '6px', display: 'block' }}>
                   Confirmar Nueva Contraseña
                 </label>
                 <div style={{ position: 'relative' }}>
@@ -686,7 +687,7 @@ function PasswordModal({ isOpen, onClose }) {
                     required 
                     value={confirmNewPass} 
                     onChange={e => setConfirmNewPass(e.target.value)} 
-                    style={{ width: '100%', padding: '10px 42px 10px 14px', borderRadius: '10px', border: '1px solid rgba(49, 91, 84, 0.28)', backgroundColor: '#FFFFFF', color: '#142B25', fontSize: '14px' }} 
+                    style={{ width: '100%', padding: '10px 42px 10px 14px', borderRadius: '10px', border: '1px solid rgba(53, 86, 224, 0.28)', backgroundColor: '#FFFFFF', color: '#172554', fontSize: '14px' }} 
                     placeholder="Repite la nueva clave"
                   />
                   <button

@@ -116,16 +116,16 @@ export default function CurricularGraphView({
           flexWrap: 'wrap', 
           gap: '12px',
           padding: '12px 18px',
-          backgroundColor: 'rgba(255, 254, 250, 0.85)',
+          backgroundColor: 'rgba(255, 255, 255, 0.85)',
           borderRadius: '16px',
-          border: '1px solid rgba(49, 91, 84, 0.16)',
-          boxShadow: '0 4px 12px rgba(16, 36, 32, 0.04)'
+          border: '1px solid rgba(53, 86, 224, 0.16)',
+          boxShadow: '0 4px 12px rgba(30, 45, 110, 0.04)'
         }}
       >
         {/* Filtros de Grado y Eje */}
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12.5px', fontWeight: 600, color: '#1E3B33' }}>
-            <Layers size={14} color="#315B54" />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12.5px', fontWeight: 600, color: '#1D213C' }}>
+            <Layers size={14} color="#3556E0" />
             <span>Grado:</span>
           </div>
 
@@ -136,9 +136,9 @@ export default function CurricularGraphView({
               padding: '6px 12px', 
               fontSize: '13px', 
               borderRadius: '10px', 
-              border: '1.5px solid rgba(49, 91, 84, 0.22)',
+              border: '1.5px solid rgba(53, 86, 224, 0.22)',
               backgroundColor: '#FFFFFF',
-              color: '#142B25',
+              color: '#172554',
               cursor: 'pointer'
             }}
           >
@@ -148,8 +148,8 @@ export default function CurricularGraphView({
             ))}
           </select>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12.5px', fontWeight: 600, color: '#1E3B33', marginLeft: '6px' }}>
-            <Compass size={14} color="#315B54" />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12.5px', fontWeight: 600, color: '#1D213C', marginLeft: '6px' }}>
+            <Compass size={14} color="#3556E0" />
             <span>Eje:</span>
           </div>
 
@@ -160,9 +160,9 @@ export default function CurricularGraphView({
               padding: '6px 12px', 
               fontSize: '13px', 
               borderRadius: '10px', 
-              border: '1.5px solid rgba(49, 91, 84, 0.22)',
+              border: '1.5px solid rgba(53, 86, 224, 0.22)',
               backgroundColor: '#FFFFFF',
-              color: '#142B25',
+              color: '#172554',
               cursor: 'pointer'
             }}
           >
@@ -185,7 +185,7 @@ export default function CurricularGraphView({
           >
             <ZoomOut size={15} />
           </button>
-          <span style={{ fontSize: '12px', fontWeight: 700, color: '#315B54', minWidth: '38px', textAlign: 'center' }}>
+          <span style={{ fontSize: '12px', fontWeight: 700, color: '#3556E0', minWidth: '38px', textAlign: 'center' }}>
             {Math.round(zoomLevel * 100)}%
           </span>
           <button 
@@ -218,11 +218,11 @@ export default function CurricularGraphView({
           width: '100%', 
           overflowX: 'auto', 
           borderRadius: '20px', 
-          border: '1px solid rgba(49, 91, 84, 0.20)',
-          backgroundColor: 'rgba(255, 254, 250, 0.90)',
+          border: '1px solid rgba(53, 86, 224, 0.20)',
+          backgroundColor: 'rgba(255, 255, 255, 0.90)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
-          boxShadow: '0 8px 30px rgba(16, 36, 32, 0.08)'
+          boxShadow: '0 8px 30px rgba(30, 45, 110, 0.08)'
         }}
         role="region"
         aria-label="Grafo interactivo de prerrequisitos curriculares"
@@ -240,10 +240,10 @@ export default function CurricularGraphView({
           <defs>
             {/* Marcadores de flechas para las aristas */}
             <marker id="arrow-default" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-              <path d="M 0 1 L 8 5 L 0 9 z" fill="rgba(49, 91, 84, 0.40)" />
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="rgba(53, 86, 224, 0.40)" />
             </marker>
             <marker id="arrow-active" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M 0 1 L 8 5 L 0 9 z" fill="#315B54" />
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#3556E0" />
             </marker>
             <marker id="arrow-prereq" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
               <path d="M 0 1 L 8 5 L 0 9 z" fill="#D97706" />
@@ -263,15 +263,15 @@ export default function CurricularGraphView({
                   width={185}
                   height={svgHeight - 40}
                   rx={12}
-                  fill={isTargetCol ? 'rgba(49, 91, 84, 0.08)' : 'rgba(255, 255, 255, 0.45)'}
-                  stroke={isTargetCol ? '#315B54' : 'rgba(49, 91, 84, 0.10)'}
+                  fill={isTargetCol ? 'rgba(53, 86, 224, 0.08)' : 'rgba(255, 255, 255, 0.45)'}
+                  stroke={isTargetCol ? '#3556E0' : 'rgba(53, 86, 224, 0.10)'}
                   strokeWidth={isTargetCol ? 1.5 : 1}
                 />
                 <text
                   x={colX + 82}
                   y={46}
                   textAnchor="middle"
-                  fill="#142B25"
+                  fill="#172554"
                   fontSize="12.5"
                   fontWeight="700"
                   fontFamily="system-ui, sans-serif"
@@ -282,7 +282,7 @@ export default function CurricularGraphView({
                   x={colX + 82}
                   y={60}
                   textAnchor="middle"
-                  fill="#477A72"
+                  fill="#4F7DF5"
                   fontSize="10"
                   fontWeight="500"
                   fontFamily="system-ui, sans-serif"
@@ -303,17 +303,17 @@ export default function CurricularGraphView({
             const dx = Math.max(40, (tx - sx) / 2);
             const pathData = `M ${sx} ${sy} C ${sx + dx} ${sy}, ${tx - dx} ${ty}, ${tx} ${ty}`;
 
-            let strokeColor = 'rgba(49, 91, 84, 0.28)';
+            let strokeColor = 'rgba(53, 86, 224, 0.28)';
             let strokeWidth = 1.6;
             let marker = 'url(#arrow-default)';
 
             if (edge.isHighlighted) {
               const isPrereqEdge = activeAncestors.has(edge.source.id);
-              strokeColor = isPrereqEdge ? '#D97706' : '#315B54';
+              strokeColor = isPrereqEdge ? '#D97706' : '#3556E0';
               strokeWidth = 3;
               marker = isPrereqEdge ? 'url(#arrow-prereq)' : 'url(#arrow-active)';
             } else if (edge.isDimmed) {
-              strokeColor = 'rgba(49, 91, 84, 0.08)';
+              strokeColor = 'rgba(53, 86, 224, 0.08)';
               strokeWidth = 1;
             }
 
@@ -340,8 +340,8 @@ export default function CurricularGraphView({
 
             const ejeInfo = CURRICULAR_EJES[node.eje] || CURRICULAR_EJES.solucion;
 
-            let bgColor = isSelected ? 'rgba(224, 237, 233, 0.96)' : '#FFFFFF';
-            let strokeColor = isSelected ? '#183630' : (isPrerequisite ? '#D97706' : (isDescendant ? '#1E40AF' : 'rgba(49, 91, 84, 0.25)'));
+            let bgColor = isSelected ? 'rgba(222, 224, 239, 0.96)' : '#FFFFFF';
+            let strokeColor = isSelected ? '#1F2E7A' : (isPrerequisite ? '#D97706' : (isDescendant ? '#1E40AF' : 'rgba(53, 86, 224, 0.25)'));
             let strokeWidth = isSelected ? 2.8 : (isPrerequisite || isDescendant ? 2.2 : 1.2);
             let opacity = isVisible ? (isDimmed ? 0.35 : 1) : 0.15;
 
@@ -371,7 +371,7 @@ export default function CurricularGraphView({
                     height={nodeHeight + 8}
                     rx={14}
                     fill="none"
-                    stroke="#315B54"
+                    stroke="#3556E0"
                     strokeWidth={1.5}
                     opacity={0.5}
                   />
@@ -385,7 +385,7 @@ export default function CurricularGraphView({
                   fill={bgColor}
                   stroke={strokeColor}
                   strokeWidth={strokeWidth}
-                  filter="drop-shadow(0 2px 4px rgba(16, 36, 32, 0.06))"
+                  filter="drop-shadow(0 2px 4px rgba(30, 45, 110, 0.06))"
                 />
 
                 {/* Franja vertical indicadora del Eje Curricular */}
@@ -428,7 +428,7 @@ export default function CurricularGraphView({
                     xmlns="http://www.w3.org/1999/xhtml"
                     style={{
                       fontSize: '11px',
-                      color: '#142B25',
+                      color: '#172554',
                       fontWeight: isSelected ? 700 : 600,
                       lineHeight: '1.25',
                       display: '-webkit-box',
@@ -452,10 +452,10 @@ export default function CurricularGraphView({
         <div 
           style={{ 
             padding: '22px 26px', 
-            backgroundColor: 'rgba(255, 254, 250, 0.95)',
-            border: '1.5px solid #315B54',
+            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+            border: '1.5px solid #3556E0',
             borderRadius: '18px',
-            boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)',
+            boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)',
             display: 'flex',
             flexDirection: 'column',
             gap: '14px'
@@ -476,11 +476,11 @@ export default function CurricularGraphView({
                 >
                   {selectedNode.codigo}
                 </span>
-                <span style={{ fontSize: '12px', color: '#477A72', fontWeight: 600 }}>
+                <span style={{ fontSize: '12px', color: '#384074', fontWeight: 600 }}>
                   Eje: {CURRICULAR_EJES[selectedNode.eje]?.nombre} • Grados: {CURRICULAR_GRADOS.find(g => g.id === selectedNode.gradoGrupo)?.label}
                 </span>
               </div>
-              <h3 style={{ fontSize: '18px', fontFamily: 'var(--font-heading)', color: '#142B25', margin: 0, fontWeight: 700 }}>
+              <h3 style={{ fontSize: '18px', fontFamily: 'var(--font-heading)', color: '#172554', margin: 0, fontWeight: 700 }}>
                 {selectedNode.titulo}
               </h3>
             </div>
@@ -498,7 +498,7 @@ export default function CurricularGraphView({
             )}
           </div>
 
-          <p style={{ fontSize: '14px', color: '#2B453E', lineHeight: '1.6', margin: 0 }}>
+          <p style={{ fontSize: '14px', color: '#242A4C', lineHeight: '1.6', margin: 0 }}>
             {selectedNode.descripcion}
           </p>
 
@@ -518,7 +518,7 @@ export default function CurricularGraphView({
                   })}
                 </ul>
               ) : (
-                <span style={{ fontSize: '12px', color: '#B45309' }}>Competencia fundacional (sin prerrequisitos obligatorios en este ciclo).</span>
+                <span style={{ fontSize: '12px', color: '#A14A08' }}>Competencia fundacional (sin prerrequisitos obligatorios en este ciclo).</span>
               )}
             </div>
 
@@ -535,13 +535,13 @@ export default function CurricularGraphView({
                   ))}
                 </ul>
               ) : (
-                <span style={{ fontSize: '12px', color: '#2563EB' }}>Nodo culmen de ciclo en Educación Media.</span>
+                <span style={{ fontSize: '12px', color: '#1557E6' }}>Nodo culmen de ciclo en Educación Media.</span>
               )}
             </div>
           </div>
         </div>
       ) : (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#477A72', padding: '6px 12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#384074', padding: '6px 12px' }}>
           <Info size={15} />
           <span>Haz clic sobre cualquier nodo para explorar sus prerrequisitos y transferirlo a tu planeación.</span>
         </div>

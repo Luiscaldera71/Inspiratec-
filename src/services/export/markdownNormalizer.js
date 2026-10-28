@@ -7,6 +7,8 @@
 
 import { marked } from 'marked';
 import { formatCurricularMarkdown } from './curricularMarkdownFormatter.js';
+import { headingCard, headingDot } from './pdf/pdfBlocks.js';
+import { THEME } from './exportTheme.js';
 
 /**
  * Limpia emojis incompatibles con fuentes estándar de PDF (Roboto/Type1)
@@ -75,7 +77,7 @@ export const processInlineTokens = (tokens) => {
         results.push({
           text: ` ${decodeHtmlEntities(token.text)} `,
           font: 'Roboto',
-          background: '#F1F5F9',
+          background: THEME.soft,
           color: '#1E293B',
           fontSize: 9.5
         });
@@ -87,7 +89,7 @@ export const processInlineTokens = (tokens) => {
         results.push({
           text: linkInlines,
           link: token.href,
-          color: '#284A44',
+          color: THEME.indigo,
           decoration: 'underline'
         });
         break;
@@ -159,7 +161,7 @@ const processList = (listToken) => {
     items.push(itemContents.length === 1 ? itemContents[0] : { stack: itemContents });
   }
 
-  return isOrdered ? { ol: items, style: 'orderedList' } : { ul: items, style: 'unorderedList' };
+  return isOrdered ? { ol: items, style: 'orderedList', markerColor: THEME.indigo } : { ul: items, style: 'unorderedList', markerColor: THEME.violet };
 };
 
 /**
@@ -192,12 +194,13 @@ const processTable = (tableToken) => {
       style: 'tableHeaderCell',
       alignment: align,
       bold: true,
-      fillColor: '#EDF3F1' // Verde salvia suave corporativo
+      fillColor: THEME.indigo,
+      color: '#FFFFFF'
     };
   });
 
   // Filas del cuerpo con negrita garantizada en momentos (Inicio, Desarrollo, Cierre) y criterios
-  const bodyRows = rows.map((row) => {
+  const bodyRows = rows.map((row, rIdx) => {
     return row.map((cell, idx) => {
       const inlineCells = cell.tokens ? processInlineTokens(cell.tokens) : [{ text: cell.text || '' }];
       const align = aligns[idx] || 'left';
@@ -210,7 +213,7 @@ const processTable = (tableToken) => {
         style: 'tableBodyCell',
         alignment: align,
         bold: (isMoment || isFirstColLabel) ? true : undefined,
-        fillColor: isMoment ? '#F8FAF9' : undefined
+        fillColor: isMoment ? THEME.moment : (rIdx % 2 === 1 ? THEME.softer : undefined)
       };
     });
   });
@@ -231,8 +234,8 @@ const processTable = (tableToken) => {
     layout: {
       hLineWidth: (i, node) => (i === 0 || i === node.table.body.length ? 0.8 : 0.5),
       vLineWidth: () => 0.5,
-      hLineColor: (i) => (i === 1 ? '#315B54' : '#D1DBD7'),
-      vLineColor: () => '#E2E8F0',
+      hLineColor: (i) => (i === 1 ? THEME.indigo : THEME.border),
+      vLineColor: () => THEME.border,
       paddingLeft: () => 8,
       paddingRight: () => 8,
       paddingTop: () => 7,
@@ -257,6 +260,9 @@ export const normalizeMarkdownToPdfBlocks = (markdownText) => {
   // 2. Lexing con marked
   const tokens = marked.lexer(cleanSource, { gfm: true });
   const contentBlocks = [];
+  contentBlocks.toc = [];
+  let chapter = 0;
+  let seenHeading = false;
 
   for (const token of tokens) {
     switch (token.type) {
@@ -264,17 +270,20 @@ export const normalizeMarkdownToPdfBlocks = (markdownText) => {
         const cleanTitle = cleanEmojis(token.text);
         const headingInlines = token.tokens ? processInlineTokens(token.tokens) : [{ text: cleanTitle }];
 
-        // Determinar nivel de estilo según profundidad
-        const styleName = token.depth <= 2 
-          ? 'headingSection' 
-          : (token.depth === 3 ? 'headingSubsection' : 'headingMinor');
-
-        contentBlocks.push({
-          text: headingInlines,
-          style: styleName,
-          headlineLevel: token.depth,
-          keepWithNext: true // Mantiene el título unido al contenido siguiente
-        });
+        // H1/H2: tarjeta de sección; H3+: subtítulo con punto de color
+        if (token.depth <= 2 && !(token.depth === 1 && !seenHeading)) {
+          // Capítulo: se quita la numeración escrita a mano ("1. ") y se usa la del libro
+          const limpio = headingInlines.map((x, i) => (i === 0 && typeof x.text === 'string' ? { ...x, text: x.text.replace(/^\s*\d+[.)]\s*/, '') } : x));
+          chapter += 1;
+          const id = `cap-${chapter}`;
+          contentBlocks.toc.push({ id, numero: chapter, titulo: cleanEmojis(token.text).replace(/^\s*\d+[.)]\s*/, '') });
+          contentBlocks.push(headingCard(limpio, token.depth, { id, number: chapter }));
+        } else if (token.depth <= 2) {
+          contentBlocks.push(headingCard(headingInlines, token.depth));
+        } else {
+          contentBlocks.push(headingDot(headingInlines, token.depth));
+        }
+        seenHeading = true;
         break;
       }
 
@@ -323,7 +332,8 @@ export const normalizeMarkdownToPdfBlocks = (markdownText) => {
               [
                 {
                   text: quoteInlines.length > 0 ? quoteInlines : [{ text: token.text || '' }],
-                  style: 'blockquoteCell'
+                  style: 'blockquoteCell',
+                  fillColor: '#F5F2FF'
                 }
               ]
             ]
@@ -331,7 +341,7 @@ export const normalizeMarkdownToPdfBlocks = (markdownText) => {
           layout: {
             hLineWidth: () => 0,
             vLineWidth: (i) => (i === 0 ? 3.5 : 0),
-            vLineColor: () => '#477A72',
+            vLineColor: () => THEME.violet,
             paddingLeft: () => 12,
             paddingRight: () => 8,
             paddingTop: () => 4,

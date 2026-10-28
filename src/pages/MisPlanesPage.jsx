@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAppStore } from '../store/useAppStore';
 import { getMisPlanes, deletePlanFromDB, updatePlanStatus } from '../services/dbService';
 import { auth } from '../firebase';
@@ -35,7 +35,12 @@ export default function MisPlanesPage() {
   
   const [planes, setPlanes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchParams] = useSearchParams();
+  const [searchTerm, setSearchTerm] = useState(() => searchParams.get('q') || '');
+  // La búsqueda global de la barra superior llega como ?q=
+  useEffect(() => {
+    setSearchTerm(searchParams.get('q') || '');
+  }, [searchParams]);
   const [statusFilter, setStatusFilter] = useState('todos');
   const [planToDelete, setPlanToDelete] = useState(null);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -193,26 +198,26 @@ export default function MisPlanesPage() {
       <header 
         className="mgmt-header"
         style={{
-          backgroundColor: 'rgba(255, 254, 250, 0.86)',
+          backgroundColor: 'rgba(255, 255, 255, 0.86)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '18px',
           padding: '16px 22px',
           marginBottom: '12px',
-          boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+          boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
         }}
       >
         <div className="mgmt-header-info">
           <div>
             <div className="editorial-badge" style={{ marginBottom: '8px' }}>
-              <BookOpen size={14} color="#2B524A" />
+              <BookOpen size={14} color="#2B3F9E" />
               <span>Repositorio Curricular Personal</span>
             </div>
-            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#142B25', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
+            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#172554', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
               Mis Planes de Clase
             </h1>
-            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#243630', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
+            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#2A3566', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
               Gestiona, edita y organiza tus secuencias pedagógicas sincronizadas en la nube. Reabre borradores, publica en la biblioteca comunitaria o sistematiza tus experiencias.
             </p>
           </div>
@@ -236,8 +241,8 @@ export default function MisPlanesPage() {
               minHeight: '42px', 
               padding: '10px 16px',
               backgroundColor: 'rgba(255, 255, 255, 0.85)',
-              color: '#183630',
-              border: '1px solid rgba(24, 54, 48, 0.20)',
+              color: '#1F2E7A',
+              border: '1px solid rgba(31, 46, 122, 0.20)',
               borderRadius: '10px',
               fontWeight: 600,
               cursor: isLoading ? 'not-allowed' : 'pointer'
@@ -258,9 +263,9 @@ export default function MisPlanesPage() {
               gap: '8px', 
               minHeight: '42px', 
               padding: '10px 20px',
-              backgroundColor: '#183630',
+              backgroundColor: '#1F2E7A',
               color: '#FFFFFF',
-              boxShadow: '0 4px 14px rgba(20, 42, 38, 0.20)',
+              boxShadow: '0 4px 14px rgba(23, 37, 84, 0.20)',
               borderRadius: '10px',
               fontWeight: 600,
               cursor: 'pointer'
@@ -294,11 +299,11 @@ export default function MisPlanesPage() {
                 padding: '7px 16px', 
                 fontSize: '13px',
                 borderRadius: '10px',
-                backgroundColor: statusFilter === 'todos' ? 'rgba(71, 122, 114, 0.22)' : 'rgba(255, 255, 255, 0.92)',
-                borderColor: statusFilter === 'todos' ? '#142B25' : 'rgba(255, 255, 255, 0.95)',
-                color: '#142B25',
+                backgroundColor: statusFilter === 'todos' ? 'rgba(79, 125, 245, 0.22)' : 'rgba(255, 255, 255, 0.92)',
+                borderColor: statusFilter === 'todos' ? '#172554' : 'rgba(255, 255, 255, 0.95)',
+                color: '#172554',
                 fontWeight: statusFilter === 'todos' ? 700 : 600,
-                boxShadow: '0 2px 6px rgba(16, 36, 32, 0.04)'
+                boxShadow: '0 2px 6px rgba(30, 45, 110, 0.04)'
               }}
             >
               Todos ({planes.length})
@@ -310,11 +315,11 @@ export default function MisPlanesPage() {
                 padding: '7px 16px', 
                 fontSize: '13px',
                 borderRadius: '10px',
-                backgroundColor: statusFilter === 'guardados' ? 'rgba(71, 122, 114, 0.22)' : 'rgba(255, 255, 255, 0.92)',
-                borderColor: statusFilter === 'guardados' ? '#142B25' : 'rgba(255, 255, 255, 0.95)',
-                color: '#142B25',
+                backgroundColor: statusFilter === 'guardados' ? 'rgba(79, 125, 245, 0.22)' : 'rgba(255, 255, 255, 0.92)',
+                borderColor: statusFilter === 'guardados' ? '#172554' : 'rgba(255, 255, 255, 0.95)',
+                color: '#172554',
                 fontWeight: statusFilter === 'guardados' ? 700 : 600,
-                boxShadow: '0 2px 6px rgba(16, 36, 32, 0.04)'
+                boxShadow: '0 2px 6px rgba(30, 45, 110, 0.04)'
               }}
             >
               Guardados
@@ -326,11 +331,11 @@ export default function MisPlanesPage() {
                 padding: '7px 16px', 
                 fontSize: '13px',
                 borderRadius: '10px',
-                backgroundColor: statusFilter === 'sistematizados' ? 'rgba(71, 122, 114, 0.22)' : 'rgba(255, 255, 255, 0.92)',
-                borderColor: statusFilter === 'sistematizados' ? '#142B25' : 'rgba(255, 255, 255, 0.95)',
-                color: '#142B25',
+                backgroundColor: statusFilter === 'sistematizados' ? 'rgba(79, 125, 245, 0.22)' : 'rgba(255, 255, 255, 0.92)',
+                borderColor: statusFilter === 'sistematizados' ? '#172554' : 'rgba(255, 255, 255, 0.95)',
+                color: '#172554',
                 fontWeight: statusFilter === 'sistematizados' ? 700 : 600,
-                boxShadow: '0 2px 6px rgba(16, 36, 32, 0.04)'
+                boxShadow: '0 2px 6px rgba(30, 45, 110, 0.04)'
               }}
             >
               Sistematizados
@@ -342,11 +347,11 @@ export default function MisPlanesPage() {
                 padding: '7px 16px', 
                 fontSize: '13px',
                 borderRadius: '10px',
-                backgroundColor: statusFilter === 'biblioteca' ? 'rgba(71, 122, 114, 0.22)' : 'rgba(255, 255, 255, 0.92)',
-                borderColor: statusFilter === 'biblioteca' ? '#142B25' : 'rgba(255, 255, 255, 0.95)',
-                color: '#142B25',
+                backgroundColor: statusFilter === 'biblioteca' ? 'rgba(79, 125, 245, 0.22)' : 'rgba(255, 255, 255, 0.92)',
+                borderColor: statusFilter === 'biblioteca' ? '#172554' : 'rgba(255, 255, 255, 0.95)',
+                color: '#172554',
                 fontWeight: statusFilter === 'biblioteca' ? 700 : 600,
-                boxShadow: '0 2px 6px rgba(16, 36, 32, 0.04)'
+                boxShadow: '0 2px 6px rgba(30, 45, 110, 0.04)'
               }}
             >
               En Biblioteca
@@ -416,12 +421,12 @@ export default function MisPlanesPage() {
                 onKeyDown={(e) => { if (e.key === 'Enter') handleEdit(plan); }}
                 aria-label={`Ver plan ${plan.tema || 'Sin título'}`}
                 style={{
-                  backgroundColor: 'rgba(255, 254, 250, 0.88)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.88)',
                   backdropFilter: 'blur(16px)',
                   WebkitBackdropFilter: 'blur(16px)',
                   border: '1px solid rgba(255, 255, 255, 0.94)',
                   borderRadius: '20px',
-                  boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+                  boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
                 }}
               >
                 <div className="mgmt-card-header">

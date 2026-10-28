@@ -284,7 +284,7 @@ export default function WizardPage() {
         <div className="planificador-header">
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '8px' }}>
             <div className="editorial-badge" style={{ margin: 0 }}>
-              <Sparkles size={14} color="#2B524A" />
+              <Sparkles size={14} color="#2B3F9E" />
               <span>Secuencia Didáctica Guiada</span>
             </div>
             {hasDraftData && (
@@ -303,9 +303,6 @@ export default function WizardPage() {
           <h1 className="planificador-title">
             Planificador de Clases
           </h1>
-          <p className="planificador-subtitle">
-            Configura los propósitos pedagógicos, metodología y adaptaciones DUA para generar tu secuencia didáctica estructurada con asistencia de IA.
-          </p>
         </div>
         
         {/* Stepper / Indicador de Progreso Responsive */}
@@ -351,9 +348,6 @@ export default function WizardPage() {
           <h3 className="wizard-section-title">
             {stepsInfo[step - 1].title}
           </h3>
-          <p className="wizard-section-desc">
-            {stepsInfo[step - 1].desc}
-          </p>
         </div>
 
         {/* Formulario Modularizado */}
@@ -546,14 +540,14 @@ export default function WizardPage() {
                   fontFamily: 'var(--font-heading)',
                   fontSize: 'clamp(22px, 2.5vw, 26px)',
                   fontWeight: 700,
-                  color: '#142B25',
+                  color: '#172554',
                   marginBottom: '8px',
                   letterSpacing: '-0.015em'
                 }}>
                   Tejiendo tu Secuencia Didáctica
                 </h3>
 
-                <p style={{ fontSize: '14.5px', color: '#3D5A53', margin: '0 auto', maxWidth: '420px' }}>
+                <p style={{ fontSize: '14.5px', color: '#313866', margin: '0 auto', maxWidth: '420px' }}>
                   Esto puede tardar unos segundos.
                 </p>
               </div>
@@ -568,7 +562,7 @@ export default function WizardPage() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   margin: '0 auto 18px auto',
-                  color: '#DC2626'
+                  color: '#C42020'
                 }}>
                   <AlertCircle size={32} />
                 </div>
@@ -576,7 +570,7 @@ export default function WizardPage() {
                   fontFamily: 'var(--font-heading)',
                   fontSize: '22px',
                   fontWeight: 700,
-                  color: '#142B25',
+                  color: '#172554',
                   marginBottom: '10px'
                 }}>
                   No se pudo generar la planeación

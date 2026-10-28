@@ -26,10 +26,11 @@ service cloud.firestore {
     }
 
     // Planes Curriculares (Colección principal en español)
+    // Cada plan es del docente que lo creó (userId). Solo se comparten los que están en la
+    // Biblioteca / Sistematizados / públicos. Los planes sin dueño ('anon') ya no son accesibles.
     match /planes/{planId} {
       allow read: if isAuthenticated() && (
         resource.data.userId == request.auth.uid || 
-        resource.data.userId == 'anon' ||
         resource.data.estado == 'Biblioteca' || 
         resource.data.estado == 'Sistematizado' ||
         resource.data.publico == true ||
@@ -37,17 +38,14 @@ service cloud.firestore {
       );
       allow create: if isAuthenticated() && (
         request.resource.data.userId == request.auth.uid || 
-        request.resource.data.userId == 'anon' ||
         isAdmin()
       );
       allow update: if isAuthenticated() && (
         resource.data.userId == request.auth.uid || 
-        resource.data.userId == 'anon' ||
         isAdmin()
       );
       allow delete: if isAuthenticated() && (
         resource.data.userId == request.auth.uid || 
-        resource.data.userId == 'anon' ||
         isAdmin()
       );
     }

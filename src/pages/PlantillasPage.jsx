@@ -199,26 +199,26 @@ export default function PlantillasPage() {
       <header 
         className="mgmt-header"
         style={{
-          backgroundColor: 'rgba(255, 254, 250, 0.86)',
+          backgroundColor: 'rgba(255, 255, 255, 0.86)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '18px',
           padding: '16px 22px',
           marginBottom: '12px',
-          boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+          boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
         }}
       >
         <div className="mgmt-header-info">
           <div>
             <div className="editorial-badge" style={{ marginBottom: '8px' }}>
-              <Layers size={14} color="#2B524A" />
+              <Layers size={14} color="#2B3F9E" />
               <span>Formatos del Docente</span>
             </div>
-            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#142B25', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
+            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#172554', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
               Mis Estructuras de Clase
             </h1>
-            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#243630', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
+            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#2A3566', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
               Crea y administra tus propios formatos institucionales. Las estructuras oficiales del sistema operan automáticamente en segundo plano para cada área.
             </p>
           </div>
@@ -239,9 +239,9 @@ export default function PlantillasPage() {
                 gap: '8px', 
                 minHeight: '38px', 
                 padding: '8px 16px',
-                backgroundColor: '#183630',
+                backgroundColor: '#1F2E7A',
                 color: '#FFFFFF',
-                boxShadow: '0 4px 14px rgba(20, 42, 38, 0.20)',
+                boxShadow: '0 4px 14px rgba(23, 37, 84, 0.20)',
                 borderRadius: '10px',
                 fontWeight: 600,
                 cursor: 'pointer',
@@ -259,24 +259,24 @@ export default function PlantillasPage() {
         <section 
           className="plantilla-form-card" 
           style={{
-            backgroundColor: 'rgba(255, 254, 250, 0.88)',
+            backgroundColor: 'rgba(255, 255, 255, 0.88)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
             border: '1px solid rgba(255, 255, 255, 0.94)',
             borderRadius: '20px',
             padding: '18px 22px',
-            boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)',
+            boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)',
             marginBottom: '14px'
           }} 
           aria-labelledby="nueva-estructura-title"
         >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', borderBottom: '1px solid rgba(49, 91, 84, 0.16)', paddingBottom: '10px' }}>
-            <h2 id="nueva-estructura-title" style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', color: '#142B25', margin: 0, display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', borderBottom: '1px solid rgba(53, 86, 224, 0.16)', paddingBottom: '10px' }}>
+            <h2 id="nueva-estructura-title" style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', color: '#172554', margin: 0, display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700 }}>
               <Plus size={18} /> Diseñar Nueva Estructura Pedagógica
             </h2>
             <button 
               onClick={() => setIsCreating(false)} 
-              style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#2D463F' }}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#252B4E' }}
               aria-label="Cerrar formulario"
             >
               <X size={20} />
@@ -284,7 +284,7 @@ export default function PlantillasPage() {
           </div>
           
           <div className="input-group" style={{ marginBottom: '20px' }}>
-            <label htmlFor="plantilla-titulo" style={{ fontWeight: 600, fontSize: '13.5px', marginBottom: '7px', display: 'block', color: '#142B25' }}>
+            <label htmlFor="plantilla-titulo" style={{ fontWeight: 600, fontSize: '13.5px', marginBottom: '7px', display: 'block', color: '#172554' }}>
               Título o Nombre de la Estructura *
             </label>
             <input 
@@ -298,7 +298,7 @@ export default function PlantillasPage() {
           </div>
 
           <div className="input-group" style={{ marginBottom: '20px' }}>
-            <label htmlFor="plantilla-instrucciones" style={{ fontWeight: 600, fontSize: '13.5px', marginBottom: '7px', display: 'block', color: '#142B25' }}>
+            <label htmlFor="plantilla-instrucciones" style={{ fontWeight: 600, fontSize: '13.5px', marginBottom: '7px', display: 'block', color: '#172554' }}>
               Esquema de Momentos e Instrucciones para la IA
             </label>
             <textarea 
@@ -309,18 +309,18 @@ export default function PlantillasPage() {
               onChange={(e) => setFormData({...formData, instrucciones: e.target.value})}
               className="wizard-textarea"
             />
-            <p className="form-helper-text" style={{ fontSize: '12.5px', color: '#2D443E', marginTop: '6px', lineHeight: '1.45' }}>
+            <p className="form-helper-text" style={{ fontSize: '12.5px', color: '#252A4C', marginTop: '6px', lineHeight: '1.45' }}>
               La Inteligencia Artificial de INSPIRATEC seguirá estrictamente este esquema al redactar los planes asociados.
             </p>
           </div>
 
           <div style={{ marginBottom: '24px', padding: '18px 20px', backgroundColor: 'var(--glass-bg-group)', backdropFilter: 'blur(10px)', borderRadius: '16px', border: '1px solid var(--glass-border-light)' }}>
-            <label style={{ fontWeight: 600, fontSize: '13.5px', display: 'block', marginBottom: '10px', color: '#142B25' }}>
+            <label style={{ fontWeight: 600, fontSize: '13.5px', display: 'block', marginBottom: '10px', color: '#172554' }}>
               O extraer estructura desde un archivo guía (Opcional)
             </label>
             <div style={{ display: 'flex', gap: '14px', alignItems: 'center', flexWrap: 'wrap' }}>
-              <div style={{ border: '1px dashed rgba(49, 91, 84, 0.40)', padding: '8px 14px', borderRadius: '10px', flex: 1, minWidth: '240px', backgroundColor: 'rgba(255, 255, 255, 0.85)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Upload size={16} style={{ color: '#183630' }} />
+              <div style={{ border: '1px dashed rgba(53, 86, 224, 0.40)', padding: '8px 14px', borderRadius: '10px', flex: 1, minWidth: '240px', backgroundColor: 'rgba(255, 255, 255, 0.85)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Upload size={16} style={{ color: '#1F2E7A' }} />
                 <input type="file" style={{ fontSize: '13px', width: '100%' }} aria-label="Archivo de formato" />
               </div>
               <button 
@@ -330,7 +330,7 @@ export default function PlantillasPage() {
                 disabled={isAnalyzing || isSaving}
                 style={{ padding: '8px 16px', fontSize: '13.5px', display: 'flex', alignItems: 'center', gap: '8px' }}
               >
-                {isAnalyzing ? <Loader2 size={16} className="spin" /> : <Wand2 size={16} style={{ color: '#183630' }} />} 
+                {isAnalyzing ? <Loader2 size={16} className="spin" /> : <Wand2 size={16} style={{ color: '#1F2E7A' }} />} 
                 <span>{isAnalyzing ? 'Analizando documento...' : 'Extraer con IA'}</span>
               </button>
             </div>
@@ -400,14 +400,14 @@ export default function PlantillasPage() {
           minHeight="340px"
         />
       ) : docentePlantillas.length === 0 ? (
-        <div className="mgmt-empty-card" style={{ padding: '48px 24px', textAlign: 'center', background: 'rgba(255, 254, 250, 0.88)', borderRadius: '24px', border: '1px solid rgba(255, 255, 255, 0.95)', boxShadow: '0 8px 30px rgba(16, 36, 32, 0.06)' }}>
-          <div className="mgmt-empty-icon" style={{ width: '64px', height: '64px', margin: '0 auto 16px', background: 'rgba(71, 122, 114, 0.15)', borderRadius: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Layers size={32} color="#183630" />
+        <div className="mgmt-empty-card" style={{ padding: '48px 24px', textAlign: 'center', background: 'rgba(255, 255, 255, 0.88)', borderRadius: '24px', border: '1px solid rgba(255, 255, 255, 0.95)', boxShadow: '0 8px 30px rgba(30, 45, 110, 0.06)' }}>
+          <div className="mgmt-empty-icon" style={{ width: '64px', height: '64px', margin: '0 auto 16px', background: 'rgba(79, 125, 245, 0.15)', borderRadius: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Layers size={32} color="#1F2E7A" />
           </div>
-          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '20px', color: '#142B25', marginBottom: '8px', fontWeight: 700 }}>
+          <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '20px', color: '#172554', marginBottom: '8px', fontWeight: 700 }}>
             Tu repositorio de estructuras está listo
           </h3>
-          <p style={{ color: '#2D4C44', fontSize: '14.5px', maxWidth: '580px', margin: '0 auto 22px', lineHeight: '1.55' }}>
+          <p style={{ color: '#272D52', fontSize: '14.5px', maxWidth: '580px', margin: '0 auto 22px', lineHeight: '1.55' }}>
             Aquí se conservarán exclusivamente las plantillas y formatos institucionales que agregues para tu uso propio. Los modelos base del sistema operan automáticamente por detrás para cada área de enseñanza.
           </p>
           <button 
@@ -449,12 +449,12 @@ export default function PlantillasPage() {
                 onKeyDown={(e) => { if (e.key === 'Enter') handleUsar(plan); }}
                 aria-label={`Usar estructura ${plan.titulo}`}
                 style={{
-                  backgroundColor: 'rgba(255, 254, 250, 0.88)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.88)',
                   backdropFilter: 'blur(16px)',
                   WebkitBackdropFilter: 'blur(16px)',
-                  border: isStandard ? '1px solid rgba(49, 91, 84, 0.22)' : '1px solid rgba(255, 255, 255, 0.94)',
+                  border: isStandard ? '1px solid rgba(53, 86, 224, 0.22)' : '1px solid rgba(255, 255, 255, 0.94)',
                   borderRadius: '20px',
-                  boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+                  boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
                 }}
               >
                 <div className="mgmt-card-header">
@@ -534,13 +534,13 @@ export default function PlantillasPage() {
       )}
 
       {/* Sección secundaria plegada: Formatos base del sistema activos por detrás */}
-      <section className="default-templates-drawer-section" style={{ marginTop: '36px', borderTop: '1px solid rgba(49, 91, 84, 0.14)', paddingTop: '20px' }}>
+      <section className="default-templates-drawer-section" style={{ marginTop: '36px', borderTop: '1px solid rgba(53, 86, 224, 0.14)', paddingTop: '20px' }}>
         <details style={{ borderRadius: '18px', background: 'rgba(255, 255, 255, 0.65)', border: '1px solid rgba(255, 255, 255, 0.85)', padding: '14px 20px', backdropFilter: 'blur(12px)' }}>
-          <summary style={{ cursor: 'pointer', fontWeight: 600, fontSize: '13.5px', color: '#2C4E46', display: 'flex', alignItems: 'center', gap: '10px', userSelect: 'none' }}>
-            <Layers size={16} color="#477A72" />
+          <summary style={{ cursor: 'pointer', fontWeight: 600, fontSize: '13.5px', color: '#282D52', display: 'flex', alignItems: 'center', gap: '10px', userSelect: 'none' }}>
+            <Layers size={16} color="#4F7DF5" />
             <span>Formatos curriculares base del sistema ({GENERIC_TEMPLATES.length}) — Activos en segundo plano</span>
           </summary>
-          <p style={{ fontSize: '12.5px', color: '#4A6B63', marginTop: '10px', marginBottom: '14px', lineHeight: '1.45' }}>
+          <p style={{ fontSize: '12.5px', color: '#3B437A', marginTop: '10px', marginBottom: '14px', lineHeight: '1.45' }}>
             Estas estructuras oficiales por área están preconfiguradas para alimentar el planificador y la página de inicio sin sobrecargar tu lista personal.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '12px' }}>
@@ -551,7 +551,7 @@ export default function PlantillasPage() {
                   padding: '12px 14px', 
                   borderRadius: '14px', 
                   background: 'rgba(255, 255, 255, 0.9)', 
-                  border: '1px solid rgba(49, 91, 84, 0.16)', 
+                  border: '1px solid rgba(53, 86, 224, 0.16)', 
                   display: 'flex', 
                   flexDirection: 'column', 
                   justifyContent: 'space-between',
@@ -559,11 +559,11 @@ export default function PlantillasPage() {
                 }}
               >
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: '13.5px', color: '#142B25', marginBottom: '3px' }}>{gt.titulo}</div>
-                  <div style={{ fontSize: '11.5px', color: '#3D5E57', lineHeight: '1.4' }}>{gt.subtitulo}</div>
+                  <div style={{ fontWeight: 700, fontSize: '13.5px', color: '#172554', marginBottom: '3px' }}>{gt.titulo}</div>
+                  <div style={{ fontSize: '11.5px', color: '#323A69', lineHeight: '1.4' }}>{gt.subtitulo}</div>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '4px' }}>
-                  <span style={{ fontSize: '10.5px', color: '#5A7D75', fontStyle: 'italic' }}>Sistema base</span>
+                  <span style={{ fontSize: '10.5px', color: '#3C447C', fontStyle: 'italic' }}>Sistema base</span>
                   <button 
                     type="button"
                     className="btn-outline"
@@ -593,12 +593,12 @@ export default function PlantillasPage() {
             className="modal-glass-card" 
             style={{ 
               maxWidth: '640px',
-              backgroundColor: 'rgba(255, 254, 250, 0.94)',
+              backgroundColor: 'rgba(255, 255, 255, 0.94)',
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
               border: '1px solid rgba(255, 255, 255, 0.96)',
               borderRadius: '24px',
-              boxShadow: '0 24px 60px rgba(16, 36, 32, 0.22)'
+              boxShadow: '0 24px 60px rgba(30, 45, 110, 0.22)'
             }}
           >
             <div className="modal-glass-header">
@@ -607,11 +607,11 @@ export default function PlantillasPage() {
                   width: '38px',
                   height: '38px',
                   borderRadius: '10px',
-                  backgroundColor: 'rgba(71, 122, 114, 0.14)',
+                  backgroundColor: 'rgba(79, 125, 245, 0.14)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#1C3D36'
+                  color: '#1A1F3F'
                 }}>
                   <Layers size={18} />
                 </div>
@@ -619,7 +619,7 @@ export default function PlantillasPage() {
                   <h3 id="detalle-plantilla-title" className="modal-glass-title" style={{ fontSize: '18px' }}>
                     {viewingPlan.titulo}
                   </h3>
-                  <span style={{ fontSize: '12px', color: '#527068' }}>{viewingPlan.formato}</span>
+                  <span style={{ fontSize: '12px', color: '#3C447C' }}>{viewingPlan.formato}</span>
                 </div>
               </div>
               <button 
@@ -634,7 +634,7 @@ export default function PlantillasPage() {
             <div className="modal-glass-body">
               <div style={{ marginBottom: '18px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-                  <strong style={{ fontSize: '12px', color: '#3A544C', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700 }}>
+                  <strong style={{ fontSize: '12px', color: '#2E3560', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700 }}>
                     Esquema Curricular & Momentos Pedagógicos
                   </strong>
                   <span style={{ fontSize: '11px', color: '#166534', backgroundColor: 'rgba(22, 163, 74, 0.12)', padding: '2px 8px', borderRadius: '999px', fontWeight: 600 }}>
@@ -644,16 +644,16 @@ export default function PlantillasPage() {
 
                 {viewingPlan.fundamento && (
                   <div style={{
-                    backgroundColor: 'rgba(71, 122, 114, 0.10)',
-                    border: '1px solid rgba(71, 122, 114, 0.22)',
+                    backgroundColor: 'rgba(79, 125, 245, 0.10)',
+                    border: '1px solid rgba(79, 125, 245, 0.22)',
                     borderRadius: '14px',
                     padding: '14px 16px',
                     marginBottom: '14px',
                     fontSize: '13px',
-                    color: '#142B25',
+                    color: '#172554',
                     lineHeight: '1.55'
                   }}>
-                    <strong style={{ display: 'block', marginBottom: '4px', color: '#1C3D36' }}>
+                    <strong style={{ display: 'block', marginBottom: '4px', color: '#1A1F3F' }}>
                       Fundamento curricular (MEN y DBA):
                     </strong>
                     {viewingPlan.fundamento}
@@ -674,7 +674,7 @@ export default function PlantillasPage() {
 
                 {viewingPlan.instrucciones ? (
                   <div style={{ 
-                    backgroundColor: 'rgba(255, 254, 250, 0.88)', 
+                    backgroundColor: 'rgba(255, 255, 255, 0.88)', 
                     backdropFilter: 'blur(16px)',
                     WebkitBackdropFilter: 'blur(16px)',
                     padding: '18px 20px', 
@@ -683,78 +683,78 @@ export default function PlantillasPage() {
                     fontSize: '14px', 
                     lineHeight: '1.65', 
                     border: '1px solid rgba(255, 255, 255, 0.94)', 
-                    color: '#142B25', 
-                    boxShadow: '0 4px 16px rgba(20, 42, 38, 0.05)'
+                    color: '#172554', 
+                    boxShadow: '0 4px 16px rgba(23, 37, 84, 0.05)'
                   }}>
                     {viewingPlan.instrucciones}
                   </div>
                 ) : (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     <div style={{ 
-                      backgroundColor: 'rgba(255, 254, 250, 0.88)', 
+                      backgroundColor: 'rgba(255, 255, 255, 0.88)', 
                       backdropFilter: 'blur(16px)',
                       WebkitBackdropFilter: 'blur(16px)',
                       padding: '16px 20px', 
                       borderRadius: '16px', 
                       border: '1px solid rgba(255, 255, 255, 0.94)',
-                      boxShadow: '0 4px 16px rgba(20, 42, 38, 0.05)'
+                      boxShadow: '0 4px 16px rgba(23, 37, 84, 0.05)'
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-                        <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#10B981' }} />
-                        <strong style={{ fontSize: '14px', color: '#142B25', fontWeight: 700 }}>1. Momento de Inicio (Exploración)</strong>
+                        <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#2637A3' }} />
+                        <strong style={{ fontSize: '14px', color: '#172554', fontWeight: 700 }}>1. Momento de Inicio (Exploración)</strong>
                       </div>
-                      <p style={{ margin: 0, fontSize: '13px', color: '#2C443D', lineHeight: '1.55', fontWeight: 500 }}>
+                      <p style={{ margin: 0, fontSize: '13px', color: '#242A4C', lineHeight: '1.55', fontWeight: 500 }}>
                         Activación de saberes previos, formulación de preguntas provocadoras y conexión con el contexto real del estudiante.
                       </p>
                     </div>
 
                     <div style={{ 
-                      backgroundColor: 'rgba(255, 254, 250, 0.88)', 
+                      backgroundColor: 'rgba(255, 255, 255, 0.88)', 
                       backdropFilter: 'blur(16px)',
                       WebkitBackdropFilter: 'blur(16px)',
                       padding: '16px 20px', 
                       borderRadius: '16px', 
                       border: '1px solid rgba(255, 255, 255, 0.94)',
-                      boxShadow: '0 4px 16px rgba(20, 42, 38, 0.05)'
+                      boxShadow: '0 4px 16px rgba(23, 37, 84, 0.05)'
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
                         <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#3B82F6' }} />
-                        <strong style={{ fontSize: '14px', color: '#142B25', fontWeight: 700 }}>2. Momento de Desarrollo (Estructuración y Práctica)</strong>
+                        <strong style={{ fontSize: '14px', color: '#172554', fontWeight: 700 }}>2. Momento de Desarrollo (Estructuración y Práctica)</strong>
                       </div>
-                      <p style={{ margin: 0, fontSize: '13px', color: '#2C443D', lineHeight: '1.55', fontWeight: 500 }}>
+                      <p style={{ margin: 0, fontSize: '13px', color: '#242A4C', lineHeight: '1.55', fontWeight: 500 }}>
                         Construcción guiada de conceptos, trabajo colaborativo, aplicación práctica y mediación docente con recursos didácticos.
                       </p>
                     </div>
 
                     <div style={{ 
-                      backgroundColor: 'rgba(255, 254, 250, 0.88)', 
+                      backgroundColor: 'rgba(255, 255, 255, 0.88)', 
                       backdropFilter: 'blur(16px)',
                       WebkitBackdropFilter: 'blur(16px)',
                       padding: '16px 20px', 
                       borderRadius: '16px', 
                       border: '1px solid rgba(255, 255, 255, 0.94)',
-                      boxShadow: '0 4px 16px rgba(20, 42, 38, 0.05)'
+                      boxShadow: '0 4px 16px rgba(23, 37, 84, 0.05)'
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
                         <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#F59E0B' }} />
-                        <strong style={{ fontSize: '14px', color: '#142B25', fontWeight: 700 }}>3. Momento de Cierre (Transferencia y Metacognición)</strong>
+                        <strong style={{ fontSize: '14px', color: '#172554', fontWeight: 700 }}>3. Momento de Cierre (Transferencia y Metacognición)</strong>
                       </div>
-                      <p style={{ margin: 0, fontSize: '13px', color: '#2C443D', lineHeight: '1.55', fontWeight: 500 }}>
+                      <p style={{ margin: 0, fontSize: '13px', color: '#242A4C', lineHeight: '1.55', fontWeight: 500 }}>
                         Consolidación de aprendizajes, conclusiones reflexivas y autoevaluación formativa de la experiencia de clase.
                       </p>
                     </div>
 
                     <div style={{ 
-                      backgroundColor: 'rgba(255, 254, 250, 0.88)', 
+                      backgroundColor: 'rgba(255, 255, 255, 0.88)', 
                       backdropFilter: 'blur(16px)',
                       WebkitBackdropFilter: 'blur(16px)',
                       padding: '14px 18px', 
                       borderRadius: '16px', 
                       border: '1px solid rgba(255, 255, 255, 0.94)',
-                      boxShadow: '0 4px 16px rgba(20, 42, 38, 0.05)'
+                      boxShadow: '0 4px 16px rgba(23, 37, 84, 0.05)'
                     }}>
-                      <p style={{ margin: 0, fontSize: '13px', color: '#183630', lineHeight: '1.55', fontWeight: 500 }}>
-                        ✨ <strong style={{ color: '#142B25' }}>Integración Transversal DUA:</strong> El asistente adaptará automáticamente este esquema incorporando múltiples formas de representación, expresión y motivación para atender la diversidad del aula.
+                      <p style={{ margin: 0, fontSize: '13px', color: '#1F2E7A', lineHeight: '1.55', fontWeight: 500 }}>
+                        ✨ <strong style={{ color: '#172554' }}>Integración Transversal DUA:</strong> El asistente adaptará automáticamente este esquema incorporando múltiples formas de representación, expresión y motivación para atender la diversidad del aula.
                       </p>
                     </div>
                   </div>

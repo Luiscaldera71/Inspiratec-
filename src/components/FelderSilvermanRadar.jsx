@@ -89,14 +89,14 @@ export default function FelderSilvermanRadar({ dimensiones, className = '' }) {
         <defs>
           {/* Gradiente radial de fondo del polígono */}
           <radialGradient id="radarAreaGradient" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#477A72" stopOpacity="0.55" />
-            <stop offset="70%" stopColor="#315B54" stopOpacity="0.30" />
-            <stop offset="100%" stopColor="#183630" stopOpacity="0.12" />
+            <stop offset="0%" stopColor="#4F7DF5" stopOpacity="0.55" />
+            <stop offset="70%" stopColor="#3556E0" stopOpacity="0.30" />
+            <stop offset="100%" stopColor="#1F2E7A" stopOpacity="0.12" />
           </radialGradient>
 
           {/* Sombra suave para el polígono de resultados */}
           <filter id="radarGlow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#183630" floodOpacity="0.22" />
+            <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#1F2E7A" floodOpacity="0.22" />
           </filter>
         </defs>
 
@@ -113,7 +113,7 @@ export default function FelderSilvermanRadar({ dimensiones, className = '' }) {
                 cy={cy}
                 r={r}
                 fill="none"
-                stroke={pct === 50 ? 'rgba(49, 91, 84, 0.38)' : 'rgba(49, 91, 84, 0.16)'}
+                stroke={pct === 50 ? 'rgba(53, 86, 224, 0.38)' : 'rgba(53, 86, 224, 0.16)'}
                 strokeWidth={pct === 50 ? 1.5 : 1}
                 strokeDasharray={pct === 50 ? 'none' : '3,3'}
               />
@@ -121,7 +121,7 @@ export default function FelderSilvermanRadar({ dimensiones, className = '' }) {
               <text
                 x={cx + 4}
                 y={cy - r + 11}
-                fill="#477A72"
+                fill="#4F7DF5"
                 fontSize="9.5"
                 fontWeight={pct === 50 ? '700' : '500'}
                 fontFamily="system-ui, -apple-system, sans-serif"
@@ -143,7 +143,7 @@ export default function FelderSilvermanRadar({ dimensiones, className = '' }) {
               y1={cy}
               x2={outer.x}
               y2={outer.y}
-              stroke="rgba(49, 91, 84, 0.22)"
+              stroke="rgba(53, 86, 224, 0.22)"
               strokeWidth="1.2"
             />
           );
@@ -153,7 +153,7 @@ export default function FelderSilvermanRadar({ dimensiones, className = '' }) {
         <polygon
           points={polygonPointsStr}
           fill="url(#radarAreaGradient)"
-          stroke="#244B43"
+          stroke="#22284D"
           strokeWidth="2.8"
           strokeLinejoin="round"
           filter="url(#radarGlow)"
@@ -178,7 +178,7 @@ export default function FelderSilvermanRadar({ dimensiones, className = '' }) {
                 cx={p.coords.x}
                 cy={p.coords.y}
                 r="5"
-                fill="#183630"
+                fill="#1F2E7A"
                 stroke="#FFFFFF"
                 strokeWidth="2"
                 style={{ transition: 'all 0.4s ease' }}
@@ -190,14 +190,14 @@ export default function FelderSilvermanRadar({ dimensiones, className = '' }) {
                 y={labelCoords.y}
                 textAnchor={textAnchor}
                 dominantBaseline="central"
-                fill="#142B25"
+                fill="#172554"
                 fontSize="12"
                 fontWeight="700"
                 fontFamily="system-ui, -apple-system, sans-serif"
               >
                 {p.label}
                 <tspan
-                  fill="#477A72"
+                  fill="#4F7DF5"
                   fontSize="11"
                   fontWeight="600"
                   dx="4"
@@ -252,7 +252,7 @@ export default function FelderSilvermanRadar({ dimensiones, className = '' }) {
         </table>
       </div>
 
-      <div style={{ marginTop: '12px', textAlign: 'center', fontSize: '12px', color: '#477A72', fontWeight: 500 }}>
+      <div style={{ marginTop: '12px', textAlign: 'center', fontSize: '12px', color: '#384074', fontWeight: 500 }}>
         <span>Línea central punteada: 50% (Equilibrio de preferencia pedagógica)</span>
       </div>
     </div>

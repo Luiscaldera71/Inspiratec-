@@ -191,29 +191,29 @@ export default function AdministracionPage() {
         style={{ 
           width: '100%', 
           boxSizing: 'border-box',
-          backgroundColor: 'rgba(255, 254, 250, 0.86)',
+          backgroundColor: 'rgba(255, 255, 255, 0.86)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '18px',
           padding: '22px 28px',
           marginBottom: '20px',
-          boxShadow: '0 10px 30px rgba(16, 36, 32, 0.08)'
+          boxShadow: '0 10px 30px rgba(30, 45, 110, 0.08)'
         }}
       >
         <div className="mgmt-header-info">
-          <div className="mgmt-header-icon" style={{ backgroundColor: 'rgba(71, 122, 114, 0.16)', color: '#183630' }}>
+          <div className="mgmt-header-icon" style={{ backgroundColor: 'rgba(79, 125, 245, 0.16)', color: '#1F2E7A' }}>
             <ShieldCheck size={26} />
           </div>
           <div>
             <div className="editorial-badge" style={{ marginBottom: '8px' }}>
-              <ShieldCheck size={13} color="#2B524A" />
+              <ShieldCheck size={13} color="#2B3F9E" />
               <span>Gobernanza y Supervisión Curricular</span>
             </div>
-            <h1 className="mgmt-title" style={{ fontSize: '34px', fontFamily: 'var(--font-heading)', color: '#142B25', margin: '0 0 12px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
+            <h1 className="mgmt-title" style={{ fontSize: '34px', fontFamily: 'var(--font-heading)', color: '#172554', margin: '0 0 12px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
               Panel de Administración y Control
             </h1>
-            <p className="mgmt-subtitle" style={{ fontSize: '15.5px', color: '#243630', maxWidth: '720px', margin: 0, lineHeight: '1.65', fontWeight: 500 }}>
+            <p className="mgmt-subtitle" style={{ fontSize: '15.5px', color: '#2A3566', maxWidth: '720px', margin: 0, lineHeight: '1.65', fontWeight: 500 }}>
               Métricas de impacto pedagógico en tiempo real, trazabilidad de datos docentes protegidos bajo Ley 1581 de 2012 y soporte activo.
             </p>
           </div>
@@ -229,7 +229,7 @@ export default function AdministracionPage() {
             <span>{stats.totalPlanes} Planes</span>
           </div>
           <div className="mgmt-stat-pill">
-            <Activity size={14} style={{ color: '#16A34A' }} />
+            <Activity size={14} style={{ color: '#0F7234' }} />
             <span>{tasaResolucion}% Soporte</span>
           </div>
         </div>
@@ -243,12 +243,12 @@ export default function AdministracionPage() {
           padding: '12px 18px', 
           width: '100%', 
           boxSizing: 'border-box',
-          backgroundColor: 'rgba(255, 254, 250, 0.86)',
+          backgroundColor: 'rgba(255, 255, 255, 0.86)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '18px',
-          boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+          boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
         }}
       >
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', width: '100%' }}>
@@ -260,14 +260,14 @@ export default function AdministracionPage() {
               padding: '9px 20px', 
               fontSize: '14px', 
               borderRadius: '12px',
-              backgroundColor: activeTab === 'Analiticas' ? '#142B25' : 'rgba(255, 255, 255, 0.92)',
-              color: activeTab === 'Analiticas' ? '#FFFFFF' : '#142B25',
-              borderColor: activeTab === 'Analiticas' ? '#142B25' : 'rgba(255, 255, 255, 0.95)',
+              backgroundColor: activeTab === 'Analiticas' ? '#172554' : 'rgba(255, 255, 255, 0.92)',
+              color: activeTab === 'Analiticas' ? '#FFFFFF' : '#172554',
+              borderColor: activeTab === 'Analiticas' ? '#172554' : 'rgba(255, 255, 255, 0.95)',
               fontWeight: activeTab === 'Analiticas' ? 700 : 600,
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              boxShadow: '0 2px 6px rgba(16, 36, 32, 0.04)'
+              boxShadow: '0 2px 6px rgba(30, 45, 110, 0.04)'
             }}
           >
             <BarChart3 size={16} /> Analíticas y Métricas Gráficas
@@ -281,14 +281,14 @@ export default function AdministracionPage() {
               padding: '9px 20px', 
               fontSize: '14px', 
               borderRadius: '12px',
-              backgroundColor: activeTab === 'Directorio' ? '#142B25' : 'rgba(255, 255, 255, 0.92)',
-              color: activeTab === 'Directorio' ? '#FFFFFF' : '#142B25',
-              borderColor: activeTab === 'Directorio' ? '#142B25' : 'rgba(255, 255, 255, 0.95)',
+              backgroundColor: activeTab === 'Directorio' ? '#172554' : 'rgba(255, 255, 255, 0.92)',
+              color: activeTab === 'Directorio' ? '#FFFFFF' : '#172554',
+              borderColor: activeTab === 'Directorio' ? '#172554' : 'rgba(255, 255, 255, 0.95)',
               fontWeight: activeTab === 'Directorio' ? 700 : 600,
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              boxShadow: '0 2px 6px rgba(16, 36, 32, 0.04)'
+              boxShadow: '0 2px 6px rgba(30, 45, 110, 0.04)'
             }}
           >
             <Users size={16} /> Directorio de Docentes ({usuarios.length})
@@ -303,19 +303,19 @@ export default function AdministracionPage() {
               padding: '9px 20px', 
               fontSize: '14px', 
               borderRadius: '12px',
-              backgroundColor: activeTab === 'AdnInstitucional' ? '#142B25' : 'rgba(255, 255, 255, 0.92)',
-              color: activeTab === 'AdnInstitucional' ? '#FFFFFF' : '#142B25',
-              borderColor: activeTab === 'AdnInstitucional' ? '#142B25' : 'rgba(255, 255, 255, 0.95)',
+              backgroundColor: activeTab === 'AdnInstitucional' ? '#172554' : 'rgba(255, 255, 255, 0.92)',
+              color: activeTab === 'AdnInstitucional' ? '#FFFFFF' : '#172554',
+              borderColor: activeTab === 'AdnInstitucional' ? '#172554' : 'rgba(255, 255, 255, 0.95)',
               fontWeight: activeTab === 'AdnInstitucional' ? 700 : 600,
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              boxShadow: '0 2px 6px rgba(16, 36, 32, 0.04)',
+              boxShadow: '0 2px 6px rgba(30, 45, 110, 0.04)',
               cursor: 'pointer'
             }}
             title="Diagnóstico y análisis colectivo del ADN Pedagógico e Identidad Curricular Institucional"
           >
-            <Dna size={16} style={{ color: activeTab === 'AdnInstitucional' ? '#4ADE80' : '#059669' }} /> Identidad & ADN Pedagógico
+            <Dna size={16} style={{ color: activeTab === 'AdnInstitucional' ? '#7C9BFF' : '#1D2A7E' }} /> Identidad & ADN Pedagógico
           </button>
 
           <button 
@@ -326,14 +326,14 @@ export default function AdministracionPage() {
               padding: '9px 20px', 
               fontSize: '14px', 
               borderRadius: '12px',
-              backgroundColor: activeTab === 'Tickets' ? '#142B25' : 'rgba(255, 255, 255, 0.92)',
-              color: activeTab === 'Tickets' ? '#FFFFFF' : '#142B25',
-              borderColor: activeTab === 'Tickets' ? '#142B25' : 'rgba(255, 255, 255, 0.95)',
+              backgroundColor: activeTab === 'Tickets' ? '#172554' : 'rgba(255, 255, 255, 0.92)',
+              color: activeTab === 'Tickets' ? '#FFFFFF' : '#172554',
+              borderColor: activeTab === 'Tickets' ? '#172554' : 'rgba(255, 255, 255, 0.95)',
               fontWeight: activeTab === 'Tickets' ? 700 : 600,
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              boxShadow: '0 2px 6px rgba(16, 36, 32, 0.04)'
+              boxShadow: '0 2px 6px rgba(30, 45, 110, 0.04)'
             }}
           >
             <MessageSquare size={16} /> Tickets de Soporte
@@ -362,28 +362,28 @@ export default function AdministracionPage() {
                 padding: '22px 24px', 
                 position: 'relative', 
                 overflow: 'hidden',
-                backgroundColor: 'rgba(255, 254, 250, 0.88)',
+                backgroundColor: 'rgba(255, 255, 255, 0.88)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(255, 255, 255, 0.94)',
                 borderRadius: '20px',
-                boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+                boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <span style={{ fontSize: '11.5px', color: '#3A544C', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                <span style={{ fontSize: '11.5px', color: '#2E3560', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                   Docentes Activos
                 </span>
-                <div style={{ width: '36px', height: '36px', borderRadius: '10px', backgroundColor: 'rgba(71, 122, 114, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#183630' }}>
+                <div style={{ width: '36px', height: '36px', borderRadius: '10px', backgroundColor: 'rgba(79, 125, 245, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1F2E7A' }}>
                   <Users size={18} />
                 </div>
               </div>
-              <p style={{ fontSize: '32px', fontWeight: 700, color: '#142B25', margin: '0 0 6px 0', fontFamily: 'var(--font-heading)' }}>
+              <p style={{ fontSize: '32px', fontWeight: 700, color: '#172554', margin: '0 0 6px 0', fontFamily: 'var(--font-heading)' }}>
                 {stats.totalUsers}
               </p>
               {/* Mini Sparkline SVG */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{ fontSize: '12px', color: '#16A34A', display: 'flex', alignItems: 'center', gap: '4px', fontWeight: 600 }}>
+                <span style={{ fontSize: '12px', color: '#0F7234', display: 'flex', alignItems: 'center', gap: '4px', fontWeight: 600 }}>
                   <TrendingUp size={14} /> +100% Cuentas
                 </span>
               </div>
@@ -396,27 +396,27 @@ export default function AdministracionPage() {
                 padding: '22px 24px', 
                 position: 'relative', 
                 overflow: 'hidden',
-                backgroundColor: 'rgba(255, 254, 250, 0.88)',
+                backgroundColor: 'rgba(255, 255, 255, 0.88)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(255, 255, 255, 0.94)',
                 borderRadius: '20px',
-                boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+                boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <span style={{ fontSize: '11.5px', color: '#3A544C', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                <span style={{ fontSize: '11.5px', color: '#2E3560', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                   Planes de Clase
                 </span>
-                <div style={{ width: '36px', height: '36px', borderRadius: '10px', backgroundColor: 'rgba(71, 122, 114, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#183630' }}>
+                <div style={{ width: '36px', height: '36px', borderRadius: '10px', backgroundColor: 'rgba(79, 125, 245, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1F2E7A' }}>
                   <BookOpen size={18} />
                 </div>
               </div>
-              <p style={{ fontSize: '32px', fontWeight: 700, color: '#142B25', margin: '0 0 6px 0', fontFamily: 'var(--font-heading)' }}>
+              <p style={{ fontSize: '32px', fontWeight: 700, color: '#172554', margin: '0 0 6px 0', fontFamily: 'var(--font-heading)' }}>
                 {stats.totalPlanes}
               </p>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{ fontSize: '12px', color: '#2B453E', fontWeight: 500 }}>
+                <span style={{ fontSize: '12px', color: '#242A4C', fontWeight: 500 }}>
                   Promedio: <strong>{promedioPlanesPorDocente}</strong>/docente
                 </span>
               </div>
@@ -429,27 +429,27 @@ export default function AdministracionPage() {
                 padding: '22px 24px', 
                 position: 'relative', 
                 overflow: 'hidden',
-                backgroundColor: 'rgba(255, 254, 250, 0.88)',
+                backgroundColor: 'rgba(255, 255, 255, 0.88)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(255, 255, 255, 0.94)',
                 borderRadius: '20px',
-                boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+                boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <span style={{ fontSize: '11.5px', color: '#3A544C', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                <span style={{ fontSize: '11.5px', color: '#2E3560', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                   Experiencias Abiertas
                 </span>
-                <div style={{ width: '36px', height: '36px', borderRadius: '10px', backgroundColor: 'rgba(71, 122, 114, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#183630' }}>
+                <div style={{ width: '36px', height: '36px', borderRadius: '10px', backgroundColor: 'rgba(79, 125, 245, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1F2E7A' }}>
                   <Sparkles size={18} />
                 </div>
               </div>
-              <p style={{ fontSize: '32px', fontWeight: 700, color: '#142B25', margin: '0 0 6px 0', fontFamily: 'var(--font-heading)' }}>
+              <p style={{ fontSize: '32px', fontWeight: 700, color: '#172554', margin: '0 0 6px 0', fontFamily: 'var(--font-heading)' }}>
                 {stats.totalExperiencias}
               </p>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{ fontSize: '12px', color: '#2B453E', fontWeight: 500 }}>
+                <span style={{ fontSize: '12px', color: '#242A4C', fontWeight: 500 }}>
                   Comunidad activa
                 </span>
               </div>
@@ -462,16 +462,16 @@ export default function AdministracionPage() {
                 padding: '22px 24px', 
                 position: 'relative', 
                 overflow: 'hidden',
-                backgroundColor: 'rgba(255, 254, 250, 0.88)',
+                backgroundColor: 'rgba(255, 255, 255, 0.88)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(255, 255, 255, 0.94)',
                 borderRadius: '20px',
-                boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+                boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <span style={{ fontSize: '11.5px', color: '#3A544C', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                <span style={{ fontSize: '11.5px', color: '#2E3560', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                   Impacto Escolar
                 </span>
                 <div style={{ width: '36px', height: '36px', borderRadius: '10px', backgroundColor: 'rgba(22, 163, 74, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#166534' }}>
@@ -498,19 +498,19 @@ export default function AdministracionPage() {
               className="mgmt-card" 
               style={{ 
                 padding: '26px 28px',
-                backgroundColor: 'rgba(255, 254, 250, 0.88)',
+                backgroundColor: 'rgba(255, 255, 255, 0.88)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(255, 255, 255, 0.94)',
                 borderRadius: '22px',
-                boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+                boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', borderBottom: '1px solid rgba(49, 91, 84, 0.14)', paddingBottom: '12px' }}>
-                <h2 style={{ fontSize: '16.5px', color: '#142B25', margin: 0, fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <PieChart size={18} color="#183630" /> Gráfico de Distribución por Nivel
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', borderBottom: '1px solid rgba(53, 86, 224, 0.14)', paddingBottom: '12px' }}>
+                <h2 style={{ fontSize: '16.5px', color: '#172554', margin: 0, fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <PieChart size={18} color="#1F2E7A" /> Gráfico de Distribución por Nivel
                 </h2>
-                <span style={{ fontSize: '12px', color: '#2B453E', fontWeight: 600 }}>{totalDocentes} Docentes</span>
+                <span style={{ fontSize: '12px', color: '#242A4C', fontWeight: 600 }}>{totalDocentes} Docentes</span>
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexWrap: 'wrap', gap: '20px' }}>
@@ -518,11 +518,11 @@ export default function AdministracionPage() {
                 <div style={{ position: 'relative', width: '130px', height: '130px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <svg width="130" height="130" viewBox="0 0 100 100" style={{ transform: 'rotate(-90deg)' }}>
                     {/* Fondo base */}
-                    <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(49, 91, 84, 0.12)" strokeWidth="12" />
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(53, 86, 224, 0.12)" strokeWidth="12" />
                     {/* Arco Primaria */}
                     {pctPrimaria > 0 && (
                       <circle 
-                        cx="50" cy="50" r="42" fill="none" stroke="#477A72" strokeWidth="12"
+                        cx="50" cy="50" r="42" fill="none" stroke="#4F7DF5" strokeWidth="12"
                         strokeDasharray={`${strokePrimaria} ${circ}`}
                         strokeDashoffset={offsetPrimaria}
                       />
@@ -530,7 +530,7 @@ export default function AdministracionPage() {
                     {/* Arco Secundaria */}
                     {pctSecundaria > 0 && (
                       <circle 
-                        cx="50" cy="50" r="42" fill="none" stroke="#315B54" strokeWidth="12"
+                        cx="50" cy="50" r="42" fill="none" stroke="#3556E0" strokeWidth="12"
                         strokeDasharray={`${strokeSecundaria} ${circ}`}
                         strokeDashoffset={offsetSecundaria}
                       />
@@ -538,7 +538,7 @@ export default function AdministracionPage() {
                     {/* Arco Media */}
                     {pctMedia > 0 && (
                       <circle 
-                        cx="50" cy="50" r="42" fill="none" stroke="#183630" strokeWidth="12"
+                        cx="50" cy="50" r="42" fill="none" stroke="#1F2E7A" strokeWidth="12"
                         strokeDasharray={`${strokeMedia} ${circ}`}
                         strokeDashoffset={offsetMedia}
                       />
@@ -546,7 +546,7 @@ export default function AdministracionPage() {
                     {/* Arco Otros */}
                     {pctOtros > 0 && (
                       <circle 
-                        cx="50" cy="50" r="42" fill="none" stroke="#A7C4BC" strokeWidth="12"
+                        cx="50" cy="50" r="42" fill="none" stroke="#9CA3CF" strokeWidth="12"
                         strokeDasharray={`${strokeOtros} ${circ}`}
                         strokeDashoffset={offsetOtros}
                       />
@@ -554,8 +554,8 @@ export default function AdministracionPage() {
                   </svg>
                   {/* Centro del Donut */}
                   <div style={{ position: 'absolute', textAlign: 'center' }}>
-                    <span style={{ fontSize: '20px', fontWeight: 700, color: '#142B25', display: 'block', lineHeight: 1 }}>{totalDocentes}</span>
-                    <span style={{ fontSize: '10.5px', color: '#4A635B', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Total</span>
+                    <span style={{ fontSize: '20px', fontWeight: 700, color: '#172554', display: 'block', lineHeight: 1 }}>{totalDocentes}</span>
+                    <span style={{ fontSize: '10.5px', color: '#384075', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Total</span>
                   </div>
                 </div>
 
@@ -563,40 +563,40 @@ export default function AdministracionPage() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', minWidth: '170px', flex: 1 }}>
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', marginBottom: '4px' }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#142B25', fontWeight: 600 }}>
-                        <span style={{ width: '10px', height: '10px', borderRadius: '3px', backgroundColor: '#477A72' }} />
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#172554', fontWeight: 600 }}>
+                        <span style={{ width: '10px', height: '10px', borderRadius: '3px', backgroundColor: '#4F7DF5' }} />
                         Primaria ({primariaCount})
                       </span>
-                      <strong style={{ color: '#183630' }}>{pctPrimaria.toFixed(1)}%</strong>
+                      <strong style={{ color: '#1F2E7A' }}>{pctPrimaria.toFixed(1)}%</strong>
                     </div>
-                    <div style={{ height: '6px', width: '100%', backgroundColor: 'rgba(49, 91, 84, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
-                      <div style={{ height: '100%', width: `${pctPrimaria}%`, backgroundColor: '#477A72' }} />
+                    <div style={{ height: '6px', width: '100%', backgroundColor: 'rgba(53, 86, 224, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: `${pctPrimaria}%`, backgroundColor: '#4F7DF5' }} />
                     </div>
                   </div>
 
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', marginBottom: '4px' }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#142B25', fontWeight: 600 }}>
-                        <span style={{ width: '10px', height: '10px', borderRadius: '3px', backgroundColor: '#315B54' }} />
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#172554', fontWeight: 600 }}>
+                        <span style={{ width: '10px', height: '10px', borderRadius: '3px', backgroundColor: '#3556E0' }} />
                         Secundaria ({secundariaCount})
                       </span>
-                      <strong style={{ color: '#183630' }}>{pctSecundaria.toFixed(1)}%</strong>
+                      <strong style={{ color: '#1F2E7A' }}>{pctSecundaria.toFixed(1)}%</strong>
                     </div>
-                    <div style={{ height: '6px', width: '100%', backgroundColor: 'rgba(49, 91, 84, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
-                      <div style={{ height: '100%', width: `${pctSecundaria}%`, backgroundColor: '#315B54' }} />
+                    <div style={{ height: '6px', width: '100%', backgroundColor: 'rgba(53, 86, 224, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: `${pctSecundaria}%`, backgroundColor: '#3556E0' }} />
                     </div>
                   </div>
 
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', marginBottom: '4px' }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#142B25', fontWeight: 600 }}>
-                        <span style={{ width: '10px', height: '10px', borderRadius: '3px', backgroundColor: '#183630' }} />
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#172554', fontWeight: 600 }}>
+                        <span style={{ width: '10px', height: '10px', borderRadius: '3px', backgroundColor: '#1F2E7A' }} />
                         Media ({mediaCount})
                       </span>
-                      <strong style={{ color: '#183630' }}>{pctMedia.toFixed(1)}%</strong>
+                      <strong style={{ color: '#1F2E7A' }}>{pctMedia.toFixed(1)}%</strong>
                     </div>
-                    <div style={{ height: '6px', width: '100%', backgroundColor: 'rgba(49, 91, 84, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
-                      <div style={{ height: '100%', width: `${pctMedia}%`, backgroundColor: '#183630' }} />
+                    <div style={{ height: '6px', width: '100%', backgroundColor: 'rgba(53, 86, 224, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: `${pctMedia}%`, backgroundColor: '#1F2E7A' }} />
                     </div>
                   </div>
                 </div>
@@ -608,67 +608,67 @@ export default function AdministracionPage() {
               className="mgmt-card" 
               style={{ 
                 padding: '26px 28px',
-                backgroundColor: 'rgba(255, 254, 250, 0.88)',
+                backgroundColor: 'rgba(255, 255, 255, 0.88)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(255, 255, 255, 0.94)',
                 borderRadius: '22px',
-                boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+                boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px', borderBottom: '1px solid rgba(49, 91, 84, 0.14)', paddingBottom: '12px' }}>
-                <h2 style={{ fontSize: '16.5px', color: '#142B25', margin: 0, fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <TrendingUp size={18} color="#183630" /> Producción Curricular por Área
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px', borderBottom: '1px solid rgba(53, 86, 224, 0.14)', paddingBottom: '12px' }}>
+                <h2 style={{ fontSize: '16.5px', color: '#172554', margin: 0, fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <TrendingUp size={18} color="#1F2E7A" /> Producción Curricular por Área
                 </h2>
-                <span style={{ fontSize: '12px', color: '#2B453E', fontWeight: 600 }}>Enfoque STEAM</span>
+                <span style={{ fontSize: '12px', color: '#242A4C', fontWeight: 600 }}>Enfoque STEAM</span>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 {/* Tecnología */}
-                <div style={{ padding: '12px 14px', backgroundColor: 'rgba(255, 255, 255, 0.72)', borderRadius: '14px', border: '1px solid rgba(49, 91, 84, 0.14)' }}>
+                <div style={{ padding: '12px 14px', backgroundColor: 'rgba(255, 255, 255, 0.72)', borderRadius: '14px', border: '1px solid rgba(53, 86, 224, 0.14)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
                     <div>
-                      <strong style={{ fontSize: '13.5px', color: '#142B25', display: 'block' }}>Tecnología e Informática</strong>
-                      <span style={{ fontSize: '11.5px', color: '#4A635B' }}>Algoritmos y pensamiento computacional</span>
+                      <strong style={{ fontSize: '13.5px', color: '#172554', display: 'block' }}>Tecnología e Informática</strong>
+                      <span style={{ fontSize: '11.5px', color: '#384075' }}>Algoritmos y pensamiento computacional</span>
                     </div>
-                    <span style={{ padding: '3px 10px', borderRadius: '999px', backgroundColor: 'rgba(71, 122, 114, 0.18)', color: '#183630', fontSize: '11.5px', fontWeight: 700 }}>
+                    <span style={{ padding: '3px 10px', borderRadius: '999px', backgroundColor: 'rgba(79, 125, 245, 0.18)', color: '#1F2E7A', fontSize: '11.5px', fontWeight: 700 }}>
                       42% del total
                     </span>
                   </div>
-                  <div style={{ height: '8px', width: '100%', backgroundColor: 'rgba(49, 91, 84, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
-                    <div style={{ height: '100%', width: '42%', backgroundColor: '#183630', borderRadius: '999px' }} />
+                  <div style={{ height: '8px', width: '100%', backgroundColor: 'rgba(53, 86, 224, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
+                    <div style={{ height: '100%', width: '42%', backgroundColor: '#1F2E7A', borderRadius: '999px' }} />
                   </div>
                 </div>
 
                 {/* Matemáticas */}
-                <div style={{ padding: '12px 14px', backgroundColor: 'rgba(255, 255, 255, 0.72)', borderRadius: '14px', border: '1px solid rgba(49, 91, 84, 0.14)' }}>
+                <div style={{ padding: '12px 14px', backgroundColor: 'rgba(255, 255, 255, 0.72)', borderRadius: '14px', border: '1px solid rgba(53, 86, 224, 0.14)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
                     <div>
-                      <strong style={{ fontSize: '13.5px', color: '#142B25', display: 'block' }}>Matemáticas</strong>
-                      <span style={{ fontSize: '11.5px', color: '#4A635B' }}>Modelación y problemas reales</span>
+                      <strong style={{ fontSize: '13.5px', color: '#172554', display: 'block' }}>Matemáticas</strong>
+                      <span style={{ fontSize: '11.5px', color: '#384075' }}>Modelación y problemas reales</span>
                     </div>
-                    <span style={{ padding: '3px 10px', borderRadius: '999px', backgroundColor: 'rgba(71, 122, 114, 0.18)', color: '#183630', fontSize: '11.5px', fontWeight: 700 }}>
+                    <span style={{ padding: '3px 10px', borderRadius: '999px', backgroundColor: 'rgba(79, 125, 245, 0.18)', color: '#1F2E7A', fontSize: '11.5px', fontWeight: 700 }}>
                       34% del total
                     </span>
                   </div>
-                  <div style={{ height: '8px', width: '100%', backgroundColor: 'rgba(49, 91, 84, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
-                    <div style={{ height: '100%', width: '34%', backgroundColor: '#315B54', borderRadius: '999px' }} />
+                  <div style={{ height: '8px', width: '100%', backgroundColor: 'rgba(53, 86, 224, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
+                    <div style={{ height: '100%', width: '34%', backgroundColor: '#3556E0', borderRadius: '999px' }} />
                   </div>
                 </div>
 
                 {/* Lenguaje e Idiomas */}
-                <div style={{ padding: '12px 14px', backgroundColor: 'rgba(255, 255, 255, 0.72)', borderRadius: '14px', border: '1px solid rgba(49, 91, 84, 0.14)' }}>
+                <div style={{ padding: '12px 14px', backgroundColor: 'rgba(255, 255, 255, 0.72)', borderRadius: '14px', border: '1px solid rgba(53, 86, 224, 0.14)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
                     <div>
-                      <strong style={{ fontSize: '13.5px', color: '#142B25', display: 'block' }}>Lenguaje e Inglés</strong>
-                      <span style={{ fontSize: '11.5px', color: '#4A635B' }}>Comprensión y expresión comunicativa</span>
+                      <strong style={{ fontSize: '13.5px', color: '#172554', display: 'block' }}>Lenguaje e Inglés</strong>
+                      <span style={{ fontSize: '11.5px', color: '#384075' }}>Comprensión y expresión comunicativa</span>
                     </div>
-                    <span style={{ padding: '3px 10px', borderRadius: '999px', backgroundColor: 'rgba(71, 122, 114, 0.18)', color: '#183630', fontSize: '11.5px', fontWeight: 700 }}>
+                    <span style={{ padding: '3px 10px', borderRadius: '999px', backgroundColor: 'rgba(79, 125, 245, 0.18)', color: '#1F2E7A', fontSize: '11.5px', fontWeight: 700 }}>
                       24% del total
                     </span>
                   </div>
-                  <div style={{ height: '8px', width: '100%', backgroundColor: 'rgba(49, 91, 84, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
-                    <div style={{ height: '100%', width: '24%', backgroundColor: '#477A72', borderRadius: '999px' }} />
+                  <div style={{ height: '8px', width: '100%', backgroundColor: 'rgba(53, 86, 224, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
+                    <div style={{ height: '100%', width: '24%', backgroundColor: '#4F7DF5', borderRadius: '999px' }} />
                   </div>
                 </div>
               </div>
@@ -683,20 +683,20 @@ export default function AdministracionPage() {
               padding: '24px 28px', 
               width: '100%', 
               boxSizing: 'border-box',
-              backgroundColor: 'rgba(255, 254, 250, 0.88)',
+              backgroundColor: 'rgba(255, 255, 255, 0.88)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               border: '1px solid rgba(255, 255, 255, 0.94)',
               borderRadius: '22px',
-              boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+              boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '12px' }}>
               <div>
-                <h3 style={{ fontSize: '16.5px', color: '#142B25', margin: '0 0 4px 0', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Activity size={18} color="#183630" /> Estado de Solicitudes y Atención a Docentes
+                <h3 style={{ fontSize: '16.5px', color: '#172554', margin: '0 0 4px 0', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Activity size={18} color="#1F2E7A" /> Estado de Solicitudes y Atención a Docentes
                 </h3>
-                <p style={{ fontSize: '13px', color: '#3A544C', margin: 0 }}>
+                <p style={{ fontSize: '13px', color: '#2E3560', margin: 0 }}>
                   Eficiencia de soporte técnico institucional y resolución de dudas sobre el planificador.
                 </p>
               </div>
@@ -704,13 +704,13 @@ export default function AdministracionPage() {
                 <span style={{ padding: '4px 12px', borderRadius: '999px', backgroundColor: '#DCFCE7', color: '#166534', fontSize: '12px', fontWeight: 700 }}>
                   {resueltosCount} Resueltos
                 </span>
-                <span style={{ padding: '4px 12px', borderRadius: '999px', backgroundColor: pendientesCount > 0 ? '#FEF3C7' : '#E7EDE7', color: pendientesCount > 0 ? '#92400E' : '#315B54', fontSize: '12px', fontWeight: 700 }}>
+                <span style={{ padding: '4px 12px', borderRadius: '999px', backgroundColor: pendientesCount > 0 ? '#FEF3C7' : '#E8EEFF', color: pendientesCount > 0 ? '#92400E' : '#3556E0', fontSize: '12px', fontWeight: 700 }}>
                   {pendientesCount} Pendientes
                 </span>
               </div>
             </div>
 
-            <div style={{ height: '12px', width: '100%', backgroundColor: 'rgba(49, 91, 84, 0.14)', borderRadius: '999px', overflow: 'hidden', display: 'flex' }}>
+            <div style={{ height: '12px', width: '100%', backgroundColor: 'rgba(53, 86, 224, 0.14)', borderRadius: '999px', overflow: 'hidden', display: 'flex' }}>
               <div style={{ height: '100%', width: `${tasaResolucion}%`, backgroundColor: '#16A34A', transition: 'width 0.4s ease' }} title={`Resueltos: ${tasaResolucion}%`} />
               <div style={{ height: '100%', width: `${100 - tasaResolucion}%`, backgroundColor: '#F59E0B', transition: 'width 0.4s ease' }} title={`Pendientes: ${100 - tasaResolucion}%`} />
             </div>
@@ -753,9 +753,9 @@ export default function AdministracionPage() {
                     borderRadius: '999px',
                     fontSize: '12.5px',
                     fontWeight: 600,
-                    border: '1px solid rgba(49, 91, 84, 0.22)',
-                    backgroundColor: filterNivel === n ? '#183630' : 'rgba(255, 255, 255, 0.72)',
-                    color: filterNivel === n ? '#FFFFFF' : '#142B25',
+                    border: '1px solid rgba(53, 86, 224, 0.22)',
+                    backgroundColor: filterNivel === n ? '#1F2E7A' : 'rgba(255, 255, 255, 0.72)',
+                    color: filterNivel === n ? '#FFFFFF' : '#172554',
                     cursor: 'pointer',
                     transition: 'all 0.15s ease'
                   }}
@@ -772,18 +772,18 @@ export default function AdministracionPage() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                backgroundColor: 'rgba(255, 254, 250, 0.94)',
+                backgroundColor: 'rgba(255, 255, 255, 0.94)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(255, 255, 255, 0.96)',
                 borderRadius: '999px',
                 padding: '6px 16px',
-                boxShadow: '0 4px 14px rgba(16, 36, 32, 0.08)'
+                boxShadow: '0 4px 14px rgba(30, 45, 110, 0.08)'
               }}
             >
               <Users size={14} style={{ color: '#166534' }} />
-              <span style={{ fontSize: '13px', color: '#142B25', fontWeight: 600 }}>
-                Mostrando <strong style={{ color: '#166534', fontWeight: 700 }}>{filteredUsers.length}</strong> de <strong style={{ color: '#142B25', fontWeight: 700 }}>{usuarios.length}</strong> docentes registrados
+              <span style={{ fontSize: '13px', color: '#172554', fontWeight: 600 }}>
+                Mostrando <strong style={{ color: '#166534', fontWeight: 700 }}>{filteredUsers.length}</strong> de <strong style={{ color: '#172554', fontWeight: 700 }}>{usuarios.length}</strong> docentes registrados
               </span>
             </div>
 
@@ -801,7 +801,7 @@ export default function AdministracionPage() {
                 padding: '6px 14px', 
                 borderRadius: '999px', 
                 fontWeight: 600,
-                boxShadow: '0 4px 14px rgba(16, 36, 32, 0.06)'
+                boxShadow: '0 4px 14px rgba(30, 45, 110, 0.06)'
               }}
             >
               <ShieldCheck size={14} /> 
@@ -818,31 +818,31 @@ export default function AdministracionPage() {
               width: '100%', 
               boxSizing: 'border-box', 
               marginBottom: '32px',
-              backgroundColor: 'rgba(255, 254, 250, 0.88)',
+              backgroundColor: 'rgba(255, 255, 255, 0.88)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               border: '1px solid rgba(255, 255, 255, 0.94)',
               borderRadius: '22px',
-              boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+              boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
             }}
           >
             {/* VISTA ESCRITORIO / TABLET: Tabla Completa */}
             <div className="admin-table-desktop-view" style={{ width: '100%', overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '640px' }}>
                 <thead>
-                  <tr style={{ backgroundColor: 'rgba(71, 122, 114, 0.12)', borderBottom: '1px solid rgba(49, 91, 84, 0.18)' }}>
-                    <th style={{ padding: '14px 18px', color: '#142B25', fontSize: '12.5px', fontWeight: 700 }}>Docente</th>
-                    <th style={{ padding: '14px 18px', color: '#142B25', fontSize: '12.5px', fontWeight: 700 }}>Celular Cifrado</th>
-                    <th style={{ padding: '14px 18px', color: '#142B25', fontSize: '12.5px', fontWeight: 700 }}>Nivel / Rol</th>
-                    <th style={{ padding: '14px 18px', color: '#142B25', fontSize: '12.5px', fontWeight: 700 }}>Institución</th>
-                    <th style={{ padding: '14px 18px', color: '#142B25', fontSize: '12.5px', fontWeight: 700 }}>Planes</th>
-                    <th style={{ padding: '14px 18px', color: '#142B25', fontSize: '12.5px', fontWeight: 700 }}>Acción</th>
+                  <tr style={{ backgroundColor: 'rgba(79, 125, 245, 0.12)', borderBottom: '1px solid rgba(53, 86, 224, 0.18)' }}>
+                    <th style={{ padding: '14px 18px', color: '#172554', fontSize: '12.5px', fontWeight: 700 }}>Docente</th>
+                    <th style={{ padding: '14px 18px', color: '#172554', fontSize: '12.5px', fontWeight: 700 }}>Celular Cifrado</th>
+                    <th style={{ padding: '14px 18px', color: '#172554', fontSize: '12.5px', fontWeight: 700 }}>Nivel / Rol</th>
+                    <th style={{ padding: '14px 18px', color: '#172554', fontSize: '12.5px', fontWeight: 700 }}>Institución</th>
+                    <th style={{ padding: '14px 18px', color: '#172554', fontSize: '12.5px', fontWeight: 700 }}>Planes</th>
+                    <th style={{ padding: '14px 18px', color: '#172554', fontSize: '12.5px', fontWeight: 700 }}>Acción</th>
                   </tr>
                 </thead>
                 <tbody>
                   {filteredUsers.length === 0 ? (
                     <tr>
-                      <td colSpan="6" style={{ padding: '36px', textAlign: 'center', color: '#4B635B' }}>
+                      <td colSpan="6" style={{ padding: '36px', textAlign: 'center', color: '#394175' }}>
                         No se encontraron docentes con los criterios de búsqueda seleccionados.
                       </td>
                     </tr>
@@ -853,30 +853,30 @@ export default function AdministracionPage() {
                       const displayPhone = plainPhone ? (isRevealed ? plainPhone : maskPhoneNumber(plainPhone)) : 'No registrado';
 
                       return (
-                        <tr key={u.id} style={{ borderBottom: '1px solid rgba(49, 91, 84, 0.10)', transition: 'background-color 0.15s ease' }}>
+                        <tr key={u.id} style={{ borderBottom: '1px solid rgba(53, 86, 224, 0.10)', transition: 'background-color 0.15s ease' }}>
                           <td style={{ padding: '14px 18px' }}>
-                            <div style={{ fontWeight: 700, fontSize: '13.5px', color: '#142B25' }}>{u.nombre}</div>
-                            <div style={{ fontSize: '12px', color: '#3A544C' }}>{u.email}</div>
+                            <div style={{ fontWeight: 700, fontSize: '13.5px', color: '#172554' }}>{u.nombre}</div>
+                            <div style={{ fontSize: '12px', color: '#2E3560' }}>{u.email}</div>
                           </td>
                           <td style={{ padding: '14px 18px', fontSize: '12.5px' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                              <span style={{ fontFamily: 'monospace', fontSize: '12px', color: '#142B25' }}>{displayPhone}</span>
+                              <span style={{ fontFamily: 'monospace', fontSize: '12px', color: '#172554' }}>{displayPhone}</span>
                               {plainPhone && (
                                 <button
                                   type="button"
                                   onClick={() => togglePhoneReveal(u.id)}
                                   title={isRevealed ? "Ocultar teléfono" : "Descifrar teléfono para contacto"}
-                                  style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '3px', color: '#315B54', display: 'flex', alignItems: 'center' }}
+                                  style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '3px', color: '#3556E0', display: 'flex', alignItems: 'center' }}
                                 >
-                                  {isRevealed ? <Lock size={13} color="#183630" /> : <Unlock size={13} />}
+                                  {isRevealed ? <Lock size={13} color="#1F2E7A" /> : <Unlock size={13} />}
                                 </button>
                               )}
                             </div>
                           </td>
                           <td style={{ padding: '14px 18px' }}>
                             <span style={{ 
-                              background: u.nivel === 'Primaria' ? 'rgba(71, 122, 114, 0.14)' : u.nivel === 'Secundaria' ? 'rgba(49, 91, 84, 0.18)' : 'rgba(24, 54, 48, 0.18)', 
-                              color: '#183630', 
+                              background: u.nivel === 'Primaria' ? 'rgba(79, 125, 245, 0.14)' : u.nivel === 'Secundaria' ? 'rgba(53, 86, 224, 0.18)' : 'rgba(31, 46, 122, 0.18)', 
+                              color: '#1F2E7A', 
                               padding: '3px 10px', 
                               borderRadius: '999px', 
                               fontSize: '11.5px', 
@@ -885,11 +885,11 @@ export default function AdministracionPage() {
                               {u.nivel || u.rol || 'Docente'}
                             </span>
                           </td>
-                          <td style={{ padding: '14px 18px', fontSize: '13px', color: '#2B433B' }}>
+                          <td style={{ padding: '14px 18px', fontSize: '13px', color: '#24294A' }}>
                             {u.institucion || 'Institución Educativa'}
                           </td>
                           <td style={{ padding: '14px 18px' }}>
-                            <span style={{ fontWeight: 700, color: '#183630', fontSize: '13.5px' }}>
+                            <span style={{ fontWeight: 700, color: '#1F2E7A', fontSize: '13.5px' }}>
                               {u.planesCount !== undefined ? u.planesCount : 0}
                             </span>
                           </td>
@@ -909,7 +909,7 @@ export default function AdministracionPage() {
             {/* VISTA MÓVIL: Tarjetas de Perfil Resumen con Ficha Completa */}
             <div className="admin-cards-mobile-view" style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
               {filteredUsers.length === 0 ? (
-                <div style={{ padding: '24px', textAlign: 'center', color: '#4B635B' }}>
+                <div style={{ padding: '24px', textAlign: 'center', color: '#394175' }}>
                   No se encontraron docentes con los criterios de búsqueda seleccionados.
                 </div>
               ) : (
@@ -926,8 +926,8 @@ export default function AdministracionPage() {
                         padding: '16px',
                         backgroundColor: '#FFFFFF',
                         borderRadius: '16px',
-                        border: '1px solid rgba(49, 91, 84, 0.16)',
-                        boxShadow: '0 2px 8px rgba(16, 36, 32, 0.04)',
+                        border: '1px solid rgba(53, 86, 224, 0.16)',
+                        boxShadow: '0 2px 8px rgba(30, 45, 110, 0.04)',
                         display: 'flex',
                         flexDirection: 'column',
                         gap: '12px'
@@ -939,7 +939,7 @@ export default function AdministracionPage() {
                             width: '38px',
                             height: '38px',
                             borderRadius: '10px',
-                            backgroundColor: 'rgba(71, 122, 114, 0.16)',
+                            backgroundColor: 'rgba(79, 125, 245, 0.16)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -950,14 +950,14 @@ export default function AdministracionPage() {
                             {(u.nombre || 'D').charAt(0).toUpperCase()}
                           </div>
                           <div>
-                            <div style={{ fontWeight: 700, fontSize: '14px', color: '#142B25' }}>{u.nombre}</div>
-                            <div style={{ fontSize: '12px', color: '#4A655D' }}>{u.email}</div>
+                            <div style={{ fontWeight: 700, fontSize: '14px', color: '#172554' }}>{u.nombre}</div>
+                            <div style={{ fontSize: '12px', color: '#394176' }}>{u.email}</div>
                           </div>
                         </div>
 
                         <span style={{ 
-                          background: u.nivel === 'Primaria' ? 'rgba(71, 122, 114, 0.14)' : u.nivel === 'Secundaria' ? 'rgba(49, 91, 84, 0.18)' : 'rgba(24, 54, 48, 0.18)', 
-                          color: '#183630', 
+                          background: u.nivel === 'Primaria' ? 'rgba(79, 125, 245, 0.14)' : u.nivel === 'Secundaria' ? 'rgba(53, 86, 224, 0.18)' : 'rgba(31, 46, 122, 0.18)', 
+                          color: '#1F2E7A', 
                           padding: '3px 9px', 
                           borderRadius: '999px', 
                           fontSize: '11px', 
@@ -969,26 +969,26 @@ export default function AdministracionPage() {
 
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', fontSize: '12px', padding: '10px', backgroundColor: '#F8FAF9', borderRadius: '10px' }}>
                         <div>
-                          <span style={{ color: '#576864', display: 'block', fontSize: '11px' }}>Institución:</span>
-                          <strong style={{ color: '#142B25' }}>{u.institucion || 'Colegio'}</strong>
+                          <span style={{ color: '#3E4781', display: 'block', fontSize: '11px' }}>Institución:</span>
+                          <strong style={{ color: '#172554' }}>{u.institucion || 'Colegio'}</strong>
                         </div>
                         <div>
-                          <span style={{ color: '#576864', display: 'block', fontSize: '11px' }}>Planes Creados:</span>
+                          <span style={{ color: '#3E4781', display: 'block', fontSize: '11px' }}>Planes Creados:</span>
                           <strong style={{ color: '#166534' }}>{u.planesCount || 0} planes</strong>
                         </div>
                       </div>
 
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '4px', flexWrap: 'wrap', gap: '8px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px' }}>
-                          <span style={{ fontFamily: 'monospace', color: '#142B25' }}>{displayPhone}</span>
+                          <span style={{ fontFamily: 'monospace', color: '#172554' }}>{displayPhone}</span>
                           {plainPhone && (
                             <button
                               type="button"
                               onClick={() => togglePhoneReveal(u.id)}
-                              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px', color: '#315B54' }}
+                              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px', color: '#3556E0' }}
                               aria-label={isRevealed ? "Ocultar teléfono" : "Descifrar teléfono"}
                             >
-                              {isRevealed ? <Lock size={13} color="#183630" /> : <Unlock size={13} />}
+                              {isRevealed ? <Lock size={13} color="#1F2E7A" /> : <Unlock size={13} />}
                             </button>
                           )}
                         </div>
@@ -1023,12 +1023,12 @@ export default function AdministracionPage() {
                 className="modal-glass-card" 
                 style={{ 
                   maxWidth: '520px',
-                  backgroundColor: 'rgba(255, 254, 250, 0.94)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.94)',
                   backdropFilter: 'blur(20px)',
                   WebkitBackdropFilter: 'blur(20px)',
                   border: '1px solid rgba(255, 255, 255, 0.96)',
                   borderRadius: '24px',
-                  boxShadow: '0 24px 60px rgba(16, 36, 32, 0.22)'
+                  boxShadow: '0 24px 60px rgba(30, 45, 110, 0.22)'
                 }}
               >
                 <div className="modal-glass-header">
@@ -1037,11 +1037,11 @@ export default function AdministracionPage() {
                       width: '38px',
                       height: '38px',
                       borderRadius: '10px',
-                      backgroundColor: 'rgba(71, 122, 114, 0.14)',
+                      backgroundColor: 'rgba(79, 125, 245, 0.14)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: '#1C3D36',
+                      color: '#1A1F3F',
                       fontWeight: 700
                     }}>
                       {(selectedUser.nombre || 'U').charAt(0).toUpperCase()}
@@ -1059,33 +1059,33 @@ export default function AdministracionPage() {
                   </button>
                 </div>
 
-                <div className="modal-glass-body" style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '13.5px', color: '#142B25' }}>
-                  <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 254, 250, 0.88)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.94)', boxShadow: '0 2px 8px rgba(20, 42, 38, 0.03)' }}>
+                <div className="modal-glass-body" style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '13.5px', color: '#172554' }}>
+                  <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.88)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.94)', boxShadow: '0 2px 8px rgba(23, 37, 84, 0.03)' }}>
                     <strong>Nombre:</strong> {selectedUser.nombre}
                   </div>
-                  <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 254, 250, 0.88)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.94)', boxShadow: '0 2px 8px rgba(20, 42, 38, 0.03)' }}>
+                  <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.88)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.94)', boxShadow: '0 2px 8px rgba(23, 37, 84, 0.03)' }}>
                     <strong>Email:</strong> {selectedUser.email}
                   </div>
-                  <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 254, 250, 0.88)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.94)', boxShadow: '0 2px 8px rgba(20, 42, 38, 0.03)' }}>
+                  <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.88)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.94)', boxShadow: '0 2px 8px rgba(23, 37, 84, 0.03)' }}>
                     <strong>Celular de Contacto:</strong>{' '}
                     <span style={{ fontFamily: 'monospace' }}>
                       {decryptSensitiveField(selectedUser.celular) || 'No registrado'}
                     </span>
                   </div>
-                  <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 254, 250, 0.88)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.94)', boxShadow: '0 2px 8px rgba(20, 42, 38, 0.03)' }}>
+                  <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.88)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.94)', boxShadow: '0 2px 8px rgba(23, 37, 84, 0.03)' }}>
                     <strong>Rol:</strong> {selectedUser.rol || 'Docente'}
                   </div>
-                  <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 254, 250, 0.88)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.94)', boxShadow: '0 2px 8px rgba(20, 42, 38, 0.03)' }}>
+                  <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.88)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.94)', boxShadow: '0 2px 8px rgba(23, 37, 84, 0.03)' }}>
                     <strong>Institución:</strong> {selectedUser.institucion || 'N/A'}
                   </div>
-                  <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 254, 250, 0.88)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.94)', boxShadow: '0 2px 8px rgba(20, 42, 38, 0.03)' }}>
+                  <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.88)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.94)', boxShadow: '0 2px 8px rgba(23, 37, 84, 0.03)' }}>
                     <strong>Nivel Pedagógico:</strong> {selectedUser.nivel || 'N/A'}
                   </div>
-                  <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 254, 250, 0.88)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.94)', boxShadow: '0 2px 8px rgba(20, 42, 38, 0.03)' }}>
+                  <div style={{ padding: '10px 14px', backgroundColor: 'rgba(255, 255, 255, 0.88)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.94)', boxShadow: '0 2px 8px rgba(23, 37, 84, 0.03)' }}>
                     <strong>Consentimiento Habeas Data:</strong> {selectedUser.termsAccepted ? 'Aceptado (Ley 1581 de 2012)' : 'Pre-existente'}
                   </div>
-                  <div style={{ padding: '12px 14px', backgroundColor: 'rgba(71, 122, 114, 0.08)', borderRadius: '12px', border: '1px solid rgba(71, 122, 114, 0.2)' }}>
-                    <strong>Planes Creados en Plataforma:</strong> <strong style={{ color: '#183630', fontSize: '15px' }}>{selectedUser.planesCount}</strong>
+                  <div style={{ padding: '12px 14px', backgroundColor: 'rgba(79, 125, 245, 0.08)', borderRadius: '12px', border: '1px solid rgba(79, 125, 245, 0.2)' }}>
+                    <strong>Planes Creados en Plataforma:</strong> <strong style={{ color: '#1F2E7A', fontSize: '15px' }}>{selectedUser.planesCount}</strong>
                   </div>
                 </div>
 
@@ -1114,31 +1114,31 @@ export default function AdministracionPage() {
             style={{
               padding: '26px 30px',
               marginBottom: '24px',
-              backgroundColor: 'rgba(255, 254, 250, 0.92)',
+              backgroundColor: 'rgba(255, 255, 255, 0.92)',
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
               border: '1px solid rgba(255, 255, 255, 0.96)',
               borderRadius: '22px',
-              boxShadow: '0 12px 36px rgba(16, 36, 32, 0.08)'
+              boxShadow: '0 12px 36px rgba(30, 45, 110, 0.08)'
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px' }}>
               <div style={{ maxWidth: '680px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '12px' }}>
                   <div className="editorial-badge" style={{ backgroundColor: 'rgba(22, 163, 74, 0.12)', color: '#166534', borderColor: 'rgba(22, 163, 74, 0.25)' }}>
-                    <Dna size={14} style={{ color: '#16A34A' }} />
+                    <Dna size={14} style={{ color: '#0F7234' }} />
                     <span>Huella Curricular & Gobernanza Pedagógica</span>
                   </div>
-                  <div className="editorial-badge" style={{ backgroundColor: 'rgba(71, 122, 114, 0.12)', color: '#183630', borderColor: 'rgba(71, 122, 114, 0.25)' }}>
-                    <ShieldCheck size={14} style={{ color: '#10B981' }} />
+                  <div className="editorial-badge" style={{ backgroundColor: 'rgba(79, 125, 245, 0.12)', color: '#1F2E7A', borderColor: 'rgba(79, 125, 245, 0.25)' }}>
+                    <ShieldCheck size={14} style={{ color: '#182265' }} />
                     <span>Análisis Colectivo ({usuarios.length} Docentes Registrados)</span>
                   </div>
                 </div>
 
-                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '23px', color: '#142B25', margin: '0 0 8px 0', fontWeight: 700 }}>
+                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '23px', color: '#172554', margin: '0 0 8px 0', fontWeight: 700 }}>
                   ADN Pedagógico Institucional & Estudio Transversal Colectivo
                 </h2>
-                <p style={{ fontSize: '14px', color: '#2F4840', margin: 0, lineHeight: '1.6' }}>
+                <p style={{ fontSize: '14px', color: '#272C50', margin: 0, lineHeight: '1.6' }}>
                   Diagnóstico en tiempo real sobre las metodologías didácticas activas, ejes transversales PRAE/STEAM, enfoques DUA y recursos con mayor efectividad en aula registrados por toda la comunidad docente.
                 </p>
               </div>
@@ -1157,7 +1157,7 @@ export default function AdministracionPage() {
                     fontSize: '13px',
                     textDecoration: 'none',
                     borderRadius: '12px',
-                    boxShadow: '0 4px 14px rgba(20, 42, 38, 0.25)',
+                    boxShadow: '0 4px 14px rgba(23, 37, 84, 0.25)',
                     whiteSpace: 'nowrap'
                   }}
                   title="Abrir tu apartado individual de ADN Pedagógico"
@@ -1165,7 +1165,7 @@ export default function AdministracionPage() {
                   <Sparkles size={15} /> Ir a mi ADN Personal
                 </Link>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '11px', color: '#576864', padding: '0 4px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '11px', color: '#3E4781', padding: '0 4px' }}>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                     <Clock size={12} /> Datos al día ({lastSyncTime})
                   </span>
@@ -1189,24 +1189,24 @@ export default function AdministracionPage() {
               className="mgmt-card" 
               style={{ 
                 padding: '20px 22px', 
-                backgroundColor: 'rgba(255, 254, 250, 0.90)', 
+                backgroundColor: 'rgba(255, 255, 255, 0.90)', 
                 backdropFilter: 'blur(16px)', 
                 WebkitBackdropFilter: 'blur(16px)', 
                 border: '1px solid rgba(255, 255, 255, 0.95)', 
                 borderRadius: '18px', 
-                boxShadow: '0 6px 20px rgba(16, 36, 32, 0.06)' 
+                boxShadow: '0 6px 20px rgba(30, 45, 110, 0.06)' 
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                <span style={{ fontSize: '13px', color: '#47635B', fontWeight: 600 }}>Claustro Docente</span>
-                <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: 'rgba(71, 122, 114, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#183630' }}>
+                <span style={{ fontSize: '13px', color: '#373F73', fontWeight: 600 }}>Claustro Docente</span>
+                <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: 'rgba(79, 125, 245, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1F2E7A' }}>
                   <Users size={19} />
                 </div>
               </div>
-              <div style={{ fontSize: '30px', fontWeight: 800, color: '#142B25', lineHeight: 1, marginBottom: '6px' }}>
+              <div style={{ fontSize: '30px', fontWeight: 800, color: '#172554', lineHeight: 1, marginBottom: '6px' }}>
                 {adnInstitucional?.totalDocentesRegistrados || usuarios.length}
               </div>
-              <div style={{ fontSize: '12px', color: '#2E4C43', fontWeight: 500 }}>
+              <div style={{ fontSize: '12px', color: '#282D52', fontWeight: 500 }}>
                 {stats.totalPlanes || 0} secuencias didácticas articuladas
               </div>
             </div>
@@ -1216,17 +1216,17 @@ export default function AdministracionPage() {
               className="mgmt-card" 
               style={{ 
                 padding: '20px 22px', 
-                backgroundColor: 'rgba(255, 254, 250, 0.90)', 
+                backgroundColor: 'rgba(255, 255, 255, 0.90)', 
                 backdropFilter: 'blur(16px)', 
                 WebkitBackdropFilter: 'blur(16px)', 
                 border: '1px solid rgba(255, 255, 255, 0.95)', 
                 borderRadius: '18px', 
-                boxShadow: '0 6px 20px rgba(16, 36, 32, 0.06)' 
+                boxShadow: '0 6px 20px rgba(30, 45, 110, 0.06)' 
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                <span style={{ fontSize: '13px', color: '#47635B', fontWeight: 600 }}>Innovación Curricular</span>
-                <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: 'rgba(16, 185, 129, 0.16)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#166534' }}>
+                <span style={{ fontSize: '13px', color: '#373F73', fontWeight: 600 }}>Innovación Curricular</span>
+                <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: 'rgba(38, 55, 163, 0.16)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#166534' }}>
                   <TrendingUp size={19} />
                 </div>
               </div>
@@ -1235,7 +1235,7 @@ export default function AdministracionPage() {
                   ? `${adnInstitucional.promedioInnovacionGlobal}%`
                   : '—'}
               </div>
-              <div style={{ fontSize: '12px', color: '#2E4C43', fontWeight: 500 }}>
+              <div style={{ fontSize: '12px', color: '#282D52', fontWeight: 500 }}>
                 {adnInstitucional?.promedioInnovacionGlobal !== null && adnInstitucional?.promedioInnovacionGlobal !== undefined
                   ? 'Promedio real del claustro activo'
                   : 'Sin planes con innovación aún'}
@@ -1247,24 +1247,24 @@ export default function AdministracionPage() {
               className="mgmt-card" 
               style={{ 
                 padding: '20px 22px', 
-                backgroundColor: 'rgba(255, 254, 250, 0.90)', 
+                backgroundColor: 'rgba(255, 255, 255, 0.90)', 
                 backdropFilter: 'blur(16px)', 
                 WebkitBackdropFilter: 'blur(16px)', 
                 border: '1px solid rgba(255, 255, 255, 0.95)', 
                 borderRadius: '18px', 
-                boxShadow: '0 6px 20px rgba(16, 36, 32, 0.06)' 
+                boxShadow: '0 6px 20px rgba(30, 45, 110, 0.06)' 
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                <span style={{ fontSize: '13px', color: '#47635B', fontWeight: 600 }}>Metodología Líder</span>
+                <span style={{ fontSize: '13px', color: '#373F73', fontWeight: 600 }}>Metodología Líder</span>
                 <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: 'rgba(59, 130, 246, 0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1D4ED8' }}>
                   <Compass size={19} />
                 </div>
               </div>
-              <div style={{ fontSize: '16px', fontWeight: 700, color: '#142B25', lineHeight: 1.3, marginBottom: '6px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={adnInstitucional?.metodologiaPredominante}>
+              <div style={{ fontSize: '16px', fontWeight: 700, color: '#172554', lineHeight: 1.3, marginBottom: '6px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={adnInstitucional?.metodologiaPredominante}>
                 {adnInstitucional?.metodologiaPredominante || 'Pendiente por registrar'}
               </div>
-              <div style={{ fontSize: '12px', color: '#2E4C43', fontWeight: 500 }}>
+              <div style={{ fontSize: '12px', color: '#282D52', fontWeight: 500 }}>
                 Mayor recurrencia en el claustro
               </div>
             </div>
@@ -1274,24 +1274,24 @@ export default function AdministracionPage() {
               className="mgmt-card" 
               style={{ 
                 padding: '20px 22px', 
-                backgroundColor: 'rgba(255, 254, 250, 0.90)', 
+                backgroundColor: 'rgba(255, 255, 255, 0.90)', 
                 backdropFilter: 'blur(16px)', 
                 WebkitBackdropFilter: 'blur(16px)', 
                 border: '1px solid rgba(255, 255, 255, 0.95)', 
                 borderRadius: '18px', 
-                boxShadow: '0 6px 20px rgba(16, 36, 32, 0.06)' 
+                boxShadow: '0 6px 20px rgba(30, 45, 110, 0.06)' 
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                <span style={{ fontSize: '13px', color: '#47635B', fontWeight: 600 }}>Recurso Didáctico #1</span>
-                <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: 'rgba(234, 179, 8, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#B45309' }}>
+                <span style={{ fontSize: '13px', color: '#373F73', fontWeight: 600 }}>Recurso Didáctico #1</span>
+                <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: 'rgba(234, 179, 8, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#A14A08' }}>
                   <Star size={19} />
                 </div>
               </div>
-              <div style={{ fontSize: '16px', fontWeight: 700, color: '#142B25', lineHeight: 1.3, marginBottom: '6px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={adnInstitucional?.recursoMasPopular}>
+              <div style={{ fontSize: '16px', fontWeight: 700, color: '#172554', lineHeight: 1.3, marginBottom: '6px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={adnInstitucional?.recursoMasPopular}>
                 {adnInstitucional?.recursoMasPopular || 'Sin recursos anexados aún'}
               </div>
-              <div style={{ fontSize: '12px', color: '#2E4C43', fontWeight: 500 }}>
+              <div style={{ fontSize: '12px', color: '#282D52', fontWeight: 500 }}>
                 Mayor uso en secuencias creadas
               </div>
             </div>
@@ -1303,12 +1303,12 @@ export default function AdministracionPage() {
             style={{
               padding: '24px 28px',
               marginBottom: '26px',
-              backgroundColor: 'rgba(255, 254, 250, 0.94)',
+              backgroundColor: 'rgba(255, 255, 255, 0.94)',
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
               border: '1px solid rgba(255, 255, 255, 0.96)',
               borderRadius: '22px',
-              boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+              boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', flexWrap: 'wrap', gap: '10px' }}>
@@ -1317,10 +1317,10 @@ export default function AdministracionPage() {
                   <BarChart3 size={18} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#142B25', margin: 0 }}>
+                  <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#172554', margin: 0 }}>
                     Diagnóstico Curricular Comparativo: Declarada vs. Aplicada en Aula
                   </h3>
-                  <p style={{ fontSize: '13px', color: '#4A655D', margin: 0 }}>
+                  <p style={{ fontSize: '13px', color: '#394176', margin: 0 }}>
                     Contraste entre lo que los docentes registraron como metodología institucional vs. lo que efectivamente planifican.
                   </p>
                 </div>
@@ -1335,8 +1335,8 @@ export default function AdministracionPage() {
               </div>
             </div>
 
-            <div style={{ padding: '12px 16px', borderRadius: '12px', backgroundColor: 'rgba(71, 122, 114, 0.08)', border: '1px solid rgba(71, 122, 114, 0.18)', marginBottom: '18px', fontSize: '13px', color: '#183630', lineHeight: 1.5, display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-              <Sparkles size={16} style={{ color: '#10B981', flexShrink: 0, marginTop: '2px' }} />
+            <div style={{ padding: '12px 16px', borderRadius: '12px', backgroundColor: 'rgba(79, 125, 245, 0.08)', border: '1px solid rgba(79, 125, 245, 0.18)', marginBottom: '18px', fontSize: '13px', color: '#1F2E7A', lineHeight: 1.5, display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+              <Sparkles size={16} style={{ color: '#182265', flexShrink: 0, marginTop: '2px' }} />
               <div>
                 <strong>Diagnóstico Pedagógico Institucional:</strong> {adnInstitucional?.diagnosticoComparativo?.observacionAlineacion || 'Cargando diagnóstico institucional en base a registros de docentes y secuencias de aula...'}
               </div>
@@ -1344,12 +1344,12 @@ export default function AdministracionPage() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
               {/* Columna 1: Declaradas en Registro */}
-              <div style={{ padding: '16px 18px', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '14px', border: '1px solid rgba(49, 91, 84, 0.14)' }}>
+              <div style={{ padding: '16px 18px', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '14px', border: '1px solid rgba(53, 86, 224, 0.14)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                  <strong style={{ fontSize: '13.5px', color: '#142B25' }}>
+                  <strong style={{ fontSize: '13.5px', color: '#172554' }}>
                     📋 Declaradas en Registro Docente
                   </strong>
-                  <span style={{ fontSize: '11px', color: '#576864' }}>Perfil Institucional</span>
+                  <span style={{ fontSize: '11px', color: '#3E4781' }}>Perfil Institucional</span>
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -1357,8 +1357,8 @@ export default function AdministracionPage() {
                     (adnInstitucional?.diagnosticoComparativo?.rankingDeclaradas || []).slice(0, 4).map((item, idx) => (
                       <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12.5px' }}>
-                          <span style={{ fontWeight: 600, color: '#1C3831' }}>{item.name}</span>
-                          <span style={{ fontWeight: 700, color: '#2563EB' }}>{item.pct}% ({item.count})</span>
+                          <span style={{ fontWeight: 600, color: '#1B1F39' }}>{item.name}</span>
+                          <span style={{ fontWeight: 700, color: '#1557E6' }}>{item.pct}% ({item.count})</span>
                         </div>
                         <div style={{ width: '100%', height: '7px', backgroundColor: 'rgba(37, 99, 235, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
                           <div style={{ width: `${Math.max(10, item.pct)}%`, height: '100%', backgroundColor: '#2563EB', borderRadius: '999px' }} />
@@ -1366,7 +1366,7 @@ export default function AdministracionPage() {
                       </div>
                     ))
                   ) : (
-                    <div style={{ fontSize: '12.5px', color: '#64748B', fontStyle: 'italic', padding: '8px 0' }}>
+                    <div style={{ fontSize: '12.5px', color: '#576579', fontStyle: 'italic', padding: '8px 0' }}>
                       Aún no hay metodologías registradas por los docentes.
                     </div>
                   )}
@@ -1374,12 +1374,12 @@ export default function AdministracionPage() {
               </div>
 
               {/* Columna 2: Aplicadas en Secuencias de Clase */}
-              <div style={{ padding: '16px 18px', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '14px', border: '1px solid rgba(49, 91, 84, 0.14)' }}>
+              <div style={{ padding: '16px 18px', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '14px', border: '1px solid rgba(53, 86, 224, 0.14)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                  <strong style={{ fontSize: '13.5px', color: '#142B25' }}>
+                  <strong style={{ fontSize: '13.5px', color: '#172554' }}>
                     💡 Aplicadas en Planes de Clase
                   </strong>
-                  <span style={{ fontSize: '11px', color: '#576864' }}>Planes en Firestore</span>
+                  <span style={{ fontSize: '11px', color: '#3E4781' }}>Planes en Firestore</span>
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -1387,7 +1387,7 @@ export default function AdministracionPage() {
                     (adnInstitucional?.diagnosticoComparativo?.rankingAplicadas || []).slice(0, 4).map((item, idx) => (
                       <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12.5px' }}>
-                          <span style={{ fontWeight: 600, color: '#1C3831' }}>{item.name}</span>
+                          <span style={{ fontWeight: 600, color: '#1B1F39' }}>{item.name}</span>
                           <span style={{ fontWeight: 700, color: '#166534' }}>{item.pct}% ({item.count})</span>
                         </div>
                         <div style={{ width: '100%', height: '7px', backgroundColor: 'rgba(22, 163, 74, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
@@ -1396,7 +1396,7 @@ export default function AdministracionPage() {
                       </div>
                     ))
                   ) : (
-                    <div style={{ fontSize: '12.5px', color: '#64748B', fontStyle: 'italic', padding: '8px 0' }}>
+                    <div style={{ fontSize: '12.5px', color: '#576579', fontStyle: 'italic', padding: '8px 0' }}>
                       Aún no hay secuencias didácticas registradas en Firestore.
                     </div>
                   )}
@@ -1413,23 +1413,23 @@ export default function AdministracionPage() {
               className="mgmt-card"
               style={{
                 padding: '24px 26px',
-                backgroundColor: 'rgba(255, 254, 250, 0.90)',
+                backgroundColor: 'rgba(255, 255, 255, 0.90)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(255, 255, 255, 0.95)',
                 borderRadius: '20px',
-                boxShadow: '0 8px 24px rgba(16, 36, 32, 0.07)'
+                boxShadow: '0 8px 24px rgba(30, 45, 110, 0.07)'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-                <div style={{ width: '34px', height: '34px', borderRadius: '9px', backgroundColor: 'rgba(71, 122, 114, 0.16)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#183630' }}>
+                <div style={{ width: '34px', height: '34px', borderRadius: '9px', backgroundColor: 'rgba(79, 125, 245, 0.16)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1F2E7A' }}>
                   <Layers size={18} />
                 </div>
-                <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#142B25', margin: 0 }}>
+                <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#172554', margin: 0 }}>
                   Metodologías Pedagógicas Adoptadas
                 </h3>
               </div>
-              <p style={{ fontSize: '13px', color: '#4A655D', margin: '0 0 18px 0', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '13px', color: '#394176', margin: '0 0 18px 0', lineHeight: 1.5 }}>
                 Distribución porcentual de los modelos didácticos activos aplicados en las secuencias curriculares.
               </p>
 
@@ -1437,17 +1437,17 @@ export default function AdministracionPage() {
                 {(adnInstitucional?.metodologiasRanking || []).slice(0, 5).map((m, idx) => (
                   <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px' }}>
-                      <span style={{ fontWeight: 600, color: '#1C3831' }}>{m.name}</span>
+                      <span style={{ fontWeight: 600, color: '#1B1F39' }}>{m.name}</span>
                       <span style={{ fontWeight: 700, color: '#166534', backgroundColor: 'rgba(22, 163, 74, 0.10)', padding: '2px 8px', borderRadius: '6px', fontSize: '11.5px' }}>
                         {m.pct}% ({m.count} planes)
                       </span>
                     </div>
-                    <div style={{ width: '100%', height: '8px', backgroundColor: 'rgba(49, 91, 84, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
+                    <div style={{ width: '100%', height: '8px', backgroundColor: 'rgba(53, 86, 224, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
                       <div 
                         style={{ 
                           width: `${Math.min(100, Math.max(10, m.pct))}%`, 
                           height: '100%', 
-                          background: 'linear-gradient(90deg, #183630 0%, #315B54 60%, #10B981 100%)', 
+                          background: 'linear-gradient(90deg, #1F2E7A 0%, #3556E0 60%, #2637A3 100%)', 
                           borderRadius: '999px',
                           transition: 'width 0.5s ease'
                         }} 
@@ -1463,23 +1463,23 @@ export default function AdministracionPage() {
               className="mgmt-card"
               style={{
                 padding: '24px 26px',
-                backgroundColor: 'rgba(255, 254, 250, 0.90)',
+                backgroundColor: 'rgba(255, 255, 255, 0.90)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(255, 255, 255, 0.95)',
                 borderRadius: '20px',
-                boxShadow: '0 8px 24px rgba(16, 36, 32, 0.07)'
+                boxShadow: '0 8px 24px rgba(30, 45, 110, 0.07)'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-                <div style={{ width: '34px', height: '34px', borderRadius: '9px', backgroundColor: 'rgba(16, 185, 129, 0.16)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#166534' }}>
+                <div style={{ width: '34px', height: '34px', borderRadius: '9px', backgroundColor: 'rgba(38, 55, 163, 0.16)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#166534' }}>
                   <Target size={18} />
                 </div>
-                <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#142B25', margin: 0 }}>
+                <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#172554', margin: 0 }}>
                   Matriz de Transversalidad & Proyectos Institucionales
                 </h3>
               </div>
-              <p style={{ fontSize: '13px', color: '#4A655D', margin: '0 0 18px 0', lineHeight: 1.5 }}>
+              <p style={{ fontSize: '13px', color: '#394176', margin: '0 0 18px 0', lineHeight: 1.5 }}>
                 Integración de los proyectos pedagógicos obligatorios (PRAE, Ciudadanía, STEAM y DUA).
               </p>
 
@@ -1487,17 +1487,17 @@ export default function AdministracionPage() {
                 {(adnInstitucional?.ejesRanking || []).slice(0, 5).map((eje, idx) => (
                   <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px' }}>
-                      <span style={{ fontWeight: 600, color: '#1C3831' }}>{eje.name}</span>
-                      <span style={{ fontWeight: 700, color: '#183630', backgroundColor: 'rgba(71, 122, 114, 0.12)', padding: '2px 8px', borderRadius: '6px', fontSize: '11.5px' }}>
+                      <span style={{ fontWeight: 600, color: '#1B1F39' }}>{eje.name}</span>
+                      <span style={{ fontWeight: 700, color: '#1F2E7A', backgroundColor: 'rgba(79, 125, 245, 0.12)', padding: '2px 8px', borderRadius: '6px', fontSize: '11.5px' }}>
                         {eje.pct}% adopción
                       </span>
                     </div>
-                    <div style={{ width: '100%', height: '8px', backgroundColor: 'rgba(49, 91, 84, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
+                    <div style={{ width: '100%', height: '8px', backgroundColor: 'rgba(53, 86, 224, 0.12)', borderRadius: '999px', overflow: 'hidden' }}>
                       <div 
                         style={{ 
                           width: `${Math.min(100, Math.max(12, eje.pct))}%`, 
                           height: '100%', 
-                          background: 'linear-gradient(90deg, #10B981 0%, #315B54 100%)', 
+                          background: 'linear-gradient(90deg, #2637A3 0%, #3556E0 100%)', 
                           borderRadius: '999px',
                           transition: 'width 0.5s ease'
                         }} 
@@ -1516,64 +1516,64 @@ export default function AdministracionPage() {
             style={{
               padding: '24px 26px',
               marginBottom: '26px',
-              backgroundColor: 'rgba(255, 254, 250, 0.90)',
+              backgroundColor: 'rgba(255, 255, 255, 0.90)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               border: '1px solid rgba(255, 255, 255, 0.95)',
               borderRadius: '20px',
-              boxShadow: '0 8px 24px rgba(16, 36, 32, 0.07)'
+              boxShadow: '0 8px 24px rgba(30, 45, 110, 0.07)'
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-              <div style={{ width: '34px', height: '34px', borderRadius: '9px', backgroundColor: 'rgba(217, 119, 6, 0.16)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#B45309' }}>
+              <div style={{ width: '34px', height: '34px', borderRadius: '9px', backgroundColor: 'rgba(217, 119, 6, 0.16)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#A14A08' }}>
                 <Lightbulb size={18} />
               </div>
-              <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#142B25', margin: 0 }}>
+              <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#172554', margin: 0 }}>
                 Caja de Herramientas Colectiva & Inclusión DUA en la Institución
               </h3>
             </div>
-            <p style={{ fontSize: '13px', color: '#4A655D', margin: '0 0 18px 0' }}>
+            <p style={{ fontSize: '13px', color: '#394176', margin: '0 0 18px 0' }}>
               Estrategias de apertura de clase, criterios de evaluación formativa y pautas DUA más recurrentes en el claustro.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '18px' }}>
               
-              <div style={{ padding: '16px', backgroundColor: 'rgba(255, 255, 255, 0.7)', borderRadius: '14px', border: '1px solid rgba(49, 91, 84, 0.14)' }}>
-                <h4 style={{ fontSize: '13.5px', fontWeight: 700, color: '#183630', margin: '0 0 10px 0' }}>
+              <div style={{ padding: '16px', backgroundColor: 'rgba(255, 255, 255, 0.7)', borderRadius: '14px', border: '1px solid rgba(53, 86, 224, 0.14)' }}>
+                <h4 style={{ fontSize: '13.5px', fontWeight: 700, color: '#1F2E7A', margin: '0 0 10px 0' }}>
                   🚀 Dinámicas de Inicio Predilectas
                 </h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   {(adnInstitucional?.dinamicasFrecuentes || []).slice(0, 3).map((d, i) => (
-                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', color: '#2B453E' }}>
-                      <Check size={14} style={{ color: '#16A34A', flexShrink: 0 }} />
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', color: '#242A4C' }}>
+                      <Check size={14} style={{ color: '#0F7234', flexShrink: 0 }} />
                       <span>{d.name}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div style={{ padding: '16px', backgroundColor: 'rgba(255, 255, 255, 0.7)', borderRadius: '14px', border: '1px solid rgba(49, 91, 84, 0.14)' }}>
-                <h4 style={{ fontSize: '13.5px', fontWeight: 700, color: '#183630', margin: '0 0 10px 0' }}>
+              <div style={{ padding: '16px', backgroundColor: 'rgba(255, 255, 255, 0.7)', borderRadius: '14px', border: '1px solid rgba(53, 86, 224, 0.14)' }}>
+                <h4 style={{ fontSize: '13.5px', fontWeight: 700, color: '#1F2E7A', margin: '0 0 10px 0' }}>
                   📋 Formas de Evaluación Formativa
                 </h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   {(adnInstitucional?.estilosEvaluacion || []).slice(0, 3).map((e, i) => (
-                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', color: '#2B453E' }}>
-                      <Check size={14} style={{ color: '#2563EB', flexShrink: 0 }} />
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', color: '#242A4C' }}>
+                      <Check size={14} style={{ color: '#1557E6', flexShrink: 0 }} />
                       <span>{e.name}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div style={{ padding: '16px', backgroundColor: 'rgba(255, 255, 255, 0.7)', borderRadius: '14px', border: '1px solid rgba(49, 91, 84, 0.14)' }}>
-                <h4 style={{ fontSize: '13.5px', fontWeight: 700, color: '#183630', margin: '0 0 10px 0' }}>
+              <div style={{ padding: '16px', backgroundColor: 'rgba(255, 255, 255, 0.7)', borderRadius: '14px', border: '1px solid rgba(53, 86, 224, 0.14)' }}>
+                <h4 style={{ fontSize: '13.5px', fontWeight: 700, color: '#1F2E7A', margin: '0 0 10px 0' }}>
                   🧩 Flexibilización Curricular (DUA)
                 </h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   {(adnInstitucional?.enfoquesDua || []).slice(0, 3).map((f, i) => (
-                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', color: '#2B453E' }}>
-                      <Check size={14} style={{ color: '#10B981', flexShrink: 0 }} />
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', color: '#242A4C' }}>
+                      <Check size={14} style={{ color: '#182265', flexShrink: 0 }} />
                       <span>{f.name}</span>
                     </div>
                   ))}
@@ -1589,24 +1589,24 @@ export default function AdministracionPage() {
             style={{
               padding: '24px 26px',
               marginBottom: '26px',
-              backgroundColor: 'rgba(255, 254, 250, 0.90)',
+              backgroundColor: 'rgba(255, 255, 255, 0.90)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               border: '1px solid rgba(255, 255, 255, 0.95)',
               borderRadius: '20px',
-              boxShadow: '0 8px 24px rgba(16, 36, 32, 0.07)'
+              boxShadow: '0 8px 24px rgba(30, 45, 110, 0.07)'
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px', flexWrap: 'wrap', gap: '10px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <div style={{ width: '34px', height: '34px', borderRadius: '9px', backgroundColor: 'rgba(234, 179, 8, 0.16)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#B45309' }}>
+                <div style={{ width: '34px', height: '34px', borderRadius: '9px', backgroundColor: 'rgba(234, 179, 8, 0.16)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#A14A08' }}>
                   <Star size={18} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#142B25', margin: 0 }}>
+                  <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#172554', margin: 0 }}>
                     Banco de Recursos Probados con Alta Efectividad en Aula
                   </h3>
-                  <p style={{ fontSize: '13px', color: '#4A655D', margin: 0 }}>
+                  <p style={{ fontSize: '13px', color: '#394176', margin: 0 }}>
                     Materiales generados por la comunidad docente validados con excelente respuesta pedagógica de los estudiantes.
                   </p>
                 </div>
@@ -1624,22 +1624,22 @@ export default function AdministracionPage() {
                     padding: '16px 18px', 
                     backgroundColor: 'rgba(255, 255, 255, 0.85)', 
                     borderRadius: '14px', 
-                    border: '1px solid rgba(49, 91, 84, 0.16)',
-                    boxShadow: '0 2px 8px rgba(16, 36, 32, 0.03)'
+                    border: '1px solid rgba(53, 86, 224, 0.16)',
+                    boxShadow: '0 2px 8px rgba(30, 45, 110, 0.03)'
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
-                    <span style={{ fontSize: '11px', fontWeight: 700, color: '#183630', backgroundColor: 'rgba(71, 122, 114, 0.12)', padding: '2px 8px', borderRadius: '999px' }}>
+                    <span style={{ fontSize: '11px', fontWeight: 700, color: '#1F2E7A', backgroundColor: 'rgba(79, 125, 245, 0.12)', padding: '2px 8px', borderRadius: '999px' }}>
                       {rec.type}
                     </span>
-                    <span style={{ fontSize: '12px', color: '#D97706', fontWeight: 700 }}>
+                    <span style={{ fontSize: '12px', color: '#985404', fontWeight: 700 }}>
                       {'★'.repeat(rec.engagement || 5)}
                     </span>
                   </div>
-                  <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#142B25', margin: '0 0 6px 0', lineHeight: 1.35 }}>
+                  <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#172554', margin: '0 0 6px 0', lineHeight: 1.35 }}>
                     {rec.title}
                   </h4>
-                  <p style={{ fontSize: '12px', color: '#415B54', margin: '0 0 8px 0', lineHeight: 1.45 }}>
+                  <p style={{ fontSize: '12px', color: '#333A69', margin: '0 0 8px 0', lineHeight: 1.45 }}>
                     "{rec.notaDocente || 'Validado exitosamente en aula con estudiantes.'}"
                   </p>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11.5px', color: '#166534', fontWeight: 600 }}>
@@ -1660,20 +1660,20 @@ export default function AdministracionPage() {
               width: '100%', 
               boxSizing: 'border-box', 
               marginBottom: '32px',
-              backgroundColor: 'rgba(255, 254, 250, 0.90)',
+              backgroundColor: 'rgba(255, 255, 255, 0.90)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               border: '1px solid rgba(255, 255, 255, 0.95)',
               borderRadius: '22px',
-              boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+              boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
             }}
           >
-            <div style={{ padding: '20px 24px 14px 24px', borderBottom: '1px solid rgba(49, 91, 84, 0.14)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px' }}>
+            <div style={{ padding: '20px 24px 14px 24px', borderBottom: '1px solid rgba(53, 86, 224, 0.14)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px' }}>
               <div>
-                <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#142B25', margin: '0 0 4px 0' }}>
+                <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#172554', margin: '0 0 4px 0' }}>
                   Directorio de Huella Curricular Docente
                 </h3>
-                <p style={{ fontSize: '13px', color: '#4A655D', margin: 0 }}>
+                <p style={{ fontSize: '13px', color: '#394176', margin: 0 }}>
                   Resumen de la metodología preferida e índice de innovación de cada docente registrado.
                 </p>
               </div>
@@ -1703,9 +1703,9 @@ export default function AdministracionPage() {
                         borderRadius: '999px',
                         fontSize: '11.5px',
                         fontWeight: 600,
-                        border: '1px solid rgba(49, 91, 84, 0.2)',
-                        backgroundColor: filterDnaLevel === n ? '#183630' : 'rgba(255, 255, 255, 0.7)',
-                        color: filterDnaLevel === n ? '#FFFFFF' : '#142B25',
+                        border: '1px solid rgba(53, 86, 224, 0.2)',
+                        backgroundColor: filterDnaLevel === n ? '#1F2E7A' : 'rgba(255, 255, 255, 0.7)',
+                        color: filterDnaLevel === n ? '#FFFFFF' : '#172554',
                         cursor: 'pointer'
                       }}
                     >
@@ -1720,14 +1720,14 @@ export default function AdministracionPage() {
             <div className="admin-table-desktop-view" style={{ width: '100%', overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '700px' }}>
                 <thead>
-                  <tr style={{ backgroundColor: 'rgba(71, 122, 114, 0.10)', borderBottom: '1px solid rgba(49, 91, 84, 0.16)' }}>
-                    <th style={{ padding: '12px 18px', color: '#142B25', fontSize: '12.5px', fontWeight: 700 }}>Docente</th>
-                    <th style={{ padding: '12px 18px', color: '#142B25', fontSize: '12.5px', fontWeight: 700 }}>Nivel / Institución</th>
-                    <th style={{ padding: '12px 18px', color: '#142B25', fontSize: '12.5px', fontWeight: 700 }}>Planes</th>
-                    <th style={{ padding: '12px 18px', color: '#142B25', fontSize: '12.5px', fontWeight: 700 }}>Metodología Predilecta</th>
-                    <th style={{ padding: '12px 18px', color: '#142B25', fontSize: '12.5px', fontWeight: 700 }}>Índice Innovación</th>
-                    <th style={{ padding: '12px 18px', color: '#142B25', fontSize: '12.5px', fontWeight: 700 }}>Eje Transversal</th>
-                    <th style={{ padding: '12px 18px', color: '#142B25', fontSize: '12.5px', fontWeight: 700 }}>Acción</th>
+                  <tr style={{ backgroundColor: 'rgba(79, 125, 245, 0.10)', borderBottom: '1px solid rgba(53, 86, 224, 0.16)' }}>
+                    <th style={{ padding: '12px 18px', color: '#172554', fontSize: '12.5px', fontWeight: 700 }}>Docente</th>
+                    <th style={{ padding: '12px 18px', color: '#172554', fontSize: '12.5px', fontWeight: 700 }}>Nivel / Institución</th>
+                    <th style={{ padding: '12px 18px', color: '#172554', fontSize: '12.5px', fontWeight: 700 }}>Planes</th>
+                    <th style={{ padding: '12px 18px', color: '#172554', fontSize: '12.5px', fontWeight: 700 }}>Metodología Predilecta</th>
+                    <th style={{ padding: '12px 18px', color: '#172554', fontSize: '12.5px', fontWeight: 700 }}>Índice Innovación</th>
+                    <th style={{ padding: '12px 18px', color: '#172554', fontSize: '12.5px', fontWeight: 700 }}>Eje Transversal</th>
+                    <th style={{ padding: '12px 18px', color: '#172554', fontSize: '12.5px', fontWeight: 700 }}>Acción</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1744,31 +1744,31 @@ export default function AdministracionPage() {
                     <tr 
                       key={t.id || index}
                       style={{ 
-                        borderBottom: '1px solid rgba(49, 91, 84, 0.08)',
+                        borderBottom: '1px solid rgba(53, 86, 224, 0.08)',
                         backgroundColor: index % 2 === 0 ? 'rgba(255, 255, 255, 0.4)' : 'transparent',
                         fontSize: '13px'
                       }}
                     >
                       <td style={{ padding: '14px 18px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                          <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: 'rgba(71, 122, 114, 0.18)', color: '#1C3D36', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px' }}>
+                          <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: 'rgba(79, 125, 245, 0.18)', color: '#1A1F3F', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px' }}>
                             {(t.nombre || 'D').charAt(0).toUpperCase()}
                           </div>
                           <div>
-                            <div style={{ fontWeight: 600, color: '#142B25' }}>{t.nombre}</div>
-                            <div style={{ fontSize: '11px', color: '#576864' }}>{t.email}</div>
+                            <div style={{ fontWeight: 600, color: '#172554' }}>{t.nombre}</div>
+                            <div style={{ fontSize: '11px', color: '#3E4781' }}>{t.email}</div>
                           </div>
                         </div>
                       </td>
-                      <td style={{ padding: '14px 18px', color: '#2B453E', fontWeight: 500 }}>
+                      <td style={{ padding: '14px 18px', color: '#242A4C', fontWeight: 500 }}>
                         {t.nivel} - {t.institucion}
                       </td>
-                      <td style={{ padding: '14px 18px', color: '#142B25', fontWeight: 700 }}>
+                      <td style={{ padding: '14px 18px', color: '#172554', fontWeight: 700 }}>
                         {t.planesCount}
                       </td>
                       <td style={{ padding: '14px 18px' }}>
                         {t.hasRegisteredMetodologia && t.metodologiaFavorita ? (
-                          <span style={{ backgroundColor: 'rgba(49, 91, 84, 0.10)', color: '#183630', padding: '3px 10px', borderRadius: '6px', fontSize: '12px', fontWeight: 600 }}>
+                          <span style={{ backgroundColor: 'rgba(53, 86, 224, 0.10)', color: '#1F2E7A', padding: '3px 10px', borderRadius: '6px', fontSize: '12px', fontWeight: 600 }}>
                             {t.metodologiaFavorita}
                           </span>
                         ) : (
@@ -1784,16 +1784,16 @@ export default function AdministracionPage() {
                             {t.indiceInnovacion}%
                           </span>
                         ) : (
-                          <span style={{ color: '#64748B', fontSize: '12px', fontStyle: 'italic' }}>
+                          <span style={{ color: '#576579', fontSize: '12px', fontStyle: 'italic' }}>
                             — (0 planes)
                           </span>
                         )}
                       </td>
-                      <td style={{ padding: '14px 18px', color: '#3A544C', fontSize: '12px' }}>
+                      <td style={{ padding: '14px 18px', color: '#2E3560', fontSize: '12px' }}>
                         {t.hasRegisteredEje && t.ejeTransversal ? (
                           t.ejeTransversal
                         ) : (
-                          <span style={{ color: '#94A3B8', fontStyle: 'italic' }}>Sin registrar</span>
+                          <span style={{ color: '#54657E', fontStyle: 'italic' }}>Sin registrar</span>
                         )}
                       </td>
                       <td style={{ padding: '14px 18px' }}>
@@ -1840,8 +1840,8 @@ export default function AdministracionPage() {
                     padding: '16px',
                     backgroundColor: '#FFFFFF',
                     borderRadius: '16px',
-                    border: '1px solid rgba(49, 91, 84, 0.16)',
-                    boxShadow: '0 2px 8px rgba(16, 36, 32, 0.04)',
+                    border: '1px solid rgba(53, 86, 224, 0.16)',
+                    boxShadow: '0 2px 8px rgba(30, 45, 110, 0.04)',
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '12px'
@@ -1849,12 +1849,12 @@ export default function AdministracionPage() {
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: 'rgba(71, 122, 114, 0.16)', color: '#1C3D36', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '15px' }}>
+                      <div style={{ width: '38px', height: '38px', borderRadius: '10px', backgroundColor: 'rgba(79, 125, 245, 0.16)', color: '#1A1F3F', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '15px' }}>
                         {(t.nombre || 'D').charAt(0).toUpperCase()}
                       </div>
                       <div>
-                        <div style={{ fontWeight: 700, fontSize: '14px', color: '#142B25' }}>{t.nombre}</div>
-                        <div style={{ fontSize: '12px', color: '#4A655D' }}>{t.email}</div>
+                        <div style={{ fontWeight: 700, fontSize: '14px', color: '#172554' }}>{t.nombre}</div>
+                        <div style={{ fontSize: '12px', color: '#394176' }}>{t.email}</div>
                       </div>
                     </div>
                     {t.indiceInnovacion !== null && t.indiceInnovacion !== undefined && (
@@ -1866,14 +1866,14 @@ export default function AdministracionPage() {
 
                   <div style={{ fontSize: '12px', padding: '10px', backgroundColor: '#F8FAF9', borderRadius: '10px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
                     <div>
-                      <span style={{ color: '#576864' }}>Colegio / Nivel:</span> <strong>{t.institucion || 'Colegio'} ({t.nivel || 'General'})</strong>
+                      <span style={{ color: '#3E4781' }}>Colegio / Nivel:</span> <strong>{t.institucion || 'Colegio'} ({t.nivel || 'General'})</strong>
                     </div>
                     <div>
-                      <span style={{ color: '#576864' }}>Metodología:</span> <strong>{t.metodologiaFavorita || 'Estándar Institucional'}</strong>
+                      <span style={{ color: '#3E4781' }}>Metodología:</span> <strong>{t.metodologiaFavorita || 'Estándar Institucional'}</strong>
                     </div>
                     {t.ejeTransversal && (
                       <div>
-                        <span style={{ color: '#576864' }}>Proyecto Transversal:</span> <strong>{t.ejeTransversal}</strong>
+                        <span style={{ color: '#3E4781' }}>Proyecto Transversal:</span> <strong>{t.ejeTransversal}</strong>
                       </div>
                     )}
                   </div>
@@ -1906,23 +1906,23 @@ export default function AdministracionPage() {
                 style={{ 
                   maxWidth: '560px',
                   borderRadius: '24px',
-                  backgroundColor: 'rgba(255, 254, 250, 0.96)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.96)',
                   backdropFilter: 'blur(24px)',
                   WebkitBackdropFilter: 'blur(24px)',
-                  boxShadow: '0 20px 60px rgba(16, 36, 32, 0.22)',
+                  boxShadow: '0 20px 60px rgba(30, 45, 110, 0.22)',
                   border: '1px solid rgba(255, 255, 255, 0.98)'
                 }}
               >
                 <div className="modal-glass-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(71, 122, 114, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#166534', fontWeight: 800, fontSize: '16px' }}>
+                    <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(79, 125, 245, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#166534', fontWeight: 800, fontSize: '16px' }}>
                       {(selectedDocenteDna.nombre || 'D').charAt(0).toUpperCase()}
                     </div>
                     <div>
-                      <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 700, color: '#142B25' }}>
+                      <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 700, color: '#172554' }}>
                         Ficha Curricular Docente
                       </h3>
-                      <p style={{ margin: 0, fontSize: '12px', color: '#4A655D' }}>
+                      <p style={{ margin: 0, fontSize: '12px', color: '#394176' }}>
                         Trazabilidad pedagógica y ADN registrado en plataforma
                       </p>
                     </div>
@@ -1933,26 +1933,26 @@ export default function AdministracionPage() {
                 </div>
 
                 <div className="modal-glass-body" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                  <div style={{ padding: '14px 16px', backgroundColor: 'rgba(255, 255, 255, 0.85)', borderRadius: '14px', border: '1px solid rgba(49, 91, 84, 0.14)' }}>
-                    <div style={{ fontSize: '15px', fontWeight: 700, color: '#142B25', marginBottom: '2px' }}>
+                  <div style={{ padding: '14px 16px', backgroundColor: 'rgba(255, 255, 255, 0.85)', borderRadius: '14px', border: '1px solid rgba(53, 86, 224, 0.14)' }}>
+                    <div style={{ fontSize: '15px', fontWeight: 700, color: '#172554', marginBottom: '2px' }}>
                       {selectedDocenteDna.nombre}
                     </div>
-                    <div style={{ fontSize: '12.5px', color: '#4A655D' }}>
+                    <div style={{ fontSize: '12.5px', color: '#394176' }}>
                       {selectedDocenteDna.email}
                     </div>
-                    <div style={{ marginTop: '8px', fontSize: '12px', color: '#183630', fontWeight: 600 }}>
+                    <div style={{ marginTop: '8px', fontSize: '12px', color: '#1F2E7A', fontWeight: 600 }}>
                       🏫 {selectedDocenteDna.institucion || 'Colegio'} • {selectedDocenteDna.nivel || 'Nivel Primaria/Secundaria'}
                     </div>
                   </div>
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                    <div style={{ padding: '12px 14px', backgroundColor: 'rgba(255, 255, 255, 0.85)', borderRadius: '12px', border: '1px solid rgba(49, 91, 84, 0.12)' }}>
-                      <span style={{ fontSize: '11px', color: '#4A655D', fontWeight: 600, display: 'block' }}>Planes en Plataforma</span>
-                      <strong style={{ fontSize: '20px', color: '#142B25' }}>{selectedDocenteDna.planesCount}</strong>
+                    <div style={{ padding: '12px 14px', backgroundColor: 'rgba(255, 255, 255, 0.85)', borderRadius: '12px', border: '1px solid rgba(53, 86, 224, 0.12)' }}>
+                      <span style={{ fontSize: '11px', color: '#394176', fontWeight: 600, display: 'block' }}>Planes en Plataforma</span>
+                      <strong style={{ fontSize: '20px', color: '#172554' }}>{selectedDocenteDna.planesCount}</strong>
                     </div>
 
-                    <div style={{ padding: '12px 14px', backgroundColor: 'rgba(255, 255, 255, 0.85)', borderRadius: '12px', border: '1px solid rgba(49, 91, 84, 0.12)' }}>
-                      <span style={{ fontSize: '11px', color: '#4A655D', fontWeight: 600, display: 'block' }}>Índice de Innovación</span>
+                    <div style={{ padding: '12px 14px', backgroundColor: 'rgba(255, 255, 255, 0.85)', borderRadius: '12px', border: '1px solid rgba(53, 86, 224, 0.12)' }}>
+                      <span style={{ fontSize: '11px', color: '#394176', fontWeight: 600, display: 'block' }}>Índice de Innovación</span>
                       <strong style={{ fontSize: '18px', color: (selectedDocenteDna.indiceInnovacion && selectedDocenteDna.indiceInnovacion >= 60) ? '#166534' : '#92400E' }}>
                         {selectedDocenteDna.indiceInnovacion !== null && selectedDocenteDna.indiceInnovacion !== undefined 
                           ? `${selectedDocenteDna.indiceInnovacion}%`
@@ -1961,10 +1961,10 @@ export default function AdministracionPage() {
                     </div>
                   </div>
 
-                  <div style={{ padding: '12px 14px', backgroundColor: 'rgba(255, 255, 255, 0.85)', borderRadius: '12px', border: '1px solid rgba(49, 91, 84, 0.12)' }}>
-                    <span style={{ fontSize: '11.5px', color: '#4A655D', fontWeight: 600, display: 'block', marginBottom: '4px' }}>Metodología Líder / Institucional</span>
+                  <div style={{ padding: '12px 14px', backgroundColor: 'rgba(255, 255, 255, 0.85)', borderRadius: '12px', border: '1px solid rgba(53, 86, 224, 0.12)' }}>
+                    <span style={{ fontSize: '11.5px', color: '#394176', fontWeight: 600, display: 'block', marginBottom: '4px' }}>Metodología Líder / Institucional</span>
                     {selectedDocenteDna.hasRegisteredMetodologia && selectedDocenteDna.metodologiaFavorita ? (
-                      <span style={{ backgroundColor: 'rgba(49, 91, 84, 0.12)', color: '#183630', padding: '3px 10px', borderRadius: '6px', fontSize: '12.5px', fontWeight: 700, display: 'inline-block' }}>
+                      <span style={{ backgroundColor: 'rgba(53, 86, 224, 0.12)', color: '#1F2E7A', padding: '3px 10px', borderRadius: '6px', fontSize: '12.5px', fontWeight: 700, display: 'inline-block' }}>
                         {selectedDocenteDna.metodologiaFavorita}
                       </span>
                     ) : (
@@ -1974,14 +1974,14 @@ export default function AdministracionPage() {
                     )}
                   </div>
 
-                  <div style={{ padding: '12px 14px', backgroundColor: 'rgba(255, 255, 255, 0.85)', borderRadius: '12px', border: '1px solid rgba(49, 91, 84, 0.12)' }}>
-                    <span style={{ fontSize: '11.5px', color: '#4A655D', fontWeight: 600, display: 'block', marginBottom: '4px' }}>Proyecto Transversal Vinculado</span>
-                    <span style={{ fontSize: '13px', color: selectedDocenteDna.hasRegisteredEje ? '#142B25' : '#64748B', fontWeight: 600, fontStyle: selectedDocenteDna.hasRegisteredEje ? 'normal' : 'italic' }}>
+                  <div style={{ padding: '12px 14px', backgroundColor: 'rgba(255, 255, 255, 0.85)', borderRadius: '12px', border: '1px solid rgba(53, 86, 224, 0.12)' }}>
+                    <span style={{ fontSize: '11.5px', color: '#394176', fontWeight: 600, display: 'block', marginBottom: '4px' }}>Proyecto Transversal Vinculado</span>
+                    <span style={{ fontSize: '13px', color: selectedDocenteDna.hasRegisteredEje ? '#172554' : '#64748B', fontWeight: 600, fontStyle: selectedDocenteDna.hasRegisteredEje ? 'normal' : 'italic' }}>
                       {selectedDocenteDna.hasRegisteredEje && selectedDocenteDna.ejeTransversal ? selectedDocenteDna.ejeTransversal : 'Sin registrar'}
                     </span>
                   </div>
 
-                  <div style={{ padding: '12px 14px', backgroundColor: selectedDocenteDna.hasCustomDna ? 'rgba(220, 252, 231, 0.8)' : 'rgba(254, 243, 199, 0.8)', borderRadius: '12px', border: '1px solid rgba(49, 91, 84, 0.14)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ padding: '12px 14px', backgroundColor: selectedDocenteDna.hasCustomDna ? 'rgba(220, 252, 231, 0.8)' : 'rgba(254, 243, 199, 0.8)', borderRadius: '12px', border: '1px solid rgba(53, 86, 224, 0.14)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <Dna size={16} style={{ color: selectedDocenteDna.hasCustomDna ? '#166534' : '#92400E' }} />
                     <span style={{ fontSize: '12px', fontWeight: 600, color: selectedDocenteDna.hasCustomDna ? '#166534' : '#92400E' }}>
                       {selectedDocenteDna.hasCustomDna 
@@ -2015,19 +2015,19 @@ export default function AdministracionPage() {
               style={{ 
                 width: '100%', 
                 boxSizing: 'border-box',
-                backgroundColor: 'rgba(255, 254, 250, 0.88)',
+                backgroundColor: 'rgba(255, 255, 255, 0.88)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
                 border: '1px solid rgba(255, 255, 255, 0.94)',
                 borderRadius: '24px',
-                boxShadow: '0 12px 36px rgba(16, 36, 32, 0.10)'
+                boxShadow: '0 12px 36px rgba(30, 45, 110, 0.10)'
               }}
             >
               <ShieldAlert size={36} color="var(--primary-sage)" style={{ margin: '0 auto 14px' }} />
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', color: '#142B25', margin: '0 0 8px 0' }}>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '18px', color: '#172554', margin: '0 0 8px 0' }}>
                 No hay tickets de soporte pendientes
               </h3>
-              <p style={{ color: '#2B453E', fontSize: '14px', margin: 0 }}>
+              <p style={{ color: '#242A4C', fontSize: '14px', margin: 0 }}>
                 Todas las solicitudes técnicas docentes han sido atendidas exitosamente.
               </p>
             </div>
@@ -2040,16 +2040,16 @@ export default function AdministracionPage() {
                   padding: '24px 28px', 
                   width: '100%', 
                   boxSizing: 'border-box',
-                  backgroundColor: 'rgba(255, 254, 250, 0.88)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.88)',
                   backdropFilter: 'blur(16px)',
                   WebkitBackdropFilter: 'blur(16px)',
                   border: '1px solid rgba(255, 255, 255, 0.94)',
                   borderRadius: '20px',
-                  boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+                  boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
                 }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', flexWrap: 'wrap', gap: '8px' }}>
-                  <h3 style={{ fontSize: '17px', color: '#142B25', margin: 0, fontWeight: 700 }}>{t.asunto}</h3>
+                  <h3 style={{ fontSize: '17px', color: '#172554', margin: 0, fontWeight: 700 }}>{t.asunto}</h3>
                   <span style={{ 
                     backgroundColor: t.estado === 'Pendiente' ? '#FEF3C7' : '#DCFCE7', 
                     color: t.estado === 'Pendiente' ? '#92400E' : '#166534',
@@ -2062,11 +2062,11 @@ export default function AdministracionPage() {
                   </span>
                 </div>
 
-                <p style={{ fontSize: '13px', color: '#2F4840', margin: '0 0 10px 0' }}>
+                <p style={{ fontSize: '13px', color: '#272C50', margin: '0 0 10px 0' }}>
                   De: <strong>{t.nombre}</strong> ({t.email})
                 </p>
 
-                <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.85)', padding: '14px 18px', borderRadius: '12px', marginBottom: '16px', fontSize: '14px', color: '#142B25', border: '1px solid rgba(49, 91, 84, 0.16)', lineHeight: '1.5' }}>
+                <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.85)', padding: '14px 18px', borderRadius: '12px', marginBottom: '16px', fontSize: '14px', color: '#172554', border: '1px solid rgba(53, 86, 224, 0.16)', lineHeight: '1.5' }}>
                   {t.descripcion}
                 </div>
                 
@@ -2090,11 +2090,11 @@ export default function AdministracionPage() {
                     </button>
                   </div>
                 ) : (
-                  <div style={{ borderLeft: '3px solid #183630', paddingLeft: '14px', marginTop: '12px', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                  <div style={{ borderLeft: '3px solid #1F2E7A', paddingLeft: '14px', marginTop: '12px', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
                     <CheckCircle2 size={16} color="#16A34A" style={{ marginTop: '2px', flexShrink: 0 }} />
                     <div>
-                      <p style={{ fontWeight: 700, fontSize: '12px', color: '#183630', margin: '0 0 4px 0' }}>Respuesta de Administración:</p>
-                      <p style={{ fontSize: '14px', color: '#142B25', margin: 0 }}>{t.respuestaAdmin}</p>
+                      <p style={{ fontWeight: 700, fontSize: '12px', color: '#1F2E7A', margin: '0 0 4px 0' }}>Respuesta de Administración:</p>
+                      <p style={{ fontSize: '14px', color: '#172554', margin: 0 }}>{t.respuestaAdmin}</p>
                     </div>
                   </div>
                 )}

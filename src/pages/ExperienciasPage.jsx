@@ -123,26 +123,26 @@ export default function ExperienciasPage() {
       <header 
         className="mgmt-header"
         style={{
-          backgroundColor: 'rgba(255, 254, 250, 0.86)',
+          backgroundColor: 'rgba(255, 255, 255, 0.86)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           border: '1px solid rgba(255, 255, 255, 0.94)',
           borderRadius: '18px',
           padding: '16px 22px',
           marginBottom: '12px',
-          boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+          boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
         }}
       >
         <div className="mgmt-header-info">
           <div>
             <div className="editorial-badge" style={{ marginBottom: '8px' }}>
-              <Sparkles size={14} color="#2B524A" />
+              <Sparkles size={14} color="#2B3F9E" />
               <span>Sistematización de Práctica Docente</span>
             </div>
-            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#142B25', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
+            <h1 className="mgmt-title" style={{ fontSize: '28px', fontFamily: 'var(--font-heading)', color: '#172554', margin: '0 0 6px 0', fontWeight: 700, letterSpacing: '-0.015em', lineHeight: '1.25' }}>
               Experiencias Pedagógicas
             </h1>
-            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#243630', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
+            <p className="mgmt-subtitle" style={{ fontSize: '14.5px', color: '#2A3566', maxWidth: '720px', margin: 0, lineHeight: '1.55', fontWeight: 500 }}>
               Sistematiza el impacto didáctico de tus clases en el aula y descubre prácticas transformadoras compartidas por otros educadores de la comunidad.
             </p>
           </div>
@@ -159,7 +159,7 @@ export default function ExperienciasPage() {
       {/* Selector Editorial de Pestañas */}
       <div style={{ 
         display: 'inline-flex', 
-        backgroundColor: 'rgba(255, 254, 250, 0.86)',
+        backgroundColor: 'rgba(255, 255, 255, 0.86)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         border: '1px solid rgba(255, 255, 255, 0.95)',
@@ -167,7 +167,7 @@ export default function ExperienciasPage() {
         padding: '4px',
         marginBottom: '12px',
         gap: '6px',
-        boxShadow: '0 4px 14px rgba(16, 36, 32, 0.06)',
+        boxShadow: '0 4px 14px rgba(30, 45, 110, 0.06)',
         flexWrap: 'wrap'
       }}>
         <button 
@@ -176,8 +176,8 @@ export default function ExperienciasPage() {
             padding: '7px 16px', 
             borderRadius: '10px',
             border: 'none', 
-            backgroundColor: activeTab === 'Mis Experiencias' ? '#183630' : 'transparent',
-            color: activeTab === 'Mis Experiencias' ? '#FFFFFF' : '#243630',
+            backgroundColor: activeTab === 'Mis Experiencias' ? '#1F2E7A' : 'transparent',
+            color: activeTab === 'Mis Experiencias' ? '#FFFFFF' : '#2A3566',
             fontWeight: activeTab === 'Mis Experiencias' ? 700 : 500,
             cursor: 'pointer',
             fontSize: '13px',
@@ -185,7 +185,7 @@ export default function ExperienciasPage() {
             alignItems: 'center',
             gap: '8px',
             transition: 'all 0.18s ease',
-            boxShadow: activeTab === 'Mis Experiencias' ? '0 4px 12px rgba(20, 42, 38, 0.18)' : 'none'
+            boxShadow: activeTab === 'Mis Experiencias' ? '0 4px 12px rgba(23, 37, 84, 0.18)' : 'none'
           }}
         >
           <Sparkles size={15} /> Mis Experiencias Sistematizadas
@@ -196,8 +196,8 @@ export default function ExperienciasPage() {
             padding: '7px 16px', 
             borderRadius: '10px',
             border: 'none', 
-            backgroundColor: activeTab === 'Comunidad' ? '#183630' : 'transparent',
-            color: activeTab === 'Comunidad' ? '#FFFFFF' : '#243630',
+            backgroundColor: activeTab === 'Comunidad' ? '#1F2E7A' : 'transparent',
+            color: activeTab === 'Comunidad' ? '#FFFFFF' : '#2A3566',
             fontWeight: activeTab === 'Comunidad' ? 700 : 500,
             cursor: 'pointer',
             fontSize: '13px',
@@ -205,7 +205,7 @@ export default function ExperienciasPage() {
             alignItems: 'center',
             gap: '8px',
             transition: 'all 0.18s ease',
-            boxShadow: activeTab === 'Comunidad' ? '0 4px 12px rgba(20, 42, 38, 0.18)' : 'none'
+            boxShadow: activeTab === 'Comunidad' ? '0 4px 12px rgba(23, 37, 84, 0.18)' : 'none'
           }}
         >
           <Globe size={15} /> Experiencias de la Comunidad
@@ -217,14 +217,14 @@ export default function ExperienciasPage() {
         <div 
           className="mgmt-filter-bar"
           style={{
-            backgroundColor: 'rgba(255, 254, 250, 0.86)',
+            backgroundColor: 'rgba(255, 255, 255, 0.86)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
             border: '1px solid rgba(255, 255, 255, 0.94)',
             borderRadius: '16px',
             padding: '10px 16px',
             marginBottom: '12px',
-            boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+            boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
           }}
         >
           <div className="mgmt-search-box">
@@ -255,12 +255,12 @@ export default function ExperienciasPage() {
         <div 
           className="mgmt-empty-card"
           style={{
-            backgroundColor: 'rgba(255, 254, 250, 0.88)',
+            backgroundColor: 'rgba(255, 255, 255, 0.88)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',
             border: '1px solid rgba(255, 255, 255, 0.94)',
             borderRadius: '24px',
-            boxShadow: '0 12px 36px rgba(16, 36, 32, 0.10)'
+            boxShadow: '0 12px 36px rgba(30, 45, 110, 0.10)'
           }}
         >
           <div className="mgmt-empty-icon">
@@ -304,12 +304,12 @@ export default function ExperienciasPage() {
                 onKeyDown={(e) => { if (e.key === 'Enter') handleAction(exp.id, 'view'); }}
                 aria-label={`Ver experiencia ${exp.tema || 'Sin título'}`}
                 style={{
-                  backgroundColor: 'rgba(255, 254, 250, 0.88)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.88)',
                   backdropFilter: 'blur(16px)',
                   WebkitBackdropFilter: 'blur(16px)',
                   border: '1px solid rgba(255, 255, 255, 0.94)',
                   borderRadius: '20px',
-                  boxShadow: '0 8px 24px rgba(16, 36, 32, 0.08)'
+                  boxShadow: '0 8px 24px rgba(30, 45, 110, 0.08)'
                 }}
               >
                 <div className="mgmt-card-header">
@@ -361,8 +361,8 @@ export default function ExperienciasPage() {
                     justifyContent: 'space-between', 
                     padding: '8px 12px', 
                     borderRadius: '12px', 
-                    backgroundColor: 'rgba(49, 91, 84, 0.05)', 
-                    border: '1px solid rgba(49, 91, 84, 0.12)',
+                    backgroundColor: 'rgba(53, 86, 224, 0.05)', 
+                    border: '1px solid rgba(53, 86, 224, 0.12)',
                     margin: '10px 0 12px 0' 
                   }}
                 >
@@ -377,10 +377,10 @@ export default function ExperienciasPage() {
                         />
                       ))}
                     </div>
-                    <span style={{ fontSize: '12px', fontWeight: 700, color: '#142B25' }}>
+                    <span style={{ fontSize: '12px', fontWeight: 700, color: '#172554' }}>
                       {promedioEstrellas > 0 ? `${promedioEstrellas} / 5.0` : 'Sin calificar'}
                     </span>
-                    <span style={{ fontSize: '11px', color: '#718096' }}>
+                    <span style={{ fontSize: '11px', color: '#586577' }}>
                       ({numCalificaciones} {numCalificaciones === 1 ? 'docente' : 'docentes'})
                     </span>
                   </div>
@@ -391,7 +391,7 @@ export default function ExperienciasPage() {
                     style={{
                       background: 'none',
                       border: 'none',
-                      color: '#315B54',
+                      color: '#3556E0',
                       fontSize: '11.5px',
                       fontWeight: 700,
                       display: 'flex',
@@ -452,7 +452,7 @@ export default function ExperienciasPage() {
                     <button 
                       type="button"
                       className="btn-outline" 
-                      style={{ padding: '7px 12px', fontSize: '13px', minHeight: '36px', display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#B45309', borderColor: 'rgba(217, 119, 6, 0.3)' }} 
+                      style={{ padding: '7px 12px', fontSize: '13px', minHeight: '36px', display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#A14A08', borderColor: 'rgba(217, 119, 6, 0.3)' }} 
                       onClick={(e) => { e.stopPropagation(); setSelectedPlanForCalificar(exp); }}
                       title="Calificar y comentar este plan"
                     >

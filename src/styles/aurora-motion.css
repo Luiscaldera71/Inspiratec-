@@ -1,0 +1,433 @@
+/* ==========================================================================
+   INSPIRATEC · AURORA MOTION
+   Animaciones: onda del menú, robot articulado, entradas escalonadas,
+   hovers de tarjetas y transición entre pestañas.
+   Todo se desactiva con prefers-reduced-motion (ver el final).
+   ========================================================================== */
+
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --------------------------------------------------------------------------
+   TRANSICIÓN ENTRE PESTAÑAS
+   -------------------------------------------------------------------------- */
+.route-transition { animation: routeIn 0.5s var(--ease-out) both; }
+
+@keyframes routeIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.99); filter: blur(4px); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+
+/* --------------------------------------------------------------------------
+   FONDO VIVO: zoom lento del paisaje
+   -------------------------------------------------------------------------- */
+.home-ambient-backdrop { animation: bgDrift 38s ease-in-out infinite alternate; }
+
+@keyframes bgDrift {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(1.07) translate3d(-1.2%, -0.8%, 0); }
+}
+
+/* --------------------------------------------------------------------------
+   ONDAS ANIMADAS DEL MENÚ LATERAL
+   -------------------------------------------------------------------------- */
+.app-sidebar-lateral::before,
+.app-sidebar-lateral::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-repeat: repeat-x;
+  background-size: 264px 100%;
+  background-position: 0 0;
+}
+
+.app-sidebar-lateral::before {
+  height: 58%;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 264 400' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%236F8CFF' stop-opacity='.50'/%3E%3Cstop offset='1' stop-color='%23A78BFA' stop-opacity='.42'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 40 Q66 0 132 40 T264 40 V400 H0Z' fill='url(%23g)'/%3E%3Cpath d='M0 40 Q66 0 132 40 T264 40' fill='none' stroke='white' stroke-opacity='.75' stroke-width='1.6'/%3E%3C/svg%3E");
+  animation: waveSlide 16s linear infinite;
+}
+
+.app-sidebar-lateral::after {
+  height: 44%;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 264 400' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%2360A5FA' stop-opacity='.42'/%3E%3Cstop offset='1' stop-color='%23C4B5FD' stop-opacity='.22'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 36 Q66 76 132 36 T264 36 V400 H0Z' fill='url(%23g)'/%3E%3Cpath d='M0 36 Q66 76 132 36 T264 36' fill='none' stroke='white' stroke-opacity='.55' stroke-width='1.4'/%3E%3C/svg%3E");
+  animation: waveSlide 11s linear infinite reverse;
+}
+
+@keyframes waveSlide {
+  from { background-position-x: 0; }
+  to   { background-position-x: 264px; }
+}
+
+/* Interacciones del menú */
+.sidebar-nav-item { transition: background 0.25s var(--ease-out), color 0.2s ease, transform 0.25s var(--ease-out), box-shadow 0.25s ease; }
+.sidebar-nav-item svg { transition: transform 0.3s var(--ease-spring), color 0.2s ease; }
+.sidebar-nav-item:hover { transform: translateX(5px); }
+.sidebar-nav-item:hover svg { transform: scale(1.18) rotate(-6deg); }
+.sidebar-nav-item.active { animation: navPop 0.45s var(--ease-spring) backwards, navGlow 3.2s ease-in-out 0.5s infinite; }
+.sidebar-nav-item.active:hover { transform: translateX(3px); }
+
+@keyframes navPop {
+  from { transform: scale(0.94); opacity: 0.6; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+@keyframes navGlow {
+  0%, 100% { box-shadow: 0 12px 26px -8px rgba(59, 100, 255, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.45); }
+  50%      { box-shadow: 0 16px 34px -6px rgba(79, 70, 229, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.55); }
+}
+
+.sidebar-brand-icon { animation: brandBreathe 4.5s ease-in-out infinite; }
+
+@keyframes brandBreathe {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-2px) rotate(-3deg); }
+}
+
+/* Entrada escalonada del menú */
+.app-sidebar-lateral .sidebar-nav-group { animation: slideInLeft 0.6s var(--ease-out) both; }
+.app-sidebar-lateral .sidebar-nav-group:nth-child(2) { animation-delay: 0.08s; }
+.app-sidebar-lateral .sidebar-nav-group:nth-child(3) { animation-delay: 0.16s; }
+.app-sidebar-lateral .sidebar-nav-group:nth-child(4) { animation-delay: 0.24s; }
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Barra superior */
+.top-search-form { animation: dropIn 0.6s var(--ease-out) both; }
+.top-utilities-group { animation: dropIn 0.6s var(--ease-out) 0.1s both; }
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.top-search-input { transition: box-shadow 0.25s ease, background 0.25s ease, transform 0.3s var(--ease-out); }
+.top-search-input:focus { transform: scale(1.015); }
+
+.ai-status-indicator.active .ai-status-dot,
+.home-assistant-status.on i { animation: pulseDot 2s ease-in-out infinite; }
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(18, 183, 106, 0.55); }
+  50%      { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(18, 183, 106, 0); }
+}
+
+/* --------------------------------------------------------------------------
+   ENTRADAS ESCALONADAS DE LA PÁGINA DE INICIO
+   -------------------------------------------------------------------------- */
+.home-hero { animation: heroIn 0.8s var(--ease-out) both; }
+
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(26px) scale(0.985); }
+  to   { opacity: 1; transform: none; }
+}
+
+.home-main-col > .glass-panel,
+.home-side-col > .glass-panel { animation: riseIn 0.7s var(--ease-out) backwards; }
+.home-main-col > .glass-panel:nth-of-type(2) { animation-delay: 0.12s; }
+.home-main-col > .glass-panel:nth-of-type(3) { animation-delay: 0.22s; }
+.home-main-col > .glass-panel:nth-of-type(4) { animation-delay: 0.32s; }
+.home-side-col > .glass-panel:nth-of-type(1) { animation-delay: 0.18s; }
+.home-side-col > .glass-panel:nth-of-type(2) { animation-delay: 0.30s; }
+.home-side-col > .glass-panel:nth-of-type(3) { animation-delay: 0.42s; }
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.home-quick-tile, .home-area-tile, .home-recent-card, .home-resources li, .home-assistant-actions li { animation: popIn 0.55s var(--ease-spring) backwards; }
+.home-quick-grid > :nth-child(1), .home-areas-grid > :nth-child(1), .home-recent-grid > :nth-child(1), .home-resources > :nth-child(1), .home-assistant-actions > :nth-child(1) { animation-delay: 0.35s; }
+.home-quick-grid > :nth-child(2), .home-areas-grid > :nth-child(2), .home-recent-grid > :nth-child(2), .home-resources > :nth-child(2), .home-assistant-actions > :nth-child(2) { animation-delay: 0.42s; }
+.home-quick-grid > :nth-child(3), .home-areas-grid > :nth-child(3), .home-recent-grid > :nth-child(3), .home-resources > :nth-child(3), .home-assistant-actions > :nth-child(3) { animation-delay: 0.49s; }
+.home-quick-grid > :nth-child(4), .home-areas-grid > :nth-child(4), .home-assistant-actions > :nth-child(4) { animation-delay: 0.56s; }
+.home-quick-grid > :nth-child(5), .home-areas-grid > :nth-child(5), .home-assistant-actions > :nth-child(5) { animation-delay: 0.63s; }
+.home-quick-grid > :nth-child(6), .home-areas-grid > :nth-child(6) { animation-delay: 0.70s; }
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.92); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Textos del banner */
+.home-hero-hello  { animation: riseIn 0.7s var(--ease-out) 0.25s both; }
+.home-hero-title  { animation: riseIn 0.8s var(--ease-out) 0.35s both; }
+.home-hero-text   { animation: riseIn 0.8s var(--ease-out) 0.45s both; }
+.home-hero-actions { animation: riseIn 0.8s var(--ease-out) 0.55s both; }
+
+.home-hero-title em {
+  background-size: 200% 100%;
+  background-image: linear-gradient(90deg, #62B0FF, #A58BFF, #62E0FF, #62B0FF);
+  animation: gradientFlow 6s linear infinite;
+}
+
+@keyframes gradientFlow {
+  from { background-position: 0% 0; }
+  to   { background-position: 200% 0; }
+}
+
+/* --------------------------------------------------------------------------
+   HOVER: tarjetas, tiles, botones
+   -------------------------------------------------------------------------- */
+.home-quick-tile, .home-area-tile {
+  transition: transform 0.35s var(--ease-spring), box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-quick-tile::after, .home-area-tile::after, .aurora-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.home-quick-tile:hover::after, .home-area-tile:hover::after, .aurora-btn:hover::after {
+  opacity: 1;
+  animation: sweep 0.9s var(--ease-out) forwards;
+}
+
+@keyframes sweep { from { left: -80%; } to { left: 130%; } }
+
+.home-quick-tile:hover, .home-area-tile:hover { transform: translateY(-7px) scale(1.04); }
+.home-quick-tile:active, .home-area-tile:active { transform: translateY(-2px) scale(0.98); }
+.home-quick-tile .tone-icon, .home-area-tile .tone-icon { transition: transform 0.4s var(--ease-spring); }
+.home-quick-tile:hover .tone-icon, .home-area-tile:hover .tone-icon { animation: iconWiggle 0.7s ease; transform: scale(1.12); }
+
+@keyframes iconWiggle {
+  0%, 100% { rotate: 0deg; }
+  25% { rotate: -12deg; }
+  50% { rotate: 10deg; }
+  75% { rotate: -6deg; }
+}
+
+.aurora-btn { position: relative; overflow: hidden; transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease, background 0.2s ease; }
+.aurora-btn:hover { transform: translateY(-3px) scale(1.03); }
+.aurora-btn:active { transform: scale(0.97); }
+.aurora-btn-primary { animation: btnPulse 3s ease-in-out infinite; }
+
+@keyframes btnPulse {
+  0%, 100% { box-shadow: 0 14px 28px -10px rgba(79, 70, 229, 0.7), 0 0 0 0 rgba(99, 140, 255, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.35); }
+  50%      { box-shadow: 0 14px 28px -10px rgba(79, 70, 229, 0.7), 0 0 0 9px rgba(99, 140, 255, 0), inset 0 1px 1px rgba(255, 255, 255, 0.35); }
+}
+
+/* Tarjetas de planes: inclinación + zoom del icono */
+.home-recent-card { transition: transform 0.4s var(--ease-spring), box-shadow 0.3s ease; transform-origin: center bottom; }
+.home-recent-card:hover { transform: translateY(-8px) rotate(-0.6deg) scale(1.02); }
+.home-recent-card:nth-child(even):hover { transform: translateY(-8px) rotate(0.6deg) scale(1.02); }
+.home-recent-bigicon { transition: transform 0.6s var(--ease-spring), color 0.3s ease; }
+.home-recent-card:hover .home-recent-bigicon { transform: rotate(8deg) scale(1.25); color: rgba(255, 255, 255, 0.34); }
+.home-recent-foot span:last-child svg { transition: transform 0.3s var(--ease-out); }
+.home-recent-card:hover .home-recent-foot span:last-child svg { transform: translateX(5px); }
+
+.home-resources button, .home-assistant-actions button, .glass-link { transition: background 0.25s ease, transform 0.3s var(--ease-spring), color 0.2s ease, box-shadow 0.25s ease; }
+.home-resources button:hover, .home-assistant-actions button:hover { box-shadow: 0 10px 22px -12px rgba(52, 64, 150, 0.45); }
+.home-resources button > svg { transition: transform 0.3s var(--ease-out); }
+.home-resources button:hover > svg { transform: translateX(5px); }
+.glass-link:hover { transform: translateY(-2px); }
+
+.glass-panel { transition: transform 0.4s var(--ease-out), box-shadow 0.4s ease; }
+.glass-panel:hover { transform: translateY(-3px); box-shadow: var(--aurora-shadow-hover), inset 0 1px 1px #fff; }
+
+.home-assistant-avatar { animation: brandBreathe 4s ease-in-out infinite; }
+.home-assistant-bubble { animation: bubbleIn 0.7s var(--ease-spring) 0.6s both; transform-origin: left top; }
+
+@keyframes bubbleIn {
+  from { opacity: 0; transform: scale(0.8) translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.home-assistant-input button { transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease; }
+.home-assistant-input button:hover { transform: scale(1.12) rotate(-8deg); }
+
+/* Anillo de progreso: se dibuja al entrar */
+.home-ring-value { animation: ringDraw 1.4s var(--ease-out) 0.5s both; }
+
+@keyframes ringDraw { from { stroke-dashoffset: 327; } }
+
+.home-stats li { animation: slideInRight 0.6s var(--ease-out) both; }
+.home-stats li:nth-child(1) { animation-delay: 0.6s; }
+.home-stats li:nth-child(2) { animation-delay: 0.7s; }
+.home-stats li:nth-child(3) { animation-delay: 0.8s; }
+.home-stats li:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Estado vacío */
+.home-empty .tone-icon { animation: brandBreathe 3.5s ease-in-out infinite; }
+
+/* Tarjetas de otras pantallas */
+.mgmt-header, .liquid-glass-header { animation: riseIn 0.6s var(--ease-out) backwards; }
+
+/* --------------------------------------------------------------------------
+   ROBOT ARTICULADO (solo escritorio)
+   La imagen del banner se recorta en capas con máscaras suaves:
+   cuerpo, tableta, brazo (saluda) y cabeza (se inclina).
+   -------------------------------------------------------------------------- */
+.home-hero-stage { display: none; }
+
+@media (min-width: 769px) {
+  .home-hero {
+    container-type: size;
+    height: 360px;
+    min-height: 0;
+    padding: 0;
+    background: #243B8F;
+  }
+
+  /* El relleno va en el texto (no en el banner) para que las unidades cq midan el banner completo */
+  .home-hero-copy { margin-left: 44px; }
+
+  .home-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(95deg, rgba(10, 20, 70, 0.78) 0%, rgba(20, 40, 120, 0.5) 34%, rgba(30, 60, 150, 0) 58%);
+    pointer-events: none;
+  }
+
+  .home-hero-stage {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: max(100cqw, 276cqh);
+    aspect-ratio: 2083 / 755;
+    transform: translateY(-50%);
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+/* Capas del robot: valen para escritorio y móvil */
+  .stage-base { position: absolute; inset: 0; width: 100%; height: 100%; display: block; user-select: none; }
+
+  .rig-float {
+    position: absolute;
+    inset: 0;
+    transform-origin: 71% 100%;
+    animation: rigFloat 6s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .rig-layer {
+    position: absolute;
+    inset: 0;
+    display: block;
+    background: url('/images/banner-inicio.jpg') 0 0 / 100% 100% no-repeat;
+    will-change: transform;
+  }
+
+  /* Cuerpo completo: cabeza + torso + brazo + tableta */
+  .rig-body {
+    -webkit-mask-image:
+      radial-gradient(ellipse 12.5% 27% at 71.2% 38%, #000 85%, transparent 100%),
+      radial-gradient(ellipse 15% 28% at 72.5% 77%, #000 85%, transparent 100%),
+      radial-gradient(ellipse 5% 24% at 57.6% 64%, #000 80%, transparent 100%),
+      radial-gradient(ellipse 9% 17% at 79% 83%, #000 80%, transparent 100%);
+    mask-image:
+      radial-gradient(ellipse 12.5% 27% at 71.2% 38%, #000 85%, transparent 100%),
+      radial-gradient(ellipse 15% 28% at 72.5% 77%, #000 85%, transparent 100%),
+      radial-gradient(ellipse 5% 24% at 57.6% 64%, #000 80%, transparent 100%),
+      radial-gradient(ellipse 9% 17% at 79% 83%, #000 80%, transparent 100%);
+    animation: rigBreath 4.2s ease-in-out infinite;
+    transform-origin: 72% 85%;
+  }
+
+  .rig-tablet {
+    -webkit-mask-image: radial-gradient(ellipse 8.5% 15% at 79% 83%, #000 78%, transparent 100%);
+    mask-image: radial-gradient(ellipse 8.5% 15% at 79% 83%, #000 78%, transparent 100%);
+    transform-origin: 79% 86%;
+    animation: rigTablet 5s ease-in-out infinite;
+  }
+
+  .rig-arm {
+    -webkit-mask-image: radial-gradient(ellipse 4.6% 22.5% at 57.6% 63.5%, #000 78%, transparent 100%);
+    mask-image: radial-gradient(ellipse 4.6% 22.5% at 57.6% 63.5%, #000 78%, transparent 100%);
+    transform-origin: 59% 82%;
+    animation: rigArm 3.4s ease-in-out infinite;
+  }
+
+  .rig-head {
+    -webkit-mask-image: radial-gradient(ellipse 11.6% 24.5% at 71.2% 38%, #000 84%, transparent 100%);
+    mask-image: radial-gradient(ellipse 11.6% 24.5% at 71.2% 38%, #000 84%, transparent 100%);
+    transform-origin: 71.5% 61%;
+    animation: rigHead 7s ease-in-out infinite;
+  }
+
+  @keyframes rigFloat {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1.012); }
+    50%      { transform: translate3d(0, -7px, 0) scale(1.012); }
+  }
+
+  @keyframes rigBreath {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.008); }
+  }
+
+  @keyframes rigHead {
+    0%, 100% { transform: rotate(-1.4deg) translate3d(-1px, 0, 0); filter: brightness(1); }
+    30%      { transform: rotate(1.6deg) translate3d(1px, -2px, 0); filter: brightness(1.07); }
+    60%      { transform: rotate(0.4deg) translate3d(0, 1px, 0); filter: brightness(1.02); }
+  }
+
+  @keyframes rigArm {
+    0%, 100% { transform: rotate(-2.2deg); }
+    25%      { transform: rotate(3deg); }
+    45%      { transform: rotate(-1deg); }
+    65%      { transform: rotate(2.6deg); }
+  }
+
+  @keyframes rigTablet {
+    0%, 100% { transform: rotate(-1.2deg) translate3d(0, 0, 0); }
+    50%      { transform: rotate(1.4deg) translate3d(0, -2px, 0); }
+  }
+
+
+/* Destellos sobre el banner */
+.home-hero::after {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.16) 50%, transparent 60%);
+  background-size: 250% 100%;
+  animation: heroShine 7s ease-in-out 1.5s infinite;
+}
+
+@keyframes heroShine {
+  0%   { background-position: 130% 0; }
+  45%, 100% { background-position: -80% 0; }
+}
+
+/* --------------------------------------------------------------------------
+   ACCESIBILIDAD: sin movimiento si el usuario lo pide
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

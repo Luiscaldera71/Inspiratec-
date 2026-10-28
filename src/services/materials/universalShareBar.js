@@ -24,7 +24,7 @@ export function getUniversalShareBarHtml({
   <style>
     .inspiratec-share-bar {
       width: 100%;
-      background: #142B25;
+      background: #142057;
       color: #FFFFFF;
       padding: 10px 18px;
       display: flex;
@@ -49,7 +49,7 @@ export function getUniversalShareBarHtml({
     }
     .inspiratec-share-badge {
       background: linear-gradient(135deg, #D4AF37, #F59E0B);
-      color: #0E1A17;
+      color: #0B1235;
       font-size: 11px;
       font-weight: 800;
       padding: 3px 8px;
@@ -69,7 +69,7 @@ export function getUniversalShareBarHtml({
     }
     .inspiratec-share-sub {
       font-size: 11.5px;
-      color: #A7F3D0;
+      color: #C7D2FE;
       margin: 0;
     }
     .inspiratec-share-actions {
@@ -102,20 +102,20 @@ export function getUniversalShareBarHtml({
     }
     .inspiratec-share-btn-primary {
       background: #D4AF37;
-      color: #142B25;
+      color: #142057;
       border-color: #D4AF37;
       font-weight: 700;
     }
     .inspiratec-share-btn-primary:hover {
       background: #F59E0B;
-      color: #0E1A17;
+      color: #0B1235;
       border-color: #F59E0B;
     }
     .inspiratec-toast {
       position: fixed;
       bottom: 24px;
       right: 24px;
-      background: #142B25;
+      background: #142057;
       color: #FFFFFF;
       border: 1px solid #D4AF37;
       border-radius: 12px;

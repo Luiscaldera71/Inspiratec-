@@ -415,6 +415,7 @@ export function generateGamifiedQuizHTML({
         playSound('wrong');
       }
 
+      if (window.InspiraTrack) InspiraTrack.progress(currentQ + 1, questions.length);
       btnNextQ.className = 'btn-next show';
       btnNextQ.textContent = (currentQ === questions.length - 1) ? 'Ver Resultados Finales' : 'Siguiente Pregunta →';
     }
@@ -446,6 +447,7 @@ export function generateGamifiedQuizHTML({
       finalScore.textContent = score;
       finalMax.textContent = 'de ' + questions.length;
       playSound('finish');
+      if (window.InspiraTrack) InspiraTrack.finish(score, questions.length);
 
       const pct = (score / questions.length) * 100;
       if (pct >= 80) {
@@ -465,6 +467,7 @@ export function generateGamifiedQuizHTML({
       renderQuestion(0);
     });
 
+    if (window.InspiraTrack) InspiraTrack.register();
     renderQuestion(0);
   </script>
 </body>

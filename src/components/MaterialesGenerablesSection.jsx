@@ -53,8 +53,8 @@ export default function MaterialesGenerablesSection({
                 width: '32px', 
                 height: '32px', 
                 borderRadius: '8px', 
-                backgroundColor: 'rgba(71, 122, 114, 0.16)', 
-                color: '#142B25', 
+                backgroundColor: 'rgba(79, 125, 245, 0.16)', 
+                color: '#172554', 
                 display: 'flex', 
                 alignItems: 'center', 
                 justifyContent: 'center',
@@ -70,7 +70,7 @@ export default function MaterialesGenerablesSection({
                 margin: 0, 
                 fontSize: '19px', 
                 fontWeight: 700, 
-                color: '#142B25', 
+                color: '#172554', 
                 fontFamily: 'var(--font-heading)',
                 letterSpacing: '-0.01em',
                 wordBreak: 'break-word',
@@ -87,7 +87,7 @@ export default function MaterialesGenerablesSection({
               style={{
                 fontSize: '12px',
                 fontWeight: 700,
-                color: '#03543F',
+                color: '#111846',
                 backgroundColor: '#DEF7EC',
                 border: '1px solid #31C48D',
                 padding: '3px 10px',
@@ -131,8 +131,8 @@ export default function MaterialesGenerablesSection({
                 padding: '18px',
                 borderRadius: '16px',
                 backgroundColor: yaAnexado ? 'rgba(240, 246, 243, 0.95)' : '#FFFFFF',
-                border: yaAnexado ? '1.5px solid rgba(16, 185, 129, 0.4)' : '1px solid rgba(49, 91, 84, 0.16)',
-                boxShadow: yaAnexado ? '0 2px 10px rgba(16, 185, 129, 0.08)' : '0 2px 8px rgba(0, 0, 0, 0.03)',
+                border: yaAnexado ? '1.5px solid rgba(38, 55, 163, 0.4)' : '1px solid rgba(53, 86, 224, 0.16)',
+                boxShadow: yaAnexado ? '0 2px 10px rgba(38, 55, 163, 0.08)' : '0 2px 8px rgba(0, 0, 0, 0.03)',
                 transition: 'all 0.2s ease',
                 position: 'relative',
                 width: '100%',
@@ -155,8 +155,8 @@ export default function MaterialesGenerablesSection({
                         letterSpacing: '0.04em',
                         padding: '3px 8px',
                         borderRadius: '6px',
-                        backgroundColor: yaAnexado ? 'rgba(16, 185, 129, 0.14)' : 'rgba(71, 122, 114, 0.12)',
-                        color: yaAnexado ? '#065F46' : '#234B43'
+                        backgroundColor: yaAnexado ? 'rgba(38, 55, 163, 0.14)' : 'rgba(79, 125, 245, 0.12)',
+                        color: yaAnexado ? '#131C52' : '#2B3F9E'
                       }}
                     >
                       {rec.tipo}
@@ -170,7 +170,7 @@ export default function MaterialesGenerablesSection({
                           padding: '2px 7px',
                           borderRadius: '6px',
                           backgroundColor: '#DEF7EC',
-                          color: '#03543F',
+                          color: '#111846',
                           border: '1px solid #31C48D',
                           display: 'inline-flex',
                           alignItems: 'center',
@@ -190,7 +190,7 @@ export default function MaterialesGenerablesSection({
                       style={{
                         background: 'none',
                         border: 'none',
-                        color: '#9CA3AF',
+                        color: '#5D6573',
                         cursor: 'pointer',
                         padding: '4px',
                         borderRadius: '4px',
@@ -215,7 +215,7 @@ export default function MaterialesGenerablesSection({
                     margin: '0 0 10px 0', 
                     fontSize: '15px', 
                     fontWeight: 700, 
-                    color: '#142B25', 
+                    color: '#172554', 
                     lineHeight: '1.4' 
                   }}
                 >
@@ -224,7 +224,7 @@ export default function MaterialesGenerablesSection({
 
                 {/* Propósito pedagógico */}
                 <div style={{ marginBottom: '8px' }}>
-                  <span style={{ fontSize: '11.5px', fontWeight: 700, color: '#315B54', display: 'block', marginBottom: '2px' }}>
+                  <span style={{ fontSize: '11.5px', fontWeight: 700, color: '#3556E0', display: 'block', marginBottom: '2px' }}>
                     Propósito pedagógico:
                   </span>
                   <p style={{ margin: 0, fontSize: '12.5px', lineHeight: '1.5', color: '#4B5563' }}>
@@ -234,7 +234,7 @@ export default function MaterialesGenerablesSection({
 
                 {/* Relación con el plan */}
                 <div style={{ marginBottom: '16px' }}>
-                  <span style={{ fontSize: '11.5px', fontWeight: 700, color: '#315B54', display: 'block', marginBottom: '2px' }}>
+                  <span style={{ fontSize: '11.5px', fontWeight: 700, color: '#3556E0', display: 'block', marginBottom: '2px' }}>
                     Momento de aplicación:
                   </span>
                   <p style={{ margin: 0, fontSize: '12.5px', lineHeight: '1.5', color: '#4B5563' }}>
@@ -268,7 +268,7 @@ export default function MaterialesGenerablesSection({
                       }}
                       title="Este material ya ha sido generado y se encuentra anexado al plan. No se puede volver a duplicar."
                     >
-                      <CheckCircle2 size={14} color="#059669" />
+                      <CheckCircle2 size={14} color="#1D2A7E" />
                       <span>Ya generado y anexado al plan</span>
                     </button>
 
@@ -287,8 +287,8 @@ export default function MaterialesGenerablesSection({
                           justifyContent: 'center',
                           gap: '6px',
                           borderRadius: '10px',
-                          color: '#183630',
-                          borderColor: 'rgba(49, 91, 84, 0.4)'
+                          color: '#1F2E7A',
+                          borderColor: 'rgba(53, 86, 224, 0.4)'
                         }}
                         title="Abrir este material para consultar, interactuar, compartir o descargar"
                       >

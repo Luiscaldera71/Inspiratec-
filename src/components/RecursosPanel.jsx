@@ -13,7 +13,7 @@ const ICONS = {
   list: ListChecks, check: CheckCircle2, file: FileText, qr: QrCode, radio: Radio
 };
 
-const green = '#315B54';
+const green = '#3556E0';
 
 /**
  * RecursosPanel
@@ -42,10 +42,10 @@ export default function RecursosPanel({
   return (
     <section aria-labelledby="titulo-recursos" style={{ width: '100%' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', marginBottom: '14px' }}>
-        <h3 id="titulo-recursos" style={{ margin: 0, fontSize: '20px', fontWeight: 700, color: '#142B25', fontFamily: 'var(--font-heading)' }}>
+        <h3 id="titulo-recursos" style={{ margin: 0, fontSize: '20px', fontWeight: 700, color: '#172554', fontFamily: 'var(--font-heading)' }}>
           Recursos
         </h3>
-        <span style={{ fontSize: '12.5px', color: '#576864' }}>
+        <span style={{ fontSize: '12.5px', color: '#3E4781' }}>
           {RESOURCE_CATALOG.length} tipos disponibles
         </span>
       </div>
@@ -60,9 +60,9 @@ export default function RecursosPanel({
             onClick={() => setCategoria(c.id)}
             style={{
               padding: '6px 14px', borderRadius: '999px', fontSize: '13px', fontWeight: 600, cursor: 'pointer',
-              border: `1px solid ${categoria === c.id ? green : 'rgba(49, 91, 84, 0.25)'}`,
+              border: `1px solid ${categoria === c.id ? green : 'rgba(53, 86, 224, 0.25)'}`,
               background: categoria === c.id ? green : 'transparent',
-              color: categoria === c.id ? '#fff' : '#142B25'
+              color: categoria === c.id ? '#fff' : '#172554'
             }}
           >
             {c.label}
@@ -80,20 +80,20 @@ export default function RecursosPanel({
               key={r.typeKey}
               style={{
                 display: 'flex', flexDirection: 'column', gap: '8px', padding: '14px', borderRadius: '14px',
-                background: '#fff', border: r.plantilla ? '1.5px solid #D4AF37' : '1px solid rgba(49, 91, 84, 0.18)',
+                background: '#fff', border: r.plantilla ? '1.5px solid #D4AF37' : '1px solid rgba(53, 86, 224, 0.18)',
                 boxShadow: '0 2px 8px rgba(0,0,0,0.03)'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ width: 34, height: 34, borderRadius: 10, background: 'rgba(71, 122, 114, 0.14)', color: '#142B25', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <span style={{ width: 34, height: 34, borderRadius: 10, background: 'rgba(79, 125, 245, 0.14)', color: '#172554', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <Icon size={18} />
                 </span>
-                <strong style={{ fontSize: '14.5px', color: '#142B25', lineHeight: 1.3 }}>{r.nombre}</strong>
+                <strong style={{ fontSize: '14.5px', color: '#172554', lineHeight: 1.3 }}>{r.nombre}</strong>
               </div>
               <p style={{ margin: 0, fontSize: '12.5px', lineHeight: 1.5, color: '#4B5563', flex: 1 }}>{r.descripcion}</p>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
                 {n > 0 ? (
-                  <span style={{ fontSize: '11.5px', fontWeight: 700, color: '#03543F' }}>✓ {n} en el plan</span>
+                  <span style={{ fontSize: '11.5px', fontWeight: 700, color: '#111846' }}>✓ {n} en el plan</span>
                 ) : <span />}
                 <button
                   type="button"
@@ -113,18 +113,18 @@ export default function RecursosPanel({
 
       {recursosAnexos.length > 0 && (
         <div style={{ marginTop: '30px', borderTop: '2px dashed var(--border-color)', paddingTop: '20px' }}>
-          <h3 style={{ margin: '0 0 14px', fontSize: '18px', color: '#142B25', fontFamily: 'var(--font-heading)' }}>
+          <h3 style={{ margin: '0 0 14px', fontSize: '18px', color: '#172554', fontFamily: 'var(--font-heading)' }}>
             Recursos de este plan ({recursosAnexos.length})
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {recursosAnexos.map((recurso, idx) => (
               <div
                 key={recurso.id || `${recurso.title}-${idx}`}
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', padding: '12px 16px', borderRadius: '12px', background: '#fff', border: '1px solid rgba(49, 91, 84, 0.18)' }}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px', padding: '12px 16px', borderRadius: '12px', background: '#fff', border: '1px solid rgba(53, 86, 224, 0.18)' }}
               >
                 <div style={{ minWidth: 0, flex: '1 1 240px' }}>
-                  <div style={{ fontSize: '14px', fontWeight: 700, color: '#142B25', overflowWrap: 'anywhere' }}>{recurso.title}</div>
-                  <div style={{ fontSize: '12px', color: '#576864' }}>
+                  <div style={{ fontSize: '14px', fontWeight: 700, color: '#172554', overflowWrap: 'anywhere' }}>{recurso.title}</div>
+                  <div style={{ fontSize: '12px', color: '#3E4781' }}>
                     {recurso.tipo || 'Recurso'}{recurso.anexadoAt ? ` · ${new Date(recurso.anexadoAt).toLocaleDateString('es-CO')}` : ''}
                   </div>
                 </div>
@@ -135,7 +135,7 @@ export default function RecursosPanel({
                   <button type="button" className="btn" onClick={() => onDownload(recurso)} style={{ padding: '6px 12px', fontSize: '12.5px', display: 'flex', alignItems: 'center', gap: '6px', backgroundColor: 'var(--primary-sage)' }}>
                     <Download size={13} /> Descargar
                   </button>
-                  <button type="button" className="btn-outline" onClick={() => onRemove(idx)} aria-label={`Quitar ${recurso.title}`} style={{ padding: '6px 10px', fontSize: '12.5px', color: '#DC2626', borderColor: 'rgba(220, 38, 38, 0.35)' }}>
+                  <button type="button" className="btn-outline" onClick={() => onRemove(idx)} aria-label={`Quitar ${recurso.title}`} style={{ padding: '6px 10px', fontSize: '12.5px', color: '#C42020', borderColor: 'rgba(220, 38, 38, 0.35)' }}>
                     <Trash2 size={13} />
                   </button>
                 </div>

@@ -10,6 +10,7 @@ import { adaptPlanDocument } from '../planDocumentAdapter.js';
 import { normalizeMarkdownToPdfBlocks } from '../markdownNormalizer.js';
 import { buildInspiratecDocumentDefinition } from './inspiratecTemplate.js';
 import { buildPdfFilename, downloadBlob } from '../downloadFile.js';
+import { loadExportAssets } from '../exportAssets.js';
 
 let cachedPdfMake = null;
 
@@ -100,7 +101,8 @@ export const exportPlanToPdf = async ({
   const contentBlocks = normalizeMarkdownToPdfBlocks(documentModel.cleanMarkdown);
 
   // 4. Construcción de la definición de documento con la plantilla institucional
-  const docDefinition = buildInspiratecDocumentDefinition(documentModel, contentBlocks);
+  const assets = await loadExportAssets();
+  const docDefinition = buildInspiratecDocumentDefinition(documentModel, contentBlocks, assets);
 
   // 5. Carga diferida del motor PDF
   const pdfMake = await loadPdfMake();

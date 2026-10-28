@@ -53,15 +53,15 @@ import PageLoadingState from '../components/PageLoadingState';
 
 // Categorías temáticas pedagógicas oficiales de INSPIRATEC
 export const FORO_CATEGORIAS = [
-  { id: 'Innovación pedagógica', label: 'Innovación pedagógica', icon: Sparkles, color: '#315B54' },
+  { id: 'Innovación pedagógica', label: 'Innovación pedagógica', icon: Sparkles, color: '#3556E0' },
   { id: 'Inteligencia artificial en educación', label: 'Inteligencia artificial en educación', icon: Sparkles, color: '#D4AF37' },
-  { id: 'Estrategias didácticas', label: 'Estrategias didácticas', icon: Layers, color: '#2B524A' },
-  { id: 'Evaluación del aprendizaje', label: 'Evaluación del aprendizaje', icon: Award, color: '#477A72' },
-  { id: 'Inclusión y DUA', label: 'Inclusión y DUA', icon: ShieldCheck, color: '#10B981' },
-  { id: 'Recursos educativos', label: 'Recursos educativos', icon: BookOpen, color: '#2563EB' },
-  { id: 'Tecnología educativa', label: 'Tecnología educativa', icon: Layers, color: '#0D9488' },
+  { id: 'Estrategias didácticas', label: 'Estrategias didácticas', icon: Layers, color: '#2B3F9E' },
+  { id: 'Evaluación del aprendizaje', label: 'Evaluación del aprendizaje', icon: Award, color: '#384074' },
+  { id: 'Inclusión y DUA', label: 'Inclusión y DUA', icon: ShieldCheck, color: '#182265' },
+  { id: 'Recursos educativos', label: 'Recursos educativos', icon: BookOpen, color: '#1557E6' },
+  { id: 'Tecnología educativa', label: 'Tecnología educativa', icon: Layers, color: '#172161' },
   { id: 'Experiencias de aula', label: 'Experiencias de aula', icon: GraduationCap, color: '#7C3AED' },
-  { id: 'Preguntas y ayuda entre docentes', label: 'Preguntas y ayuda entre docentes', icon: HelpCircle, color: '#EA580C' }
+  { id: 'Preguntas y ayuda entre docentes', label: 'Preguntas y ayuda entre docentes', icon: HelpCircle, color: '#B04209' }
 ];
 
 // Ayudante para obtener iniciales
@@ -470,7 +470,7 @@ export default function ForoPage() {
       {/* Toast / Notificación accesible de confirmación */}
       {feedback && (
         <div className="foro-feedback-toast" role="status" aria-live="polite">
-          <CheckCircle2 size={16} color="#059669" />
+          <CheckCircle2 size={16} color="#1D2A7E" />
           <span>{feedback}</span>
         </div>
       )}
@@ -482,7 +482,7 @@ export default function ForoPage() {
         <div className="foro-header-top-row">
           <div className="foro-header-titles">
             <div className="editorial-badge" style={{ marginBottom: '8px' }}>
-              <MessagesSquare size={14} color="#2B524A" />
+              <MessagesSquare size={14} color="#2B3F9E" />
               <span>Comunidad Académica de Aprendizaje</span>
             </div>
             <h1 className="foro-main-title">
@@ -541,7 +541,7 @@ export default function ForoPage() {
               <span><strong>{totalRespuestasRegistradas}</strong> respuestas</span>
             </div>
             <div className="foro-metric-pill" title="Temas guardados en tus favoritos">
-              <Bookmark size={13} style={{ color: '#2563EB' }} />
+              <Bookmark size={13} style={{ color: '#1557E6' }} />
               <span><strong>{savedIds.length}</strong> guardadas</span>
             </div>
           </div>
@@ -1058,7 +1058,7 @@ export default function ForoPage() {
 
                 {/* Cuerpo del Texto de la Discusión */}
                 <div className="foro-detail-body">
-                  <p style={{ whiteSpace: 'pre-wrap', lineHeight: '1.75', fontSize: '15.5px', color: '#142B25', margin: 0 }}>
+                  <p style={{ whiteSpace: 'pre-wrap', lineHeight: '1.75', fontSize: '15.5px', color: '#172554', margin: 0 }}>
                     {activeDiscussion.texto}
                   </p>
                 </div>
@@ -1092,7 +1092,7 @@ export default function ForoPage() {
                       type="button" 
                       className="btn-outline"
                       onClick={() => handleDeleteDiscussion(activeDiscussion.id)}
-                      style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', padding: '6px 14px', color: '#DC2626', borderColor: 'rgba(220, 38, 38, 0.3)' }}
+                      style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', padding: '6px 14px', color: '#C42020', borderColor: 'rgba(220, 38, 38, 0.3)' }}
                     >
                       <Trash2 size={15} />
                       <span>Eliminar discusión</span>
@@ -1243,10 +1243,10 @@ export default function ForoPage() {
             {discusionesSinRespuesta.length > 0 && (
               <div className="foro-context-block">
                 <h4 className="foro-context-block-title">
-                  <HelpCircle size={16} style={{ color: '#EA580C' }} />
+                  <HelpCircle size={16} style={{ color: '#B04209' }} />
                   <span>Requieren tu aporte</span>
                 </h4>
-                <p style={{ fontSize: '12px', color: '#576864', margin: '0 0 10px 0' }}>
+                <p style={{ fontSize: '12px', color: '#3E4781', margin: '0 0 10px 0' }}>
                   Preguntas docentes recientes aún sin respuesta:
                 </p>
                 <div className="foro-unanswered-list">
@@ -1301,10 +1301,10 @@ export default function ForoPage() {
           <div className="editor-modal-card foro-new-modal-card">
             
             {/* Cabecera del Modal */}
-            <div className="modal-glass-header" style={{ padding: '20px 28px', borderBottom: '1px solid rgba(49, 91, 84, 0.12)' }}>
+            <div className="modal-glass-header" style={{ padding: '20px 28px', borderBottom: '1px solid rgba(53, 86, 224, 0.12)' }}>
               <div>
                 <span className="editorial-badge" style={{ marginBottom: '6px' }}>
-                  <Sparkles size={13} color="#2B524A" /> Diálogo Académico
+                  <Sparkles size={13} color="#2B3F9E" /> Diálogo Académico
                 </span>
                 <h2 id="new-discussion-modal-title" className="modal-glass-title" style={{ fontSize: '20px', margin: 0 }}>
                   Iniciar Nueva Discusión Pedagógica
@@ -1384,12 +1384,12 @@ export default function ForoPage() {
 
                 {/* Opción de fijar/destacar para administradores */}
                 {isAdmin && (
-                  <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '13.5px', color: '#142B25', fontWeight: 600 }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '13.5px', color: '#172554', fontWeight: 600 }}>
                     <input 
                       type="checkbox"
                       checked={newDiscussionData.destacado}
                       onChange={(e) => setNewDiscussionData({ ...newDiscussionData, destacado: e.target.checked })}
-                      style={{ width: '16px', height: '16px', accentColor: '#183630' }}
+                      style={{ width: '16px', height: '16px', accentColor: '#1F2E7A' }}
                     />
                     <span>Fijar como publicación destacada en la parte superior</span>
                   </label>
@@ -1398,7 +1398,7 @@ export default function ForoPage() {
               </div>
 
               {/* Botones del Modal */}
-              <div style={{ padding: '16px 28px', backgroundColor: 'rgba(237, 244, 241, 0.7)', borderTop: '1px solid rgba(49, 91, 84, 0.12)', display: 'flex', justifyContent: 'flex-end', gap: '12px' }}>
+              <div style={{ padding: '16px 28px', backgroundColor: 'rgba(237, 244, 241, 0.7)', borderTop: '1px solid rgba(53, 86, 224, 0.12)', display: 'flex', justifyContent: 'flex-end', gap: '12px' }}>
                 <button 
                   type="button" 
                   className="btn btn-secondary"

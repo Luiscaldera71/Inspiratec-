@@ -5,7 +5,8 @@ import remarkGfm from 'remark-gfm';
 import {
   getSession, subscribeSession, joinSession, getParticipant, saveAnswers, reportLeaveEvent, submitAnswers
 } from '../services/sessions/sessionService';
-import { buildExamView, evaluateLeavePolicy, normalizeCode } from '../services/sessions/sessionLogic';
+import { buildExamView, evaluateLeavePolicy, normalizeCode, buildResourceResult } from '../services/sessions/sessionLogic';
+import { injectTrackingBridge, parseTrackMessage } from '../services/sessions/trackingBridge';
 
 /**
  * StudentSessionPage
@@ -18,7 +19,7 @@ import { buildExamView, evaluateLeavePolicy, normalizeCode } from '../services/s
  * si el docente lo configuró, enviar la evaluación automáticamente al superar el máximo de salidas.
  */
 
-const C = { bg: '#0F2A25', card: '#FFFFFF', ink: '#142B25', green: '#315B54', gold: '#F2B84B', red: '#C0392B', muted: '#576864' };
+const C = { bg: '#0E122B', card: '#FFFFFF', ink: '#172554', green: '#3556E0', gold: '#F2B84B', red: '#C0392B', muted: '#3E4781' };
 const page = { minHeight: '100dvh', background: C.bg, color: C.ink, fontFamily: '"Segoe UI", system-ui, sans-serif', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', boxSizing: 'border-box' };
 const card = { background: C.card, borderRadius: 18, padding: '20px', width: '100%', maxWidth: 560, boxSizing: 'border-box', boxShadow: '0 10px 30px rgba(0,0,0,.25)' };
 const btn = (bg = C.green, color = '#fff') => ({ background: bg, color, border: 0, borderRadius: 12, padding: '14px 18px', fontSize: 17, fontWeight: 700, width: '100%', cursor: 'pointer' });
@@ -90,7 +91,7 @@ export default function StudentSessionPage() {
       <div style={page}>
         <div style={{ ...card, marginTop: 30 }}>
           <div style={{ fontSize: 13, fontWeight: 700, color: C.green, textTransform: 'uppercase', letterSpacing: '.06em' }}>
-            {session.tipo === 'evaluacion' ? 'Evaluación' : 'Clase en vivo'}
+            {session.tipo === 'evaluacion' ? 'Evaluación' : session.tipo === 'recurso' ? 'Actividad interactiva' : 'Clase en vivo'}
           </div>
           <h1 style={{ fontSize: 24, margin: '6px 0 4px' }}>{session.titulo}</h1>
           {session.planTema && <p style={{ margin: 0, color: C.muted }}>{session.planTema}</p>}
@@ -124,6 +125,8 @@ export default function StudentSessionPage() {
       </div>
     );
   }
+
+  if (session.tipo === 'recurso') return <RecursoEstudiante code={code} pid={pid} session={session} nombre={nombre} />;
 
   return session.tipo === 'evaluacion'
     ? <Evaluacion code={code} pid={pid} session={session} nombre={nombre} />
@@ -343,7 +346,7 @@ function Evaluacion({ code, pid, session, nombre }) {
                   type="button"
                   onClick={() => responder(q.id, o.idx)}
                   aria-pressed={sel}
-                  style={{ display: 'block', width: '100%', textAlign: 'left', margin: '8px 0', padding: '13px 14px', fontSize: 17, borderRadius: 12, cursor: 'pointer', border: `2px solid ${sel ? C.green : '#CBD5E1'}`, background: sel ? '#E6F2EE' : '#fff', fontWeight: sel ? 700 : 400 }}
+                  style={{ display: 'block', width: '100%', textAlign: 'left', margin: '8px 0', padding: '13px 14px', fontSize: 17, borderRadius: 12, cursor: 'pointer', border: `2px solid ${sel ? C.green : '#CBD5E1'}`, background: sel ? '#E5E7F3' : '#fff', fontWeight: sel ? 700 : 400 }}
                 >
                   {o.texto}
                 </button>
@@ -401,6 +404,117 @@ function ClaseEnVivo({ session, nombre }) {
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{session.contenido || 'El docente aún no ha compartido contenido.'}</ReactMarkdown>
         </div>
       )}
+    </div>
+  );
+}
+
+// ------------------------------------------------------------------ Recurso interactivo (con seguimiento)
+
+/**
+ * RecursoEstudiante
+ * Abre el recurso que envió el docente dentro de un iframe aislado. El recurso avisa su avance y su
+ * resultado con postMessage (ver trackingBridge.js) y aquí se guardan en la ficha del estudiante:
+ * así el docente ve quién lo usó, cuánto avanzó y la nota si lo terminó (se guarda el primer intento).
+ */
+function RecursoEstudiante({ code, pid, session, nombre }) {
+  const recurso = (session.recursos || [])[0];
+  const iframeRef = useRef(null);
+  const lastSave = useRef(0);
+  const finishedRef = useRef(false);
+  const [resultado, setResultado] = useState(null);
+  const [error, setError] = useState('');
+  const [avance, setAvance] = useState(null);
+
+  const srcDoc = useMemo(() => injectTrackingBridge(recurso?.html || ''), [recurso?.html]);
+
+  // Si ya había terminado y recarga la página, se muestra su resultado
+  useEffect(() => {
+    getParticipant(code, pid).then((p) => {
+      if (p?.estado === 'enviado' && p.respuestas?.completado) {
+        finishedRef.current = true;
+        setResultado(p.respuestas);
+      }
+    }).catch(() => {});
+  }, [code, pid]);
+
+  const terminar = useCallback(async (res) => {
+    if (finishedRef.current) return;
+    finishedRef.current = true;
+    try {
+      await submitAnswers(code, pid, res);
+      setResultado(res);
+    } catch (e) {
+      finishedRef.current = false;
+      setError(e.message);
+    }
+  }, [code, pid]);
+
+  useEffect(() => {
+    const onMessage = (e) => {
+      if (!iframeRef.current || e.source !== iframeRef.current.contentWindow) return;
+      const msg = parseTrackMessage(e.data);
+      if (!msg || msg.type === 'ready') return;
+      const res = buildResourceResult(msg);
+      if (!res) return;
+      if (res.completado) {
+        terminar(res);
+      } else if (!finishedRef.current) {
+        setAvance(res);
+        // Guarda el avance como máximo cada 4 s para no saturar la base de datos
+        const now = Date.now();
+        if (now - lastSave.current > 4000 || res.avance === res.total) {
+          lastSave.current = now;
+          saveAnswers(code, pid, res).catch(() => {});
+        }
+      }
+    };
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  }, [code, pid, terminar]);
+
+  if (!recurso?.html) {
+    return <div style={page}><div style={{ ...card, marginTop: 40, textAlign: 'center' }}><p>Esta actividad no tiene contenido.</p></div></div>;
+  }
+
+  const terminado = Boolean(resultado);
+  return (
+    <div style={{ ...page, padding: 0 }}>
+      <div style={{ width: '100%', background: C.bg, color: '#fff', padding: '10px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, boxSizing: 'border-box' }}>
+        <strong style={{ fontSize: 15, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{session.titulo}</strong>
+        <span style={{ fontSize: 12, opacity: .85, flexShrink: 0 }}>
+          {terminado ? '✓ Terminada' : avance?.total ? `${avance.avance}/${avance.total}` : nombre}
+        </span>
+      </div>
+      {avance?.total > 0 && !terminado && (
+        <div style={{ width: '100%', height: 5, background: 'rgba(255,255,255,.15)' }}>
+          <div style={{ width: `${Math.round((avance.avance / avance.total) * 100)}%`, height: '100%', background: 'linear-gradient(90deg,#3B82F6,#7C5CFF)', transition: 'width .4s' }} />
+        </div>
+      )}
+      {session.estado !== 'abierta' && <div style={{ width: '100%', background: C.gold, padding: 8, textAlign: 'center', fontWeight: 700 }}>El docente cerró esta actividad: ya no se guardan resultados.</div>}
+      {error && <div role="alert" style={{ width: '100%', background: '#FDECEA', color: C.red, padding: 8, textAlign: 'center', fontWeight: 700 }}>{error}</div>}
+
+      {terminado && (
+        <div role="status" style={{ ...card, maxWidth: 520, margin: '14px 12px 0', textAlign: 'center', border: '2px solid #3556E0' }}>
+          <div style={{ fontSize: 40 }}>🎉</div>
+          <h2 style={{ margin: '4px 0', fontSize: 22 }}>¡Terminaste, {nombre.split(' ')[0]}!</h2>
+          {resultado.nota !== null && resultado.nota !== undefined ? (
+            <>
+              <div style={{ fontSize: 40, fontWeight: 800, color: C.green, lineHeight: 1.1 }}>{Number(resultado.nota).toFixed(1)} <span style={{ fontSize: 18, color: C.muted }}>/ 5</span></div>
+              <p style={{ margin: '6px 0 0', color: C.muted }}>{resultado.aciertos} de {resultado.total} correctas ({resultado.porcentaje}%). Tu docente ya recibió tu resultado.</p>
+            </>
+          ) : (
+            <p style={{ margin: '6px 0 0', color: C.muted }}>Tu docente ya recibió que completaste la actividad.</p>
+          )}
+        </div>
+      )}
+
+      <iframe
+        ref={iframeRef}
+        title={recurso.titulo || session.titulo}
+        srcDoc={srcDoc}
+        sandbox="allow-scripts"
+        style={{ flex: 1, width: '100%', border: 0, background: '#fff', minHeight: terminado ? '60dvh' : '85dvh', marginTop: terminado ? 12 : 0 }}
+      />
     </div>
   );
 }

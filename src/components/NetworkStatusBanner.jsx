@@ -60,8 +60,8 @@ export default function NetworkStatusBanner() {
         WebkitBackdropFilter: 'blur(12px)',
         transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
         backgroundColor: isOnline ? 'rgba(236, 253, 245, 0.94)' : 'rgba(254, 242, 242, 0.95)',
-        color: isOnline ? '#065F46' : '#991B1B',
-        border: isOnline ? '1px solid rgba(16, 185, 129, 0.35)' : '1px solid rgba(239, 68, 68, 0.35)'
+        color: isOnline ? '#131C52' : '#991B1B',
+        border: isOnline ? '1px solid rgba(38, 55, 163, 0.35)' : '1px solid rgba(239, 68, 68, 0.35)'
       }}
     >
       {isOnline ? (

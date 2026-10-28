@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, NavLink, useLocation, Navigate } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { BrowserRouter, Routes, Route, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import WizardPage from './pages/WizardPage';
 import EditorPage from './pages/EditorPage';
 import ConfigPage from './pages/ConfigPage';
-import { initAuth } from './services/authService';
+import { initAuth, logoutUser } from './services/authService';
 import { getMisPlanes } from './services/dbService';
 import { useAppStore } from './store/useAppStore';
 import { auth } from './firebase';
@@ -22,15 +22,17 @@ import AuthPage from './pages/AuthPage';
 import StudentSessionPage from './pages/StudentSessionPage';
 import HomePage from './pages/HomePage';
 import AdnPedagogicoPage from './pages/AdnPedagogicoPage';
-import BienvenidaNarrativa from './components/BienvenidaNarrativa';
+import TourRapido from './components/TourRapido';
+import InstallPrompt from './components/InstallPrompt';
 import ModalCalibracionDocente from './components/ModalCalibracionDocente';
+import CompletarPerfilModal from './components/CompletarPerfilModal';
 import UserMenu from './components/UserMenu';
 import FondoPixel from './components/FondoPixel';
 import NetworkStatusBanner from './components/NetworkStatusBanner';
 import ErrorBoundary from './components/ErrorBoundary';
 import { 
   Settings, 
-  Lightbulb, 
+ 
   Menu, 
   X, 
   Home, 
@@ -45,34 +47,39 @@ import {
   LifeBuoy, 
   Info,
   Dna,
-  ChevronLeft,
-  ChevronRight,
   PanelLeftClose,
-  PanelLeftOpen
+  PanelLeftOpen,
+  ClipboardCheck,
+  ExternalLink,
+  Search,
+  Plus,
+  LayoutGrid,
+  LogOut
 } from 'lucide-react';
+import { CONTROL_CLASE_URL } from './utils/externalTools';
 
 function AppContent() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // Escritorio ancho: menú lateral persistente y expandido (como el diseño de referencia).
+  // El docente puede contraerlo a un riel de iconos y la preferencia se recuerda.
   const [sidebarCollapsed, setSidebarCollapsed] = useState(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
-      const saved = localStorage.getItem('inspiratec_sidebar_collapsed');
+      const saved = localStorage.getItem('inspiratec_sidebar_collapsed_v2');
       if (saved !== null) return saved === 'true';
     }
-    return true; // Predeterminado colapsado para abrirse por encima del contenido como overlay
+    return typeof window !== 'undefined' ? window.innerWidth < 1100 : false;
   });
 
-  const [topUtilitiesCollapsed, setTopUtilitiesCollapsed] = useState(() => {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      return localStorage.getItem('inspiratec_top_utilities_collapsed') === 'true';
-    }
-    return false;
-  });
+  const [moreOpen, setMoreOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const searchRef = useRef(null);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     setSidebarCollapsed(prev => {
       const next = !prev;
       if (typeof window !== 'undefined' && window.localStorage) {
-        localStorage.setItem('inspiratec_sidebar_collapsed', String(next));
+        localStorage.setItem('inspiratec_sidebar_collapsed_v2', String(next));
       }
       return next;
     });
@@ -80,25 +87,32 @@ function AppContent() {
 
   const handleNavClick = () => {
     setMobileMenuOpen(false);
-    setSidebarCollapsed(true);
-  };
-
-  const toggleTopUtilities = () => {
-    setTopUtilitiesCollapsed(prev => {
-      const next = !prev;
-      if (typeof window !== 'undefined' && window.localStorage) {
-        localStorage.setItem('inspiratec_top_utilities_collapsed', String(next));
-      }
-      return next;
-    });
   };
 
   const location = useLocation();
 
   useEffect(() => {
     setMobileMenuOpen(false);
-    setSidebarCollapsed(true);
+    setMoreOpen(false);
   }, [location.pathname]);
+
+  // Atajo Ctrl/Cmd + K para enfocar el buscador
+  useEffect(() => {
+    const onKey = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        searchRef.current?.focus();
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    const q = searchTerm.trim();
+    navigate(q ? `/mis-planes?q=${encodeURIComponent(q)}` : '/mis-planes');
+  };
 
 
   const { userId, userProfile, apiKey, planesCount, setPlanesCount, clearWizardFormOnly } = useAppStore();
@@ -112,7 +126,6 @@ function AppContent() {
 
 
   // Fondo ambiental unificado idéntico a Inicio para todo el recorrido
-  const ambientBg = '/images/inicio-fondo.png';
   const isAdmin = userProfile?.rol === 'Admin' || (auth.currentUser?.email && auth.currentUser.email.toLowerCase().trim() === 'danieltapiasacosta39@gmail.com');
 
   return (
@@ -121,7 +134,6 @@ function AppContent() {
         {/* Fondo Ambiental Dinámico Institucional según Módulo */}
         <div 
           className="home-ambient-backdrop" 
-          style={{ backgroundImage: `linear-gradient(180deg, rgba(20, 42, 38, 0.22) 0%, rgba(20, 42, 38, 0.08) 32%, rgba(20, 42, 38, 0.26) 100%), url('${ambientBg}')` }}
           aria-hidden="true" 
         />
 
@@ -133,31 +145,38 @@ function AppContent() {
           <div className="liquid-blob liquid-blob-4" />
         </div>
 
-        {/* Experiencia Narrativa Inmersiva de Bienvenida (11 escenas) */}
-        <BienvenidaNarrativa />
+        {/* Tutorial rápido de bienvenida (6 pasos, se puede omitir) */}
+        <TourRapido />
 
         {/* Modal de Onboarding y Calibración Curricular (Sin alterar la bienvenida) */}
         <ModalCalibracionDocente />
+
+        {/* Pide nombre, institución y nivel si faltan (p. ej. cuentas de Google) */}
+        <CompletarPerfilModal />
 
         {/* Indicador no invasivo de estado de conexión a internet */}
         <NetworkStatusBanner />
 
         {/* Barra superior compacta solo para vista móvil */}
-        <header className="mobile-header-bar">
+                <header className="mobile-header-bar">
           <NavLink to="/home" className="mobile-brand-title">
-            <Lightbulb size={20} color="var(--color-brand-active)" /> INSPIRATEC
+            <span className="m-brand-tile"><img src="/images/logo-mark.png" alt="" draggable={false} /></span>
+            <span>InspiraTEC</span>
           </NavLink>
 
-          <UserMenu />
+          <div className="m-header-actions">
+            <NavLink to="/config" className="m-ai-chip" aria-label="Configuración de IA" title="Configuración de IA">
+              <span className={`ai-status-dot-mini ${apiKey && apiKey.length > 10 ? 'active' : 'pending'}`} />
+              <Sparkles size={17} />
+            </NavLink>
+            <UserMenu />
+          </div>
         </header>
 
-            {/* Overlay para móvil y escritorio al expandir */}
+{/* Overlay para móvil y escritorio al expandir */}
             <div
-              className={`sidebar-backdrop ${mobileMenuOpen ? 'open' : ''} ${!sidebarCollapsed ? 'desktop-expanded' : ''}`}
-              onClick={() => {
-                setMobileMenuOpen(false);
-                setSidebarCollapsed(true);
-              }}
+              className={`sidebar-backdrop ${mobileMenuOpen ? 'open' : ''}`}
+              onClick={() => setMobileMenuOpen(false)}
               aria-hidden="true"
             />
 
@@ -175,11 +194,11 @@ function AppContent() {
                   title="Ir al Inicio de INSPIRATEC"
                 >
                   <div className="sidebar-brand-icon">
-                    <Lightbulb size={22} color="#FFFDF9" />
+                    <img src="/images/logo-mark.png" alt="" draggable={false} />
                   </div>
                   <div className="sidebar-brand-texts">
-                    <span className="sidebar-brand-title">INSPIRATEC</span>
-                    <span className="sidebar-brand-subtitle">Plataforma Curricular</span>
+                    <span className="sidebar-brand-title">InspiraTEC</span>
+                    <span className="sidebar-brand-subtitle">Docentes que transforman con tecnología</span>
                   </div>
                 </NavLink>
 
@@ -283,6 +302,23 @@ function AppContent() {
                   )}
                 </div>
 
+                {/* Herramienta externa: Control de clase (el docente se registra allá) */}
+                <div className="sidebar-nav-group">
+                  <div className="sidebar-group-label">Herramientas</div>
+                  <a
+                    href={CONTROL_CLASE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Abrir Control de clase en una pestaña nueva"
+                    onClick={handleNavClick}
+                    className="sidebar-nav-item"
+                  >
+                    <ClipboardCheck size={18} />
+                    <span>Control de clase</span>
+                    <ExternalLink size={13} style={{ marginLeft: 'auto', opacity: 0.6 }} />
+                  </a>
+                </div>
+
                 {/* 2. Sección Comunidad & Recursos */}
                 <div className="sidebar-nav-group" id="nav-mas-recursos">
                   <div className="sidebar-group-label">Comunidad</div>
@@ -370,75 +406,62 @@ function AppContent() {
 
               {/* Pie Institucional del Menú Lateral */}
               <div className="sidebar-footer-institutional">
-                <div className="sidebar-inst-badge">INSPIRATEC 2026</div>
-                <p className="sidebar-inst-text">
-                  Docencia con criterio, rigurosidad e innovación pedagógica.
-                </p>
+                <button
+                  type="button"
+                  className="sidebar-logout-btn"
+                  onClick={() => logoutUser()}
+                  title="Cerrar sesión"
+                  aria-label="Cerrar sesión"
+                >
+                  <LogOut size={18} />
+                  <span>Cerrar sesión</span>
+                </button>
               </div>
             </aside>
 
         {/* Área de Contenido Principal */}
         <div className={`app-shell-main ${sidebarCollapsed ? 'sidebar-is-collapsed' : ''}`}>
-          {/* Barra Superior Compacta de Utilidades (Esquina Superior Derecha en Escritorio) */}
-          <header className="app-top-utilities-bar" aria-label="Utilidades y cuenta de usuario">
-            <div className={`top-utilities-group ${topUtilitiesCollapsed ? 'is-collapsed' : ''}`}>
-              {/* Botón para contraer / expandir el menú superior */}
-              <button
-                type="button"
-                className="top-utility-collapse-trigger"
-                onClick={toggleTopUtilities}
-                aria-label={topUtilitiesCollapsed ? "Expandir menú de utilidades" : "Contraer menú de utilidades"}
-                title={topUtilitiesCollapsed ? "Expandir menú de utilidades" : "Contraer menú de utilidades"}
+          {/* Barra superior: búsqueda global de planes, estado de IA y cuenta */}
+          <header className="app-top-utilities-bar" aria-label="Búsqueda, estado de IA y cuenta de usuario">
+            <form className="top-search-form" role="search" onSubmit={handleSearchSubmit}>
+              <Search size={18} className="top-search-icon" aria-hidden="true" />
+              <input
+                ref={searchRef}
+                type="search"
+                className="top-search-input"
+                placeholder="Buscar en mis planes de clase…"
+                aria-label="Buscar en mis planes de clase"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <kbd className="top-search-kbd" aria-hidden="true">Ctrl + K</kbd>
+            </form>
+
+            <div className="top-utilities-group">
+              <NavLink
+                to="/config"
+                id="nav-config"
+                className={({ isActive }) => isActive ? 'top-utility-link top-utility-ai active' : 'top-utility-link top-utility-ai'}
+                title={apiKey && apiKey.length > 10 ? "IA Gemini configurada y activa" : "Configurar API Key de Gemini"}
               >
-                {topUtilitiesCollapsed ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
-              </button>
+                <Settings size={15} />
+                <span>Configuración IA</span>
+                <span className={`ai-status-indicator ${apiKey && apiKey.length > 10 ? 'active' : 'pending'}`}>
+                  <span className="ai-status-dot" />
+                  <span className="ai-status-label">{apiKey && apiKey.length > 10 ? 'Lista' : 'Configurar'}</span>
+                </span>
+              </NavLink>
 
-              {!topUtilitiesCollapsed ? (
-                <>
-                  {/* 1. Configuración IA con indicador de estado */}
-                  <NavLink 
-                    to="/config" 
-                    id="nav-config"
-                    className={({ isActive }) => isActive ? 'top-utility-link top-utility-ai active' : 'top-utility-link top-utility-ai'}
-                    title={apiKey && apiKey.length > 10 ? "IA Gemini configurada y activa" : "Configurar API Key de Gemini"}
-                  >
-                    <Settings size={15} />
-                    <span>Configuración IA</span>
-                    <span className={`ai-status-indicator ${apiKey && apiKey.length > 10 ? 'active' : 'pending'}`}>
-                      <span className="ai-status-dot" />
-                      <span className="ai-status-label">{apiKey && apiKey.length > 10 ? 'Lista' : 'Configurar'}</span>
-                    </span>
-                  </NavLink>
+              <div className="top-utilities-divider" />
 
-                  {/* Separador vertical */}
-                  <div className="top-utilities-divider" />
-
-                  {/* 3. Usuario y menú de cuenta */}
-                  <div className="top-utility-user">
-                    <UserMenu />
-                  </div>
-                </>
-              ) : (
-                /* Estado contraído: Iconos minimalistas rápidos */
-                <button
-                  type="button"
-                  className="top-utilities-mini-pill"
-                  onClick={toggleTopUtilities}
-                  title="Expandir menú de cuenta e IA"
-                  aria-label="Expandir menú de cuenta e IA"
-                >
-                  <span className={`ai-status-dot-mini ${apiKey && apiKey.length > 10 ? 'active' : 'pending'}`} />
-                  <Settings size={14} style={{ color: '#142B25' }} />
-                  <div className="top-user-avatar-mini">
-                    {((userProfile?.rol || auth.currentUser?.displayName || 'D').charAt(0)).toUpperCase()}
-                  </div>
-                </button>
-              )}
+              <div className="top-utility-user">
+                <UserMenu />
+              </div>
             </div>
           </header>
-
           <main className="app-main-content-scroll">
             <ErrorBoundary>
+              <div key={location.pathname} className="route-transition">
               <Routes>
                 <Route path="/" element={<WizardPage />} />
                 <Route path="/home" element={<HomePage />} />
@@ -456,123 +479,83 @@ function AppContent() {
                 <Route path="/ayuda" element={<AyudaPage />} />
                 <Route path="/administracion" element={<AdministracionPage />} />
               </Routes>
+              </div>
             </ErrorBoundary>
           </main>
         </div>
 
-        {/* Barra Inferior Fija (Mobile Bottom Navigation) - Scroll Horizontal Continuo */}
-        <nav className="mobile-bottom-nav" aria-label="Navegación principal en móviles">
-          <NavLink 
-            to="/home" 
-            end
-            className={({ isActive }) => `mobile-bottom-nav-item ${isActive ? 'active' : ''}`}
-          >
-            <Home size={19} />
-            <span>Inicio</span>
+        {/* Barra inferior estilo app (móvil): 4 pestañas + botón central de crear */}
+        <nav className="m-tabbar" aria-label="Navegación principal en móviles">
+          <NavLink to="/home" end className={({ isActive }) => `m-tab ${isActive ? 'active' : ''}`}>
+            <span className="m-tab-icon"><Home size={22} /></span>
+            <span className="m-tab-label">Inicio</span>
           </NavLink>
 
-          <NavLink 
-            to="/" 
-            end
-            className={({ isActive }) => `mobile-bottom-nav-item ${isActive ? 'active' : ''}`}
-          >
-            <Sparkles size={19} />
-            <span>Planear</span>
+          <NavLink to="/mis-planes" className={({ isActive }) => `m-tab ${isActive ? 'active' : ''}`}>
+            <span className="m-tab-icon">
+              <FileText size={22} />
+              {planesCount > 0 && <span className="m-tab-badge">{planesCount}</span>}
+            </span>
+            <span className="m-tab-label">Mis planes</span>
           </NavLink>
 
-          <NavLink 
-            to="/mis-planes" 
-            className={({ isActive }) => `mobile-bottom-nav-item ${isActive ? 'active' : ''}`}
-          >
-            <div className="mobile-bottom-icon-container">
-              <FileText size={19} />
-              {planesCount > 0 && <span className="mobile-bottom-counter-badge">{planesCount}</span>}
-            </div>
-            <span>Mis Planes</span>
+          <NavLink to="/" end className="m-tab m-tab-fab" aria-label="Crear plan de clase">
+            <span className="m-fab"><Plus size={28} strokeWidth={2.6} /></span>
+            <span className="m-tab-label">Crear</span>
           </NavLink>
 
-          <NavLink 
-            to="/adn-pedagogico" 
-            className={({ isActive }) => `mobile-bottom-nav-item ${isActive ? 'active' : ''}`}
-          >
-            <Dna size={19} />
-            <span>Mi ADN</span>
+          <NavLink to="/plantillas" className={({ isActive }) => `m-tab ${isActive ? 'active' : ''}`}>
+            <span className="m-tab-icon"><BookOpen size={22} /></span>
+            <span className="m-tab-label">Plantillas</span>
           </NavLink>
 
-          <NavLink 
-            to="/plantillas" 
-            className={({ isActive }) => `mobile-bottom-nav-item ${isActive ? 'active' : ''}`}
+          <button
+            type="button"
+            className={`m-tab ${moreOpen ? 'active' : ''}`}
+            onClick={() => setMoreOpen((v) => !v)}
+            aria-expanded={moreOpen}
+            aria-haspopup="dialog"
           >
-            <BookOpen size={19} />
-            <span>Plantillas</span>
-          </NavLink>
-
-          <NavLink 
-            to="/biblioteca" 
-            className={({ isActive }) => `mobile-bottom-nav-item ${isActive ? 'active' : ''}`}
-          >
-            <Library size={19} />
-            <span>Biblioteca</span>
-          </NavLink>
-
-          <NavLink 
-            to="/experiencias" 
-            className={({ isActive }) => `mobile-bottom-nav-item ${isActive ? 'active' : ''}`}
-          >
-            <Compass size={19} />
-            <span>Experiencias</span>
-          </NavLink>
-
-          <NavLink 
-            to="/foro" 
-            className={({ isActive }) => `mobile-bottom-nav-item ${isActive ? 'active' : ''}`}
-          >
-            <MessageSquare size={19} />
-            <span>Foro</span>
-          </NavLink>
-
-          <NavLink 
-            to="/ayuda" 
-            className={({ isActive }) => `mobile-bottom-nav-item ${isActive ? 'active' : ''}`}
-          >
-            <HelpCircle size={19} />
-            <span>Ayuda</span>
-          </NavLink>
-
-          <NavLink 
-            to="/soporte" 
-            className={({ isActive }) => `mobile-bottom-nav-item ${isActive ? 'active' : ''}`}
-          >
-            <LifeBuoy size={19} />
-            <span>Soporte</span>
-          </NavLink>
-
-          <NavLink 
-            to="/config" 
-            className={({ isActive }) => `mobile-bottom-nav-item ${isActive ? 'active' : ''}`}
-          >
-            <Settings size={19} />
-            <span>Config IA</span>
-          </NavLink>
-
-          <NavLink 
-            to="/acerca" 
-            className={({ isActive }) => `mobile-bottom-nav-item ${isActive ? 'active' : ''}`}
-          >
-            <Info size={19} />
-            <span>Acerca</span>
-          </NavLink>
-
-          {isAdmin && (
-            <NavLink 
-              to="/administracion" 
-              className={({ isActive }) => `mobile-bottom-nav-item ${isActive ? 'active' : ''}`}
-            >
-              <Shield size={19} />
-              <span>Admin</span>
-            </NavLink>
-          )}
+            <span className="m-tab-icon"><LayoutGrid size={22} /></span>
+            <span className="m-tab-label">Más</span>
+          </button>
         </nav>
+
+        {/* Panel "Más": el resto de funciones, agrupadas */}
+        <div className={`m-sheet-backdrop ${moreOpen ? 'open' : ''}`} onClick={() => setMoreOpen(false)} aria-hidden="true" />
+        <div className={`m-sheet ${moreOpen ? 'open' : ''}`} role="dialog" aria-label="Más opciones" aria-hidden={!moreOpen}>
+          <span className="m-sheet-handle" aria-hidden="true" />
+          <div className="m-sheet-head">
+            <strong>Todas las funciones</strong>
+            <button type="button" className="m-sheet-close" onClick={() => setMoreOpen(false)} aria-label="Cerrar">
+              <X size={18} />
+            </button>
+          </div>
+
+          <div className="m-sheet-group">Planeación</div>
+          <div className="m-sheet-grid">
+            <NavLink to="/adn-pedagogico" className="m-sheet-item"><span className="tone-icon tone-violet"><Dna size={20} /></span><span>Mi ADN</span></NavLink>
+            <a href={CONTROL_CLASE_URL} target="_blank" rel="noopener noreferrer" className="m-sheet-item"><span className="tone-icon tone-teal"><ClipboardCheck size={20} /></span><span>Control de clase</span></a>
+            <NavLink to="/config" className="m-sheet-item"><span className="tone-icon tone-blue"><Settings size={20} /></span><span>Configuración IA</span></NavLink>
+            {isAdmin && (
+              <NavLink to="/administracion" className="m-sheet-item"><span className="tone-icon tone-orange"><Shield size={20} /></span><span>Administración</span></NavLink>
+            )}
+          </div>
+
+          <div className="m-sheet-group">Comunidad</div>
+          <div className="m-sheet-grid">
+            <NavLink to="/biblioteca" className="m-sheet-item"><span className="tone-icon tone-pink"><Library size={20} /></span><span>Biblioteca</span></NavLink>
+            <NavLink to="/experiencias" className="m-sheet-item"><span className="tone-icon tone-indigo"><Compass size={20} /></span><span>Experiencias</span></NavLink>
+            <NavLink to="/foro" className="m-sheet-item"><span className="tone-icon tone-green"><MessageSquare size={20} /></span><span>Foro docente</span></NavLink>
+          </div>
+
+          <div className="m-sheet-group">Soporte</div>
+          <div className="m-sheet-grid">
+            <NavLink to="/ayuda" className="m-sheet-item"><span className="tone-icon tone-orange"><HelpCircle size={20} /></span><span>Ayuda y guías</span></NavLink>
+            <NavLink to="/soporte" className="m-sheet-item"><span className="tone-icon tone-teal"><LifeBuoy size={20} /></span><span>Soporte técnico</span></NavLink>
+            <NavLink to="/acerca" className="m-sheet-item"><span className="tone-icon tone-violet"><Info size={20} /></span><span>Acerca de</span></NavLink>
+          </div>
+        </div>
       </div>
     </FondoPixel>
   );
@@ -586,13 +569,17 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Routes>
+    <>
+      <BrowserRouter>
+        <Routes>
         {/* Pública: los estudiantes entran por QR sin cuenta */}
         <Route path="/s/:code" element={<StudentSessionPage />} />
         <Route path="*" element={!userId ? <AuthPage /> : <AppContent />} />
       </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+      {/* Invita a instalar la app (PWA) cuando se abre desde el navegador */}
+      <InstallPrompt />
+    </>
   );
 }
 
