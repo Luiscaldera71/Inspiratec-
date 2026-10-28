@@ -3,6 +3,7 @@ import { resolveRealIdentification, injectRealIdentificationIntoPlan } from './t
 import { useAppStore } from '../store/useAppStore';
 import { getPedagogicalDna, formatDnaPromptDirective } from './pedagogicalDnaService';
 import { injectShareBarIntoHtml } from './materials/index.js';
+import { callGeminiApi, testApiConnection, listUsableModels } from './geminiClient.js';
 import { generateCreativeHtml } from './materials/creativeHtml.js';
 import { getResourceDef, resolveResourceKey } from './materials/resourceCatalog.js';
 import { buildAulaInteractivaHtml, AULA_CONTENT_SCHEMA } from './materials/aulaInteractiva.js';
@@ -15,119 +16,7 @@ import { normalizeQuestions } from './sessions/sessionLogic.js';
  * recuperación automática ante saturación (503), cuotas (429) y obsolescencia (404).
  */
 
-// Cascada de modelos disponibles y soportados para v1beta
-const CANDIDATE_MODELS = [
-  'gemini-flash-latest',
-  'gemini-3.5-flash',
-  'gemini-3.5-flash-lite',
-  'gemini-3.8-flash',
-  'gemini-2.5-flash'
-];
-
-let activeWorkingModel = CANDIDATE_MODELS[0];
-
-/**
- * Llamada centralizada y resiliente a la API de Gemini.
- * Realiza fallback automático entre modelos soportados y reintentos ante fallas transitorias.
- */
-export const callGeminiApi = async (apiKey, requestBody, maxRetriesPerModel = 2) => {
-  if (!apiKey || apiKey.trim() === '') {
-    throw new Error('API Key no configurada. Por favor, ingresa tu clave en Configuración.');
-  }
-
-  // Ordenamos los modelos para probar primero el último que funcionó exitosamente
-  const modelsToTry = [
-    activeWorkingModel,
-    ...CANDIDATE_MODELS.filter(m => m !== activeWorkingModel)
-  ];
-
-  let lastError = null;
-
-  for (const model of modelsToTry) {
-    for (let attempt = 0; attempt < maxRetriesPerModel; attempt++) {
-      try {
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey.trim()}`;
-        
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(requestBody)
-        });
-
-        // Si el modelo no existe o no soporta el método (404), pasamos de inmediato al siguiente modelo
-        if (response.status === 404) {
-          console.warn(`[Inspiratec AI] El modelo ${model} no está disponible (404). Probando alternativa...`);
-          break; // Salta al siguiente modelo
-        }
-
-        // Si hay congestión (503) o límite de tasa temporal (429)
-        if (response.status === 503 || response.status === 429) {
-          console.warn(`[Inspiratec AI] Modelo ${model} devolvió ${response.status} (intento ${attempt + 1}).`);
-          if (attempt < maxRetriesPerModel - 1) {
-            await new Promise(r => setTimeout(r, 1500 * (attempt + 1)));
-            continue;
-          }
-          // Si agotamos intentos con este modelo, pasamos al siguiente candidato
-          break;
-        }
-
-        const data = await response.json();
-
-        if (!response.ok) {
-          const apiMsg = data.error?.message || `Error HTTP ${response.status}`;
-          lastError = new Error(apiMsg);
-          
-          // Si es error de API Key inválida, no tiene sentido seguir probando otros modelos
-          if (response.status === 400 && apiMsg.includes('API_KEY_INVALID')) {
-            throw new Error('La API Key proporcionada no es válida. Por favor, verifica tu clave de Google AI Studio.');
-          }
-          break; // Prueba siguiente modelo
-        }
-
-        if (data.candidates && data.candidates[0]?.content?.parts?.[0]?.text) {
-          // Guardamos el modelo funcional como preferido para llamadas futuras
-          activeWorkingModel = model;
-          return data.candidates[0].content.parts[0].text;
-        }
-
-        if (data.promptFeedback?.blockReason) {
-          throw new Error(`El contenido fue bloqueado por políticas de seguridad: ${data.promptFeedback.blockReason}`);
-        }
-
-        lastError = new Error('Respuesta sin texto generado por el modelo.');
-      } catch (err) {
-        lastError = err;
-        if (err.message.includes('API Key no configurada') || err.message.includes('no es válida')) {
-          throw err;
-        }
-        // Error de red
-        if (attempt < maxRetriesPerModel - 1) {
-          await new Promise(r => setTimeout(r, 1500));
-        }
-      }
-    }
-  }
-
-  throw new Error(`Error en el servicio de IA: ${lastError?.message || 'No fue posible conectar con ningún modelo de Gemini.'}`);
-};
-
-/**
- * Prueba de conexión a la API de Gemini
- */
-export const testApiConnection = async (apiKey) => {
-  try {
-    const result = await callGeminiApi(apiKey, {
-      contents: [{ parts: [{ text: "Responde únicamente con: OK" }] }],
-      generationConfig: { maxOutputTokens: 10 }
-    });
-    return Boolean(result && result.length > 0);
-  } catch (error) {
-    console.warn("[Inspiratec AI] Error al probar conexión:", error.message);
-    return false;
-  }
-};
+export { callGeminiApi, testApiConnection, listUsableModels };
 
 /**
  * Sugerencia de objetivos de aprendizaje basada en el contexto curricular

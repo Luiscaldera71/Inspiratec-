@@ -23,6 +23,7 @@ export default function ConfigPage() {
   const [inputKey, setInputKey] = useState(apiKey);
   const [status, setStatus] = useState('idle'); // idle, loading, success, error
   const [showPassword, setShowPassword] = useState(false);
+  const [statusMsg, setStatusMsg] = useState({ message: '', warning: '' });
 
   const tienePerfilFelder = Boolean(
     userProfile?.felderSilverman || 
@@ -34,8 +35,15 @@ export default function ConfigPage() {
     if (!inputKey.trim()) return;
 
     setStatus('loading');
-    const isValid = await testApiConnection(inputKey.trim());
-    if (isValid) {
+    setStatusMsg({ message: '', warning: '' });
+    let result;
+    try {
+      result = await testApiConnection(inputKey.trim());
+    } catch (err) {
+      result = { ok: false, message: err?.message || 'No se pudo validar la clave.' };
+    }
+    setStatusMsg({ message: result.message, warning: result.warning || '' });
+    if (result.ok) {
       setApiKey(inputKey.trim());
       setStatus('success');
       if (userId) {
@@ -272,8 +280,12 @@ export default function ConfigPage() {
               <div style={{ padding: '14px 18px', backgroundColor: 'rgba(220, 252, 231, 0.75)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', color: '#166534', borderRadius: '14px', display: 'flex', alignItems: 'center', gap: '12px', border: '1px solid rgba(22, 163, 74, 0.35)', marginBottom: '24px' }}>
                 <CheckCircle size={22} style={{ flexShrink: 0 }} />
                 <div>
-                  <strong style={{ display: 'block', fontSize: '14px' }}>¡Conexión verificada exitosamente!</strong>
-                  <span style={{ fontSize: '13px' }}>Tu clave es válida y todos los servicios pedagógicos con IA están listos para utilizarse.</span>
+                  <strong style={{ display: 'block', fontSize: '14px' }}>Clave guardada</strong>
+                  <span style={{ fontSize: '13px' }}>
+                    {statusMsg.warning
+                      ? `La clave es válida, pero la prueba de la IA no pudo completarse: ${statusMsg.warning}`
+                      : 'La clave es válida y la IA respondió.'}
+                  </span>
                 </div>
               </div>
             )}
@@ -283,7 +295,7 @@ export default function ConfigPage() {
                 <XCircle size={22} style={{ flexShrink: 0 }} />
                 <div>
                   <strong style={{ display: 'block', fontSize: '14px' }}>No se pudo validar la clave</strong>
-                  <span style={{ fontSize: '13px' }}>Verifica que la clave comience por "AIzaSy..." y tenga habilitada la cuota en Google AI Studio.</span>
+                  <span style={{ fontSize: '13px' }}>{statusMsg.message || 'Verifica la clave en Google AI Studio.'}</span>
                 </div>
               </div>
             )}

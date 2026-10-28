@@ -38,7 +38,8 @@ export const useAppStore = create(
       planGenerado: '',
       estadoCambios: false,
       sesionChatIA: [],
-      apiKey: (typeof localStorage !== 'undefined' ? localStorage.getItem('inspiratec_api_key') : '') || (typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_GEMINI_API_KEY : '') || '',
+      // La clave es siempre la que el docente guarda en Configuración (nunca una clave incluida en el código)
+      apiKey: (typeof localStorage !== 'undefined' ? localStorage.getItem('inspiratec_api_key') : '') || '',
       planStatus: 'borrador', // borrador, guardado
 
       setPlanGenerado: (plan) => set({ planGenerado: plan, estadoCambios: true, planStatus: 'borrador' }),
