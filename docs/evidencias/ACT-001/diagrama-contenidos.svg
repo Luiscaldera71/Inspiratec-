@@ -1,0 +1,265 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" width="100%" height="100%" style="background-color: #f8fafc; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;">
+  <defs>
+    <!-- Shadows & Filters -->
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08" />
+    </filter>
+    <filter id="header-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#1e3a8a" flood-opacity="0.25" />
+    </filter>
+    
+    <!-- Gradients -->
+    <linearGradient id="root-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <linearGradient id="mod1-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+
+    <linearGradient id="mod2-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0891b2" />
+      <stop offset="100%" stop-color="#0e7490" />
+    </linearGradient>
+
+    <linearGradient id="mod3-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#4338ca" />
+    </linearGradient>
+
+    <!-- Submodule Gradients -->
+    <linearGradient id="sub-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="100%" stop-color="#fde047" />
+    </linearGradient>
+  </defs>
+
+  <!-- Title Banner -->
+  <text x="800" y="42" text-anchor="middle" fill="#0f172a" font-size="22" font-weight="800" letter-spacing="1">DIAGRAMA DE CONTENIDOS — PROYECTO PLANCLASE</text>
+  <text x="800" y="68" text-anchor="middle" fill="#64748b" font-size="14" font-weight="500">MODESEC Fase II: Diseño Multimedial • Trazabilidad y Arquitectura de Información</text>
+
+  <!-- Connectors from Root to Modules -->
+  <!-- Root bottom center: (800, 160) -->
+  <!-- Mod 1 top center: (270, 210) -->
+  <!-- Mod 2 top center: (800, 210) -->
+  <!-- Mod 3 top center: (1330, 210) -->
+  <path d="M 800 160 L 800 185 L 270 185 L 270 210" stroke="#94a3b8" stroke-width="2.5" fill="none" stroke-linejoin="round" />
+  <path d="M 800 160 L 800 210" stroke="#94a3b8" stroke-width="2.5" fill="none" />
+  <path d="M 800 160 L 800 185 L 1330 185 L 1330 210" stroke="#94a3b8" stroke-width="2.5" fill="none" stroke-linejoin="round" />
+
+  <!-- ROOT NODE -->
+  <g filter="url(#header-shadow)">
+    <rect x="540" y="95" width="520" height="65" rx="12" fill="url(#root-gradient)" stroke="#3b82f6" stroke-width="2" />
+    <text x="800" y="125" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700" letter-spacing="0.5">PLANCLASE</text>
+    <text x="800" y="146" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="500">Plataforma de Planeación Inclusiva de Clases (Tecnología e Informática)</text>
+  </g>
+
+  <!-- ==================== MÓDULO 1: IDENTIDAD Y ACCESO ==================== -->
+  <g filter="url(#card-shadow)">
+    <!-- Container background -->
+    <rect x="50" y="210" width="440" height="710" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+    <!-- Header -->
+    <rect x="50" y="210" width="440" height="52" rx="14" fill="url(#mod1-gradient)" />
+    <rect x="50" y="248" width="440" height="14" fill="url(#mod1-gradient)" />
+    <text x="270" y="242" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">1.0 Gestión de Identidad y Acceso</text>
+  </g>
+
+  <!-- Mod 1 Connectors to Submodules -->
+  <path d="M 270 262 L 270 285" stroke="#cbd5e1" stroke-width="2" fill="none" />
+
+  <!-- Submódulo 1.1: Autenticación y Registro -->
+  <g filter="url(#card-shadow)">
+    <rect x="75" y="285" width="390" height="38" rx="8" fill="url(#sub-gradient)" stroke="#eab308" stroke-width="1" />
+    <text x="270" y="309" text-anchor="middle" fill="#854d0e" font-size="13" font-weight="700">1.1 Autenticación y Registro</text>
+  </g>
+  <!-- Contents 1.1 -->
+  <g>
+    <rect x="90" y="333" width="175" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="177" y="353" text-anchor="middle" fill="#334155" font-size="11.5" font-weight="600">Inicio de Sesión</text>
+
+    <rect x="275" y="333" width="175" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="362" y="353" text-anchor="middle" fill="#334155" font-size="11.5" font-weight="600">Registro Docente</text>
+
+    <rect x="90" y="370" width="175" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="177" y="390" text-anchor="middle" fill="#334155" font-size="11.5" font-weight="600">Recuperación Clave</text>
+
+    <rect x="275" y="370" width="175" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="362" y="390" text-anchor="middle" fill="#334155" font-size="11.5" font-weight="600">Verificación JWT</text>
+  </g>
+
+  <!-- Submódulo 1.2: Perfil Docente -->
+  <g filter="url(#card-shadow)">
+    <rect x="75" y="425" width="390" height="38" rx="8" fill="url(#sub-gradient)" stroke="#eab308" stroke-width="1" />
+    <text x="270" y="449" text-anchor="middle" fill="#854d0e" font-size="13" font-weight="700">1.2 Perfil Docente</text>
+  </g>
+  <!-- Contents 1.2 -->
+  <g>
+    <rect x="90" y="473" width="175" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="177" y="493" text-anchor="middle" fill="#334155" font-size="11.5" font-weight="600">Datos Personales</text>
+
+    <rect x="275" y="473" width="175" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="362" y="493" text-anchor="middle" fill="#334155" font-size="11.5" font-weight="600">Área Disciplinar</text>
+
+    <rect x="90" y="510" width="175" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="177" y="530" text-anchor="middle" fill="#334155" font-size="11.5" font-weight="600">Institución Educativa</text>
+
+    <rect x="275" y="510" width="175" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="362" y="530" text-anchor="middle" fill="#334155" font-size="11.5" font-weight="600">Preferencias de Aula</text>
+  </g>
+
+  <!-- Submódulo 1.3: Roles y Permisos -->
+  <g filter="url(#card-shadow)">
+    <rect x="75" y="565" width="390" height="38" rx="8" fill="url(#sub-gradient)" stroke="#eab308" stroke-width="1" />
+    <text x="270" y="589" text-anchor="middle" fill="#854d0e" font-size="13" font-weight="700">1.3 Roles y Permisos</text>
+  </g>
+  <!-- Contents 1.3 -->
+  <g>
+    <rect x="90" y="613" width="115" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="147" y="633" text-anchor="middle" fill="#334155" font-size="11.5" font-weight="600">Docente</text>
+
+    <rect x="215" y="613" width="115" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="272" y="633" text-anchor="middle" fill="#334155" font-size="11.5" font-weight="600">Administrador</text>
+
+    <rect x="340" y="613" width="125" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="402" y="633" text-anchor="middle" fill="#334155" font-size="11.5" font-weight="600">Auditor/Coord.</text>
+  </g>
+
+
+  <!-- ==================== MÓDULO 2: ESTRUCTURA CURRICULAR ==================== -->
+  <g filter="url(#card-shadow)">
+    <!-- Container background -->
+    <rect x="530" y="210" width="540" height="710" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+    <!-- Header -->
+    <rect x="530" y="210" width="540" height="52" rx="14" fill="url(#mod2-gradient)" />
+    <rect x="530" y="248" width="540" height="14" fill="url(#mod2-gradient)" />
+    <text x="800" y="242" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">2.0 Estructura Curricular y Catálogo Normativo</text>
+  </g>
+
+  <!-- Mod 2 Connectors -->
+  <path d="M 800 262 L 800 285" stroke="#cbd5e1" stroke-width="2" fill="none" />
+
+  <!-- Submódulo 2.1: Lineamientos y Estándares -->
+  <g filter="url(#card-shadow)">
+    <rect x="555" y="285" width="490" height="38" rx="8" fill="url(#sub-gradient)" stroke="#eab308" stroke-width="1" />
+    <text x="800" y="309" text-anchor="middle" fill="#854d0e" font-size="13" font-weight="700">2.1 Lineamientos y Estándares Curriculares</text>
+  </g>
+  <!-- Contents 2.1 -->
+  <g>
+    <rect x="570" y="333" width="225" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="682" y="353" text-anchor="middle" fill="#334155" font-size="11.5" font-weight="600">Estándares MEN (Guía 30)</text>
+
+    <rect x="805" y="333" width="225" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="917" y="353" text-anchor="middle" fill="#334155" font-size="11.5" font-weight="600">Competencias del Área</text>
+  </g>
+
+  <!-- Submódulo 2.2: Ejes y Componentes Temáticos -->
+  <g filter="url(#card-shadow)">
+    <rect x="555" y="390" width="490" height="38" rx="8" fill="url(#sub-gradient)" stroke="#eab308" stroke-width="1" />
+    <text x="800" y="414" text-anchor="middle" fill="#854d0e" font-size="13" font-weight="700">2.2 Componentes Temáticos (Tecnología e Informática)</text>
+  </g>
+  <!-- Contents 2.2 -->
+  <g>
+    <rect x="570" y="438" width="225" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="682" y="458" text-anchor="middle" fill="#334155" font-size="11" font-weight="600">Naturaleza y Evolución</text>
+
+    <rect x="805" y="438" width="225" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="917" y="458" text-anchor="middle" fill="#334155" font-size="11" font-weight="600">Apropiación y Uso de TIC</text>
+
+    <rect x="570" y="475" width="225" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="682" y="495" text-anchor="middle" fill="#334155" font-size="11" font-weight="600">Solución de Problemas</text>
+
+    <rect x="805" y="475" width="225" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="917" y="495" text-anchor="middle" fill="#334155" font-size="11" font-weight="600">Tecnología y Sociedad</text>
+  </g>
+
+  <!-- Submódulo 2.3: Desempeños y Criterios -->
+  <g filter="url(#card-shadow)">
+    <rect x="555" y="530" width="490" height="38" rx="8" fill="url(#sub-gradient)" stroke="#eab308" stroke-width="1" />
+    <text x="800" y="554" text-anchor="middle" fill="#854d0e" font-size="13" font-weight="700">2.3 Desempeños y Criterios de Evaluación</text>
+  </g>
+  <!-- Contents 2.3 -->
+  <g>
+    <rect x="570" y="578" width="225" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="682" y="598" text-anchor="middle" fill="#334155" font-size="11" font-weight="600">Indicadores por Grados</text>
+
+    <rect x="805" y="578" width="225" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="917" y="598" text-anchor="middle" fill="#334155" font-size="11" font-weight="600">Matrices de Valoración</text>
+
+    <rect x="570" y="615" width="460" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="800" y="635" text-anchor="middle" fill="#334155" font-size="11" font-weight="600">Evidencias de Aprendizaje Esperadas</text>
+  </g>
+
+
+  <!-- ==================== MÓDULO 3: PLANEACIÓN INCLUSIVA ==================== -->
+  <g filter="url(#card-shadow)">
+    <!-- Container background -->
+    <rect x="1110" y="210" width="440" height="710" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+    <!-- Header -->
+    <rect x="1110" y="210" width="440" height="52" rx="14" fill="url(#mod3-gradient)" />
+    <rect x="1110" y="248" width="440" height="14" fill="url(#mod3-gradient)" />
+    <text x="1330" y="242" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">3.0 Planeación Didáctica Inclusiva</text>
+  </g>
+
+  <!-- Mod 3 Connectors -->
+  <path d="M 1330 262 L 1330 285" stroke="#cbd5e1" stroke-width="2" fill="none" />
+
+  <!-- Submódulo 3.1: Datos Generales y Enfoque -->
+  <g filter="url(#card-shadow)">
+    <rect x="1135" y="285" width="390" height="38" rx="8" fill="url(#sub-gradient)" stroke="#eab308" stroke-width="1" />
+    <text x="1330" y="309" text-anchor="middle" fill="#854d0e" font-size="13" font-weight="700">3.1 Datos Generales y Metodología</text>
+  </g>
+  <!-- Contents 3.1 -->
+  <g>
+    <rect x="1150" y="333" width="175" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="1237" y="353" text-anchor="middle" fill="#334155" font-size="11" font-weight="600">Grado, Periodo y Tiempo</text>
+
+    <rect x="1335" y="333" width="175" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="1422" y="353" text-anchor="middle" fill="#334155" font-size="11" font-weight="600">Metodologías Activas (ABP)</text>
+  </g>
+
+  <!-- Submódulo 3.2: Pautas DUA e Inclusión -->
+  <g filter="url(#card-shadow)">
+    <rect x="1135" y="380" width="390" height="38" rx="8" fill="url(#sub-gradient)" stroke="#eab308" stroke-width="1" />
+    <text x="1330" y="404" text-anchor="middle" fill="#854d0e" font-size="13" font-weight="700">3.2 Pautas DUA e Inclusión</text>
+  </g>
+  <!-- Contents 3.2 -->
+  <g>
+    <rect x="1150" y="428" width="360" height="28" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="1330" y="447" text-anchor="middle" fill="#334155" font-size="10.5" font-weight="600">Múltiples Formas de Representación (Principio I)</text>
+
+    <rect x="1150" y="460" width="360" height="28" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="1330" y="479" text-anchor="middle" fill="#334155" font-size="10.5" font-weight="600">Múltiples Formas de Acción y Expresión (Principio II)</text>
+
+    <rect x="1150" y="492" width="360" height="28" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="1330" y="511" text-anchor="middle" fill="#334155" font-size="10.5" font-weight="600">Múltiples Formas de Implicación (Principio III)</text>
+  </g>
+
+  <!-- Submódulo 3.3: Secuencia Didáctica y Recursos -->
+  <g filter="url(#card-shadow)">
+    <rect x="1135" y="535" width="390" height="38" rx="8" fill="url(#sub-gradient)" stroke="#eab308" stroke-width="1" />
+    <text x="1330" y="559" text-anchor="middle" fill="#854d0e" font-size="13" font-weight="700">3.3 Secuencia Didáctica, Recursos y Evaluación</text>
+  </g>
+  <!-- Contents 3.3 -->
+  <g>
+    <rect x="1150" y="583" width="115" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="1207" y="603" text-anchor="middle" fill="#334155" font-size="11" font-weight="600">Fase Inicio</text>
+
+    <rect x="1272" y="583" width="115" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="1329" y="603" text-anchor="middle" fill="#334155" font-size="11" font-weight="600">Fase Desarrollo</text>
+
+    <rect x="1395" y="583" width="115" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="1452" y="603" text-anchor="middle" fill="#334155" font-size="11" font-weight="600">Fase Cierre</text>
+
+    <rect x="1150" y="620" width="175" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="1237" y="640" text-anchor="middle" fill="#334155" font-size="11" font-weight="600">Recursos y TIC</text>
+
+    <rect x="1335" y="620" width="175" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="1422" y="640" text-anchor="middle" fill="#334155" font-size="11" font-weight="600">Rúbricas y Evidencias</text>
+  </g>
+
+  <!-- Footer note -->
+  <rect x="50" y="930" width="1500" height="24" rx="4" fill="#f1f5f9" />
+  <text x="800" y="946" text-anchor="middle" fill="#64748b" font-size="11" font-weight="500">Diseño elaborado conforme al marco MODESEC y los requerimientos pedagógicos y técnicos de PlanClase</text>
+</svg>

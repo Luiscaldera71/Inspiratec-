@@ -1,0 +1,40 @@
+/*
+  Reference only; do not paste blindly.
+  Inspect existing project tokens and map equivalent semantic roles first.
+*/
+:root {
+  --ux-color-brand: var(--primary, #477A72);
+  --ux-color-brand-active: var(--primary-active, #315B54);
+  --ux-color-accent: #16BFA0;
+  --ux-glass-dark: rgba(20, 38, 34, 0.76);
+  --ux-glass-light: rgba(247, 243, 237, 0.84);
+  --ux-surface-field: rgba(255, 253, 249, 0.96);
+  --ux-color-text: #203B37;
+  --ux-color-text-muted: #53635F;
+  --ux-color-text-on-dark: #F8FBF9;
+  --ux-color-border: rgba(255, 255, 255, 0.42);
+  --ux-color-focus: #16BFA0;
+  --ux-space-1: 4px;
+  --ux-space-2: 8px;
+  --ux-space-3: 12px;
+  --ux-space-4: 16px;
+  --ux-space-5: 20px;
+  --ux-space-6: 24px;
+  --ux-space-8: 32px;
+  --ux-space-10: 40px;
+  --ux-space-12: 48px;
+  --ux-radius-sm: 8px;
+  --ux-radius-md: 12px;
+  --ux-radius-lg: 18px;
+  --ux-radius-xl: 24px;
+  --ux-shadow-sm: 0 4px 14px rgba(13, 35, 31, 0.10);
+  --ux-shadow-md: 0 12px 32px rgba(13, 35, 31, 0.16);
+  --ux-control-height: 44px;
+  --ux-navigation-height: 72px;
+  --ux-z-background: 0;
+  --ux-z-content: 1;
+  --ux-z-navigation: 20;
+  --ux-z-popover: 40;
+  --ux-z-modal: 60;
+  --ux-z-toast: 80;
+}

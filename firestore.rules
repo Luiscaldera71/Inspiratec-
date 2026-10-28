@@ -1,0 +1,158 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+        (request.auth.token.email == "danieltapiasacosta39@gmail.com" ||
+         request.auth.uid == "danieltapiasacosta39@gmail.com" ||
+         (exists(/databases/$(database)/documents/users/$(request.auth.uid)) && 
+          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.rol == 'Admin'));
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && (request.auth.uid == userId || isAdmin());
+    }
+
+    // User Profiles
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow create, update: if isOwner(userId);
+      allow delete: if isAdmin();
+    }
+
+    // Planes Curriculares (Colección principal en español)
+    match /planes/{planId} {
+      allow read: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid || 
+        resource.data.userId == 'anon' ||
+        resource.data.estado == 'Biblioteca' || 
+        resource.data.estado == 'Sistematizado' ||
+        resource.data.publico == true ||
+        isAdmin()
+      );
+      allow create: if isAuthenticated() && (
+        request.resource.data.userId == request.auth.uid || 
+        request.resource.data.userId == 'anon' ||
+        isAdmin()
+      );
+      allow update: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid || 
+        resource.data.userId == 'anon' ||
+        isAdmin()
+      );
+      allow delete: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid || 
+        resource.data.userId == 'anon' ||
+        isAdmin()
+      );
+    }
+
+    // Compatibilidad colección 'plans'
+    match /plans/{planId} {
+      allow read: if isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+
+    // Plantillas Curriculares
+    match /plantillas/{plantillaId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow update, delete: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
+    }
+
+    match /lesson_plan_templates/{templateId} {
+      allow read: if isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+
+    // Foro Institucional
+    match /foro/{msgId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated();
+      allow delete: if isAdmin();
+    }
+
+    match /forum_posts/{postId} {
+      allow read, create, update, delete: if isAuthenticated();
+    }
+
+    match /forum_comments/{commentId} {
+      allow read, create, update, delete: if isAuthenticated();
+    }
+
+    // Tickets de Soporte
+    match /tickets/{ticketId} {
+      allow read: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow delete: if isAdmin();
+    }
+
+    match /support_tickets/{ticketId} {
+      allow read, create, update, delete: if isAuthenticated();
+    }
+
+    match /support_messages/{messageId} {
+      allow read, create, update, delete: if isAuthenticated();
+    }
+
+    // Experiencias Significativas y Compartir
+    match /significant_experiences/{experienceId} {
+      allow read, write: if isAuthenticated();
+    }
+
+    match /plan_shares/{shareId} {
+      allow read, write: if isAuthenticated();
+    }
+
+    match /library_ratings/{ratingId} {
+      allow read, write: if isAuthenticated();
+    }
+
+    // Sesiones en vivo: evaluaciones y clases que los estudiantes abren con QR (sin cuenta).
+    // Los estudiantes solo pueden leer la sesión por su código, crear su propio registro y
+    // actualizarlo mientras esté activo. La clave de respuestas solo la lee el docente dueño.
+    match /sesiones/{code} {
+      function sesionAbierta() {
+        return get(/databases/$(database)/documents/sesiones/$(code)).data.estado == 'abierta';
+      }
+      function esDuenoDeSesion() {
+        return isAuthenticated() &&
+          get(/databases/$(database)/documents/sesiones/$(code)).data.ownerId == request.auth.uid;
+      }
+
+      allow get: if true;
+      allow list: if isAuthenticated() && resource.data.ownerId == request.auth.uid;
+      allow create: if isAuthenticated() && request.resource.data.ownerId == request.auth.uid;
+      allow update, delete: if isAuthenticated() && resource.data.ownerId == request.auth.uid;
+
+      match /claves/{claveId} {
+        allow read, write: if esDuenoDeSesion();
+      }
+
+      match /participantes/{pid} {
+        allow get: if true;
+        allow list: if esDuenoDeSesion();
+        allow create: if sesionAbierta()
+          && request.resource.data.estado == 'activo'
+          && request.resource.data.nombre is string
+          && request.resource.data.nombre.size() > 0
+          && request.resource.data.nombre.size() <= 60
+          && request.resource.data.keys().hasOnly(['nombre', 'estado', 'entroEn', 'ultimaActividad', 'salidas', 'tiempoFuera', 'eventos', 'respuestas', 'envioAutomatico', 'motivo']);
+        allow update: if esDuenoDeSesion() || (
+          resource.data.estado == 'activo'
+          && sesionAbierta()
+          && request.resource.data.diff(resource.data).affectedKeys()
+               .hasOnly(['respuestas', 'salidas', 'tiempoFuera', 'eventos', 'estado', 'enviadoEn', 'ultimaActividad', 'envioAutomatico', 'motivo'])
+          && request.resource.data.estado in ['activo', 'enviado']);
+        allow delete: if esDuenoDeSesion();
+      }
+    }
+  }
+}

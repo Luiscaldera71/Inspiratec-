@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.15"/>
+    </filter>
+    <linearGradient id="grad-root" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="grad-plan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1e40af"/>
+    </linearGradient>
+    <linearGradient id="grad-act" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <linearGradient id="grad-rec" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </linearGradient>
+    <linearGradient id="grad-inc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9333ea"/>
+      <stop offset="100%" stop-color="#7e22ce"/>
+    </linearGradient>
+    <linearGradient id="grad-evi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+    <linearGradient id="grad-ges" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0891b2"/>
+      <stop offset="100%" stop-color="#0e7490"/>
+    </linearGradient>
+    <linearGradient id="grad-ayu" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .root-title { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 22px; font-weight: 800; fill: #ffffff; text-anchor: middle; }
+    .root-sub { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; font-weight: 500; fill: #e0e7ff; text-anchor: middle; }
+    .branch-title { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 16px; font-weight: 700; fill: #ffffff; text-anchor: middle; }
+    .leaf-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: #1e293b; text-anchor: middle; }
+    .branch-line { fill: none; stroke-width: 3.5; stroke-linecap: round; }
+    .leaf-box { fill: #ffffff; stroke-width: 1.5; filter: url(#shadow); rx: 8; }
+  </style>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f8fafc"/>
+
+  <!-- Connecting curved paths -->
+  <path d="M 520,370 C 400,320 320,180 300,120" class="branch-line" stroke="#2563eb"/>
+  <path d="M 680,370 C 780,300 820,180 820,120" class="branch-line" stroke="#16a34a"/>
+  <path d="M 500,400 C 350,400 280,340 220,340" class="branch-line" stroke="#ea580c"/>
+  <path d="M 700,400 C 850,400 880,440 920,440" class="branch-line" stroke="#9333ea"/>
+  <path d="M 510,430 C 380,480 300,560 250,580" class="branch-line" stroke="#dc2626"/>
+  <path d="M 600,470 C 600,560 600,600 600,620" class="branch-line" stroke="#0891b2"/>
+  <path d="M 680,440 C 780,500 820,580 870,620" class="branch-line" stroke="#475569"/>
+
+  <!-- Secondary connectors -->
+  <!-- Planificación leaves -->
+  <line x1="300" y1="120" x2="100" y2="180" stroke="#bfdbfe" stroke-width="2"/>
+  <line x1="300" y1="120" x2="200" y2="180" stroke="#bfdbfe" stroke-width="2"/>
+  <line x1="300" y1="120" x2="300" y2="180" stroke="#bfdbfe" stroke-width="2"/>
+  <line x1="300" y1="120" x2="400" y2="180" stroke="#bfdbfe" stroke-width="2"/>
+  <line x1="300" y1="120" x2="500" y2="180" stroke="#bfdbfe" stroke-width="2"/>
+
+  <!-- Actividades leaves -->
+  <line x1="820" y1="120" x2="720" y2="180" stroke="#bbf7d0" stroke-width="2"/>
+  <line x1="820" y1="120" x2="820" y2="180" stroke="#bbf7d0" stroke-width="2"/>
+  <line x1="820" y1="120" x2="920" y2="180" stroke="#bbf7d0" stroke-width="2"/>
+
+  <!-- Recursos leaves -->
+  <line x1="220" y1="340" x2="80" y2="400" stroke="#fed7aa" stroke-width="2"/>
+  <line x1="220" y1="340" x2="170" y2="400" stroke="#fed7aa" stroke-width="2"/>
+  <line x1="220" y1="340" x2="270" y2="400" stroke="#fed7aa" stroke-width="2"/>
+  <line x1="220" y1="340" x2="360" y2="400" stroke="#fed7aa" stroke-width="2"/>
+
+  <!-- Inclusión leaves -->
+  <line x1="920" y1="440" x2="800" y2="500" stroke="#e9d5ff" stroke-width="2"/>
+  <line x1="920" y1="440" x2="920" y2="500" stroke="#e9d5ff" stroke-width="2"/>
+  <line x1="920" y1="440" x2="1040" y2="500" stroke="#e9d5ff" stroke-width="2"/>
+
+  <!-- Evidencias leaves -->
+  <line x1="250" y1="580" x2="100" y2="640" stroke="#fecaca" stroke-width="2"/>
+  <line x1="250" y1="580" x2="200" y2="640" stroke="#fecaca" stroke-width="2"/>
+  <line x1="250" y1="580" x2="300" y2="640" stroke="#fecaca" stroke-width="2"/>
+  <line x1="250" y1="580" x2="400" y2="640" stroke="#fecaca" stroke-width="2"/>
+
+  <!-- Gestión leaves -->
+  <line x1="600" y1="620" x2="450" y2="690" stroke="#a5f3fc" stroke-width="2"/>
+  <line x1="600" y1="620" x2="550" y2="690" stroke="#a5f3fc" stroke-width="2"/>
+  <line x1="600" y1="620" x2="650" y2="690" stroke="#a5f3fc" stroke-width="2"/>
+  <line x1="600" y1="620" x2="750" y2="690" stroke="#a5f3fc" stroke-width="2"/>
+
+  <!-- Ayuda leaves -->
+  <line x1="870" y1="620" x2="780" y2="690" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="870" y1="620" x2="880" y2="690" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="870" y1="620" x2="980" y2="690" stroke="#cbd5e1" stroke-width="2"/>
+
+  <!-- Leaf nodes -->
+  <!-- Planificación -->
+  <rect x="50" y="160" width="100" height="38" class="leaf-box" stroke="#2563eb"/><text x="100" y="184" class="leaf-text">Datos grales.</text>
+  <rect x="155" y="160" width="90" height="38" class="leaf-box" stroke="#2563eb"/><text x="200" y="184" class="leaf-text">Competencias</text>
+  <rect x="255" y="160" width="90" height="38" class="leaf-box" stroke="#2563eb"/><text x="300" y="184" class="leaf-text">Objetivos</text>
+  <rect x="355" y="160" width="90" height="38" class="leaf-box" stroke="#2563eb"/><text x="400" y="184" class="leaf-text">Contenidos</text>
+  <rect x="455" y="160" width="90" height="38" class="leaf-box" stroke="#2563eb"/><text x="500" y="184" class="leaf-text">Evaluación</text>
+
+  <!-- Actividades -->
+  <rect x="670" y="160" width="100" height="38" class="leaf-box" stroke="#16a34a"/><text x="720" y="184" class="leaf-text">Inicio</text>
+  <rect x="770" y="160" width="100" height="38" class="leaf-box" stroke="#16a34a"/><text x="820" y="184" class="leaf-text">Desarrollo</text>
+  <rect x="870" y="160" width="100" height="38" class="leaf-box" stroke="#16a34a"/><text x="920" y="184" class="leaf-text">Cierre</text>
+
+  <!-- Recursos -->
+  <rect x="35" y="380" width="90" height="38" class="leaf-box" stroke="#ea580c"/><text x="80" y="404" class="leaf-text">Digitales</text>
+  <rect x="130" y="380" width="80" height="38" class="leaf-box" stroke="#ea580c"/><text x="170" y="404" class="leaf-text">Físicos</text>
+  <rect x="220" y="380" width="100" height="38" class="leaf-box" stroke="#ea580c"/><text x="270" y="404" class="leaf-text">Multimedia</text>
+  <rect x="325" y="380" width="80" height="38" class="leaf-box" stroke="#ea580c"/><text x="365" y="404" class="leaf-text">Enlaces</text>
+
+  <!-- Inclusión -->
+  <rect x="745" y="480" width="110" height="38" class="leaf-box" stroke="#9333ea"/><text x="800" y="504" class="leaf-text">Adaptaciones</text>
+  <rect x="875" y="480" width="90" height="38" class="leaf-box" stroke="#9333ea"/><text x="920" y="504" class="leaf-text">DUA</text>
+  <rect x="980" y="480" width="120" height="38" class="leaf-box" stroke="#9333ea"/><text x="1040" y="504" class="leaf-text">Contexto aula</text>
+
+  <!-- Evidencias -->
+  <rect x="45" y="620" width="110" height="38" class="leaf-box" stroke="#dc2626"/><text x="100" y="644" class="leaf-text">Instrumentos</text>
+  <rect x="160" y="620" width="80" height="38" class="leaf-box" stroke="#dc2626"/><text x="200" y="644" class="leaf-text">Rúbricas</text>
+  <rect x="250" y="620" width="100" height="38" class="leaf-box" stroke="#dc2626"/><text x="300" y="644" class="leaf-text">Productos</text>
+  <rect x="355" y="620" width="90" height="38" class="leaf-box" stroke="#dc2626"/><text x="400" y="644" class="leaf-text">Portafolio</text>
+
+  <!-- Gestión -->
+  <rect x="405" y="670" width="90" height="38" class="leaf-box" stroke="#0891b2"/><text x="450" y="694" class="leaf-text">Mis planes</text>
+  <rect x="505" y="670" width="90" height="38" class="leaf-box" stroke="#0891b2"/><text x="550" y="694" class="leaf-text">Plantillas</text>
+  <rect x="605" y="670" width="90" height="38" class="leaf-box" stroke="#0891b2"/><text x="650" y="694" class="leaf-text">Historial</text>
+  <rect x="705" y="670" width="90" height="38" class="leaf-box" stroke="#0891b2"/><text x="750" y="694" class="leaf-text">Exportar</text>
+
+  <!-- Ayuda -->
+  <rect x="740" y="670" width="80" height="38" class="leaf-box" stroke="#475569"/><text x="780" y="694" class="leaf-text">Guías</text>
+  <rect x="830" y="670" width="100" height="38" class="leaf-box" stroke="#475569"/><text x="880" y="694" class="leaf-text">Preguntas freq.</text>
+  <rect x="940" y="670" width="80" height="38" class="leaf-box" stroke="#475569"/><text x="980" y="694" class="leaf-text">Acerca de</text>
+
+  <!-- Branch hubs -->
+  <rect x="220" y="100" width="160" height="42" rx="10" fill="url(#grad-plan)" filter="url(#shadow)"/>
+  <text x="300" y="127" class="branch-title">📋 Planificación</text>
+
+  <rect x="740" y="100" width="160" height="42" rx="10" fill="url(#grad-act)" filter="url(#shadow)"/>
+  <text x="820" y="127" class="branch-title">🧩 Actividades</text>
+
+  <rect x="140" y="320" width="160" height="42" rx="10" fill="url(#grad-rec)" filter="url(#shadow)"/>
+  <text x="220" y="347" class="branch-title">📁 Recursos</text>
+
+  <rect x="840" y="420" width="160" height="42" rx="10" fill="url(#grad-inc)" filter="url(#shadow)"/>
+  <text x="920" y="447" class="branch-title">👥 Inclusión</text>
+
+  <rect x="170" y="560" width="160" height="42" rx="10" fill="url(#grad-evi)" filter="url(#shadow)"/>
+  <text x="250" y="587" class="branch-title">📋 Evidencias</text>
+
+  <rect x="520" y="600" width="160" height="42" rx="10" fill="url(#grad-ges)" filter="url(#shadow)"/>
+  <text x="600" y="627" class="branch-title">🗂️ Gestión</text>
+
+  <rect x="790" y="600" width="160" height="42" rx="10" fill="url(#grad-ayu)" filter="url(#shadow)"/>
+  <text x="870" y="627" class="branch-title">❓ Ayuda</text>
+
+  <!-- Central Root Node -->
+  <rect x="490" y="350" width="220" height="90" rx="20" fill="url(#grad-root)" filter="url(#shadow)"/>
+  <text x="600" y="388" class="root-title">🎓 PlanClase</text>
+  <text x="600" y="415" class="root-sub">Generador de Planes de Clase</text>
+</svg>

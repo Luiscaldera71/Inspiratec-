@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1320 860" width="1320" height="860" style="font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;">
+  <defs>
+    <!-- Filtros de Sombra y Glassmorphism -->
+        <filter id="shadow-main" x="-10%" y="-10%" width="125%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+      <feOffset dx="0" dy="6" result="offsetblur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.32"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow-dock" x="-20%" y="-10%" width="145%" height="125%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="3" dy="4" result="offsetblur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.45"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow-card" x="-10%" y="-10%" width="125%" height="125%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#051f18" flood-opacity="0.12"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-gold" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Gradientes -->
+    <linearGradient id="bg-canvas" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1f1a" />
+      <stop offset="40%" stop-color="#142b25" />
+      <stop offset="100%" stop-color="#091411" />
+    </linearGradient>
+
+    <linearGradient id="warm-ambient" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#3d5a45" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#a47e3b" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#0b1713" stop-opacity="0.8" />
+    </linearGradient>
+
+    <linearGradient id="glass-card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.94" />
+      <stop offset="100%" stop-color="#f6f8f5" stop-opacity="0.88" />
+    </linearGradient>
+
+    <linearGradient id="dock-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10231d" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#081410" stop-opacity="0.98" />
+    </linearGradient>
+
+    <!-- Marcadores de Flechas para Callouts -->
+    <marker id="arrow-1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrow-2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+    </marker>
+    <marker id="arrow-3" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#d4af37" />
+    </marker>
+    <marker id="arrow-4" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#f59e0b" />
+    </marker>
+    <marker id="arrow-5" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#a855f7" />
+    </marker>
+  </defs>
+
+  <!-- FONDO GENERAL CON TEXTURA AMBIENTAL -->
+  <rect width="1320" height="860" fill="url(#bg-canvas)" />
+  <rect width="1320" height="860" fill="url(#warm-ambient)" />
+
+  <!-- ENCABEZADO DEL DIAGRAMA TÉCNICO -->
+  <g transform="translate(40, 28)">
+    <rect x="0" y="0" width="1240" height="48" rx="10" fill="#0b1714" fill-opacity="0.8" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1.2" />
+    <circle cx="24" cy="24" r="10" fill="#d4af37" />
+    <path d="M 21 24 L 23 27 L 28 20" stroke="#0b1714" stroke-width="2.5" fill="none" stroke-linecap="round" />
+    <text x="44" y="29" font-size="16" font-weight="900" fill="#ffffff" letter-spacing="1">INSPIRATEC — ESPECIFICACIÓN DE LA VENTANA ESTÁNDAR (MODESEC / SEMANA 6)</text>
+    <rect x="990" y="12" width="230" height="24" rx="12" fill="#142b25" stroke="#10b981" stroke-width="1" />
+    <circle cx="1004" cy="24" r="4" fill="#10b981" />
+    <text x="1016" y="28" font-size="11.5" font-weight="700" fill="#a7f3d0">Glassmorphism 2026 • 5 Áreas</text>
+  </g>
+
+  <!-- CONTENEDOR CENTRAL: MOCKUP REAL DE LA INTERFAZ -->
+  <!-- Área total: x=240, y=90, w=840, h=690 -->
+  <g transform="translate(240, 90)">
+    <!-- Marco de la Aplicación -->
+    <rect x="0" y="0" width="840" height="690" rx="18" fill="#1a2f28" stroke="rgba(255,255,255,0.14)" stroke-width="2" filter="url(#shadow-main)" />
+    
+    <!-- Imagen de fondo cálida simulada (Biblioteca / Aula de clase) -->
+    <rect x="0" y="0" width="840" height="690" rx="18" fill="url(#warm-ambient)" opacity="0.85" />
+
+    <!-- ======================================================== -->
+    <!-- ÁREA 2: MENÚ / NAVEGACIÓN (DOCK LATERAL FLOTANTE)        -->
+    <!-- ======================================================== -->
+    <g id="mockup-sidebar" transform="translate(14, 16)">
+      <!-- Dock Cápsula -->
+      <rect x="0" y="0" width="46" height="658" rx="23" fill="url(#dock-bg)" stroke="rgba(45, 85, 72, 0.6)" stroke-width="1.5" filter="url(#shadow-dock)" />
+      
+      <!-- Logo Bulb con resplandor dorado -->
+      <circle cx="23" cy="28" r="14" fill="#16382e" stroke="#d4af37" stroke-width="1" />
+      <path d="M 23 20 A 5 5 0 0 1 27 27 C 26 29 25 30 25 32 L 21 32 C 21 30 20 29 19 27 A 5 5 0 0 1 23 20 Z" fill="#d4af37" />
+      <rect x="21" y="33" width="4" height="2" fill="#d4af37" />
+
+      <!-- Botón colapsar menú -->
+      <rect x="11" y="54" width="24" height="24" rx="6" fill="rgba(255,255,255,0.06)" />
+      <path d="M 17 62 L 17 70 M 21 62 L 21 70 M 27 62 L 27 70" stroke="#8da39b" stroke-width="1.2" />
+
+      <!-- Ícono 1: Inicio (ACTIVO con píldora verde iluminada) -->
+      <rect x="9" y="92" width="28" height="28" rx="8" fill="#1d483b" stroke="#10b981" stroke-width="1.2" />
+      <path d="M 17 108 L 17 103 L 23 98 L 29 103 L 29 108 Z" fill="#6ee7b7" stroke="#6ee7b7" stroke-width="1" />
+
+      <!-- Ícono 2: Planificador Wizard -->
+      <circle cx="23" cy="140" r="10" fill="none" stroke="#8da39b" stroke-width="1.2" />
+      <path d="M 23 134 L 23 146 M 17 140 L 29 140" stroke="#8da39b" stroke-width="1.2" />
+
+      <!-- Ícono 3: Mis Planes con Badge '3' -->
+      <rect x="14" y="166" width="18" height="20" rx="3" fill="none" stroke="#8da39b" stroke-width="1.2" />
+      <line x1="17" y1="172" x2="27" y2="172" stroke="#8da39b" stroke-width="1.2" />
+      <line x1="17" y1="176" x2="27" y2="176" stroke="#8da39b" stroke-width="1.2" />
+      <circle cx="28" cy="166" r="5" fill="#10b981" />
+      <text x="26.5" y="169" font-size="7" font-weight="900" fill="#081410">3</text>
+
+      <!-- Ícono 4: ADN Pedagógico -->
+      <path d="M 16 206 C 20 200, 26 212, 30 206 M 16 214 C 20 208, 26 220, 30 214" stroke="#8da39b" stroke-width="1.4" fill="none" />
+
+      <!-- Ícono 5: Biblioteca Comunitaria -->
+      <path d="M 15 240 Q 23 236 23 244 Q 23 236 31 240 L 31 252 Q 23 248 23 256 Q 23 248 15 252 Z" fill="none" stroke="#8da39b" stroke-width="1.2" />
+
+      <!-- Ícono 6: Administración -->
+      <path d="M 23 274 L 30 277 L 30 285 C 30 290 23 293 23 293 C 23 293 16 290 16 285 L 16 277 Z" fill="none" stroke="#8da39b" stroke-width="1.2" />
+
+      <!-- Divisor -->
+      <line x1="12" y1="310" x2="34" y2="310" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+
+      <!-- Ícono 7: Plantillas -->
+      <rect x="15" y="326" width="16" height="18" rx="2" fill="none" stroke="#8da39b" stroke-width="1.2" />
+      <line x1="18" y1="332" x2="26" y2="332" stroke="#8da39b" stroke-width="1.2" />
+
+      <!-- Ícono 8: Experiencias / Brújula -->
+      <circle cx="23" cy="370" r="9" fill="none" stroke="#8da39b" stroke-width="1.2" />
+      <polygon points="23,364 26,370 23,376 20,370" fill="#8da39b" />
+
+      <!-- Ícono 9: Foro -->
+      <path d="M 15 404 C 15 400 31 400 31 404 C 31 408 27 411 23 411 L 19 414 L 19 411 C 16 411 15 408 15 404 Z" fill="none" stroke="#8da39b" stroke-width="1.2" />
+    </g>
+
+    <!-- ======================================================== -->
+    <!-- ÁREA 1: HEADER (CÁPSULA SUPERIOR DERECHA FLOTANTE)       -->
+    <!-- ======================================================== -->
+    <g id="mockup-header" transform="translate(560, 16)">
+      <rect x="0" y="0" width="264" height="38" rx="19" fill="#ffffff" stroke="rgba(255,255,255,0.8)" stroke-width="1" filter="url(#shadow-card)" />
+      
+      <!-- Botón colapsar '>' -->
+      <circle cx="18" cy="19" r="10" fill="#f1f5f3" />
+      <path d="M 16 15 L 20 19 L 16 23" fill="none" stroke="#4a635a" stroke-width="1.5" stroke-linecap="round" />
+
+      <!-- Chip Configuración IA -->
+      <path d="M 46 19 C 46 17 49 17 49 15 C 49 13 46 13 46 11" fill="none" stroke="#2c4d42" stroke-width="1.2" />
+      <circle cx="43" cy="19" r="4" fill="none" stroke="#2c4d42" stroke-width="1.2" />
+      <text x="56" y="23" font-size="11.5" font-weight="700" fill="#142b25">Configuración IA</text>
+      <rect x="156" y="10" width="38" height="18" rx="9" fill="#d1fae5" />
+      <circle cx="163" cy="19" r="3" fill="#10b981" />
+      <text x="170" y="23" font-size="10" font-weight="800" fill="#065f46">Lista</text>
+
+      <!-- Avatar Usuario -->
+      <circle cx="218" cy="19" r="11" fill="#142b25" />
+      <text x="214" y="23" font-size="11" font-weight="800" fill="#ffffff">A</text>
+      <text x="234" y="23" font-size="11.5" font-weight="700" fill="#142b25">Daniel</text>
+    </g>
+
+    <!-- ======================================================== -->
+    <!-- ÁREA 3 & 4: CONTENIDO Y ACCIONES (WORKSPACE CENTRAL)     -->
+    <!-- ======================================================== -->
+    
+    <!-- 3.1 HERO CARD DE BIENVENIDA -->
+    <g id="mockup-hero" transform="translate(80, 72)">
+      <rect x="0" y="0" width="744" height="236" rx="24" fill="url(#glass-card)" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" filter="url(#shadow-card)" />
+      
+      <!-- Badge Espacio Curricular -->
+      <rect x="24" y="20" width="186" height="24" rx="12" fill="#e8eee9" />
+      <path d="M 34 32 L 38 32 M 36 30 L 36 34" stroke="#1f4b3e" stroke-width="1.5" />
+      <text x="44" y="36" font-size="10.5" font-weight="800" fill="#1f4b3e" letter-spacing="0.5">ESPACIO CURRICULAR DOCENTE</text>
+
+      <!-- Título de Bienvenida -->
+      <text x="24" y="80" font-size="28" font-weight="900" fill="#0c1e19">Bienvenido, Daniel</text>
+      
+      <!-- Subtítulo pedagógico -->
+      <text x="24" y="108" font-size="12.5" fill="#3a5149" font-weight="500">Diseña secuencias didácticas fundamentadas, rigurosas y adaptadas a tu contexto escolar con el</text>
+      <text x="24" y="126" font-size="12.5" fill="#3a5149" font-weight="500">soporte de inteligencia artificial pedagógica y principios DUA.</text>
+
+      <!-- ======================================================== -->
+      <!-- ÁREA 4: ACCIONES PRINCIPALES Y SECUNDARIAS               -->
+      <!-- ======================================================== -->
+      <!-- Botón 1: Iniciar Planificador (Primario Verde Esmeralda) -->
+      <rect x="24" y="152" width="216" height="42" rx="12" fill="#132a24" />
+      <circle cx="44" cy="173" r="8" fill="none" stroke="#ffffff" stroke-width="1.5" />
+      <path d="M 44 169 L 44 177 M 40 173 L 48 173" stroke="#ffffff" stroke-width="1.5" />
+      <text x="58" y="178" font-size="12.5" font-weight="700" fill="#ffffff">Iniciar Planificador de Clases</text>
+
+      <!-- Botón 2: Ver Plantillas (Secundario Blanco Contorno) -->
+      <rect x="250" y="152" width="194" height="42" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+      <path d="M 268 170 Q 274 166 274 173 Q 274 166 280 170 L 280 178 Q 274 175 274 181 Q 274 175 268 178 Z" fill="none" stroke="#132a24" stroke-width="1.2" />
+      <text x="286" y="178" font-size="12.5" font-weight="700" fill="#132a24">Ver Plantillas Curriculares</text>
+
+      <!-- Franja Informativa de Metodología y Calibración Rápida -->
+      <rect x="24" y="206" width="418" height="22" rx="11" fill="#e8f5e9" stroke="#c8e6c9" stroke-width="0.8" />
+      <path d="M 36 217 L 39 217 M 37.5 215.5 L 37.5 218.5" stroke="#1b5e20" stroke-width="1.2" />
+      <text x="44" y="221" font-size="10" font-weight="700" fill="#1b5e20">Metodología Institucional:</text>
+      <text x="162" y="221" font-size="10" fill="#2e7d32">Aprendizaje Basado en Proyectos (ABP)</text>
+      <text x="350" y="221" font-size="10" font-weight="800" fill="#1b5e20" text-decoration="underline" style="cursor:pointer;">Calibrar / Cambiar</text>
+    </g>
+
+    <!-- 3.2 TARJETAS DE MÉTRICAS RÁPIDAS -->
+    <g transform="translate(80, 324)">
+      <!-- Card Métrica 1: Mis Planes Guardados -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="364" height="110" rx="18" fill="url(#glass-card)" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" filter="url(#shadow-card)" />
+        <text x="20" y="26" font-size="10.5" font-weight="800" fill="#526b62" letter-spacing="0.5">MIS PLANES GUARDADOS</text>
+        <text x="20" y="66" font-size="34" font-weight="900" fill="#0e241e">3</text>
+        <text x="20" y="92" font-size="11.5" font-weight="700" fill="#1a3d32">Explorar historial curricular →</text>
+        
+        <rect x="306" y="20" width="38" height="38" rx="10" fill="#e0ebe5" />
+        <rect x="317" y="30" width="16" height="18" rx="2" fill="none" stroke="#1f4b3e" stroke-width="1.5" />
+      </g>
+
+      <!-- Card Métrica 2: Asistente Pedagógico (Gemini) -->
+      <g transform="translate(380, 0)">
+        <rect x="0" y="0" width="364" height="110" rx="18" fill="url(#glass-card)" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" filter="url(#shadow-card)" />
+        <text x="20" y="26" font-size="10.5" font-weight="800" fill="#526b62" letter-spacing="0.5">ASISTENTE PEDAGÓGICO (GEMINI)</text>
+        <circle cx="26" cy="52" r="4.5" fill="#10b981" />
+        <text x="36" y="56" font-size="13" font-weight="800" fill="#0e241e">Servicio activo y verificado</text>
+        <text x="20" y="92" font-size="11.5" font-weight="700" fill="#1a3d32">Administrar credenciales y modelo →</text>
+        
+        <rect x="306" y="20" width="38" height="38" rx="10" fill="#e0ebe5" />
+        <circle cx="325" cy="39" r="6" fill="none" stroke="#1f4b3e" stroke-width="1.5" />
+      </g>
+    </g>
+
+    <!-- 3.3 SECCIÓN CATÁLOGO: MODELOS DE SECUENCIA CURRICULAR -->
+    <g transform="translate(80, 452)">
+      <rect x="0" y="0" width="744" height="126" rx="20" fill="url(#glass-card)" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" filter="url(#shadow-card)" />
+      <text x="24" y="38" font-size="20" font-weight="900" fill="#0e241e">Modelos de Secuencia Curricular</text>
+      <text x="24" y="62" font-size="12.5" fill="#4a635a">Estructuras pedagógicas reales listas para transferir al planificador.</text>
+      
+      <!-- Botón de Gestión -->
+      <rect x="560" y="24" width="160" height="38" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+      <text x="580" y="48" font-size="12" font-weight="700" fill="#132a24">Gestionar plantillas →</text>
+
+      <!-- Mini-tarjetas de plantillas -->
+      <rect x="24" y="76" width="220" height="34" rx="8" fill="#f0f5f2" stroke="#d5e3dc" stroke-width="0.8" />
+      <text x="36" y="98" font-size="11" font-weight="700" fill="#1f4b3e">Secuencia STEAM Escolar</text>
+      <rect x="256" y="76" width="220" height="34" rx="8" fill="#f0f5f2" stroke="#d5e3dc" stroke-width="0.8" />
+      <text x="268" y="98" font-size="11" font-weight="700" fill="#1f4b3e">ABP Pensamiento Computacional</text>
+      <rect x="488" y="76" width="232" height="34" rx="8" fill="#f0f5f2" stroke="#d5e3dc" stroke-width="0.8" />
+      <text x="500" y="98" font-size="11" font-weight="700" fill="#1f4b3e">Inclusión DUA y Ajustes PIAR</text>
+    </g>
+
+    <!-- ======================================================== -->
+    <!-- ÁREA 5: FOOTER (INFORMACIÓN DE CONTEXTO Y METADATOS)     -->
+    <!-- ======================================================== -->
+    <g id="mockup-footer" transform="translate(80, 594)">
+      <rect x="0" y="0" width="744" height="80" rx="14" fill="#0b1a15" fill-opacity="0.8" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+      
+      <circle cx="28" cy="28" r="8" fill="#d4af37" />
+      <text x="25" y="32" font-size="10" font-weight="900" fill="#0b1a15">i</text>
+      <text x="44" y="26" font-size="11" font-weight="700" fill="#f1f5f3">INSPIRATEC — Plataforma Pedagógica Oficial (MEN Colombia)</text>
+      <text x="44" y="42" font-size="10" fill="#8da39b">Desarrollado bajo metodología MODESEC • Versión 2.4.0 • Ecosistema Educativo de Software III</text>
+      
+      <rect x="580" y="16" width="144" height="24" rx="12" fill="#132f25" stroke="#10b981" stroke-width="0.8" />
+      <circle cx="592" cy="28" r="3.5" fill="#10b981" />
+      <text x="602" y="32" font-size="9.5" font-weight="700" fill="#6ee7b7">Sincronizado Cloud</text>
+      
+      <text x="44" y="64" font-size="9.5" fill="#64748b">© 2026 INSPIRATEC Colombia • Privacidad y Términos de Servicio Docente</text>
+    </g>
+  </g>
+
+  <!-- ==================================================================== -->
+  <!-- CALLOUTS EXPLICATIVOS LATERALES (METODOLOGÍA MODESEC 5 ÁREAS)        -->
+  <!-- ==================================================================== -->
+
+  <!-- CALLOUT 1: HEADER -->
+  <g transform="translate(1100, 95)">
+    <rect x="0" y="0" width="180" height="74" rx="8" fill="#091814" stroke="#38bdf8" stroke-width="1.8" filter="url(#shadow-card)" />
+    <rect x="0" y="0" width="180" height="24" rx="8" fill="#0284c7" />
+    <text x="10" y="16" font-size="11" font-weight="900" fill="#ffffff">1. HEADER FLOTANTE</text>
+    <text x="10" y="38" font-size="10" font-weight="700" fill="#e0f2fe">• Cápsula de identidad</text>
+    <text x="10" y="52" font-size="9.5" fill="#93c5fd">• Estado servicio IA (Gemini)</text>
+    <text x="10" y="65" font-size="9.5" fill="#93c5fd">• Menú docente y sesión</text>
+    <!-- Línea conectora -->
+    <path d="M 0 37 L -260 37" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="4" marker-end="url(#arrow-1)" fill="none" />
+  </g>
+
+  <!-- CALLOUT 2: MENÚ / NAVEGACIÓN DOCK -->
+  <g transform="translate(40, 150)">
+    <rect x="0" y="0" width="180" height="86" rx="8" fill="#091814" stroke="#10b981" stroke-width="1.8" filter="url(#shadow-card)" />
+    <rect x="0" y="0" width="180" height="24" rx="8" fill="#059669" />
+    <text x="10" y="16" font-size="11" font-weight="900" fill="#ffffff">2. MENÚ / DOCK LATERAL</text>
+    <text x="10" y="38" font-size="10" font-weight="700" fill="#d1fae5">• Navegación persistente</text>
+    <text x="10" y="52" font-size="9.5" fill="#a7f3d0">• Acceso directo en ≤ 2 clics</text>
+    <text x="10" y="65" font-size="9.5" fill="#a7f3d0">• Insignias y contadores</text>
+    <text x="10" y="78" font-size="9.5" fill="#a7f3d0">• Botón colapso/expansión</text>
+    <!-- Línea conectora -->
+    <path d="M 180 43 L 236 43" stroke="#10b981" stroke-width="1.8" stroke-dasharray="4" marker-end="url(#arrow-2)" fill="none" />
+  </g>
+
+  <!-- CALLOUT 3: CONTENIDO -->
+  <g transform="translate(40, 310)">
+    <rect x="0" y="0" width="180" height="86" rx="8" fill="#091814" stroke="#d4af37" stroke-width="1.8" filter="url(#shadow-card)" />
+    <rect x="0" y="0" width="180" height="24" rx="8" fill="#b45309" />
+    <text x="10" y="16" font-size="11" font-weight="900" fill="#ffffff">3. CONTENIDO CENTRAL</text>
+    <text x="10" y="38" font-size="10" font-weight="700" fill="#fef3c7">• Hero card de bienvenida</text>
+    <text x="10" y="52" font-size="9.5" fill="#fde68a">• Tarjetas de métricas en vivo</text>
+    <text x="10" y="65" font-size="9.5" fill="#fde68a">• Catálogo de secuencias</text>
+    <text x="10" y="78" font-size="9.5" fill="#fde68a">• Glassmorphism esmerilado</text>
+    <!-- Línea conectora -->
+    <path d="M 180 43 Q 260 43 310 130" stroke="#d4af37" stroke-width="1.8" stroke-dasharray="4" marker-end="url(#arrow-3)" fill="none" />
+  </g>
+
+  <!-- CALLOUT 4: ACCIONES -->
+  <g transform="translate(1100, 260)">
+    <rect x="0" y="0" width="180" height="86" rx="8" fill="#091814" stroke="#f59e0b" stroke-width="1.8" filter="url(#shadow-card)" />
+    <rect x="0" y="0" width="180" height="24" rx="8" fill="#d97706" />
+    <text x="10" y="16" font-size="11" font-weight="900" fill="#ffffff">4. ACCIONES DIDÁCTICAS</text>
+    <text x="10" y="38" font-size="10" font-weight="700" fill="#fef3c7">• Iniciar Planificador (+)</text>
+    <text x="10" y="52" font-size="9.5" fill="#fde68a">• Ver Plantillas Curriculares</text>
+    <text x="10" y="65" font-size="9.5" fill="#fde68a">• Calibrar ADN Institucional</text>
+    <text x="10" y="78" font-size="9.5" fill="#fde68a">• Gestión de plantillas PEI</text>
+    <!-- Línea conectora -->
+    <path d="M 0 43 Q -40 43 -90 10" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="4" marker-end="url(#arrow-4)" fill="none" />
+  </g>
+
+  <!-- CALLOUT 5: FOOTER -->
+  <g transform="translate(1100, 680)">
+    <rect x="0" y="0" width="180" height="86" rx="8" fill="#091814" stroke="#a855f7" stroke-width="1.8" filter="url(#shadow-card)" />
+    <rect x="0" y="0" width="180" height="24" rx="8" fill="#7e22ce" />
+    <text x="10" y="16" font-size="11" font-weight="900" fill="#ffffff">5. FOOTER INSTITUCIONAL</text>
+    <text x="10" y="38" font-size="10" font-weight="700" fill="#f3e8ff">• Respaldo curricular MEN</text>
+    <text x="10" y="52" font-size="9.5" fill="#e9d5ff">• Estado sincronización Cloud</text>
+    <text x="10" y="65" font-size="9.5" fill="#e9d5ff">• Metadatos y versión 2.4.0</text>
+    <text x="10" y="78" font-size="9.5" fill="#e9d5ff">• Derechos y privacidad</text>
+    <!-- Línea conectora -->
+    <path d="M 0 43 L -34 43" stroke="#a855f7" stroke-width="1.8" stroke-dasharray="4" marker-end="url(#arrow-5)" fill="none" />
+  </g>
+
+  <!-- PIE INFORMATIVO GENERAL DE LA ESPECIFICACIÓN -->
+  <g transform="translate(40, 804)">
+    <rect x="0" y="0" width="1240" height="38" rx="8" fill="#07120e" stroke="rgba(212, 175, 55, 0.25)" stroke-width="1" />
+    <text x="20" y="24" font-size="11" fill="#cbd5e1">
+      <tspan font-weight="800" fill="#d4af37">MODESEC Fase Diseño Multimedial:</tspan>
+      La ventana estándar establece la gramática visual unificada para las 15 interfaces del software, garantizando una carga cognitiva reducida, ergonomía táctil y acceso en ≤ 2 clics.
+    </text>
+  </g>
+</svg>
